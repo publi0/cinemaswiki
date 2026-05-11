@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Twitter
+    url: https://twitter.com/publi0
+    about: Envie uma mensagem para @publi0.
+  - name: Email
+    url: mailto:felipe@publio.dev
+    about: Envie dados, fotos ou dúvidas por email.

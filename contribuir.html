@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Como contribuir | CinemasWiki</title>
+    <meta
+      name="description"
+      content="Como contribuir com dados de redes, cinemas e salas no CinemasWiki."
+    >
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="CinemasWiki inicio">
+        <span class="brand-mark" aria-hidden="true"></span>
+        CinemasWiki
+      </a>
+      <nav class="nav" aria-label="Navegacao principal">
+        <a href="salas.html">Salas</a>
+        <a href="cinemas.html">Cinemas</a>
+        <a href="contribuir.html" aria-current="page">Contribuir</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="contribute-hero">
+        <p class="eyebrow">Contribuir</p>
+        <h1>Adicione ou corrija dados de salas.</h1>
+        <p>
+          O foco inicial é catalogar redes, cinemas e salas com informações
+          técnicas úteis para comparação. Dados incompletos são aceitos quando
+          ficam marcados como <code>A confirmar</code> ou <code>null</code>.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="https://github.com/publi0/cinemaswiki/issues/new/choose">Abrir issue no GitHub</a>
+          <a class="button secondary" href="mailto:felipe@publio.dev">Enviar por email</a>
+        </div>
+      </section>
+
+      <section class="contribute-layout" aria-label="Guia de contribuição">
+        <aside class="contribute-steps">
+          <h2>Fluxo</h2>
+          <ol>
+            <li>Escolha uma rede, cinema ou sala para adicionar ou corrigir.</li>
+            <li>Procure uma fonte: site oficial, imprensa, foto, visita ou relato.</li>
+            <li>Abra uma issue usando o modelo de novo dado ou correção.</li>
+            <li>Preencha apenas o que souber; o restante pode ficar como <code>A confirmar</code>.</li>
+          </ol>
+        </aside>
+
+        <div class="contribute-main">
+          <section class="contribute-section">
+            <h2>Formas de enviar</h2>
+            <div class="contact-grid">
+              <a href="https://github.com/publi0/cinemaswiki/issues/new/choose">
+                <strong>GitHub Issues</strong>
+                <span>Melhor caminho para novos cinemas, novas salas e correções.</span>
+              </a>
+              <a href="https://twitter.com/publi0">
+                <strong>Twitter</strong>
+                <span>Envie uma mensagem para <code>@publi0</code>.</span>
+              </a>
+              <a href="mailto:felipe@publio.dev">
+                <strong>Email</strong>
+                <span>Envie dados, links, fotos ou dúvidas para <code>felipe@publio.dev</code>.</span>
+              </a>
+            </div>
+          </section>
+
+          <section class="contribute-section">
+            <h2>O que coletar</h2>
+            <div class="field-grid">
+              <article>
+                <h3>Rede</h3>
+                <p>Nome da rede ou operador independente.</p>
+              </article>
+              <article>
+                <h3>Cinema</h3>
+                <p>Nome, cidade, bairro e endereço.</p>
+              </article>
+              <article>
+                <h3>Sala</h3>
+                <p>Nome da sala, formato comercial, capacidade e tecnologias.</p>
+              </article>
+              <article>
+                <h3>Projeção</h3>
+                <p>Tecnologia, resolução, marca, modelo e observações.</p>
+              </article>
+              <article>
+                <h3>Tela</h3>
+                <p>Tipo, proporção, largura, altura, área ou diagonal.</p>
+              </article>
+              <article>
+                <h3>Som</h3>
+                <p>Formato, canais, quantidade de caixas, potência e notas.</p>
+              </article>
+            </div>
+          </section>
+
+          <section class="contribute-section">
+            <h2>Padronização dos dados</h2>
+            <p class="section-note">
+              O campo <code>format</code> descreve o que a sala
+              <strong>tecnicamente oferece</strong>, não o nome comercial da rede.
+              Nomes de marketing — XD, XPLUS, Platinum, Macro XE, Laser Lounge,
+              Bradesco Prime etc. — vão em <code>notes</code> ou na fonte, nunca
+              em <code>format</code>. Termos como <code>IMAX</code> e
+              <code>Dolby Atmos</code> são aceitos porque têm especificações
+              públicas e auditáveis independente de qualquer rede.
+            </p>
+
+            <h3>Valores aceitos para <code>format</code></h3>
+            <div class="standard-table standard-table--two-col" role="table" aria-label="Valores de formato">
+              <div role="row">
+                <strong role="columnheader">Formato</strong>
+                <strong role="columnheader">Quando usar</strong>
+              </div>
+              <div role="row">
+                <code>Convencional</code>
+                <span>Sala padrão sem recurso premium</span>
+              </div>
+              <div role="row">
+                <code>Grande Formato</code>
+                <span>Tela maior com projeção aprimorada — XD, XPLUS, Cinépic, Macro XE etc. todos viram Grande Formato</span>
+              </div>
+              <div role="row">
+                <code>Poltrona Reclinável</code>
+                <span>Sala com poltronas reclináveis — VIP, Platinum, DE LUX, Bradesco Prime etc.</span>
+              </div>
+              <div role="row">
+                <code>Poltrona com Movimento</code>
+                <span>Poltronas com movimento mecânico sincronizado ao filme (ex.: tecnologia D-Box)</span>
+              </div>
+              <div role="row">
+                <code>IMAX</code>
+                <span>Sala certificada IMAX com especificação publicada</span>
+              </div>
+              <div role="row">
+                <code>4DX</code>
+                <span>Sala certificada CJ 4DPlex com efeitos físicos definidos</span>
+              </div>
+              <div role="row">
+                <code>Tela LED</code>
+                <span>Tela autoemissiva LED sem projetor (ex.: Samsung Onyx)</span>
+              </div>
+              <div role="row">
+                <code>Projeção Laser</code>
+                <span>Sala sem outro diferencial além da projeção laser</span>
+              </div>
+              <div role="row">
+                <code>3D</code>
+                <span>Sala configurada exclusivamente para exibição 3D</span>
+              </div>
+              <div role="row">
+                <code>A confirmar</code>
+                <span>Formato desconhecido ou a verificar</span>
+              </div>
+            </div>
+
+            <h3>Outros campos</h3>
+            <div class="standard-table" role="table" aria-label="Padronização de outros campos">
+              <div role="row">
+                <strong role="columnheader">Campo</strong>
+                <strong role="columnheader">Use</strong>
+                <strong role="columnheader">Em vez de</strong>
+              </div>
+              <div role="row">
+                <span>Resolução</span>
+                <code>4K</code>
+                <span>4k, 4K Ultra HD, UHD, Ultra HD</span>
+              </div>
+              <div role="row">
+                <span>Resolução</span>
+                <code>2K</code>
+                <span>2k, Digital 2K, DCI 2K</span>
+              </div>
+              <div role="row">
+                <span>Projeção</span>
+                <code>laser</code>
+                <span>Laser, projeção laser, projetor laser</span>
+              </div>
+              <div role="row">
+                <span>Projeção</span>
+                <code>Lâmpada Xenon</code>
+                <span>xenon, lamp-xenon, lâmpada xenon, lampada xenon</span>
+              </div>
+              <div role="row">
+                <span>Projeção</span>
+                <code>LED</code>
+                <span>led, tela LED, cinema LED</span>
+              </div>
+              <div role="row">
+                <span>Formato</span>
+                <code>IMAX</code>
+                <span>Imax, imax, IMAX Digital</span>
+              </div>
+              <div role="row">
+                <span>Formato</span>
+                <code>4DX</code>
+                <span>4dx, sala 4D, 4-DX</span>
+              </div>
+              <div role="row">
+                <span>Som</span>
+                <code>Dolby Atmos</code>
+                <span>Atmos, dolby atmos, DOLBY ATMOS</span>
+              </div>
+              <div role="row">
+                <span>Som</span>
+                <code>Dolby Digital 7.1</code>
+                <span>7.1, Dolby 7.1, digital 7.1</span>
+              </div>
+              <div role="row">
+                <span>Tela</span>
+                <code>IMAX</code>
+                <span>imax, tela imax</span>
+              </div>
+              <div role="row">
+                <span>Tela</span>
+                <code>LED modular</code>
+                <span>LED, tela de LED, Onyx LED</span>
+              </div>
+              <div role="row">
+                <span>Desconhecido</span>
+                <code>A confirmar</code>
+                <span>não sei, n/a, desconhecido, vazio em campos de texto</span>
+              </div>
+              <div role="row">
+                <span>Número desconhecido</span>
+                <code>null</code>
+                <span>0, -, n/a, desconhecido</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="contribute-section">
+            <h2>Como preencher uma issue</h2>
+            <div class="issue-guide">
+              <article>
+                <h3>Novo cinema ou sala</h3>
+                <p>Use quando a rede, o cinema ou a sala ainda não aparece no catálogo.</p>
+                <ul>
+                  <li>Informe rede, cinema, cidade e sala.</li>
+                  <li>Descreva o formato técnico: tela grande, poltronas reclináveis, IMAX, 4DX, Dolby Atmos etc.</li>
+                  <li>Preencha projeção, tela e som com o máximo de detalhe disponível.</li>
+                  <li>Cole links ou descreva a fonte usada.</li>
+                </ul>
+              </article>
+              <article>
+                <h3>Correção de dados</h3>
+                <p>Use quando uma sala já existe, mas algum campo está incorreto ou incompleto.</p>
+                <ul>
+                  <li>Identifique rede, cinema e sala afetados.</li>
+                  <li>Explique o que está errado.</li>
+                  <li>Informe a versão correta.</li>
+                  <li>Inclua uma fonte para facilitar a revisão.</li>
+                </ul>
+              </article>
+            </div>
+          </section>
+
+          <section class="contribute-section">
+            <h2>Exemplo de preenchimento</h2>
+            <pre class="code-sample"><code>Título:
+[dados] Cinépolis JK Iguatemi - Sala 1 IMAX
+
+Rede:
+Cinépolis
+
+Cinema:
+Cinépolis JK Iguatemi
+
+Cidade e estado:
+São Paulo, SP
+
+Sala:
+Sala 1 - IMAX
+
+Formato comercial:
+IMAX
+
+Projeção:
+- Tecnologia: laser
+- Resolução: 4K
+- Observação: dois projetores laser
+
+Tela:
+- Tipo: IMAX
+- Largura: 20 m
+- Altura: 18 m
+
+Som:
+- Formato: IMAX
+- Canais: 12
+
+Fontes:
+- Link oficial, matéria, foto ou visita presencial</code></pre>
+          </section>
+
+          <section class="contribute-section">
+            <h2>Modelo JSON para quem quiser abrir PR</h2>
+            <pre class="code-sample"><code>{
+  "slug": "cinema-exemplo",
+  "name": "Cinema Exemplo",
+  "network": {
+    "slug": "rede-exemplo",
+    "name": "Rede Exemplo"
+  },
+  "city": "São Paulo",
+  "state": "SP",
+  "neighborhood": "Bairro",
+  "address": "Endereço",
+  "last_verified": "2026-05-10",
+  "rooms": [
+    {
+      "name": "Sala 1",
+      "slug": "sala-1",
+      "format": "IMAX",
+      "technologies": [
+        {
+          "name": "IMAX",
+          "type": "experience",
+          "notes": "Observação técnica"
+        }
+      ],
+      "projection": {
+        "technology": "laser",
+        "resolution": "4K",
+        "light_source": "laser"
+      },
+      "screen": {
+        "type": "IMAX",
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": null,
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://...",
+          "note": "Fonte usada para a informação"
+        }
+      ]
+    }
+  ]
+}</code></pre>
+          </section>
+
+          <section class="contribute-section">
+            <h2>Regras práticas</h2>
+            <ul class="rule-list">
+              <li>Use <code>null</code> para número desconhecido.</li>
+              <li>Use <code>A confirmar</code> para texto desconhecido.</li>
+              <li>Não invente potência, resolução, tamanho de tela ou canais.</li>
+              <li>Prefira nomes oficiais de rede, cinema e sala.</li>
+              <li>Inclua uma fonte ou uma observação explicando de onde veio o dado.</li>
+            </ul>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <strong>CinemasWiki</strong>
+        <span>Criado por Felipe Públio, desenvolvedor e apaixonado por cinema.</span>
+      </div>
+      <nav class="footer-links" aria-label="Contatos de Felipe Públio">
+        <a href="https://twitter.com/publi0">Twitter @publi0</a>
+        <a href="https://github.com/publi0">GitHub @publi0</a>
+        <a href="mailto:felipe@publio.dev">felipe@publio.dev</a>
+      </nav>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CinemasWiki</title>
+    <meta
+      name="description"
+      content="Catalogo tecnico colaborativo de cinemas paulistas: salas, projecao, tela, som e fontes."
+    >
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="CinemasWiki inicio">
+        <span class="brand-mark" aria-hidden="true"></span>
+        CinemasWiki
+      </a>
+      <nav class="nav" aria-label="Navegacao principal">
+        <a href="salas.html">Salas</a>
+        <a href="cinemas.html">Cinemas</a>
+        <a href="contribuir.html">Contribuir</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Atlas tecnico das salas paulistas</p>
+          <h1 id="hero-title">Catalogo tecnico de salas de cinema.</h1>
+          <p class="hero-lede">
+            Consulte cinemas paulistas por sala, rede, formato, projecao, tela,
+            som, capacidade e fontes dos dados.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#catalogo">Pesquisar salas</a>
+            <a class="button secondary" href="cinemas.html">Ver redes e cinemas</a>
+          </div>
+        </div>
+        <aside class="signal-panel" aria-label="Resumo do projeto">
+          <div>
+            <span class="metric" id="cinema-count">0</span>
+            <span class="metric-label">cinemas catalogados</span>
+          </div>
+          <div>
+            <span class="metric" id="room-count">0</span>
+            <span class="metric-label">salas ou formatos</span>
+          </div>
+          <div class="status-line">
+            <span class="status-dot"></span>
+            Dados por rede, cinema e sala
+          </div>
+        </aside>
+      </section>
+
+      <section class="filters" aria-labelledby="catalogo">
+        <div>
+          <p class="eyebrow">Catalogo</p>
+          <h2 id="catalogo">Pesquisa de salas</h2>
+        </div>
+        <form class="filter-form" role="search">
+          <label>
+            <span>Buscar</span>
+            <input id="search" type="search" placeholder="Cinema, sala, bairro, tecnologia...">
+          </label>
+          <label>
+            <span>Cidade</span>
+            <select id="city">
+              <option value="">Todas</option>
+            </select>
+          </label>
+          <label>
+            <span>Tipo de sala</span>
+            <select id="format">
+              <option value="">Todos</option>
+            </select>
+          </label>
+          <label>
+            <span>Projeção</span>
+            <select id="projection">
+              <option value="">Todas</option>
+            </select>
+          </label>
+          <label>
+            <span>Som</span>
+            <select id="sound">
+              <option value="">Todos</option>
+            </select>
+          </label>
+        </form>
+      </section>
+
+      <section class="results-summary" aria-live="polite">
+        <strong id="result-count">0 salas</strong>
+        <span id="result-context">em todos os cinemas catalogados</span>
+      </section>
+
+      <section class="room-table" aria-label="Resultados da pesquisa">
+        <div class="room-table-head" aria-hidden="true">
+          <span>Sala</span>
+          <span>Local</span>
+          <span>Projecao</span>
+          <span>Tela</span>
+          <span>Som</span>
+        </div>
+        <div id="room-list" aria-live="polite"></div>
+      </section>
+
+      <nav class="pagination" id="pagination" aria-label="Paginacao de salas"></nav>
+
+      <section class="home-links" aria-label="Seções principais">
+        <a href="salas.html">
+          <strong>Salas</strong>
+          <span>Busca e comparação por sala, formato, projeção, tela e som.</span>
+        </a>
+        <a href="cinemas.html">
+          <strong>Cinemas</strong>
+          <span>Navegação por rede, cinema e salas cadastradas.</span>
+        </a>
+        <a href="contribuir.html">
+          <strong>Contribuir</strong>
+          <span>Guia para adicionar dados, fontes e correções.</span>
+        </a>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <strong>CinemasWiki</strong>
+        <span>Criado por Felipe Públio, desenvolvedor e apaixonado por cinema.</span>
+      </div>
+      <nav class="footer-links" aria-label="Contatos de Felipe Públio">
+        <a href="https://twitter.com/publi0">Twitter @publi0</a>
+        <a href="https://github.com/publi0">GitHub @publi0</a>
+        <a href="mailto:felipe@publio.dev">felipe@publio.dev</a>
+      </nav>
+    </footer>
+
+    <script src="assets/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,110 @@
+name: Novo cinema ou sala
+description: Envie dados para cadastrar uma nova rede, cinema ou sala.
+title: "[dados] "
+labels:
+  - dados
+  - nova-entrada
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por contribuir com o CinemasWiki.
+
+        Preencha o que souber. Campos técnicos desconhecidos podem ficar como "A confirmar".
+  - type: input
+    id: rede
+    attributes:
+      label: Rede
+      description: Nome da rede ou operador independente.
+      placeholder: "Ex: Cinemark, UCI, Cine Marquise"
+    validations:
+      required: true
+  - type: input
+    id: cinema
+    attributes:
+      label: Cinema
+      description: Nome do cinema.
+      placeholder: "Ex: Cinépolis JK Iguatemi"
+    validations:
+      required: true
+  - type: input
+    id: cidade_estado
+    attributes:
+      label: Cidade e estado
+      placeholder: "Ex: São Paulo, SP"
+    validations:
+      required: true
+  - type: input
+    id: bairro_endereco
+    attributes:
+      label: Bairro ou endereço
+      placeholder: "Ex: Vila Nova Conceição, Av. Presidente Juscelino Kubitschek, 2041"
+  - type: input
+    id: sala
+    attributes:
+      label: Sala
+      description: Nome ou número da sala.
+      placeholder: "Ex: Sala 1 - IMAX"
+    validations:
+      required: true
+  - type: input
+    id: formato
+    attributes:
+      label: Formato comercial
+      placeholder: "Ex: IMAX, XD, 4DX, VIP, Dolby Atmos, Platinum"
+  - type: textarea
+    id: projecao
+    attributes:
+      label: Projeção
+      description: Tecnologia, resolução, marca, modelo, pixel count ou observações.
+      placeholder: |
+        Ex:
+        - Tecnologia: laser
+        - Resolução: 4K
+        - Marca/modelo: Barco DP4K-30L
+  - type: textarea
+    id: tela
+    attributes:
+      label: Tela
+      description: Tipo, proporção, largura, altura, área ou diagonal.
+      placeholder: |
+        Ex:
+        - Tipo: IMAX
+        - Área: 185 m²
+        - Largura/altura: 20 m x 18 m
+  - type: textarea
+    id: som
+    attributes:
+      label: Som
+      description: Formato, canais, caixas, potência ou observações.
+      placeholder: |
+        Ex:
+        - Formato: Dolby Atmos
+        - Canais: 24
+        - Potência: 18.000 W
+  - type: textarea
+    id: tecnologias
+    attributes:
+      label: Outras tecnologias
+      description: Experiência, assentos, vibração, 4DX, D-Box, VIP etc.
+      placeholder: |
+        Ex:
+        - D-Box: poltronas com movimento
+        - VIP reclináveis
+  - type: textarea
+    id: fontes
+    attributes:
+      label: Fontes
+      description: Links, fotos, visita presencial, relato identificado ou observações.
+      placeholder: |
+        Ex:
+        - https://...
+        - Foto da placa técnica
+        - Visita em 2026-05-10
+    validations:
+      required: true
+  - type: textarea
+    id: observacoes
+    attributes:
+      label: Observações adicionais
+      description: Qualquer contexto útil para revisar os dados.

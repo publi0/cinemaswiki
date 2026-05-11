@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cinemas | CinemasWiki</title>
+    <meta name="description" content="Redes, cinemas e salas catalogadas no CinemasWiki.">
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="CinemasWiki inicio">
+        <span class="brand-mark" aria-hidden="true"></span>
+        CinemasWiki
+      </a>
+      <nav class="nav" aria-label="Navegacao principal">
+        <a href="salas.html">Salas</a>
+        <a href="cinemas.html" aria-current="page">Cinemas</a>
+        <a href="contribuir.html">Contribuir</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="detail-view" id="room-detail" hidden></section>
+
+      <section class="structure" id="estrutura" aria-labelledby="estrutura-title">
+        <div class="section-heading">
+          <p class="eyebrow">Estrutura</p>
+          <h1 id="estrutura-title">Redes, cinemas e salas</h1>
+          <p>Navegue pela hierarquia do catálogo: rede, cinema e salas catalogadas.</p>
+        </div>
+        <div class="network-tree" id="network-tree"></div>
+        <nav class="pagination" id="network-pagination" aria-label="Paginacao de redes"></nav>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <strong>CinemasWiki</strong>
+        <span>Criado por Felipe Públio, desenvolvedor e apaixonado por cinema.</span>
+      </div>
+      <nav class="footer-links" aria-label="Contatos de Felipe Públio">
+        <a href="https://twitter.com/publi0">Twitter @publi0</a>
+        <a href="https://github.com/publi0">GitHub @publi0</a>
+        <a href="mailto:felipe@publio.dev">felipe@publio.dev</a>
+      </nav>
+    </footer>
+
+    <script src="assets/app.js"></script>
+  </body>
+</html>

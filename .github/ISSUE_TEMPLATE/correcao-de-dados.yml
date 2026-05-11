@@ -1,0 +1,64 @@
+name: Correção de dados
+description: Corrija informação existente de uma rede, cinema ou sala.
+title: "[correção] "
+labels:
+  - dados
+  - correcao
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use este modelo para apontar erro, dado desatualizado ou informação incompleta.
+  - type: input
+    id: item
+    attributes:
+      label: Item a corrigir
+      description: Rede, cinema e sala afetados.
+      placeholder: "Ex: Cinépolis JK Iguatemi / Sala 1 - IMAX"
+    validations:
+      required: true
+  - type: dropdown
+    id: tipo
+    attributes:
+      label: Tipo de correção
+      options:
+        - Nome, rede ou endereço
+        - Formato da sala
+        - Projeção
+        - Tela
+        - Som
+        - Capacidade
+        - Fonte ou observação
+        - Outro
+    validations:
+      required: true
+  - type: textarea
+    id: atual
+    attributes:
+      label: O que está errado ou incompleto?
+      placeholder: "Descreva o dado atual que precisa mudar."
+    validations:
+      required: true
+  - type: textarea
+    id: correto
+    attributes:
+      label: Qual é a informação correta?
+      placeholder: "Informe a correção proposta."
+    validations:
+      required: true
+  - type: textarea
+    id: fontes
+    attributes:
+      label: Fontes
+      description: Links, fotos, visita presencial, relato identificado ou observações.
+      placeholder: |
+        Ex:
+        - https://...
+        - Foto da sala
+        - Visita em 2026-05-10
+    validations:
+      required: true
+  - type: textarea
+    id: observacoes
+    attributes:
+      label: Observações adicionais
