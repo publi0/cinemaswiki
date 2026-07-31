@@ -46,11 +46,6 @@
         {
           "type": "official",
           "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"SP MARKET 1\", registro 5000650, em funcionamento; 228 assentos, 4 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
-        },
-        {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
           "note": "Cadastro mensal da ANCINE: \"SP MARKET 1\", registro 5000650, em funcionamento; 228 assentos, 4 espaços para cadeirantes, 1 assento de mobilidade reduzida, 2 assentos para pessoas obesas."
         }
       ]
@@ -86,11 +81,6 @@
         "accessible_restrooms": true
       },
       "sources": [
-        {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"SP MARKET 2\", registro 5000651, em funcionamento; 249 assentos, 5 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
-        },
         {
           "type": "official",
           "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
@@ -212,11 +202,6 @@
         {
           "type": "official",
           "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"SP MARKET 5\", registro 5000654, em funcionamento; 376 assentos, 4 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
-        },
-        {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
           "note": "Cadastro mensal da ANCINE: \"SP MARKET 5\", registro 5000654, em funcionamento; 376 assentos, 4 espaços para cadeirantes, 1 assento de mobilidade reduzida, 2 assentos para pessoas obesas."
         }
       ]
@@ -252,11 +237,6 @@
         "accessible_restrooms": false
       },
       "sources": [
-        {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"SP MARKET 6\", registro 5000655, em funcionamento; 249 assentos, 3 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
-        },
         {
           "type": "official",
           "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
@@ -409,11 +389,6 @@
         "accessible_restrooms": true
       },
       "sources": [
-        {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"SP MARKET 10\", registro 5000659, em funcionamento; 209 assentos, 4 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
-        },
         {
           "type": "official",
           "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",

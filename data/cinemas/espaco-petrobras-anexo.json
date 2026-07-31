@@ -8,13 +8,15 @@
   "city": "São Paulo",
   "state": "SP",
   "neighborhood": "Cerqueira César",
-  "address": "R. Augusta – Cerqueira César",
-  "notes": "Anexo do Espaço Petrobras de Cinema.",
-  "last_verified": "2026-05-10",
+  "address": "Rua Augusta, 1475 – Cerqueira César",
+  "ancine_registry": "31112",
+  "notes": "Operação suspensa: as salas 4 e 5 do anexo estão fechadas desde a reintegração de posse de 14/05/2026. O cadastro mensal da ANCINE ainda as classifica como em funcionamento, por isso a situação atual foi priorizada.",
+  "last_verified": "2026-07-31",
   "rooms": [
     {
-      "name": "Sala 1",
-      "slug": "sala-1",
+      "name": "Sala 4 (Anexo)",
+      "slug": "sala-4-anexo",
+      "ancine_registry": "5005313",
       "technologies": [],
       "projection": {
         "technology": "A confirmar",
@@ -32,8 +34,72 @@
         "speakers": null,
         "power_watts": null
       },
-      "seats": null,
-      "sources": []
+      "seats": 88,
+      "accessibility": {
+        "wheelchair_seats": 3,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: sala 4 (Anexo), registro 5005313, 88 assentos e 3 espaços para cadeirantes; o status regulatório ainda aparece como em funcionamento."
+        },
+        {
+          "type": "press",
+          "url": "https://g1.globo.com/sp/sao-paulo/noticia/2026/05/14/espaco-augusta-de-cinema-e-cafe-fellini-sao-alvo-de-despejo-no-centro-de-sp-pior-dia-da-minha-vida-diz-dona.ghtml",
+          "note": "O g1 registrou a reintegração de posse em 14/05/2026, o fechamento imediato das duas salas do anexo e o cancelamento de sua programação."
+        }
+      ],
+      "notes": "Sala fechada e sem programação desde 14/05/2026."
+    },
+    {
+      "name": "Sala 5 (Anexo)",
+      "slug": "sala-5-anexo",
+      "ancine_registry": "5005314",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 33,
+      "accessibility": {
+        "wheelchair_seats": 2,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: sala 5 (Anexo), registro 5005314, 33 assentos e 2 espaços para cadeirantes; o status regulatório ainda aparece como em funcionamento."
+        },
+        {
+          "type": "press",
+          "url": "https://g1.globo.com/sp/sao-paulo/noticia/2026/05/14/espaco-augusta-de-cinema-e-cafe-fellini-sao-alvo-de-despejo-no-centro-de-sp-pior-dia-da-minha-vida-diz-dona.ghtml",
+          "note": "O g1 registrou a reintegração de posse em 14/05/2026, o fechamento imediato das duas salas do anexo e o cancelamento de sua programação."
+        }
+      ],
+      "notes": "Sala fechada e sem programação desde 14/05/2026."
     }
   ]
 }

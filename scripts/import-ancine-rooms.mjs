@@ -393,7 +393,7 @@ function plural(value, singular, pluralForm) {
 
 function appendSource(sources = [], source) {
   const withoutSameSource = sources.filter(
-    (item) => !(item.url === source.url && item.note === source.note),
+    (item) => !(item.url === source.url && item.type === source.type),
   );
   return [...withoutSameSource, source];
 }

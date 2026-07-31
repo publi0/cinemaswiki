@@ -46,11 +46,6 @@
         {
           "type": "official",
           "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"SALA 01\", registro 5002971, em funcionamento; 131 assentos, 4 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
-        },
-        {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
           "note": "Cadastro mensal da ANCINE: \"SALA 01\", registro 5002971, em funcionamento; 131 assentos, 4 espaços para cadeirantes, 1 assento de mobilidade reduzida, 1 assento para pessoas obesas."
         },
         {
@@ -94,11 +89,6 @@
         {
           "type": "official",
           "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"SALA 02\", registro 5002974, em funcionamento; 131 assentos, 4 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
-        },
-        {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
           "note": "Cadastro mensal da ANCINE: \"SALA 02\", registro 5002974, em funcionamento; 131 assentos, 4 espaços para cadeirantes, 1 assento de mobilidade reduzida, 1 assento para pessoas obesas."
         }
       ]
@@ -137,11 +127,6 @@
         {
           "type": "official",
           "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"SALA 03\", registro 5002975, em funcionamento; 131 assentos, 4 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
-        },
-        {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
           "note": "Cadastro mensal da ANCINE: \"SALA 03\", registro 5002975, em funcionamento; 131 assentos, 4 espaços para cadeirantes, 1 assento de mobilidade reduzida, 1 assento para pessoas obesas."
         }
       ]
@@ -177,11 +162,6 @@
         "accessible_restrooms": true
       },
       "sources": [
-        {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"SALA 04\", registro 5002973, em funcionamento; 179 assentos, 4 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
-        },
         {
           "type": "official",
           "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
@@ -228,11 +208,6 @@
         {
           "type": "official",
           "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"SALA 05\", registro 5002970, em funcionamento; 131 assentos, 4 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
-        },
-        {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
           "note": "Cadastro mensal da ANCINE: \"SALA 05\", registro 5002970, em funcionamento; 131 assentos, 4 espaços para cadeirantes, 1 assento de mobilidade reduzida, 1 assento para pessoas obesas."
         },
         {
@@ -273,11 +248,6 @@
         "accessible_restrooms": true
       },
       "sources": [
-        {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"SALA 06\", registro 5002976, em funcionamento; 131 assentos, 4 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
-        },
         {
           "type": "official",
           "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",

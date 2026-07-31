@@ -198,11 +198,6 @@
         {
           "type": "official",
           "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"INTERLAGOS 5\", registro 5000272, em funcionamento; 170 assentos, 4 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
-        },
-        {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
           "note": "Cadastro mensal da ANCINE: \"INTERLAGOS 5\", registro 5000272, em funcionamento; 170 assentos, 4 espaços para cadeirantes, 1 assento de mobilidade reduzida, 2 assentos para pessoas obesas."
         }
       ]
@@ -317,11 +312,6 @@
         {
           "type": "official",
           "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"INTERLAGOS 8\", registro 5000275, em funcionamento; 227 assentos, 5 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
-        },
-        {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
           "note": "Cadastro mensal da ANCINE: \"INTERLAGOS 8\", registro 5000275, em funcionamento; 227 assentos, 5 espaços para cadeirantes, 1 assento de mobilidade reduzida, 2 assentos para pessoas obesas."
         }
       ]
@@ -360,11 +350,6 @@
         {
           "type": "official",
           "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"INTERLAGOS 9\", registro 5000276, em funcionamento; 140 assentos, 2 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
-        },
-        {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
           "note": "Cadastro mensal da ANCINE: \"INTERLAGOS 9\", registro 5000276, em funcionamento; 140 assentos, 2 espaços para cadeirantes, 1 assento de mobilidade reduzida, 2 assentos para pessoas obesas."
         }
       ]
@@ -400,11 +385,6 @@
         "accessible_restrooms": true
       },
       "sources": [
-        {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"INTERLAGOS 10\", registro 5000277, em funcionamento; 129 assentos, 2 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
-        },
         {
           "type": "official",
           "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",

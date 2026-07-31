@@ -88,11 +88,6 @@
         {
           "type": "official",
           "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"CINEMARK MOOCA PLAZA SHOPPING 02\", registro 5003427, em funcionamento; 162 assentos, 3 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
-        },
-        {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
           "note": "Cadastro mensal da ANCINE: \"CINEMARK MOOCA PLAZA SHOPPING 02\", registro 5003427, em funcionamento; 162 assentos, 3 espaços para cadeirantes, 1 assento de mobilidade reduzida, 2 assentos para pessoas obesas."
         }
       ]
@@ -169,11 +164,6 @@
         {
           "type": "official",
           "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"CINEMARK MOOCA PLAZA SHOPPING 04\", registro 5003429, em funcionamento; 176 assentos, 4 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
-        },
-        {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
           "note": "Cadastro mensal da ANCINE: \"CINEMARK MOOCA PLAZA SHOPPING 04\", registro 5003429, em funcionamento; 176 assentos, 4 espaços para cadeirantes, 1 assento de mobilidade reduzida, 2 assentos para pessoas obesas."
         }
       ]
@@ -212,11 +202,6 @@
         {
           "type": "official",
           "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"CINEMARK MOOCA PLAZA SHOPPING 05\", registro 5003430, em funcionamento; 176 assentos, 4 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
-        },
-        {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
           "note": "Cadastro mensal da ANCINE: \"CINEMARK MOOCA PLAZA SHOPPING 05\", registro 5003430, em funcionamento; 176 assentos, 4 espaços para cadeirantes, 1 assento de mobilidade reduzida, 2 assentos para pessoas obesas."
         }
       ]
@@ -252,11 +237,6 @@
         "accessible_restrooms": true
       },
       "sources": [
-        {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"CINEMARK MOOCA PLAZA SHOPPING 06\", registro 5003431, em funcionamento; 176 assentos, 4 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
-        },
         {
           "type": "official",
           "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",

@@ -46,11 +46,6 @@
         {
           "type": "official",
           "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"CINE CIDADE JARDIM 1\", registro 5002346, em funcionamento; 127 assentos, 3 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
-        },
-        {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
           "note": "Cadastro mensal da ANCINE: \"CINE CIDADE JARDIM 1\", registro 5002346, em funcionamento; 127 assentos, 3 espaços para cadeirantes, 1 assento de mobilidade reduzida, 2 assentos para pessoas obesas."
         },
         {
@@ -92,11 +87,6 @@
         "accessible_restrooms": true
       },
       "sources": [
-        {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"CINE CIDADE JARDIM 2\", registro 5002350, em funcionamento; 97 assentos, 2 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
-        },
         {
           "type": "official",
           "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
@@ -144,11 +134,6 @@
         {
           "type": "official",
           "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"CINE CIDADE JARDIM 3\", registro 5002348, em funcionamento; 59 assentos, 2 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
-        },
-        {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
           "note": "Cadastro mensal da ANCINE: \"CINE CIDADE JARDIM 3\", registro 5002348, em funcionamento; 59 assentos, 2 espaços para cadeirantes, 1 assento de mobilidade reduzida, 2 assentos para pessoas obesas."
         },
         {
@@ -193,11 +178,6 @@
         {
           "type": "official",
           "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"CINE CIDADE JARDIM 4\", registro 5002347, em funcionamento; 52 assentos, 2 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
-        },
-        {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
           "note": "Cadastro mensal da ANCINE: \"CINE CIDADE JARDIM 4\", registro 5002347, em funcionamento; 52 assentos, 2 espaços para cadeirantes, 1 assento de mobilidade reduzida, 2 assentos para pessoas obesas."
         },
         {
@@ -239,11 +219,6 @@
         "accessible_restrooms": true
       },
       "sources": [
-        {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"CINE CIDADE JARDIM 5\", registro 5002352, em funcionamento; 183 assentos, 4 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
-        },
         {
           "type": "official",
           "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",

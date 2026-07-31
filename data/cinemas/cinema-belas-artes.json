@@ -224,11 +224,6 @@
         {
           "type": "official",
           "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"SALA 5 - CARMEN MIRANDA\", registro 5006678, em funcionamento; 96 assentos, 3 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
-        },
-        {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
           "note": "Cadastro mensal da ANCINE: \"SALA 5 - CARMEN MIRANDA\", registro 5006678, em funcionamento; 96 assentos, 3 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 1 assento para pessoas obesas."
         }
       ]
@@ -268,11 +263,6 @@
           "type": "official",
           "url": "https://www.cinebelasartes.com.br/programacao/programacao-regular/",
           "note": "A programação oficial identifica a Sala 6 como Léo Mendes e informa 88 lugares."
-        },
-        {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"SALA 6 - MARIO DE ANDRADE\", registro 5006679, em funcionamento; 90 assentos, 2 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
         },
         {
           "type": "official",

@@ -39,6 +39,12 @@ Gere o site:
 npm run build
 ```
 
+Veja a cobertura atual dos campos:
+
+```sh
+npm run coverage
+```
+
 Sirva a pasta gerada:
 
 ```sh
@@ -56,6 +62,22 @@ Depois acesse `http://localhost:8080`.
 
 O arquivo consolidado não deve ser editado manualmente: ele existe somente em
 `dist/` e é recriado em cada build.
+
+## Atualização pela ANCINE
+
+O importador reproduz o cruzamento sala a sala com o cadastro mensal público da
+ANCINE. Ele preenche capacidade, registros e acessibilidade sem substituir uma
+capacidade divergente que já tenha uma fonte mais específica:
+
+```sh
+node scripts/import-ancine-rooms.mjs /caminho/salas-de-exibicao-e-complexos.csv
+```
+
+A fonte oficial pode ser baixada em
+[Salas de Exibição e Complexos Registrados](https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file).
+Como cadastros regulatórios podem ficar atrás da operação real, mudanças de
+numeração e fechamento também devem ser conferidos na programação atual e em
+fontes recentes.
 
 ## Cloudflare Pages
 

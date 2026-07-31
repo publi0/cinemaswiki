@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Estatísticas | CinemasWiki</title>
+    <meta
+      name="description"
+      content="Números, cobertura e distribuição dos dados técnicos catalogados no CinemasWiki."
+    >
+    <link rel="canonical" href="https://cinemaswiki.publio.dev/estatisticas.html">
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="CinemasWiki início">
+        <span class="brand-mark" aria-hidden="true">CW</span>
+        <span>Cinemas<strong>Wiki</strong></span>
+      </a>
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="salas.html">Pesquisar</a>
+        <a href="cinemas.html">Cinemas</a>
+        <a href="formatos.html">Formatos</a>
+        <a href="estatisticas.html" aria-current="page">Estatísticas</a>
+        <a href="contribuir.html">Contribuir</a>
+      </nav>
+    </header>
+
+    <main>
+      <article class="statistics" aria-labelledby="statistics-title">
+        <header class="statistics-hero">
+          <div>
+            <p class="eyebrow">Raio-X do catálogo</p>
+            <h1 id="statistics-title">O que já sabemos sobre as salas.</h1>
+          </div>
+          <div class="statistics-intro">
+            <p>
+              Uma visão quantitativa do acervo, incluindo as lacunas. Os números
+              abaixo são calculados diretamente dos dados publicados.
+            </p>
+            <p class="statistics-stamp" id="statistics-stamp" aria-live="polite">
+              Calculando o catálogo…
+            </p>
+          </div>
+        </header>
+
+        <section class="stat-ledger" id="stat-ledger" aria-label="Resumo do catálogo" aria-busy="true">
+          <p class="statistics-loading">Lendo cinemas e salas…</p>
+        </section>
+
+        <section class="statistics-section statistics-section--coverage" aria-labelledby="coverage-title">
+          <header class="statistics-section-heading">
+            <div>
+              <span class="section-number">01</span>
+              <h2 id="coverage-title">Cobertura dos dados</h2>
+            </div>
+            <p>
+              Percentual de salas com cada tipo de informação conhecido. “A
+              confirmar” e campos vazios não entram na contagem.
+            </p>
+          </header>
+          <div class="coverage-list" id="coverage-list"></div>
+          <figure class="coverage-map" id="mapa-cobertura">
+            <figcaption>
+              <div>
+                <h3>Mapa das lacunas técnicas</h3>
+                <p>Cada quadrado representa aproximadamente 1% das salas.</p>
+              </div>
+              <div class="chart-key" aria-label="Legenda">
+                <span><i class="chart-key-known"></i>Conhecido</span>
+                <span><i class="chart-key-unknown"></i>A confirmar</span>
+              </div>
+            </figcaption>
+            <div class="coverage-waffles" id="coverage-waffles"></div>
+          </figure>
+        </section>
+
+        <section class="statistics-section" aria-labelledby="technology-title">
+          <header class="statistics-section-heading">
+            <div>
+              <span class="section-number">02</span>
+              <h2 id="technology-title">Tecnologia catalogada</h2>
+            </div>
+            <p>
+              Distribuição apenas entre salas com especificação confirmada.
+              Selecione uma linha para abrir a pesquisa correspondente.
+            </p>
+          </header>
+          <div class="distribution-grid">
+            <section class="distribution-block" aria-labelledby="light-title">
+              <header>
+                <h3 id="light-title">Fonte de luz</h3>
+                <span id="light-total">—</span>
+              </header>
+              <div id="light-distribution"></div>
+            </section>
+            <section class="distribution-block" aria-labelledby="resolution-title">
+              <header>
+                <h3 id="resolution-title">Resolução</h3>
+                <span id="resolution-total">—</span>
+              </header>
+              <div id="resolution-distribution"></div>
+            </section>
+            <section class="distribution-block" aria-labelledby="sound-title">
+              <header>
+                <h3 id="sound-title">Formato de som</h3>
+                <span id="sound-total">—</span>
+              </header>
+              <div id="sound-distribution"></div>
+            </section>
+          </div>
+        </section>
+
+        <section class="statistics-section" aria-labelledby="network-title">
+          <header class="statistics-section-heading">
+            <div>
+              <span class="section-number">03</span>
+              <h2 id="network-title">Redes no acervo</h2>
+            </div>
+            <p>
+              Redes ordenadas pelo número de salas documentadas no catálogo,
+              não pelo tamanho total de sua operação.
+            </p>
+          </header>
+          <div class="network-overview" id="participacao-redes">
+            <figure class="network-share">
+              <figcaption>
+                <h3>Participação no catálogo</h3>
+                <p>Percentual das salas documentadas por rede.</p>
+              </figcaption>
+              <div class="network-chart-layout">
+                <div class="network-donut-wrap">
+                  <div class="network-donut" id="network-donut" role="img"></div>
+                  <div class="network-donut-center" aria-hidden="true">
+                    <strong id="network-donut-total">—</strong>
+                    <span>salas</span>
+                  </div>
+                </div>
+                <ol class="network-chart-legend" id="network-chart-legend"></ol>
+              </div>
+            </figure>
+            <aside class="network-insight" id="network-insight"></aside>
+          </div>
+          <div class="network-ranking" id="network-ranking"></div>
+        </section>
+
+        <section class="statistics-section" aria-labelledby="accessibility-title">
+          <header class="statistics-section-heading">
+            <div>
+              <span class="section-number">04</span>
+              <h2 id="accessibility-title">Capacidade e acesso</h2>
+            </div>
+            <p>
+              Totais somados a partir dos registros de cada sala. Ausência de
+              informação não é interpretada como ausência do recurso.
+            </p>
+          </header>
+          <div class="accessibility-ledger" id="accessibility-ledger"></div>
+        </section>
+
+        <aside class="statistics-method">
+          <div>
+            <p class="eyebrow">Como ler</p>
+            <h2>Transparência também é mostrar o que falta.</h2>
+          </div>
+          <div>
+            <p>
+              Os percentuais medem a cobertura deste catálogo — não a adoção de
+              uma tecnologia em todos os cinemas de São Paulo. Uma sala pode ter
+              um equipamento que ainda não conseguimos confirmar por fonte.
+            </p>
+            <a href="contribuir.html">Ajude a preencher as lacunas →</a>
+          </div>
+        </aside>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <strong>CinemasWiki</strong>
+        <span>Criado por Felipe Públio, desenvolvedor e apaixonado por cinema.</span>
+      </div>
+      <nav class="footer-links" aria-label="Contatos de Felipe Públio">
+        <a href="https://twitter.com/publi0">Twitter @publi0</a>
+        <a href="https://github.com/publi0">GitHub @publi0</a>
+        <a href="mailto:felipe@publio.dev">felipe@publio.dev</a>
+      </nav>
+    </footer>
+
+    <script src="assets/statistics.js"></script>
+  </body>
+</html>

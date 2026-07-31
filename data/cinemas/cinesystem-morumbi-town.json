@@ -44,9 +44,9 @@
       },
       "sources": [
         {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"CINESYSTEM MORUMBI TOWN SALA 01\", registro 5005740, em funcionamento; 69 assentos, 1 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+          "type": "press",
+          "url": "https://guia.folha.uol.com.br/cinema/2025/03/cinesystem-morumbi-town-e-eleito-o-cinema-mais-confortavel-de-sp-pela-folha.shtml",
+          "note": "Guia Folha confirma em 2025 que o complexo tem nove salas e identifica a Sala 3 como Cinépic com Dolby Atmos."
         },
         {
           "type": "official",
@@ -91,11 +91,6 @@
         "accessible_restrooms": false
       },
       "sources": [
-        {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"CINESYSTEM MORUMBI TOWN SALA 02\", registro 5005741, em funcionamento; 64 assentos, 1 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
-        },
         {
           "type": "official",
           "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
@@ -276,11 +271,6 @@
         {
           "type": "official",
           "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"CINESYSTEM MORUMBI TOWN SALA 06\", registro 5005745, em funcionamento; 54 assentos, 1 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
-        },
-        {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
           "note": "Cadastro mensal da ANCINE: \"CINESYSTEM MORUMBI TOWN SALA 06\", registro 5005745, em funcionamento; 54 assentos, 1 espaço para cadeirantes, 0 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
         }
       ]
@@ -316,11 +306,6 @@
         "accessible_restrooms": false
       },
       "sources": [
-        {
-          "type": "official",
-          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
-          "note": "Cadastro mensal da ANCINE: \"CINESYSTEM MORUMBI TOWN SALA 07\", registro 5005746, em funcionamento; 67 assentos, 1 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
-        },
         {
           "type": "official",
           "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",

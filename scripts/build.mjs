@@ -15,7 +15,7 @@ await mkdir(path.join(outputRoot, "salas"), { recursive: true });
 await mkdir(path.join(outputRoot, "cinemas"), { recursive: true });
 await mkdir(path.join(outputRoot, "redes"), { recursive: true });
 
-for (const filename of ["index.html", "salas.html", "cinemas.html", "formatos.html", "contribuir.html", "_headers"]) {
+for (const filename of ["index.html", "salas.html", "cinemas.html", "formatos.html", "estatisticas.html", "contribuir.html", "_headers"]) {
   await cp(path.join(projectRoot, filename), path.join(outputRoot, filename));
 }
 await cp(path.join(projectRoot, "assets"), path.join(outputRoot, "assets"), { recursive: true });
@@ -29,6 +29,7 @@ const sitemapEntries = [
   { url: "/salas.html", lastmod: latestDate(cinemas) },
   { url: "/cinemas.html", lastmod: latestDate(cinemas) },
   { url: "/formatos.html" },
+  { url: "/estatisticas.html", lastmod: latestDate(cinemas) },
   { url: "/contribuir.html" },
 ];
 
@@ -108,6 +109,7 @@ function pageShell({ title, description, canonicalPath, activeNav, content, stru
         <a href="../salas.html"${activeNav === "salas" ? ' aria-current="page"' : ""}>Pesquisar</a>
         <a href="../cinemas.html"${activeNav === "cinemas" ? ' aria-current="page"' : ""}>Cinemas</a>
         <a href="../formatos.html">Formatos</a>
+        <a href="../estatisticas.html">Estatísticas</a>
         <a href="../contribuir.html">Contribuir</a>
       </nav>
     </header>
