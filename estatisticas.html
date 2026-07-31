@@ -49,44 +49,22 @@
           <p class="statistics-loading">Lendo cinemas e salas…</p>
         </section>
 
-        <section class="statistics-section statistics-section--coverage" aria-labelledby="coverage-title">
-          <header class="statistics-section-heading">
-            <div>
-              <span class="section-number">01</span>
-              <h2 id="coverage-title">Cobertura dos dados</h2>
-            </div>
-            <p>
-              Percentual de salas com cada tipo de informação conhecido. “A
-              confirmar” e campos vazios não entram na contagem.
-            </p>
-          </header>
-          <div class="coverage-list" id="coverage-list"></div>
-          <figure class="coverage-map" id="mapa-cobertura">
-            <figcaption>
-              <div>
-                <h3>Mapa das lacunas técnicas</h3>
-                <p>Cada quadrado representa aproximadamente 1% das salas.</p>
-              </div>
-              <div class="chart-key" aria-label="Legenda">
-                <span><i class="chart-key-known"></i>Conhecido</span>
-                <span><i class="chart-key-unknown"></i>A confirmar</span>
-              </div>
-            </figcaption>
-            <div class="coverage-waffles" id="coverage-waffles"></div>
-          </figure>
-        </section>
-
         <section class="statistics-section" aria-labelledby="technology-title">
           <header class="statistics-section-heading">
             <div>
-              <span class="section-number">02</span>
+              <span class="section-number">01</span>
               <h2 id="technology-title">Tecnologia catalogada</h2>
             </div>
             <p>
-              Distribuição apenas entre salas com especificação confirmada.
-              Selecione uma linha para abrir a pesquisa correspondente.
+              Sistemas, experiências, projeção e som confirmados nas salas.
+              Selecione qualquer dado para abrir a pesquisa correspondente.
             </p>
           </header>
+          <div
+            class="technical-highlights"
+            id="technical-highlights"
+            aria-label="Destaques técnicos do catálogo"
+          ></div>
           <div class="distribution-grid">
             <section class="distribution-block" aria-labelledby="light-title">
               <header>
@@ -115,7 +93,7 @@
         <section class="statistics-section" aria-labelledby="network-title">
           <header class="statistics-section-heading">
             <div>
-              <span class="section-number">03</span>
+              <span class="section-number">02</span>
               <h2 id="network-title">Redes no acervo</h2>
             </div>
             <p>
@@ -148,7 +126,7 @@
         <section class="statistics-section" aria-labelledby="accessibility-title">
           <header class="statistics-section-heading">
             <div>
-              <span class="section-number">04</span>
+              <span class="section-number">03</span>
               <h2 id="accessibility-title">Capacidade e acesso</h2>
             </div>
             <p>
@@ -157,6 +135,33 @@
             </p>
           </header>
           <div class="accessibility-ledger" id="accessibility-ledger"></div>
+        </section>
+
+        <section class="statistics-section statistics-section--coverage" aria-labelledby="coverage-title">
+          <header class="statistics-section-heading">
+            <div>
+              <span class="section-number">04</span>
+              <h2 id="coverage-title">Cobertura dos dados</h2>
+            </div>
+            <p>
+              Percentual de salas com cada tipo de informação conhecido. “A
+              confirmar” e campos vazios não entram na contagem.
+            </p>
+          </header>
+          <div class="coverage-list" id="coverage-list"></div>
+          <figure class="coverage-map" id="mapa-cobertura">
+            <figcaption>
+              <div>
+                <h3>Mapa das lacunas técnicas</h3>
+                <p>Cada quadrado representa aproximadamente 1% das salas.</p>
+              </div>
+              <div class="chart-key" aria-label="Legenda">
+                <span><i class="chart-key-known"></i>Conhecido</span>
+                <span><i class="chart-key-unknown"></i>A confirmar</span>
+              </div>
+            </figcaption>
+            <div class="coverage-waffles" id="coverage-waffles"></div>
+          </figure>
         </section>
 
         <aside class="statistics-method">

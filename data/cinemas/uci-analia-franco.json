@@ -27,11 +27,11 @@
       ],
       "projection": {
         "technology": "A confirmar",
-        "resolution": "4K",
+        "resolution": "A confirmar",
         "light_source": "Xenon",
         "watts_each": 6500,
         "dual_lens": true,
-        "notes": "IMAX com dois projetores Xenon 4K proprietários; não usa projeção Laser.",
+        "notes": "IMAX com projeção Xenon; a resolução não é informada pelas fontes consultadas.",
         "brand": "IMAX"
       },
       "screen": {

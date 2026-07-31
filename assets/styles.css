@@ -1867,6 +1867,59 @@ code,
   font-size: 0.66rem;
 }
 
+.technical-highlights {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  border-bottom: 1px solid var(--ink);
+}
+
+.technical-highlight {
+  display: grid;
+  min-width: 0;
+  align-content: start;
+  border-right: 1px solid var(--line);
+  padding: 24px clamp(12px, 2vw, 24px) 28px;
+  color: inherit;
+  text-decoration: none;
+  transition: background-color 160ms ease;
+}
+
+.technical-highlight:first-child {
+  padding-left: 0;
+}
+
+.technical-highlight:last-child {
+  border-right: 0;
+}
+
+.technical-highlight:hover {
+  background: color-mix(in srgb, var(--accent) 7%, transparent);
+}
+
+.technical-highlight-label {
+  color: var(--ink-soft);
+  font-family: "Avenir Next Condensed", "Arial Narrow", sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.technical-highlight-value {
+  margin-top: 18px;
+  font-size: clamp(2.5rem, 5vw, 4.6rem);
+  font-weight: 650;
+  letter-spacing: -0.075em;
+  line-height: 0.86;
+}
+
+.technical-highlight-note {
+  margin-top: 13px;
+  color: var(--muted);
+  font-size: 0.65rem;
+  line-height: 1.4;
+}
+
 .distribution-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2311,6 +2364,22 @@ code,
     gap: 18px;
   }
 
+  .technical-highlights {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .technical-highlight:nth-child(3n) {
+    border-right: 0;
+  }
+
+  .technical-highlight:nth-child(4) {
+    padding-left: 0;
+  }
+
+  .technical-highlight:nth-child(n + 4) {
+    border-top: 1px solid var(--line);
+  }
+
   .distribution-grid {
     grid-template-columns: 1fr;
   }
@@ -2567,6 +2636,32 @@ code,
 
   .statistics-section h2 {
     font-size: clamp(2rem, 11vw, 3rem);
+  }
+
+  .technical-highlights {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .technical-highlight:nth-child(n) {
+    border-top: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    padding: 20px 14px 22px;
+  }
+
+  .technical-highlight:nth-child(-n + 2) {
+    border-top: 0;
+  }
+
+  .technical-highlight:nth-child(odd) {
+    padding-left: 0;
+  }
+
+  .technical-highlight:nth-child(even) {
+    border-right: 0;
+  }
+
+  .technical-highlight-value {
+    font-size: clamp(2.7rem, 14vw, 4rem);
   }
 
   .network-rank-row {

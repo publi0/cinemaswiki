@@ -2,6 +2,7 @@ const ledger = document.querySelector("#stat-ledger");
 const stamp = document.querySelector("#statistics-stamp");
 const coverageList = document.querySelector("#coverage-list");
 const coverageWaffles = document.querySelector("#coverage-waffles");
+const technicalHighlights = document.querySelector("#technical-highlights");
 const networkRanking = document.querySelector("#network-ranking");
 const networkDonut = document.querySelector("#network-donut");
 const networkDonutTotal = document.querySelector("#network-donut-total");
@@ -105,6 +106,80 @@ function renderLedger(cinemas, rooms, networks) {
     ledger.append(item);
   });
   ledger.removeAttribute("aria-busy");
+}
+
+function hasTechnology(room, name, type) {
+  return room.technologies?.some(
+    (technology) => technology.name === name && technology.type === type,
+  ) ?? false;
+}
+
+function renderTechnicalHighlights(rooms) {
+  const total = rooms.length;
+  const metrics = [
+    {
+      label: "Salas IMAX",
+      value: countRooms(rooms, (room) => hasTechnology(room, "IMAX", "system")),
+      queryName: "sistema",
+      queryValue: "IMAX",
+      note: "sistema de exibição",
+    },
+    {
+      label: "Projeção Laser",
+      value: countRooms(rooms, (room) => projectionFilterValues(room).includes("Laser")),
+      queryName: "projecao",
+      queryValue: "Laser",
+      note: "fonte de luz",
+    },
+    {
+      label: "Resolução 4K",
+      value: countRooms(rooms, (room) => room.projection?.resolution === "4K"),
+      queryName: "resolucao",
+      queryValue: "4K",
+      note: "resolução confirmada",
+    },
+    {
+      label: "Dolby Atmos",
+      value: countRooms(rooms, (room) => room.sound?.format === "Dolby Atmos"),
+      queryName: "som",
+      queryValue: "Dolby Atmos",
+      note: "formato de som",
+    },
+    {
+      label: "Salas 3D",
+      value: countRooms(rooms, (room) => hasTechnology(room, "3D", "experience")),
+      queryName: "experiencia",
+      queryValue: "3D",
+      note: "experiência de exibição",
+    },
+    {
+      label: "Salas 4DX",
+      value: countRooms(rooms, (room) => hasTechnology(room, "4DX", "experience")),
+      queryName: "experiencia",
+      queryValue: "4DX",
+      note: "efeitos físicos",
+    },
+  ];
+
+  technicalHighlights.replaceChildren();
+  metrics.forEach(({ label, value, queryName, queryValue, note }) => {
+    const link = makeElement("a", "technical-highlight");
+    link.href = `salas.html?${queryName}=${encodeURIComponent(queryValue)}`;
+    link.setAttribute(
+      "aria-label",
+      `${label}: ${value} ${value === 1 ? "sala" : "salas"}, ${percentFormatter.format(percentage(value, total))}% do catálogo`,
+    );
+    link.append(
+      makeElement("span", "technical-highlight-label", label),
+      makeElement("strong", "technical-highlight-value", formatNumber(value)),
+      makeElement(
+        "small",
+        "technical-highlight-note",
+        `${percentFormatter.format(percentage(value, total))}% do catálogo · ${note}`,
+      ),
+    );
+    technicalHighlights.append(link);
+  });
 }
 
 function renderCoverage(rooms) {
@@ -354,6 +429,7 @@ async function initStatistics() {
   const networks = renderNetworks(cinemas);
 
   renderLedger(cinemas, rooms, networks);
+  renderTechnicalHighlights(rooms);
   renderCoverage(rooms);
   renderCoverageMap(rooms);
   renderDistribution(

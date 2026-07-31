@@ -204,6 +204,11 @@ function roomExperiences(room) {
   return (room.technologies ?? []).filter((technology) => technology.type === "experience");
 }
 
+function roomExperienceNames(room) {
+  const experiences = roomExperiences(room).map(({ name }) => name);
+  return experiences.length > 0 ? experiences : ["2D"];
+}
+
 function roomText(item) {
   const room = item.room;
 
@@ -273,7 +278,7 @@ function setupFilters() {
   if (experienceFilter) {
     fillSelect(
       experienceFilter,
-      validValues(rooms.flatMap(({ room }) => roomExperiences(room).map(({ name }) => name))),
+      validValues(rooms.flatMap(({ room }) => roomExperienceNames(room))),
     );
   }
   if (projectionFilter) {
@@ -339,7 +344,7 @@ function render() {
     const systemMatches = !selectedSystem
       || exhibitionSystems(item.room).some(({ name }) => normalize(name) === selectedSystem);
     const experienceMatches = !selectedExperience
-      || roomExperiences(item.room).some(({ name }) => normalize(name) === selectedExperience);
+      || roomExperienceNames(item.room).some((name) => normalize(name) === selectedExperience);
     const projectionMatches = !selectedProjection
       || projectionValues(item.room).some((value) => normalize(value) === selectedProjection);
     const resolutionMatches = !selectedResolution || normalize(item.room.projection?.resolution ?? "") === selectedResolution;
