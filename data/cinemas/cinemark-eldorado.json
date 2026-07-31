@@ -1,0 +1,370 @@
+{
+  "slug": "cinemark-eldorado",
+  "name": "Cinemark Eldorado",
+  "network": {
+    "slug": "cinemark",
+    "name": "Cinemark"
+  },
+  "city": "São Paulo",
+  "state": "SP",
+  "neighborhood": "Pinheiros",
+  "address": "Av. Rebouças – Pinheiros",
+  "ancine_registry": "11840",
+  "last_verified": "2026-07-31",
+  "rooms": [
+    {
+      "name": "Sala 01",
+      "slug": "sala-01",
+      "ancine_registry": "5001948",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "4K",
+        "light_source": "Laser",
+        "notes": "Barco 4K laser; ~30.000 lumens; tela 40% maior que convencional",
+        "brand": "Barco"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": 12,
+        "power_watts": 50000,
+        "notes": "Sistema surround 11.1; 50.000W; certificação THX",
+        "channel_layout": "11.1"
+      },
+      "seats": 332,
+      "accessibility": {
+        "wheelchair_seats": 11,
+        "reduced_mobility_seats": 4,
+        "obese_seats": 4,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"ELDORADO 01\", registro 5001948, em funcionamento; 332 assentos, 11 espaços para cadeirantes, 4 assentos de mobilidade reduzida, 4 assentos para pessoas obesas."
+        }
+      ],
+      "notes": "Conforto: Poltronas com movimento sincronizado — poltronas com movimento sincronizado"
+    },
+    {
+      "name": "Sala 2",
+      "slug": "sala-2",
+      "ancine_registry": "5001945",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 186,
+      "accessibility": {
+        "wheelchair_seats": 6,
+        "reduced_mobility_seats": 3,
+        "obese_seats": 3,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"ELDORADO 02\", registro 5001945, em funcionamento; 186 assentos, 6 espaços para cadeirantes, 3 assentos de mobilidade reduzida, 3 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 3",
+      "slug": "sala-3",
+      "ancine_registry": "5001949",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 198,
+      "accessibility": {
+        "wheelchair_seats": 6,
+        "reduced_mobility_seats": 3,
+        "obese_seats": 3,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"ELDORADO 03\", registro 5001949, em funcionamento; 198 assentos, 6 espaços para cadeirantes, 3 assentos de mobilidade reduzida, 3 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 4",
+      "slug": "sala-4",
+      "ancine_registry": "5001943",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 158,
+      "accessibility": {
+        "wheelchair_seats": 6,
+        "reduced_mobility_seats": 3,
+        "obese_seats": 3,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"ELDORADO 04\", registro 5001943, em funcionamento; 158 assentos, 6 espaços para cadeirantes, 3 assentos de mobilidade reduzida, 3 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 5",
+      "slug": "sala-5",
+      "ancine_registry": "5001947",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 147,
+      "accessibility": {
+        "wheelchair_seats": 6,
+        "reduced_mobility_seats": 3,
+        "obese_seats": 3,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"ELDORADO 05\", registro 5001947, em funcionamento; 147 assentos, 6 espaços para cadeirantes, 3 assentos de mobilidade reduzida, 3 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 6",
+      "slug": "sala-6",
+      "ancine_registry": "5001944",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 152,
+      "accessibility": {
+        "wheelchair_seats": 6,
+        "reduced_mobility_seats": 3,
+        "obese_seats": 3,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"ELDORADO 06\", registro 5001944, em funcionamento; 152 assentos, 6 espaços para cadeirantes, 3 assentos de mobilidade reduzida, 3 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 7",
+      "slug": "sala-7",
+      "ancine_registry": "5001950",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 153,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 2,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"ELDORADO 07\", registro 5001950, em funcionamento; 153 assentos, 4 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"ELDORADO 07\", registro 5001950, em funcionamento; 153 assentos, 4 espaços para cadeirantes, 1 assento de mobilidade reduzida, 2 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 08",
+      "slug": "sala-08",
+      "ancine_registry": "5001946",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "2K",
+        "light_source": "Xenon",
+        "brand": "Barco"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 187,
+      "accessibility": {
+        "wheelchair_seats": 6,
+        "reduced_mobility_seats": 3,
+        "obese_seats": 3,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"ELDORADO 08\", registro 5001946, em funcionamento; 187 assentos, 6 espaços para cadeirantes, 3 assentos de mobilidade reduzida, 3 assentos para pessoas obesas."
+        }
+      ],
+      "notes": "Conforto: Poltronas com movimento sincronizado — tecnologia: D-Box MFX; movimento sincronizado ao filme"
+    },
+    {
+      "name": "Sala 9",
+      "slug": "sala-9",
+      "ancine_registry": "5001942",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 297,
+      "accessibility": {
+        "wheelchair_seats": 6,
+        "reduced_mobility_seats": 3,
+        "obese_seats": 3,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"ELDORADO 09\", registro 5001942, em funcionamento; 297 assentos, 6 espaços para cadeirantes, 3 assentos de mobilidade reduzida, 3 assentos para pessoas obesas."
+        }
+      ]
+    }
+  ]
+}

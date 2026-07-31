@@ -1,0 +1,258 @@
+{
+  "slug": "cineflix-cantareira",
+  "name": "Cineflix Cantareira Norte Shopping",
+  "network": {
+    "slug": "cineflix",
+    "name": "Cineflix"
+  },
+  "city": "São Paulo",
+  "state": "SP",
+  "neighborhood": "Parada de Taipas",
+  "address": "Avenida Raimundo Pereira de Magalhães, 11001 – Cantareira Norte Shopping",
+  "ancine_registry": "32844",
+  "last_verified": "2026-07-31",
+  "notes": "A fonte de inauguração confirma cinco salas, três delas com 3D, mas não permite mapear com segurança quais números de sala possuem o sistema.",
+  "external_url": "https://www.cineflix.com.br/programacao/cantareira-norte-shopping/",
+  "rooms": [
+    {
+      "name": "Sala 1",
+      "slug": "sala-1",
+      "ancine_registry": "5005529",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 158,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "press",
+          "url": "https://www.exibidor.com.br/noticias/mercado/5289-cineflix-abre-primeiro-cinema-na-capital-paulista",
+          "note": "Portal Exibidor confirma que o complexo foi inaugurado com cinco salas, três com 3D."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINEFLIX CANTAREIRA SALA 01\", registro 5005529, em funcionamento; 158 assentos, 4 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINEFLIX CANTAREIRA SALA 01\", registro 5005529, em funcionamento; 158 assentos, 4 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 1 assento para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 2",
+      "slug": "sala-2",
+      "ancine_registry": "5005530",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 199,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "press",
+          "url": "https://www.exibidor.com.br/noticias/mercado/5289-cineflix-abre-primeiro-cinema-na-capital-paulista",
+          "note": "Portal Exibidor confirma que o complexo foi inaugurado com cinco salas, três com 3D."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINEFLIX CANTAREIRA SALA 02\", registro 5005530, em funcionamento; 199 assentos, 4 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINEFLIX CANTAREIRA SALA 02\", registro 5005530, em funcionamento; 199 assentos, 4 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 1 assento para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 3",
+      "slug": "sala-3",
+      "ancine_registry": "5005531",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 180,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 1,
+        "ramp_to_seats": false,
+        "ramp_to_room": false,
+        "accessible_restrooms": false
+      },
+      "sources": [
+        {
+          "type": "press",
+          "url": "https://www.exibidor.com.br/noticias/mercado/5289-cineflix-abre-primeiro-cinema-na-capital-paulista",
+          "note": "Portal Exibidor confirma que o complexo foi inaugurado com cinco salas, três com 3D."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINEFLIX CANTAREIRA SALA 03\", registro 5005531, em funcionamento; 180 assentos, 4 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINEFLIX CANTAREIRA SALA 03\", registro 5005531, em funcionamento; 180 assentos, 4 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 1 assento para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 4",
+      "slug": "sala-4",
+      "ancine_registry": "5005532",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 131,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "press",
+          "url": "https://www.exibidor.com.br/noticias/mercado/5289-cineflix-abre-primeiro-cinema-na-capital-paulista",
+          "note": "Portal Exibidor confirma que o complexo foi inaugurado com cinco salas, três com 3D."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINEFLIX CANTAREIRA SALA 04\", registro 5005532, em funcionamento; 131 assentos, 4 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINEFLIX CANTAREIRA SALA 04\", registro 5005532, em funcionamento; 131 assentos, 4 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 1 assento para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 5",
+      "slug": "sala-5",
+      "ancine_registry": "5005533",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 122,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "press",
+          "url": "https://www.exibidor.com.br/noticias/mercado/5289-cineflix-abre-primeiro-cinema-na-capital-paulista",
+          "note": "Portal Exibidor confirma que o complexo foi inaugurado com cinco salas, três com 3D."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINEFLIX CANTAREIRA SALA 05\", registro 5005533, em funcionamento; 122 assentos, 4 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINEFLIX CANTAREIRA SALA 05\", registro 5005533, em funcionamento; 122 assentos, 4 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 1 assento para pessoas obesas."
+        }
+      ]
+    }
+  ]
+}

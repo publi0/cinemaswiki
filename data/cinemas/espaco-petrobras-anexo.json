@@ -1,0 +1,39 @@
+{
+  "slug": "espaco-petrobras-anexo",
+  "name": "Espaço Petrobras de Cinema – Anexo",
+  "network": {
+    "slug": "espaco-petrobras",
+    "name": "Espaço Petrobras"
+  },
+  "city": "São Paulo",
+  "state": "SP",
+  "neighborhood": "Cerqueira César",
+  "address": "R. Augusta – Cerqueira César",
+  "notes": "Anexo do Espaço Petrobras de Cinema.",
+  "last_verified": "2026-05-10",
+  "rooms": [
+    {
+      "name": "Sala 1",
+      "slug": "sala-1",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": null,
+      "sources": []
+    }
+  ]
+}

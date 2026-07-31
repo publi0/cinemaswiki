@@ -23,8 +23,10 @@ body:
       label: Tipo de correção
       options:
         - Nome, rede ou endereço
-        - Formato da sala
+        - Sistema
+        - Experiência
         - Projeção
+        - Resolução
         - Tela
         - Som
         - Capacidade
@@ -32,6 +34,37 @@ body:
         - Outro
     validations:
       required: true
+  - type: dropdown
+    id: classificacao_padronizada
+    attributes:
+      label: Classificação técnica correta
+      description: Se a correção envolver formato ou tecnologia, selecione as opções canônicas aplicáveis.
+      multiple: true
+      options:
+        - Sistema — IMAX
+        - Experiência — 3D
+        - Experiência — 4DX — efeitos físicos
+        - Projeção — Laser
+        - Projeção — Laser RGB
+        - Projeção — Xenon
+        - Projeção — LED
+        - Projeção — Película 70 mm
+        - Projeção — Tela LED
+        - Resolução — 2K
+        - Resolução — 4K
+        - Som — Dolby Atmos
+        - Som — Dolby Digital 5.1
+        - Som — Dolby Digital 7.1
+        - Som — IMAX
+        - Layout de som — 5.1
+        - Layout de som — 7.1
+        - Layout de som — 11.1
+        - Processamento — Harman Quantum Logic (JBL)
+        - Tecnologia da tela — LED modular
+        - Superfície da tela — Perolizada
+        - Geometria da tela — Plana
+        - Geometria da tela — Curva
+        - A confirmar
   - type: textarea
     id: atual
     attributes:

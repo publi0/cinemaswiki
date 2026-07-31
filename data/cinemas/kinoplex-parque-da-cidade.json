@@ -1,0 +1,242 @@
+{
+  "slug": "kinoplex-parque-da-cidade",
+  "name": "Kinoplex Parque da Cidade",
+  "network": {
+    "slug": "kinoplex",
+    "name": "Kinoplex"
+  },
+  "city": "São Paulo",
+  "state": "SP",
+  "neighborhood": "Chácara Santo Antônio",
+  "address": "Av. das Nações Unidas – Chácara Santo Antônio",
+  "ancine_registry": "43321",
+  "last_verified": "2026-07-31",
+  "notes": "Único Kinoplex 100% VIP de SP. Eleito melhor cinema VIP de SP por 3 vezes.",
+  "rooms": [
+    {
+      "name": "Sala 1",
+      "slug": "sala-1",
+      "ancine_registry": "5006311",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "Laser"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "Dolby Digital 7.1",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null,
+        "channel_layout": "7.1"
+      },
+      "seats": 185,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 4,
+        "obese_seats": 4,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"KINOPLEX PARQUE DA CIDADE 01\", registro 5006311, em funcionamento; 185 assentos, 4 espaços para cadeirantes, 4 assentos de mobilidade reduzida, 4 assentos para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/kinoplex-parque-da-cidade",
+          "note": "Sala 1 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ],
+      "notes": "Conforto: Poltronas reclináveis"
+    },
+    {
+      "name": "Sala 2",
+      "slug": "sala-2",
+      "ancine_registry": "5006312",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "Laser"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "Dolby Digital 7.1",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null,
+        "channel_layout": "7.1"
+      },
+      "seats": 105,
+      "accessibility": {
+        "wheelchair_seats": 3,
+        "reduced_mobility_seats": 3,
+        "obese_seats": 3,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"KINOPLEX PARQUE DA CIDADE 02\", registro 5006312, em funcionamento; 105 assentos, 3 espaços para cadeirantes, 3 assentos de mobilidade reduzida, 3 assentos para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/kinoplex-parque-da-cidade",
+          "note": "Sala 2 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ],
+      "notes": "Conforto: Poltronas reclináveis"
+    },
+    {
+      "name": "Sala 3 - Projeção Laser",
+      "slug": "sala-3-projecao-laser",
+      "ancine_registry": "5006313",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "Laser"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "Dolby Digital 7.1",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null,
+        "channel_layout": "7.1"
+      },
+      "seats": 107,
+      "accessibility": {
+        "wheelchair_seats": 3,
+        "reduced_mobility_seats": 3,
+        "obese_seats": 3,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"KINOPLEX PARQUE DA CIDADE 03\", registro 5006313, em funcionamento; 107 assentos, 3 espaços para cadeirantes, 3 assentos de mobilidade reduzida, 3 assentos para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/kinoplex-parque-da-cidade",
+          "note": "Sala 3 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ],
+      "notes": "Conforto: Poltronas reclináveis"
+    },
+    {
+      "name": "Sala 4 - Projeção Laser",
+      "slug": "sala-4-projecao-laser",
+      "ancine_registry": "5006314",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "Laser"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "Dolby Digital 7.1",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null,
+        "channel_layout": "7.1"
+      },
+      "seats": 64,
+      "accessibility": {
+        "wheelchair_seats": 2,
+        "reduced_mobility_seats": 2,
+        "obese_seats": 2,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"KINOPLEX PARQUE DA CIDADE 04\", registro 5006314, em funcionamento; 64 assentos, 2 espaços para cadeirantes, 2 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/kinoplex-parque-da-cidade",
+          "note": "Sala 4 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ],
+      "notes": "Conforto: Poltronas reclináveis"
+    },
+    {
+      "name": "Sala 5 - Projeção Laser",
+      "slug": "sala-5-projecao-laser",
+      "ancine_registry": "5006315",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "Laser"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "Dolby Digital 7.1",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null,
+        "channel_layout": "7.1"
+      },
+      "seats": 63,
+      "accessibility": {
+        "wheelchair_seats": 2,
+        "reduced_mobility_seats": 2,
+        "obese_seats": 2,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"KINOPLEX PARQUE DA CIDADE 05\", registro 5006315, em funcionamento; 63 assentos, 2 espaços para cadeirantes, 2 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/kinoplex-parque-da-cidade",
+          "note": "Sala 5 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ],
+      "notes": "Conforto: Poltronas reclináveis"
+    }
+  ]
+}

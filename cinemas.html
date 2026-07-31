@@ -11,12 +11,13 @@
   <body>
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="CinemasWiki inicio">
-        <span class="brand-mark" aria-hidden="true"></span>
-        CinemasWiki
+        <span class="brand-mark" aria-hidden="true">CW</span>
+        <span>Cinemas<strong>Wiki</strong></span>
       </a>
       <nav class="nav" aria-label="Navegacao principal">
-        <a href="salas.html">Salas</a>
+        <a href="salas.html">Pesquisar</a>
         <a href="cinemas.html" aria-current="page">Cinemas</a>
+        <a href="formatos.html">Formatos</a>
         <a href="contribuir.html">Contribuir</a>
       </nav>
     </header>
@@ -26,10 +27,18 @@
 
       <section class="structure" id="estrutura" aria-labelledby="estrutura-title">
         <div class="section-heading">
-          <p class="eyebrow">Estrutura</p>
-          <h1 id="estrutura-title">Redes, cinemas e salas</h1>
-          <p>Navegue pela hierarquia do catálogo: rede, cinema e salas catalogadas.</p>
+          <p class="eyebrow">Por local</p>
+          <h1 id="estrutura-title">Cinemas catalogados</h1>
+          <p>Busque por rede, cinema, bairro ou sala.</p>
         </div>
+        <label class="cinema-search">
+          <span>Pesquisar cinemas</span>
+          <div class="search-input">
+            <span aria-hidden="true">⌕</span>
+            <input id="cinema-search" type="search" placeholder="Rede, cinema, bairro ou sala..." autocomplete="off">
+          </div>
+        </label>
+        <p class="network-summary" id="network-summary" aria-live="polite"></p>
         <div class="network-tree" id="network-tree"></div>
         <nav class="pagination" id="network-pagination" aria-label="Paginacao de redes"></nav>
       </section>

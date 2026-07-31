@@ -14,80 +14,64 @@
   <body>
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="CinemasWiki inicio">
-        <span class="brand-mark" aria-hidden="true"></span>
-        CinemasWiki
+        <span class="brand-mark" aria-hidden="true">CW</span>
+        <span>Cinemas<strong>Wiki</strong></span>
       </a>
       <nav class="nav" aria-label="Navegacao principal">
-        <a href="salas.html">Salas</a>
+        <a href="salas.html">Pesquisar</a>
         <a href="cinemas.html">Cinemas</a>
+        <a href="formatos.html">Formatos</a>
         <a href="contribuir.html">Contribuir</a>
       </nav>
     </header>
 
     <main>
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="eyebrow">Atlas tecnico das salas paulistas</p>
-          <h1 id="hero-title">Catalogo tecnico de salas de cinema.</h1>
-          <p class="hero-lede">
-            Consulte cinemas paulistas por sala, rede, formato, projecao, tela,
-            som, capacidade e fontes dos dados.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="#catalogo">Pesquisar salas</a>
-            <a class="button secondary" href="cinemas.html">Ver redes e cinemas</a>
-          </div>
-        </div>
-        <aside class="signal-panel" aria-label="Resumo do projeto">
-          <div>
-            <span class="metric" id="cinema-count">0</span>
-            <span class="metric-label">cinemas catalogados</span>
-          </div>
-          <div>
-            <span class="metric" id="room-count">0</span>
-            <span class="metric-label">salas ou formatos</span>
-          </div>
-          <div class="status-line">
-            <span class="status-dot"></span>
-            Dados por rede, cinema e sala
-          </div>
-        </aside>
-      </section>
-
+      <h1 class="visually-hidden">Pesquisar salas de cinema</h1>
       <section class="filters" aria-labelledby="catalogo">
-        <div>
-          <p class="eyebrow">Catalogo</p>
-          <h2 id="catalogo">Pesquisa de salas</h2>
-        </div>
         <form class="filter-form" role="search">
-          <label>
-            <span>Buscar</span>
-            <input id="search" type="search" placeholder="Cinema, sala, bairro, tecnologia...">
+          <label class="search-field">
+            <span id="catalogo">Pesquisar no catálogo</span>
+            <div class="search-input">
+              <span aria-hidden="true">⌕</span>
+              <input id="search" type="search" placeholder="Cinema, bairro, IMAX, Dolby Atmos, laser..." autocomplete="off">
+              <kbd>/</kbd>
+            </div>
           </label>
-          <label>
-            <span>Cidade</span>
-            <select id="city">
-              <option value="">Todas</option>
-            </select>
-          </label>
-          <label>
-            <span>Tipo de sala</span>
-            <select id="format">
-              <option value="">Todos</option>
-            </select>
-          </label>
-          <label>
-            <span>Projeção</span>
-            <select id="projection">
-              <option value="">Todas</option>
-            </select>
-          </label>
-          <label>
-            <span>Som</span>
-            <select id="sound">
-              <option value="">Todos</option>
-            </select>
-          </label>
+          <button class="filter-toggle" id="filter-toggle" type="button" aria-expanded="true" aria-controls="filter-grid">
+            <span>Filtros técnicos</span>
+            <strong id="active-filter-count">0</strong>
+          </button>
+          <div class="filter-grid" id="filter-grid">
+            <label>
+              <span>Sistema</span>
+              <select id="system"><option value="">Todos</option></select>
+            </label>
+            <label>
+              <span>Experiência</span>
+              <select id="experience"><option value="">Todas</option></select>
+            </label>
+            <label>
+              <span>Projeção</span>
+              <select id="projection"><option value="">Todas</option></select>
+            </label>
+            <label>
+              <span>Resolução</span>
+              <select id="resolution"><option value="">Todas</option></select>
+            </label>
+            <label>
+              <span>Som</span>
+              <select id="sound"><option value="">Todos</option></select>
+            </label>
+            <label>
+              <span>Ordenar</span>
+              <select id="sort">
+                <option value="name">Cinema, A–Z</option>
+                <option value="coverage">Mais dados primeiro</option>
+                <option value="updated">Atualizados recentemente</option>
+              </select>
+            </label>
+            <button class="clear-filters" id="clear-filters" type="button">Limpar filtros</button>
+          </div>
         </form>
       </section>
 
@@ -97,31 +81,15 @@
       </section>
 
       <section class="room-table" aria-label="Resultados da pesquisa">
-        <div class="room-table-head" aria-hidden="true">
-          <span>Sala</span>
-          <span>Local</span>
-          <span>Projecao</span>
-          <span>Tela</span>
-          <span>Som</span>
-        </div>
         <div id="room-list" aria-live="polite"></div>
       </section>
 
       <nav class="pagination" id="pagination" aria-label="Paginacao de salas"></nav>
 
-      <section class="home-links" aria-label="Seções principais">
-        <a href="salas.html">
-          <strong>Salas</strong>
-          <span>Busca e comparação por sala, formato, projeção, tela e som.</span>
-        </a>
-        <a href="cinemas.html">
-          <strong>Cinemas</strong>
-          <span>Navegação por rede, cinema e salas cadastradas.</span>
-        </a>
-        <a href="contribuir.html">
-          <strong>Contribuir</strong>
-          <span>Guia para adicionar dados, fontes e correções.</span>
-        </a>
+      <section class="catalog-note" aria-label="Sobre os dados">
+        <strong>Os dados são colaborativos.</strong>
+        <span>“A confirmar” indica que ainda não encontramos uma fonte suficiente.</span>
+        <a href="contribuir.html">Corrigir ou completar dados →</a>
       </section>
     </main>
 

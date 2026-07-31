@@ -47,50 +47,129 @@ body:
       placeholder: "Ex: Sala 1 - IMAX"
     validations:
       required: true
-  - type: input
-    id: formato
+  - type: dropdown
+    id: sistema
     attributes:
-      label: Formato comercial
-      placeholder: "Ex: IMAX, XD, 4DX, VIP, Dolby Atmos, Platinum"
+      label: Sistema
+      description: IMAX é o sistema; Laser, Xenon e 70 mm são detalhes da projeção.
+      options:
+        - IMAX
+        - A confirmar
+  - type: dropdown
+    id: experiencia
+    attributes:
+      label: Experiência
+      description: Recursos adicionais da sessão. É possível selecionar mais de uma opção.
+      multiple: true
+      options:
+        - 3D
+        - 4DX — efeitos físicos
+        - A confirmar
+  - type: dropdown
+    id: tecnologia_projecao
+    attributes:
+      label: Tecnologia de projeção
+      options:
+        - Laser
+        - Laser RGB
+        - Xenon
+        - LED
+        - Película 70 mm
+        - Tela LED
+        - A confirmar
+  - type: dropdown
+    id: resolucao
+    attributes:
+      label: Resolução
+      options:
+        - 2K
+        - 4K
+        - A confirmar
+  - type: dropdown
+    id: formato_som
+    attributes:
+      label: Som
+      options:
+        - Dolby Atmos
+        - Dolby Digital 5.1
+        - Dolby Digital 7.1
+        - IMAX
+        - A confirmar
+  - type: dropdown
+    id: layout_som
+    attributes:
+      label: Layout de canais
+      options:
+        - "5.1"
+        - "7.1"
+        - "11.1"
+        - A confirmar
+  - type: dropdown
+    id: processador_som
+    attributes:
+      label: Processamento de áudio
+      options:
+        - Harman Quantum Logic (JBL)
+        - A confirmar
+  - type: dropdown
+    id: tecnologia_tela
+    attributes:
+      label: Tecnologia da tela
+      options:
+        - LED modular
+        - A confirmar
+  - type: dropdown
+    id: superficie_tela
+    attributes:
+      label: Superfície da tela
+      options:
+        - Perolizada
+        - A confirmar
+  - type: dropdown
+    id: geometria_tela
+    attributes:
+      label: Geometria da tela
+      options:
+        - Plana
+        - Curva
+        - A confirmar
   - type: textarea
-    id: projecao
+    id: detalhes_projecao
     attributes:
-      label: Projeção
-      description: Tecnologia, resolução, marca, modelo, pixel count ou observações.
+      label: Detalhes da projeção
+      description: Marca, modelo, fonte de luz, quantidade de projetores ou observações.
       placeholder: |
         Ex:
-        - Tecnologia: laser
-        - Resolução: 4K
         - Marca/modelo: Barco DP4K-30L
+        - Fonte de luz: Laser RGB
+        - Projetores: dois
   - type: textarea
-    id: tela
+    id: detalhes_tela
     attributes:
-      label: Tela
-      description: Tipo, proporção, largura, altura, área ou diagonal.
+      label: Detalhes da tela
+      description: Proporção, largura, altura, área, diagonal ou observações.
       placeholder: |
         Ex:
-        - Tipo: IMAX
         - Área: 185 m²
         - Largura/altura: 20 m x 18 m
   - type: textarea
-    id: som
+    id: detalhes_som
     attributes:
-      label: Som
-      description: Formato, canais, caixas, potência ou observações.
+      label: Detalhes do som
+      description: Canais, caixas, potência ou observações.
       placeholder: |
         Ex:
-        - Formato: Dolby Atmos
         - Canais: 24
         - Potência: 18.000 W
   - type: textarea
-    id: tecnologias
+    id: outros_recursos
     attributes:
-      label: Outras tecnologias
-      description: Experiência, assentos, vibração, 4DX, D-Box, VIP etc.
+      label: Outros recursos técnicos
+      description: Use apenas para algo técnico que não esteja nos dropdowns.
       placeholder: |
         Ex:
-        - D-Box: poltronas com movimento
-        - VIP reclináveis
+        - Processador de áudio identificado
+        - Recurso técnico documentado pela fabricante
   - type: textarea
     id: fontes
     attributes:

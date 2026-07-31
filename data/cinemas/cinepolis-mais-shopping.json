@@ -1,0 +1,380 @@
+{
+  "slug": "cinepolis-mais-shopping",
+  "name": "Cinépolis Mais Shopping",
+  "network": {
+    "slug": "cinepolis",
+    "name": "Cinépolis"
+  },
+  "city": "São Paulo",
+  "state": "SP",
+  "neighborhood": "Santo Amaro",
+  "address": "Amador Bueno – Santo Amaro",
+  "ancine_registry": "17949",
+  "last_verified": "2026-07-31",
+  "rooms": [
+    {
+      "name": "Sala 1",
+      "slug": "sala-1",
+      "ancine_registry": "5002971",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 131,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA 01\", registro 5002971, em funcionamento; 131 assentos, 4 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA 01\", registro 5002971, em funcionamento; 131 assentos, 4 espaços para cadeirantes, 1 assento de mobilidade reduzida, 1 assento para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinepolis-mais-shopping",
+          "note": "Sala 1 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ]
+    },
+    {
+      "name": "Sala 2",
+      "slug": "sala-2",
+      "ancine_registry": "5002974",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 131,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA 02\", registro 5002974, em funcionamento; 131 assentos, 4 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA 02\", registro 5002974, em funcionamento; 131 assentos, 4 espaços para cadeirantes, 1 assento de mobilidade reduzida, 1 assento para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 3",
+      "slug": "sala-3",
+      "ancine_registry": "5002975",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 131,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA 03\", registro 5002975, em funcionamento; 131 assentos, 4 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA 03\", registro 5002975, em funcionamento; 131 assentos, 4 espaços para cadeirantes, 1 assento de mobilidade reduzida, 1 assento para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 4",
+      "slug": "sala-4",
+      "ancine_registry": "5002973",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 179,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA 04\", registro 5002973, em funcionamento; 179 assentos, 4 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA 04\", registro 5002973, em funcionamento; 179 assentos, 4 espaços para cadeirantes, 1 assento de mobilidade reduzida, 1 assento para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinepolis-mais-shopping",
+          "note": "Sala 4 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ]
+    },
+    {
+      "name": "Sala 5",
+      "slug": "sala-5",
+      "ancine_registry": "5002970",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 131,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA 05\", registro 5002970, em funcionamento; 131 assentos, 4 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA 05\", registro 5002970, em funcionamento; 131 assentos, 4 espaços para cadeirantes, 1 assento de mobilidade reduzida, 1 assento para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinepolis-mais-shopping",
+          "note": "Sala 5 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ]
+    },
+    {
+      "name": "Sala 6",
+      "slug": "sala-6",
+      "ancine_registry": "5002976",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 131,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA 06\", registro 5002976, em funcionamento; 131 assentos, 4 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA 06\", registro 5002976, em funcionamento; 131 assentos, 4 espaços para cadeirantes, 1 assento de mobilidade reduzida, 1 assento para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinepolis-mais-shopping",
+          "note": "Sala 6 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ]
+    },
+    {
+      "name": "Sala 7",
+      "slug": "sala-7",
+      "ancine_registry": "5002972",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 217,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 2,
+        "obese_seats": 2,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA 07\", registro 5002972, em funcionamento; 217 assentos, 4 espaços para cadeirantes, 2 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinepolis-mais-shopping",
+          "note": "Sala 7 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ]
+    },
+    {
+      "name": "Sala 8",
+      "slug": "sala-8",
+      "ancine_registry": "5002977",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 136,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 2,
+        "obese_seats": 2,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA 08\", registro 5002977, em funcionamento; 136 assentos, 4 espaços para cadeirantes, 2 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinepolis-mais-shopping",
+          "note": "Sala 8 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ]
+    }
+  ]
+}

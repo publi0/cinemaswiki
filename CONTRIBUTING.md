@@ -14,6 +14,14 @@ Todo dado tecnico deve ter uma fonte quando possivel. No inicio do catalogo,
 tambem aceitamos campos incompletos, desde que fiquem marcados como
 `"A confirmar"` ou `null`.
 
+Cada cinema fica em um arquivo próprio:
+
+```txt
+data/cinemas/<slug-do-cinema>.json
+```
+
+Não edite `dist/data/cinemas.json`: esse arquivo é gerado automaticamente.
+
 ## Issues
 
 Use os modelos em `.github/ISSUE_TEMPLATE/`:
@@ -38,29 +46,21 @@ Nao invente potencia, dimensoes de tela, resolucao ou quantidade de canais.
 
 ## Padronizacao dos dados
 
-O campo `format` descreve o que a sala tecnicamente oferece — nao o nome
-comercial da rede. Nomes de marketing (XD, XPLUS, Platinum, Macro XE, Laser
-Lounge, Bradesco Prime etc.) ficam em `notes` ou na descricao da fonte, nunca
-no campo `format`.
+O catálogo não usa uma categoria genérica de formato. Cada sala é descrita por
+especificações verificáveis de projeção, resolução, tela e som. O campo
+`technologies` é fechado: aceita somente `IMAX` como `system` e `3D` ou `4DX`
+como `experience`.
 
-Exemplos de por que isso importa: "Cinemark XD" e "UCI XPLUS" sao labels
-proprietarios sem especificacao publica; "IMAX" e "Dolby Atmos" tem
-especificacoes publicadas e auditadas por entidades independentes.
+`Convencional`, VIP e tipos de poltrona não são classificações técnicas.
+Informações de conforto podem ficar em `notes`, sem interferir nos filtros.
 
-### Valores aceitos para `format`
-
-| Formato | Quando usar |
+| Campo | O que registrar |
 | --- | --- |
-| `Convencional` | Sala padrao sem recurso premium |
-| `Grande Formato` | Tela maior que convencional com projecao aprimorada (XD, XPLUS, Cinepic, Macro XE etc.) |
-| `Poltrona Reclinavel` | Sala com poltronas reclinaveis independente do nome comercial (VIP, Platinum, DE LUX etc.) |
-| `Poltrona com Movimento` | Poltronas com movimento mecanico sincronizado ao filme (ex.: tecnologia D-Box) |
-| `IMAX` | Sala certificada IMAX com especificacao publicada |
-| `4DX` | Sala certificada CJ 4DPlex com efeitos fisicos definidos |
-| `Tela LED` | Tela autoemissiva LED sem projetor (ex.: Samsung Onyx) |
-| `Projecao Laser` | Sala sem outro diferencial alem da projecao laser |
-| `3D` | Sala configurada exclusivamente para exibicao 3D |
-| `A confirmar` | Formato desconhecido ou a verificar |
+| `projection` | Película/tela direta, marca, modelo, resolução, fonte de luz e configuração |
+| `screen` | Tecnologia, superfície, geometria, proporção e dimensões verificáveis |
+| `sound` | Formato, layout, processamento, canais, caixas, streams e potência |
+| `technologies` | Somente os sistemas e experiências permitidos pelo schema |
+| `notes` | Nomes comerciais e contexto sem especificação comprovada |
 
 ### Padronizacao de outros campos
 
@@ -71,17 +71,45 @@ adicionais em `notes`.
 | --- | --- | --- |
 | Resolucao | `4K` | `4k`, `4K Ultra HD`, `UHD`, `Ultra HD` |
 | Resolucao | `2K` | `2k`, `Digital 2K`, `DCI 2K` |
-| Projecao | `laser` | `Laser`, `projecao laser`, `projetor laser` |
-| Projecao | `Lâmpada Xenon` | `xenon`, `lamp-xenon`, `lampada xenon`, `lâmpada xenon` |
-| Projecao | `LED` | `led`, `tela LED`, `cinema LED` |
-| Formato | `IMAX` | `Imax`, `imax`, `IMAX Digital` |
-| Formato | `4DX` | `4dx`, `sala 4D`, `4-DX` |
+| Fonte de luz | `Laser` | `laser`, `projecao laser`, `projetor laser` |
+| Fonte de luz | `Laser RGB` | `laser rgb`, `RGB laser` |
+| Fonte de luz | `Xenon` | `xenon`, `lamp-xenon`, `Lâmpada Xenon` |
+| Projecao | `Película 70 mm` | `70mm`, `70 mm`, `IMAX 70mm` |
+| Projecao | `Tela LED` | `led`, `tela de LED`, `cinema LED` |
+| Tecnologia | `IMAX` | `Imax`, `imax`, `IMAX Digital`, `IMAX with Laser` |
+| Experiencia | `4DX` | `4dx`, `sala 4D`, `4-DX` |
+| Marca e modelo | `Samsung` + `Onyx` | `Samsung Onyx` como item em `technologies` |
 | Som | `Dolby Atmos` | `Atmos`, `dolby atmos`, `DOLBY ATMOS` |
+| Som | `Dolby Digital 5.1` | `5.1`, `Dolby 5.1`, `digital 5.1` |
 | Som | `Dolby Digital 7.1` | `7.1`, `Dolby 7.1`, `digital 7.1` |
-| Tela | `IMAX` | `imax`, `tela imax` |
-| Tela | `LED modular` | `LED`, `tela de LED`, `Onyx LED` |
+| Layout de som | `11.1` | `Surround 11.1`, `Multicanal 11.1` |
+| Processamento | `Harman Quantum Logic (JBL)` | `Quantum Logic`, `HQL` |
+| Tecnologia da tela | `LED modular` | `LED`, `tela de LED`, `Onyx LED` |
+| Superficie da tela | `Perolizada` | `perolizada` |
+| Geometria da tela | `Plana` | `tela plana` |
 | Texto desconhecido | `A confirmar` | `nao sei`, `n/a`, `desconhecido`, campo vazio |
 | Numero desconhecido | `null` | `0`, `-`, `n/a`, `desconhecido` |
+
+`Grande Formato` e combinações como `Grande Formato Laser 4K` não são
+tecnologias válidas. Registre `Laser`, `4K`, dimensões da tela e som nos campos
+próprios; preserve o nome comercial apenas em `notes` ou no nome da sala.
+Pelos mesmos motivos, `Digital` e `Multicanal` isolados são insuficientes:
+use `A confirmar` até descobrir a fonte de luz ou a configuração de som.
+Normalize `Multicanal 11.1` como layout `11.1`.
+
+IMAX é um único sistema. Registre `Laser` ou `Xenon` em
+`projection.light_source` e `Película 70 mm` em `projection.technology`.
+Não crie sistemas separados como `IMAX with Laser` ou `IMAX Digital`.
+
+4DX é uma informação de experiência: use `type: "experience"`. Ele indica
+efeitos físicos sincronizados e não substitui os dados de projeção, resolução
+ou som. Para IMAX, use `type: "system"`. Samsung Onyx deve ser decomposto em
+`projection.technology: "Tela LED"`, marca `Samsung` e modelo `Onyx`.
+
+Não adicione novos nomes ou tipos a `technologies` e não repita uma
+classificação na mesma sala. `Laser` e `Xenon` ficam apenas na fonte de luz. Em
+som, mantenha formato, layout e processamento separados. Uma fonte só é válida
+quando possui URL ou uma observação que identifique sua origem.
 
 ## Checklist para pull request
 
@@ -89,3 +117,19 @@ adicionais em `notes`.
 - A rede esta preenchida em `network.name`, mesmo quando for independente.
 - Cada sala tem fonte ou observacao explicando o que falta.
 - A data `last_verified` foi atualizada.
+- O arquivo se chama exatamente `<cinema.slug>.json`.
+- `npm run validate` termina sem erros.
+- `npm run build` gera as páginas estáticas sem links quebrados.
+
+## Validacao local
+
+```sh
+npm install
+npm test
+npm run test:taxonomy
+npm run build
+```
+
+O schema executável fica em `data/schema.json`. O CI repete essas verificações
+em todo pull request. `test:taxonomy` também tenta inserir categorias inválidas,
+combinações incorretas e duplicatas para confirmar que o schema as rejeita.

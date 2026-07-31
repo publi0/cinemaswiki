@@ -1,0 +1,222 @@
+{
+  "slug": "playarte-maraba",
+  "name": "Playarte Multiplex Marabá",
+  "network": {
+    "slug": "playarte",
+    "name": "Playarte"
+  },
+  "city": "São Paulo",
+  "state": "SP",
+  "neighborhood": "São João",
+  "address": "Av. Ipiranga – São João",
+  "ancine_registry": "40652",
+  "last_verified": "2026-07-31",
+  "notes": "Multiplex na região central de São Paulo.",
+  "rooms": [
+    {
+      "name": "Sala 1",
+      "slug": "sala-1",
+      "ancine_registry": "5006075",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 441,
+      "accessibility": {
+        "wheelchair_seats": 9,
+        "reduced_mobility_seats": 9,
+        "obese_seats": 9,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"MULTIPLEX MARABA SALA 01\", registro 5006075, em funcionamento; 441 assentos, 9 espaços para cadeirantes, 9 assentos de mobilidade reduzida, 9 assentos para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/playarte-multiplex-maraba",
+          "note": "Sala 1 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ]
+    },
+    {
+      "name": "Sala 2",
+      "slug": "sala-2",
+      "ancine_registry": "5006076",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 123,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 3,
+        "obese_seats": 3,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"MULTIPLEX MARABA SALA 02\", registro 5006076, em funcionamento; 123 assentos, 4 espaços para cadeirantes, 3 assentos de mobilidade reduzida, 3 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 3",
+      "slug": "sala-3",
+      "ancine_registry": "5006077",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 133,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 3,
+        "obese_seats": 3,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"MULTIPLEX MARABA SALA 03\", registro 5006077, em funcionamento; 133 assentos, 4 espaços para cadeirantes, 3 assentos de mobilidade reduzida, 3 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 4",
+      "slug": "sala-4",
+      "ancine_registry": "5006078",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 155,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 4,
+        "obese_seats": 4,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"MULTIPLEX MARABA SALA 04\", registro 5006078, em funcionamento; 155 assentos, 4 espaços para cadeirantes, 4 assentos de mobilidade reduzida, 4 assentos para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/playarte-multiplex-maraba",
+          "note": "Sala 4 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ]
+    },
+    {
+      "name": "Sala 5",
+      "slug": "sala-5",
+      "ancine_registry": "5006079",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 168,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 4,
+        "obese_seats": 4,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"MULTIPLEX MARABA SALA 05\", registro 5006079, em funcionamento; 168 assentos, 4 espaços para cadeirantes, 4 assentos de mobilidade reduzida, 4 assentos para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/playarte-multiplex-maraba",
+          "note": "Sala 5 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ]
+    }
+  ]
+}

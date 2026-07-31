@@ -1,0 +1,244 @@
+{
+  "slug": "kinoplex-itaim",
+  "name": "Kinoplex Itaim",
+  "network": {
+    "slug": "kinoplex",
+    "name": "Kinoplex"
+  },
+  "city": "São Paulo",
+  "state": "SP",
+  "neighborhood": "Itaim Bibi",
+  "address": "R. Joaquim Floriano – Itaim Bibi",
+  "ancine_registry": "2391",
+  "last_verified": "2026-07-31",
+  "rooms": [
+    {
+      "name": "Sala 1",
+      "slug": "sala-1",
+      "ancine_registry": "5000069",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 158,
+      "accessibility": {
+        "wheelchair_seats": 3,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 0,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"KINOPLEX ITAIM 1\", registro 5000069, em funcionamento; 158 assentos, 3 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 0 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 2",
+      "slug": "sala-2",
+      "ancine_registry": "5000070",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 184,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 0,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"KINOPLEX ITAIM 2\", registro 5000070, em funcionamento; 184 assentos, 4 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 0 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 3",
+      "slug": "sala-3",
+      "ancine_registry": "5000071",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 70,
+      "accessibility": {
+        "wheelchair_seats": 3,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 0,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"KINOPLEX ITAIM 3 (PLATINUM)\", registro 5000071, em funcionamento; 70 assentos, 3 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 0 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 4",
+      "slug": "sala-4",
+      "ancine_registry": "5000072",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 61,
+      "accessibility": {
+        "wheelchair_seats": 2,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 0,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"KINOPLEX ITAIM 4 (PLATINUM)\", registro 5000072, em funcionamento; 61 assentos, 2 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 0 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 5",
+      "slug": "sala-5",
+      "ancine_registry": "5000073",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 321,
+      "accessibility": {
+        "wheelchair_seats": 6,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 0,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"KINOPLEX ITAIM 5\", registro 5000073, em funcionamento; 321 assentos, 6 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 0 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 6 - Projeção Laser",
+      "slug": "sala-6-projecao-laser",
+      "ancine_registry": "5000074",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "Laser"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 319,
+      "accessibility": {
+        "wheelchair_seats": 6,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 0,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"KINOPLEX ITAIM 6\", registro 5000074, em funcionamento; 319 assentos, 6 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 0 assentos para pessoas obesas."
+        }
+      ]
+    }
+  ]
+}

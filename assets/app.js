@@ -1,8 +1,6 @@
 const roomList = document.querySelector("#room-list");
 const roomDetail = document.querySelector("#room-detail");
 const roomTable = document.querySelector(".room-table");
-const heroSection = document.querySelector(".hero");
-const pageHeading = document.querySelector(".page-heading");
 const homeLinks = document.querySelector(".home-links");
 const filtersSection = document.querySelector(".filters");
 const resultsSummary = document.querySelector(".results-summary");
@@ -10,12 +8,18 @@ const structureSection = document.querySelector(".structure");
 const methodSection = document.querySelector(".method");
 const networkTree = document.querySelector("#network-tree");
 const search = document.querySelector("#search");
-const cityFilter = document.querySelector("#city");
-const formatFilter = document.querySelector("#format");
+const systemFilter = document.querySelector("#system");
+const experienceFilter = document.querySelector("#experience");
 const projectionFilter = document.querySelector("#projection");
+const resolutionFilter = document.querySelector("#resolution");
 const soundFilter = document.querySelector("#sound");
-const cinemaCount = document.querySelector("#cinema-count");
-const roomCount = document.querySelector("#room-count");
+const sortFilter = document.querySelector("#sort");
+const clearFilters = document.querySelector("#clear-filters");
+const filterGrid = document.querySelector("#filter-grid");
+const filterToggle = document.querySelector("#filter-toggle");
+const activeFilterCountLabel = document.querySelector("#active-filter-count");
+const cinemaSearch = document.querySelector("#cinema-search");
+const networkSummary = document.querySelector("#network-summary");
 const resultCount = document.querySelector("#result-count");
 const resultContext = document.querySelector("#result-context");
 const pagination = document.querySelector("#pagination");
@@ -45,11 +49,116 @@ function normalize(value) {
 }
 
 function display(value, fallback = "A confirmar") {
-  return value === null || value === undefined || value === "" ? fallback : value;
+  const visibleValue = value === null || value === undefined || value === "" ? fallback : value;
+  return escapeHtml(visibleValue);
+}
+
+function yesNo(value) {
+  if (value === true) return "Sim";
+  if (value === false) return "Não";
+  return null;
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function safeExternalUrl(value) {
+  try {
+    const url = new URL(value);
+    return ["http:", "https:"].includes(url.protocol) ? escapeHtml(url.href) : "";
+  } catch {
+    return "";
+  }
+}
+
+function isKnown(value) {
+  return value !== null && value !== undefined && value !== "" && value !== "A confirmar";
 }
 
 function compact(values) {
-  return values.filter((value) => value && value !== "A confirmar").join(" · ") || "A confirmar";
+  return values.filter(isKnown).join(" · ") || "A confirmar";
+}
+
+function projectionValues(room) {
+  const technology = room.projection?.technology;
+  const lightSource = room.projection?.light_source;
+
+  if (isKnown(technology)) return [technology];
+  if (lightSource === "Laser RGB") return ["Laser", "Laser RGB"];
+  return isKnown(lightSource) ? [lightSource] : [];
+}
+
+function projectionDisplay(room) {
+  const values = projectionValues(room);
+  return values.at(-1) || "A confirmar";
+}
+
+function screenValues(room) {
+  return [
+    room.screen?.technology,
+    room.screen?.surface,
+    room.screen?.geometry,
+    room.screen?.aspect_ratio,
+  ];
+}
+
+function soundValues(room) {
+  return [
+    room.sound?.format,
+    room.sound?.channel_layout,
+  ];
+}
+
+function usefulSources(sources = []) {
+  return sources.filter((source) => source.url?.trim() || source.note?.trim());
+}
+
+function formatDate(value) {
+  if (!value) return "Sem data";
+  const [year, month, day] = value.split("-").map(Number);
+  if (!year || !month || !day) return value;
+  return new Intl.DateTimeFormat("pt-BR", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  }).format(new Date(year, month - 1, day)).replace(".", "");
+}
+
+function coverageValues(room) {
+  return [
+    projectionDisplay(room),
+    room.projection?.resolution,
+    compact([
+      room.projection?.brand,
+      room.projection?.model,
+      room.projection?.watts_each,
+      room.projection?.dual_lens ? "Duplo" : null,
+    ]),
+    compact([
+      ...screenValues(room),
+      room.screen?.area_m2,
+      room.screen?.width_m,
+      room.screen?.height_m,
+    ]),
+    compact(soundValues(room)),
+    compact([
+      room.sound?.processor,
+      room.sound?.channels,
+      room.sound?.audio_streams,
+      room.sound?.speakers,
+      room.sound?.power_watts,
+    ]),
+  ];
+}
+
+function coverageCount(room) {
+  return coverageValues(room).filter(isKnown).length;
 }
 
 function slugify(value) {
@@ -70,18 +179,29 @@ function networkId(cinema) {
   return cinema.network?.slug || slugify(networkName(cinema));
 }
 
-function roomUrl(id, fromCinemaSlug) {
-  const base = `salas.html?sala=${encodeURIComponent(id)}`;
-  return fromCinemaSlug ? `${base}&de=${encodeURIComponent(fromCinemaSlug)}` : base;
+function roomUrl(id) {
+  return `salas/${encodeURIComponent(id)}.html`;
 }
 
 function cinemaUrl(cinema) {
-  return `cinemas.html?cinema=${encodeURIComponent(cinema.slug)}`;
+  return `cinemas/${encodeURIComponent(cinema.slug)}.html`;
 }
 
 function networkUrl(cinemaOrId) {
   const id = typeof cinemaOrId === "string" ? cinemaOrId : networkId(cinemaOrId);
-  return `cinemas.html?rede=${encodeURIComponent(id)}`;
+  return `redes/${encodeURIComponent(id)}.html`;
+}
+
+function technicalTechnologies(room) {
+  return room.technologies ?? [];
+}
+
+function exhibitionSystems(room) {
+  return (room.technologies ?? []).filter((technology) => technology.type === "system");
+}
+
+function roomExperiences(room) {
+  return (room.technologies ?? []).filter((technology) => technology.type === "experience");
 }
 
 function roomText(item) {
@@ -93,21 +213,24 @@ function roomText(item) {
     item.cinema.city,
     item.cinema.neighborhood,
     room.name,
-    room.format,
     room.projection?.technology,
     room.projection?.brand,
     room.projection?.model,
     room.projection?.resolution,
     room.projection?.light_source,
-    room.screen?.type,
+    room.screen?.technology,
+    room.screen?.surface,
+    room.screen?.geometry,
     room.screen?.area_m2,
     room.screen?.aspect_ratio,
     room.sound?.format,
+    room.sound?.channel_layout,
+    room.sound?.processor,
     room.sound?.channels,
+    room.sound?.audio_streams,
     room.sound?.speakers,
     room.sound?.power_watts,
-    room.technologies?.map((tech) => `${tech.name} ${tech.type} ${tech.notes}`).join(" "),
-    room.seats,
+    technicalTechnologies(room).map((tech) => `${tech.name} ${tech.type} ${tech.notes ?? ""}`).join(" "),
     room.notes,
     item.cinema.notes,
   ].join(" ");
@@ -140,11 +263,26 @@ function fillSelect(select, values) {
 }
 
 function setupFilters() {
-  if (!cityFilter) return;
   const validValues = (arr) => [...new Set(arr.filter((v) => v && v !== "A confirmar"))];
-  fillSelect(cityFilter, [...new Set(cinemas.map((c) => c.city))]);
-  if (formatFilter) fillSelect(formatFilter, validValues(rooms.map(({ room }) => room.format)));
-  if (projectionFilter) fillSelect(projectionFilter, validValues(rooms.map(({ room }) => room.projection?.technology)));
+  if (systemFilter) {
+    fillSelect(
+      systemFilter,
+      validValues(rooms.flatMap(({ room }) => exhibitionSystems(room).map(({ name }) => name))),
+    );
+  }
+  if (experienceFilter) {
+    fillSelect(
+      experienceFilter,
+      validValues(rooms.flatMap(({ room }) => roomExperiences(room).map(({ name }) => name))),
+    );
+  }
+  if (projectionFilter) {
+    fillSelect(
+      projectionFilter,
+      validValues(rooms.flatMap(({ room }) => projectionValues(room))),
+    );
+  }
+  if (resolutionFilter) fillSelect(resolutionFilter, validValues(rooms.map(({ room }) => room.projection?.resolution)));
   if (soundFilter) fillSelect(soundFilter, validValues(rooms.map(({ room }) => room.sound?.format)));
 }
 
@@ -191,25 +329,43 @@ function render() {
   showCatalog();
 
   const query = normalize(search?.value);
-  const selectedCity = normalize(cityFilter?.value);
-  const selectedFormat = normalize(formatFilter?.value);
+  const selectedSystem = normalize(systemFilter?.value);
+  const selectedExperience = normalize(experienceFilter?.value);
   const selectedProjection = normalize(projectionFilter?.value);
+  const selectedResolution = normalize(resolutionFilter?.value);
   const selectedSound = normalize(soundFilter?.value);
 
   const filtered = rooms.filter((item) => {
-    const cityMatches = !selectedCity || normalize(item.cinema.city) === selectedCity;
-    const formatMatches = !selectedFormat || normalize(item.room.format) === selectedFormat;
-    const projectionMatches = !selectedProjection || normalize(item.room.projection?.technology ?? "") === selectedProjection;
+    const systemMatches = !selectedSystem
+      || exhibitionSystems(item.room).some(({ name }) => normalize(name) === selectedSystem);
+    const experienceMatches = !selectedExperience
+      || roomExperiences(item.room).some(({ name }) => normalize(name) === selectedExperience);
+    const projectionMatches = !selectedProjection
+      || projectionValues(item.room).some((value) => normalize(value) === selectedProjection);
+    const resolutionMatches = !selectedResolution || normalize(item.room.projection?.resolution ?? "") === selectedResolution;
     const soundMatches = !selectedSound || normalize(item.room.sound?.format ?? "") === selectedSound;
 
     return (
       item.searchable.includes(query) &&
-      cityMatches &&
-      formatMatches &&
+      systemMatches &&
+      experienceMatches &&
       projectionMatches &&
+      resolutionMatches &&
       soundMatches
     );
   });
+
+  if (sortFilter?.value === "coverage") {
+    filtered.sort((a, b) =>
+      coverageCount(b.room) - coverageCount(a.room) ||
+      a.cinema.name.localeCompare(b.cinema.name, "pt-BR"),
+    );
+  } else if (sortFilter?.value === "updated") {
+    filtered.sort((a, b) =>
+      String(b.cinema.last_verified ?? "").localeCompare(String(a.cinema.last_verified ?? "")) ||
+      a.cinema.name.localeCompare(b.cinema.name, "pt-BR"),
+    );
+  }
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / roomsPerPage));
   currentPage = Math.min(currentPage, totalPages);
@@ -217,9 +373,28 @@ function render() {
   const pageItems = filtered.slice(pageStart, pageStart + roomsPerPage);
 
   resultCount.textContent = `${filtered.length} ${filtered.length === 1 ? "sala" : "salas"}`;
+  const activeFilterCount = [
+    search?.value,
+    systemFilter?.value,
+    experienceFilter?.value,
+    projectionFilter?.value,
+    resolutionFilter?.value,
+    soundFilter?.value,
+  ].filter(Boolean).length;
+  const advancedFilterCount = [
+    systemFilter?.value,
+    experienceFilter?.value,
+    projectionFilter?.value,
+    resolutionFilter?.value,
+    soundFilter?.value,
+    sortFilter?.value !== "name" ? sortFilter?.value : "",
+  ].filter(Boolean).length;
+  if (activeFilterCountLabel) activeFilterCountLabel.textContent = advancedFilterCount;
+  const rangeStart = filtered.length ? pageStart + 1 : 0;
+  const rangeEnd = Math.min(pageStart + pageItems.length, filtered.length);
   resultContext.textContent = filtered.length > 0
-    ? `${query ? `filtradas por "${search.value}"` : "em todos os cinemas catalogados"} · página ${currentPage} de ${totalPages}`
-    : query ? `filtradas por "${search.value}"` : "em todos os cinemas catalogados";
+    ? `mostrando ${rangeStart}–${rangeEnd}${activeFilterCount ? ` · ${activeFilterCount} ${activeFilterCount === 1 ? "filtro ativo" : "filtros ativos"}` : ""}`
+    : activeFilterCount ? "nenhum resultado para os filtros atuais" : "em todo o catálogo";
 
   roomList.innerHTML = pageItems.map(renderRoom).join("");
   renderPagination(totalPages);
@@ -238,70 +413,103 @@ function renderPagination(totalPages) {
     return;
   }
 
-  const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
+  const pages = paginationItems(totalPages, currentPage);
 
   pagination.innerHTML = `
     <button type="button" data-page="${currentPage - 1}" ${currentPage === 1 ? "disabled" : ""}>Anterior</button>
     <div class="pagination-pages">
-      ${pages.map((page) => `
-        <button
-          type="button"
-          data-page="${page}"
-          ${page === currentPage ? 'aria-current="page"' : ""}
-        >${page}</button>
-      `).join("")}
+      ${pages.map((page) => page === "ellipsis"
+        ? '<span class="pagination-ellipsis" aria-hidden="true">…</span>'
+        : `
+          <button
+            type="button"
+            data-page="${page}"
+            ${page === currentPage ? 'aria-current="page"' : ""}
+          >${page}</button>
+        `).join("")}
     </div>
     <button type="button" data-page="${currentPage + 1}" ${currentPage === totalPages ? "disabled" : ""}>Próxima</button>
   `;
 }
 
+function paginationItems(totalPages, activePage) {
+  if (totalPages <= 7) {
+    return Array.from({ length: totalPages }, (_, index) => index + 1);
+  }
+
+  const pages = [1];
+  const start = Math.max(2, activePage - 1);
+  const end = Math.min(totalPages - 1, activePage + 1);
+
+  if (start > 2) pages.push("ellipsis");
+  for (let page = start; page <= end; page += 1) pages.push(page);
+  if (end < totalPages - 1) pages.push("ellipsis");
+  pages.push(totalPages);
+
+  return pages;
+}
+
 function renderRoom(item) {
   const { cinema, room } = item;
-  const projection = compact([
-    room.projection?.technology,
-    room.projection?.resolution,
+  const projectionDetailValues = [
     room.projection?.brand,
-    room.projection?.light_source,
-  ]);
-  const screen = compact([
-    room.screen?.type,
-    room.screen?.aspect_ratio,
+    room.projection?.model,
+  ];
+  const roomScreenValues = screenValues(room);
+  const screenDetailValues = [
     room.screen?.area_m2 ? `${room.screen.area_m2} m²` : "",
     room.screen?.width_m ? `${room.screen.width_m} m largura` : "",
     room.screen?.height_m ? `${room.screen.height_m} m altura` : "",
-  ]);
-  const sound = compact([
-    room.sound?.format,
+  ];
+  const roomSoundValues = soundValues(room);
+  const soundDetailValues = [
+    room.sound?.processor,
     room.sound?.channels ? `${room.sound.channels} canais` : "",
+    room.sound?.audio_streams ? `${room.sound.audio_streams} streams` : "",
     room.sound?.speakers ? `${room.sound.speakers} caixas` : "",
     room.sound?.power_watts ? `${room.sound.power_watts} W` : "",
-  ]);
+  ];
+  const sourceCount = usefulSources(room.sources).length;
+  const coverage = coverageCount(room);
 
   return `
-    <a class="room-row" href="${roomUrl(item.id)}" aria-label="Abrir detalhes de ${room.name} em ${cinema.name}">
+    <a class="room-row" href="${roomUrl(item.id)}" aria-label="Abrir detalhes de ${display(room.name)} em ${display(cinema.name)}">
       <div class="room-main">
-        <span class="room-name">${room.name}</span>
-        <strong>${cinema.name}</strong>
-        <span class="format-badge">${display(room.format)}</span>
+        <span class="room-network">${display(networkName(cinema))}</span>
+        <strong>${display(cinema.name)}</strong>
+        <span class="room-name">${display(room.name)}</span>
+        <span class="room-location">${display(cinema.neighborhood)} · ${display(cinema.city)}</span>
       </div>
-      <div>
-        <span class="cell-label">Local</span>
-        <span>${cinema.city}, ${cinema.state}</span>
-        <small>${display(cinema.neighborhood)}</small>
+      <div class="room-specs">
+        ${renderRoomField("Projeção", [projectionDisplay(room)], projectionDetailValues)}
+        ${renderRoomField("Resolução", [room.projection?.resolution])}
+        ${renderRoomField("Som", roomSoundValues, soundDetailValues)}
+        ${renderRoomField("Tela", roomScreenValues, screenDetailValues)}
       </div>
-      <div>
-        <span class="cell-label">Projecao</span>
-        <span>${projection}</span>
-      </div>
-      <div>
-        <span class="cell-label">Tela</span>
-        <span>${screen}</span>
-      </div>
-      <div>
-        <span class="cell-label">Som</span>
-        <span>${sound}</span>
+      <div class="room-evidence">
+        <span class="evidence-label">Registro</span>
+        <span class="evidence-meta">
+          <strong>${formatDate(cinema.last_verified)}</strong>
+          <small>${sourceCount} ${sourceCount === 1 ? "fonte" : "fontes"} · ${coverage}/6 áreas documentadas</small>
+        </span>
+        <span class="room-row-action">Ver ficha <span aria-hidden="true">→</span></span>
       </div>
     </a>
+  `;
+}
+
+function renderRoomField(label, values, detailValues = []) {
+  const knownValues = values.filter(isKnown);
+  const knownDetails = detailValues.filter(isKnown);
+  const primary = knownValues.join(" · ");
+  const detail = knownDetails.join(" · ");
+
+  return `
+    <div class="room-field ${primary ? "" : "is-unknown"}">
+      <span class="cell-label">${label}</span>
+      <strong class="data-primary">${escapeHtml(primary || "A confirmar")}</strong>
+      ${detail ? `<small class="data-secondary">${escapeHtml(detail)}</small>` : ""}
+    </div>
   `;
 }
 
@@ -333,10 +541,8 @@ function getSelectedNetwork() {
 }
 
 function showCatalog() {
-  if (heroSection) heroSection.hidden = false;
-  if (pageHeading) pageHeading.hidden = false;
   if (homeLinks) homeLinks.hidden = false;
-  [search, cityFilter, formatFilter, projectionFilter, soundFilter].filter(Boolean).forEach((control) => {
+  [search, systemFilter, experienceFilter, projectionFilter, resolutionFilter, soundFilter, sortFilter].filter(Boolean).forEach((control) => {
     control.hidden = false;
   });
   if (roomDetail) roomDetail.hidden = true;
@@ -350,10 +556,8 @@ function showCatalog() {
 }
 
 function showDetailView() {
-  if (heroSection) heroSection.hidden = true;
-  if (pageHeading) pageHeading.hidden = true;
   if (homeLinks) homeLinks.hidden = true;
-  [search, cityFilter, formatFilter, projectionFilter, soundFilter].filter(Boolean).forEach((control) => {
+  [search, systemFilter, experienceFilter, projectionFilter, resolutionFilter, soundFilter, sortFilter].filter(Boolean).forEach((control) => {
     control.hidden = true;
   });
   if (roomTable) roomTable.hidden = true;
@@ -376,8 +580,8 @@ function renderMissingDetail(title, message) {
     <header class="detail-header">
       <div>
         <p class="eyebrow">Catálogo</p>
-        <h2>${title}</h2>
-        <p class="detail-meta">${message}</p>
+        <h1>${display(title)}</h1>
+        <p class="detail-meta">${display(message)}</p>
       </div>
     </header>
   `;
@@ -385,7 +589,7 @@ function renderMissingDetail(title, message) {
 
 function renderRoomDetail(item) {
   const { cinema, room } = item;
-  const sourceCount = room.sources?.length ?? 0;
+  const sourceCount = usefulSources(room.sources).length;
 
   showDetailView();
 
@@ -394,16 +598,16 @@ function renderRoomDetail(item) {
   const fromSlug = new URLSearchParams(window.location.search).get("de");
   const fromCinema = fromSlug ? cinemas.find((c) => c.slug === fromSlug) : null;
   const backLink = fromCinema
-    ? `<a class="back-link" href="${cinemaUrl(fromCinema)}">Voltar para ${fromCinema.name}</a>`
+    ? `<a class="back-link" href="${cinemaUrl(fromCinema)}">Voltar para ${display(fromCinema.name)}</a>`
     : `<a class="back-link" href="salas.html">Voltar para salas</a>`;
 
   roomDetail.innerHTML = `
     ${backLink}
     <header class="detail-header">
       <div>
-        <p class="eyebrow"><a href="${networkUrl(cinema)}">${networkName(cinema)}</a></p>
-        <h2><a href="${cinemaUrl(cinema)}">${cinema.name}</a> · ${room.name}</h2>
-        <p class="detail-meta">${cinema.city}, ${cinema.state} · ${display(cinema.neighborhood)} · ${display(room.format)}</p>
+        <p class="eyebrow"><a href="${networkUrl(cinema)}">${display(networkName(cinema))}</a></p>
+        <h1><a href="${cinemaUrl(cinema)}">${display(cinema.name)}</a> · ${display(room.name)}</h1>
+        <p class="detail-meta">${display(cinema.address)} · ${display(cinema.city)}, ${display(cinema.state)}</p>
       </div>
       <div class="detail-stamp">
         <span>${sourceCount}</span>
@@ -411,49 +615,86 @@ function renderRoomDetail(item) {
       </div>
     </header>
 
+    <section class="detail-facts" aria-label="Resumo da sala">
+      <div class="detail-fact">
+        <small>Projeção</small>
+        <strong>${display(compact([projectionDisplay(room), room.projection?.resolution]))}</strong>
+      </div>
+      <div class="detail-fact">
+        <small>Som</small>
+        <strong>${display(compact(soundValues(room)))}</strong>
+      </div>
+      <div class="detail-fact">
+        <small>Tela</small>
+        <strong>${display(compact([
+          ...screenValues(room),
+          room.screen?.area_m2 ? `${room.screen.area_m2} m²` : "",
+        ]))}</strong>
+      </div>
+      <div class="detail-fact">
+        <small>Última verificação</small>
+        <strong>${formatDate(cinema.last_verified)}</strong>
+      </div>
+    </section>
+
     <section class="detail-grid" aria-label="Especificacoes da sala">
-      ${renderSpecGroup("Projecao", [
-        ["Tecnologia", room.projection?.technology],
+      ${renderSpecGroup("Projeção", [
+        ["Meio", room.projection?.technology],
         ["Marca", room.projection?.brand],
         ["Modelo", room.projection?.model],
-        ["Resolucao", room.projection?.resolution],
+        ["Resolução", room.projection?.resolution],
         ["Fonte de luz", room.projection?.light_source],
         ["Projetores", room.projection?.dual_lens ? "Duplo" : null],
-        ["Potencia por projetor", room.projection?.watts_each ? `${room.projection.watts_each} W` : null],
+        ["Potência", room.projection?.watts_each ? `${room.projection.watts_each} W por projetor` : null],
       ])}
       ${renderSpecGroup("Tela", [
-        ["Tipo", room.screen?.type],
-        ["Proporcao", room.screen?.aspect_ratio],
-        ["Area", room.screen?.area_m2 ? `${room.screen.area_m2} m²` : null],
+        ["Tecnologia", room.screen?.technology],
+        ["Superfície", room.screen?.surface],
+        ["Geometria", room.screen?.geometry],
+        ["Proporção", room.screen?.aspect_ratio],
+        ["Área", room.screen?.area_m2 ? `${room.screen.area_m2} m²` : null],
         ["Largura", room.screen?.width_m ? `${room.screen.width_m} m` : null],
         ["Altura", room.screen?.height_m ? `${room.screen.height_m} m` : null],
         ["Diagonal", room.screen?.diagonal_in ? `${room.screen.diagonal_in}"` : null],
       ])}
       ${renderSpecGroup("Som", [
         ["Formato", room.sound?.format],
+        ["Layout", room.sound?.channel_layout],
+        ["Processador", room.sound?.processor],
         ["Canais", room.sound?.channels],
+        ["Streams", room.sound?.audio_streams],
         ["Caixas", room.sound?.speakers],
-        ["Potencia", room.sound?.power_watts ? `${room.sound.power_watts} W` : null],
-        ["Observacao", room.sound?.notes],
+        ["Potência", room.sound?.power_watts ? `${room.sound.power_watts} W` : null],
+        ["Observação", room.sound?.notes],
+      ])}
+      ${renderSpecGroup("Acessibilidade", [
+        ["Espaços para cadeirantes", room.accessibility?.wheelchair_seats],
+        ["Mobilidade reduzida", room.accessibility?.reduced_mobility_seats],
+        ["Assentos para pessoas obesas", room.accessibility?.obese_seats],
+        ["Rampa até os assentos", yesNo(room.accessibility?.ramp_to_seats)],
+        ["Rampa até a sala", yesNo(room.accessibility?.ramp_to_room)],
+        ["Banheiros acessíveis", yesNo(room.accessibility?.accessible_restrooms)],
       ])}
       ${renderSpecGroup("Cinema", [
-        ["Rede", `<a href="${networkUrl(cinema)}">${networkName(cinema)}</a>`],
-        ["Endereco", cinema.address],
+        ["Rede", networkName(cinema), networkUrl(cinema)],
+        ["Endereço", cinema.address],
         ["Capacidade", room.seats],
-        ["Ultima verificacao", cinema.last_verified],
+        ["Registro ANCINE da sala", room.ancine_registry],
+        ["Registro ANCINE do complexo", cinema.ancine_registry],
+        ["Verificação", formatDate(cinema.last_verified)],
       ])}
     </section>
 
     <section class="sources-block">
-      <h3>Tecnologias</h3>
+      <h3>Sistema e recursos</h3>
       ${renderTechnologies(room.technologies)}
     </section>
 
     ${renderNotes(cinema, room)}
 
     <section class="sources-block">
-      <h3>Fontes e observacoes</h3>
-      ${renderSources(room.sources)}
+      <h3>Fontes</h3>
+      ${renderSources(usefulSources(room.sources))}
     </section>
   `;
 }
@@ -467,12 +708,12 @@ function renderCinemaDetail(cinema) {
   document.title = `${cinema.name} | CinemasWiki`;
 
   roomDetail.innerHTML = `
-    <a class="back-link" href="${networkUrl(cinema)}">Voltar para ${networkName(cinema)}</a>
+    <a class="back-link" href="${networkUrl(cinema)}">Voltar para ${display(networkName(cinema))}</a>
     <header class="detail-header">
       <div>
-        <p class="eyebrow"><a href="${networkUrl(cinema)}">${networkName(cinema)}</a></p>
-        <h2>${cinema.name}</h2>
-        <p class="detail-meta">${cinema.city}, ${cinema.state} · ${display(cinema.neighborhood)} · ${display(cinema.address)}</p>
+        <p class="eyebrow"><a href="${networkUrl(cinema)}">${display(networkName(cinema))}</a></p>
+        <h1>${display(cinema.name)}</h1>
+        <p class="detail-meta">${display(cinema.city)}, ${display(cinema.state)} · ${display(cinema.neighborhood)} · ${display(cinema.address)}</p>
       </div>
       <div class="detail-stamp">
         <span>${cinemaRooms.length}</span>
@@ -485,7 +726,7 @@ function renderCinemaDetail(cinema) {
     ${cinema.notes ? `
       <section class="sources-block">
         <h3>Notas</h3>
-        <ul class="note-list"><li>${cinema.notes}</li></ul>
+        <ul class="note-list"><li>${display(cinema.notes)}</li></ul>
       </section>
     ` : ""}
   `;
@@ -502,7 +743,7 @@ function renderNetworkDetail(network) {
     <header class="detail-header">
       <div>
         <p class="eyebrow">Rede</p>
-        <h2>${network.name}</h2>
+        <h1>${display(network.name)}</h1>
         <p class="detail-meta">${network.cinemas.length} ${network.cinemas.length === 1 ? "cinema catalogado" : "cinemas catalogados"} · ${networkRooms.length} ${networkRooms.length === 1 ? "sala" : "salas"}</p>
       </div>
       <div class="detail-stamp">
@@ -518,8 +759,8 @@ function renderNetworkDetail(network) {
           const count = cinema.rooms.length;
           return `
             <a class="cinema-card-link" href="${cinemaUrl(cinema)}">
-              <strong>${cinema.name}</strong>
-              <span>${cinema.city}, ${cinema.state} · ${display(cinema.neighborhood)}</span>
+              <strong>${display(cinema.name)}</strong>
+              <span>${display(cinema.city)}, ${display(cinema.state)} · ${display(cinema.neighborhood)}</span>
               <small>${count} ${count === 1 ? "sala catalogada" : "salas catalogadas"}</small>
             </a>
           `;
@@ -538,15 +779,13 @@ function renderRoomCards(items, title, fromCinema) {
           const { cinema, room } = item;
           return `
             <a class="room-card-link" href="${roomUrl(item.id, fromCinema?.slug)}">
-              <strong>${room.name}</strong>
-              <span>${display(room.format)}</span>
-              <small>${compact([
-                room.projection?.technology,
-                room.projection?.resolution,
-                room.sound?.format,
+              <strong>${display(room.name)}</strong>
+              <span>${display(compact([projectionDisplay(room), room.projection?.resolution]))}</span>
+              <small>${display(compact([
+                ...soundValues(room),
                 room.screen?.area_m2 ? `${room.screen.area_m2} m²` : "",
-              ])}</small>
-              <em>${cinema.name}</em>
+              ]))}</small>
+              <em>${display(cinema.name)}</em>
             </a>
           `;
         }).join("")}
@@ -560,12 +799,15 @@ function renderSpecGroup(title, rows) {
     <article class="spec-group">
       <h3>${title}</h3>
       <dl>
-        ${rows.map(([label, value]) => `
+        ${rows.map(([label, value, href]) => {
+          const known = isKnown(value);
+          return `
           <div>
-            <dt>${label}</dt>
-            <dd>${display(value)}</dd>
+            <dt>${display(label)}</dt>
+            <dd class="${known ? "" : "is-unknown"}">${href && known ? `<a href="${href}">${display(value)}</a>` : display(value)}</dd>
           </div>
-        `).join("")}
+        `;
+        }).join("")}
       </dl>
     </article>
   `;
@@ -573,16 +815,21 @@ function renderSpecGroup(title, rows) {
 
 function renderTechnologies(technologies = []) {
   if (technologies.length === 0) {
-    return '<p class="empty-result">Nenhuma tecnologia cadastrada para esta sala.</p>';
+    return '<p class="empty-result">Nenhum sistema ou recurso adicional cadastrado para esta sala.</p>';
   }
+
+  const typeLabels = {
+    experience: "Experiência",
+    system: "Sistema",
+  };
 
   return `
     <ul class="tech-list">
       ${technologies.map((tech) => `
         <li>
           <strong>${display(tech.name)}</strong>
-          <span>${display(tech.type)}</span>
-          ${tech.notes ? `<small>${tech.notes}</small>` : ""}
+          <span>${display(typeLabels[tech.type] || tech.type)}</span>
+          ${tech.notes ? `<small>${display(tech.notes)}</small>` : ""}
         </li>
       `).join("")}
     </ul>
@@ -603,28 +850,46 @@ function renderNotes(cinema, room) {
     <section class="sources-block">
       <h3>Notas</h3>
       <ul class="note-list">
-        ${notes.map((note) => `<li>${note}</li>`).join("")}
+        ${notes.map((note) => `<li>${display(note)}</li>`).join("")}
       </ul>
     </section>
   `;
 }
 
 function renderSources(sources = []) {
-  if (sources.length === 0) {
+  const visibleSources = usefulSources(sources);
+  if (visibleSources.length === 0) {
     return '<p class="empty-result">Nenhuma fonte cadastrada ainda.</p>';
   }
 
   return `
     <ul class="source-list">
-      ${sources.map((source) => `
+      ${visibleSources.map((source) => {
+        const safeUrl = source.url ? safeExternalUrl(source.url) : "";
+        return `
         <li>
-          <strong>${display(source.type)}</strong>
-          ${source.url ? `<a href="${source.url}">${source.url}</a>` : "<span>Sem URL</span>"}
-          <small>${display(source.note, "Sem observacao")}</small>
+          <strong class="source-type">${sourceTypeLabel(source.type)}</strong>
+          ${safeUrl ? `<a href="${safeUrl}" target="_blank" rel="noreferrer">Abrir fonte ↗</a>` : "<span>Referência sem link</span>"}
+          <small>${display(source.note, "Sem observação adicional")}</small>
         </li>
-      `).join("")}
+      `;
+      }).join("")}
     </ul>
   `;
+}
+
+function sourceTypeLabel(type) {
+  const labels = {
+    official: "Oficial",
+    press: "Imprensa",
+    photo: "Foto",
+    visit: "Visita",
+    user_report: "Relato",
+    inferred: "Inferido",
+    metadata: "Metadado",
+    placeholder: "Pendente",
+  };
+  return labels[type] || display(type);
 }
 
 function buildNetworks() {
@@ -647,10 +912,17 @@ function restoreFiltersFromUrl() {
   if (!search) return;
   const params = new URLSearchParams(window.location.search);
   if (params.has("q")) search.value = params.get("q");
-  if (cityFilter && params.has("cidade")) cityFilter.value = params.get("cidade");
-  if (formatFilter && params.has("formato")) formatFilter.value = params.get("formato");
+  if (systemFilter && params.has("sistema")) {
+    systemFilter.value = params.get("sistema");
+    if (!systemFilter.value && experienceFilter) {
+      experienceFilter.value = params.get("sistema");
+    }
+  }
+  if (experienceFilter && params.has("experiencia")) experienceFilter.value = params.get("experiencia");
   if (projectionFilter && params.has("projecao")) projectionFilter.value = params.get("projecao");
+  if (resolutionFilter && params.has("resolucao")) resolutionFilter.value = params.get("resolucao");
   if (soundFilter && params.has("som")) soundFilter.value = params.get("som");
+  if (sortFilter && params.has("ordem")) sortFilter.value = params.get("ordem");
   if (params.has("p")) currentPage = Math.max(1, Number(params.get("p")) || 1);
 }
 
@@ -658,10 +930,12 @@ function updateFilterUrl() {
   if (!search) return;
   const params = new URLSearchParams();
   if (search.value) params.set("q", search.value);
-  if (cityFilter?.value) params.set("cidade", cityFilter.value);
-  if (formatFilter?.value) params.set("formato", formatFilter.value);
+  if (systemFilter?.value) params.set("sistema", systemFilter.value);
+  if (experienceFilter?.value) params.set("experiencia", experienceFilter.value);
   if (projectionFilter?.value) params.set("projecao", projectionFilter.value);
+  if (resolutionFilter?.value) params.set("resolucao", resolutionFilter.value);
   if (soundFilter?.value) params.set("som", soundFilter.value);
+  if (sortFilter?.value && sortFilter.value !== "name") params.set("ordem", sortFilter.value);
   if (currentPage > 1) params.set("p", String(currentPage));
   const qs = params.toString();
   history.replaceState(null, "", qs ? `?${qs}` : window.location.pathname);
@@ -670,27 +944,57 @@ function updateFilterUrl() {
 function renderNetworkTree() {
   if (!networkTree) return;
 
-  const networks = buildNetworks();
+  const query = normalize(cinemaSearch?.value);
+  const networks = buildNetworks()
+    .map((network) => ({
+      ...network,
+      cinemas: network.cinemas.filter((cinema) => {
+        const text = normalize([
+          network.name,
+          cinema.name,
+          cinema.city,
+          cinema.neighborhood,
+          cinema.address,
+          ...cinema.rooms.map((room) => roomText({ cinema, room })),
+        ].join(" "));
+        return text.includes(query);
+      }),
+    }))
+    .filter((network) => network.cinemas.length > 0);
   const totalPages = Math.max(1, Math.ceil(networks.length / networksPerPage));
   currentNetworkPage = Math.min(currentNetworkPage, totalPages);
   const pageStart = (currentNetworkPage - 1) * networksPerPage;
   const pageNetworks = networks.slice(pageStart, pageStart + networksPerPage);
 
+  if (networkSummary) {
+    const cinemaTotal = networks.reduce((sum, network) => sum + network.cinemas.length, 0);
+    networkSummary.textContent = networks.length
+      ? `${networks.length} ${networks.length === 1 ? "rede" : "redes"} · ${cinemaTotal} ${cinemaTotal === 1 ? "cinema" : "cinemas"}${query ? " encontrados" : " catalogados"}`
+      : "Nenhum cinema encontrado";
+  }
+
   networkTree.innerHTML = pageNetworks.map(({ name, cinemas: networkCinemas }) => {
     const networkSlug = networkId(networkCinemas[0]);
     return `
     <article class="network-block">
-      <h3><a href="${networkUrl(networkSlug)}">${name}</a></h3>
+      <h3>
+        <a href="${networkUrl(networkSlug)}">${display(name)}</a>
+        <span class="network-count">${networkCinemas.length} ${networkCinemas.length === 1 ? "cinema" : "cinemas"}</span>
+      </h3>
       <div class="cinema-branch">
         ${networkCinemas.map((cinema) => `
           <section>
-            <h4><a href="${cinemaUrl(cinema)}">${cinema.name}</a></h4>
-            <p>${cinema.city}, ${cinema.state} · ${display(cinema.neighborhood)}</p>
+            <h4><a href="${cinemaUrl(cinema)}">${display(cinema.name)}</a></h4>
+            <p>${display(cinema.city)}, ${display(cinema.state)} · ${display(cinema.neighborhood)}</p>
             <ul>
               ${cinema.rooms.map((room) => `
                 <li>
-                  <a href="${roomUrl(roomId(cinema, room))}">${room.name}</a>
-                  <span>${display(room.format)}</span>
+                  <a href="${roomUrl(roomId(cinema, room))}">${display(room.name)}</a>
+                  <span>${display(compact([
+                    projectionDisplay(room),
+                    room.projection?.resolution,
+                    ...soundValues(room),
+                  ]))}</span>
                 </li>
               `).join("")}
             </ul>
@@ -700,6 +1004,10 @@ function renderNetworkTree() {
     </article>
   `;
   }).join("");
+
+  if (networks.length === 0) {
+    networkTree.innerHTML = '<p class="empty-result">Tente buscar por outro nome, rede, bairro ou sala.</p>';
+  }
 
   renderNetworkPagination(totalPages);
 }
@@ -733,18 +1041,28 @@ async function init() {
   if (roomList) roomList.innerHTML = '<p class="empty-result">Carregando salas…</p>';
   if (networkTree) networkTree.innerHTML = '<p class="empty-result">Carregando…</p>';
 
-  const response = await fetch("data/cinemas.json");
-  cinemas = await response.json();
-  rooms = buildRooms(cinemas);
+  const response = await fetch("data/cinemas.json", {
+    cache: "no-cache",
+    headers: { Accept: "application/json" },
+  });
+  if (!response.ok) {
+    throw new Error(`O catálogo respondeu com HTTP ${response.status}.`);
+  }
 
-  if (cinemaCount) cinemaCount.textContent = cinemas.length;
-  if (roomCount) roomCount.textContent = rooms.length;
+  const payload = await response.json();
+  if (!Array.isArray(payload)) {
+    throw new TypeError("O catálogo não contém uma lista de cinemas.");
+  }
+
+  cinemas = payload;
+  rooms = buildRooms(cinemas);
 
   setupFilters();
   restoreFiltersFromUrl();
+  setupMobileFilters();
   renderNetworkTree();
 
-  [search, cityFilter, formatFilter, projectionFilter, soundFilter].filter(Boolean).forEach((control) => {
+  [search, systemFilter, experienceFilter, projectionFilter, resolutionFilter, soundFilter, sortFilter].filter(Boolean).forEach((control) => {
     control.addEventListener("input", () => {
       currentPage = 1;
       render();
@@ -754,6 +1072,31 @@ async function init() {
       render();
     });
   });
+
+  if (clearFilters) {
+    clearFilters.addEventListener("click", () => {
+      [search, systemFilter, experienceFilter, projectionFilter, resolutionFilter, soundFilter].filter(Boolean).forEach((control) => {
+        control.value = "";
+      });
+      if (sortFilter) sortFilter.value = "name";
+      currentPage = 1;
+      render();
+      search?.focus();
+    });
+  }
+
+  if (filterToggle && filterGrid) {
+    filterToggle.addEventListener("click", () => {
+      setFilterExpanded(filterToggle.getAttribute("aria-expanded") !== "true");
+    });
+  }
+
+  if (cinemaSearch) {
+    cinemaSearch.addEventListener("input", () => {
+      currentNetworkPage = 1;
+      renderNetworkTree();
+    });
+  }
 
   if (pagination) {
     pagination.addEventListener("click", (event) => {
@@ -778,12 +1121,13 @@ async function init() {
   }
 
   document.addEventListener("keydown", (event) => {
-    if (!search) return;
     if (event.key !== "/" || event.metaKey || event.ctrlKey) return;
     if (document.activeElement?.closest("input, select, textarea")) return;
+    const searchControl = search || cinemaSearch;
+    if (!searchControl) return;
     event.preventDefault();
-    search.focus();
-    search.select();
+    searchControl.focus();
+    searchControl.select();
   });
 
   window.addEventListener("popstate", () => {
@@ -791,6 +1135,30 @@ async function init() {
     render();
   });
   render();
+}
+
+function setFilterExpanded(expanded) {
+  if (!filterToggle || !filterGrid) return;
+  filterToggle.setAttribute("aria-expanded", String(expanded));
+  filterGrid.hidden = !expanded;
+}
+
+function setupMobileFilters() {
+  if (!filterToggle || !filterGrid) return;
+  const media = window.matchMedia("(max-width: 600px)");
+  const hasActiveTechnicalFilter = () => [
+      systemFilter?.value,
+      experienceFilter?.value,
+      projectionFilter?.value,
+      resolutionFilter?.value,
+      soundFilter?.value,
+      sortFilter?.value !== "name" ? sortFilter?.value : "",
+    ].some(Boolean);
+
+  setFilterExpanded(!media.matches || hasActiveTechnicalFilter());
+  media.addEventListener("change", (event) => {
+    setFilterExpanded(!event.matches || hasActiveTechnicalFilter());
+  });
 }
 
 init().catch(() => {

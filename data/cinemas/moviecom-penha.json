@@ -1,0 +1,249 @@
+{
+  "slug": "moviecom-penha",
+  "name": "Moviecom Penha",
+  "network": {
+    "slug": "moviecom",
+    "name": "Moviecom"
+  },
+  "city": "São Paulo",
+  "state": "SP",
+  "neighborhood": "Penha",
+  "address": "R. Dr. João Ribeiro – Penha",
+  "ancine_registry": "2919",
+  "last_verified": "2026-07-31",
+  "rooms": [
+    {
+      "name": "Sala 1",
+      "slug": "sala-1",
+      "ancine_registry": "5000926",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 120,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 2,
+        "ramp_to_seats": false,
+        "ramp_to_room": false,
+        "accessible_restrooms": false
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"MOVIECOM PENHA 1\", registro 5000926, em funcionamento; 120 assentos, 4 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 2",
+      "slug": "sala-2",
+      "ancine_registry": "5001513",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 91,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 2,
+        "ramp_to_seats": false,
+        "ramp_to_room": false,
+        "accessible_restrooms": false
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"MOVIECOM PENHA 2\", registro 5001513, em funcionamento; 91 assentos, 4 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 3",
+      "slug": "sala-3",
+      "ancine_registry": "5001499",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 164,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 2,
+        "ramp_to_seats": false,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"MOVIECOM PENHA 3\", registro 5001499, em funcionamento; 164 assentos, 4 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 4",
+      "slug": "sala-4",
+      "ancine_registry": "5001501",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 171,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 2,
+        "ramp_to_seats": false,
+        "ramp_to_room": false,
+        "accessible_restrooms": false
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"MOVIECOM PENHA 4\", registro 5001501, em funcionamento; 171 assentos, 4 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 5",
+      "slug": "sala-5",
+      "ancine_registry": "5001504",
+      "technologies": [
+        {
+          "name": "3D",
+          "type": "experience"
+        }
+      ],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 256,
+      "accessibility": {
+        "wheelchair_seats": 5,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 3,
+        "ramp_to_seats": false,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"MOVIECOM PENHA 5\", registro 5001504, em funcionamento; 256 assentos, 5 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 3 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 6",
+      "slug": "sala-6",
+      "ancine_registry": "5001506",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 326,
+      "accessibility": {
+        "wheelchair_seats": 6,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 4,
+        "ramp_to_seats": false,
+        "ramp_to_room": false,
+        "accessible_restrooms": false
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"MOVIECOM PENHA 6\", registro 5001506, em funcionamento; 326 assentos, 6 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 4 assentos para pessoas obesas."
+        }
+      ]
+    }
+  ]
+}

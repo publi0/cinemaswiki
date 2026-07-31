@@ -1,0 +1,298 @@
+{
+  "slug": "cinemark-west-plaza",
+  "name": "Cinemark West Plaza",
+  "network": {
+    "slug": "cinemark",
+    "name": "Cinemark"
+  },
+  "city": "São Paulo",
+  "state": "SP",
+  "neighborhood": "Água Branca",
+  "address": "Av. Antártica – Água Branca",
+  "ancine_registry": "36652",
+  "last_verified": "2026-07-31",
+  "rooms": [
+    {
+      "name": "Sala 1",
+      "slug": "sala-1",
+      "ancine_registry": "5005798",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 116,
+      "accessibility": {
+        "wheelchair_seats": 5,
+        "reduced_mobility_seats": 2,
+        "obese_seats": 4,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINEMARK WEST PLAZA SALA 01\", registro 5005798, em funcionamento; 116 assentos, 5 espaços para cadeirantes, 2 assentos de mobilidade reduzida, 4 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 2",
+      "slug": "sala-2",
+      "ancine_registry": "5005799",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 116,
+      "accessibility": {
+        "wheelchair_seats": 5,
+        "reduced_mobility_seats": 2,
+        "obese_seats": 4,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINEMARK WEST PLAZA SALA 02\", registro 5005799, em funcionamento; 116 assentos, 5 espaços para cadeirantes, 2 assentos de mobilidade reduzida, 4 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 3",
+      "slug": "sala-3",
+      "ancine_registry": "5005800",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 135,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 2,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINEMARK WEST PLAZA SALA 03\", registro 5005800, em funcionamento; 135 assentos, 4 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINEMARK WEST PLAZA SALA 03\", registro 5005800, em funcionamento; 135 assentos, 4 espaços para cadeirantes, 1 assento de mobilidade reduzida, 2 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 4",
+      "slug": "sala-4",
+      "ancine_registry": "5005801",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 135,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 2,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINEMARK WEST PLAZA SALA 04\", registro 5005801, em funcionamento; 135 assentos, 4 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINEMARK WEST PLAZA SALA 04\", registro 5005801, em funcionamento; 135 assentos, 4 espaços para cadeirantes, 1 assento de mobilidade reduzida, 2 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 5",
+      "slug": "sala-5",
+      "ancine_registry": "5005802",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 203,
+      "accessibility": {
+        "wheelchair_seats": 5,
+        "reduced_mobility_seats": 2,
+        "obese_seats": 3,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINEMARK WEST PLAZA SALA 05\", registro 5005802, em funcionamento; 203 assentos, 5 espaços para cadeirantes, 2 assentos de mobilidade reduzida, 3 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 6",
+      "slug": "sala-6",
+      "ancine_registry": "5005803",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "2K",
+        "light_source": "Xenon",
+        "brand": "Barco"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 218,
+      "accessibility": {
+        "wheelchair_seats": 5,
+        "reduced_mobility_seats": 2,
+        "obese_seats": 3,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINEMARK WEST PLAZA SALA 06\", registro 5005803, em funcionamento; 218 assentos, 5 espaços para cadeirantes, 2 assentos de mobilidade reduzida, 3 assentos para pessoas obesas."
+        }
+      ],
+      "notes": "Conforto: Poltronas com movimento sincronizado — tecnologia: D-Box MFX; movimento sincronizado ao filme"
+    },
+    {
+      "name": "Sala 7",
+      "slug": "sala-7",
+      "ancine_registry": "5005804",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "4K",
+        "light_source": "Laser",
+        "brand": "Barco",
+        "notes": "Barco 4K laser; ~30.000 lumens; tela 40% maior que convencional"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": 12,
+        "power_watts": 50000,
+        "notes": "Sistema surround 11.1; 50.000W; certificação THX",
+        "channel_layout": "11.1"
+      },
+      "seats": 305,
+      "accessibility": {
+        "wheelchair_seats": 7,
+        "reduced_mobility_seats": 3,
+        "obese_seats": 3,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINEMARK WEST PLAZA SALA 07\", registro 5005804, em funcionamento; 305 assentos, 7 espaços para cadeirantes, 3 assentos de mobilidade reduzida, 3 assentos para pessoas obesas."
+        }
+      ]
+    }
+  ]
+}

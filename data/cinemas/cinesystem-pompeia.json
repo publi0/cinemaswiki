@@ -1,0 +1,537 @@
+{
+  "slug": "cinesystem-pompeia",
+  "name": "Cinesystem Pompeia",
+  "network": {
+    "slug": "cinesystem",
+    "name": "Cinesystem"
+  },
+  "city": "São Paulo",
+  "state": "SP",
+  "neighborhood": "Perdizes",
+  "address": "Rua Palestra Itália, 500 – Perdizes (Shopping Bourbon)",
+  "ancine_registry": "42213",
+  "last_verified": "2026-07-31",
+  "rooms": [
+    {
+      "name": "Sala 1",
+      "slug": "sala-1",
+      "ancine_registry": "5006224",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 211,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 4,
+        "obese_seats": 3,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"ESPAÇO ITAÚ DE CINEMA POMPÉÍA -SALA 01\", registro 5006224, em funcionamento; 211 assentos, 4 espaços para cadeirantes, 4 assentos de mobilidade reduzida, 3 assentos para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinesystem-pompeia",
+          "note": "Sala 1 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ]
+    },
+    {
+      "name": "Sala 2",
+      "slug": "sala-2",
+      "ancine_registry": "5006225",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 202,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 4,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"ESPAÇO ITAÚ DE CINEMA POMPÉÍA -SALA 02\", registro 5006225, em funcionamento; 202 assentos, 4 espaços para cadeirantes, 4 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"ESPAÇO ITAÚ DE CINEMA POMPÉÍA -SALA 02\", registro 5006225, em funcionamento; 202 assentos, 4 espaços para cadeirantes, 4 assentos de mobilidade reduzida, 1 assento para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinesystem-pompeia",
+          "note": "Sala 2 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ]
+    },
+    {
+      "name": "Sala 3",
+      "slug": "sala-3",
+      "ancine_registry": "5006226",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 202,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 4,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"ESPAÇO ITAÚ DE CINEMA POMPÉÍA -SALA 03\", registro 5006226, em funcionamento; 202 assentos, 4 espaços para cadeirantes, 4 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"ESPAÇO ITAÚ DE CINEMA POMPÉÍA -SALA 03\", registro 5006226, em funcionamento; 202 assentos, 4 espaços para cadeirantes, 4 assentos de mobilidade reduzida, 1 assento para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinesystem-pompeia",
+          "note": "Sala 3 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ]
+    },
+    {
+      "name": "Sala 4",
+      "slug": "sala-4",
+      "ancine_registry": "5006227",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 212,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 4,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"ESPAÇO ITAÚ DE CINEMA POMPÉÍA -SALA 04\", registro 5006227, em funcionamento; 212 assentos, 4 espaços para cadeirantes, 4 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"ESPAÇO ITAÚ DE CINEMA POMPÉÍA -SALA 04\", registro 5006227, em funcionamento; 212 assentos, 4 espaços para cadeirantes, 4 assentos de mobilidade reduzida, 1 assento para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinesystem-pompeia",
+          "note": "Sala 4 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ]
+    },
+    {
+      "name": "Sala 5",
+      "slug": "sala-5",
+      "ancine_registry": "5006228",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 202,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 4,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"ESPAÇO ITAÚ DE CINEMA POMPÉÍA -SALA 05\", registro 5006228, em funcionamento; 202 assentos, 4 espaços para cadeirantes, 4 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"ESPAÇO ITAÚ DE CINEMA POMPÉÍA -SALA 05\", registro 5006228, em funcionamento; 202 assentos, 4 espaços para cadeirantes, 4 assentos de mobilidade reduzida, 1 assento para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinesystem-pompeia",
+          "note": "Sala 5 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ]
+    },
+    {
+      "name": "Sala 6",
+      "slug": "sala-6",
+      "ancine_registry": "5006229",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 202,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 4,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"ESPAÇO ITAÚ DE CINEMA POMPÉÍA -SALA 06\", registro 5006229, em funcionamento; 202 assentos, 4 espaços para cadeirantes, 4 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"ESPAÇO ITAÚ DE CINEMA POMPÉÍA -SALA 06\", registro 5006229, em funcionamento; 202 assentos, 4 espaços para cadeirantes, 4 assentos de mobilidade reduzida, 1 assento para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinesystem-pompeia",
+          "note": "Sala 6 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ]
+    },
+    {
+      "name": "Sala 7",
+      "slug": "sala-7",
+      "ancine_registry": "5006230",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 121,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 4,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"ESPAÇO ITAÚ DE CINEMA POMPÉÍA -SALA 07\", registro 5006230, em funcionamento; 121 assentos, 4 espaços para cadeirantes, 4 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"ESPAÇO ITAÚ DE CINEMA POMPÉÍA -SALA 07\", registro 5006230, em funcionamento; 121 assentos, 4 espaços para cadeirantes, 4 assentos de mobilidade reduzida, 1 assento para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinesystem-pompeia",
+          "note": "Sala 7 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ]
+    },
+    {
+      "name": "Sala 8",
+      "slug": "sala-8",
+      "ancine_registry": "5006231",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 120,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 4,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"ESPAÇO ITAÚ DE CINEMA POMPÉÍA -SALA 08\", registro 5006231, em funcionamento; 120 assentos, 4 espaços para cadeirantes, 4 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"ESPAÇO ITAÚ DE CINEMA POMPÉÍA -SALA 08\", registro 5006231, em funcionamento; 120 assentos, 4 espaços para cadeirantes, 4 assentos de mobilidade reduzida, 1 assento para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinesystem-pompeia",
+          "note": "Sala 8 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ]
+    },
+    {
+      "name": "Sala 9",
+      "slug": "sala-9",
+      "ancine_registry": "5006232",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 121,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 4,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"ESPAÇO ITAÚ DE CINEMA POMPÉÍA -SALA 09\", registro 5006232, em funcionamento; 121 assentos, 4 espaços para cadeirantes, 4 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"ESPAÇO ITAÚ DE CINEMA POMPÉÍA -SALA 09\", registro 5006232, em funcionamento; 121 assentos, 4 espaços para cadeirantes, 4 assentos de mobilidade reduzida, 1 assento para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinesystem-pompeia",
+          "note": "Sala 9 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ]
+    },
+    {
+      "name": "Sala 10",
+      "slug": "sala-10",
+      "ancine_registry": "5006233",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 62,
+      "accessibility": {
+        "wheelchair_seats": 2,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 0,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"ESPAÇO ITAÚ DE CINEMA POMPÉÍA -SALA 10\", registro 5006233, em funcionamento; 62 assentos, 2 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 0 assentos para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinesystem-pompeia",
+          "note": "Sala 10 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ]
+    },
+    {
+      "name": "Sala 11",
+      "slug": "sala-11",
+      "ancine_registry": "5006223",
+      "technologies": [
+        {
+          "name": "IMAX",
+          "type": "system"
+        }
+      ],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "2K",
+        "light_source": "Xenon",
+        "notes": "IMAX com projeção Xenon, inaugurado em jan/2009",
+        "brand": "IMAX"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": 12000,
+        "notes": "Sistema de som surround digital; 12.000W"
+      },
+      "seats": 288,
+      "accessibility": {
+        "wheelchair_seats": 6,
+        "reduced_mobility_seats": 3,
+        "obese_seats": 3,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"ESPAÇO ITAÚ DE CINEMA POMPÉÍA - SALA IMAX\", registro 5006223, em funcionamento; 288 assentos, 6 espaços para cadeirantes, 3 assentos de mobilidade reduzida, 3 assentos para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinesystem-pompeia",
+          "note": "Sala 11 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,425 @@
+{
+  "slug": "cinemark-central-plaza",
+  "name": "Cinemark Central Plaza",
+  "network": {
+    "slug": "cinemark",
+    "name": "Cinemark"
+  },
+  "city": "São Paulo",
+  "state": "SP",
+  "neighborhood": "Ipiranga",
+  "address": "Av. Dr. Francisco Mesquita – Ipiranga",
+  "ancine_registry": "902",
+  "last_verified": "2026-07-31",
+  "rooms": [
+    {
+      "name": "Sala 1",
+      "slug": "sala-1",
+      "ancine_registry": "5000622",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 399,
+      "accessibility": {
+        "wheelchair_seats": 13,
+        "reduced_mobility_seats": 4,
+        "obese_seats": 4,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"PLAZA 1\", registro 5000622, em funcionamento; 399 assentos, 13 espaços para cadeirantes, 4 assentos de mobilidade reduzida, 4 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 2",
+      "slug": "sala-2",
+      "ancine_registry": "5000623",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 399,
+      "accessibility": {
+        "wheelchair_seats": 13,
+        "reduced_mobility_seats": 4,
+        "obese_seats": 4,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"PLAZA 2\", registro 5000623, em funcionamento; 399 assentos, 13 espaços para cadeirantes, 4 assentos de mobilidade reduzida, 4 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 3",
+      "slug": "sala-3",
+      "ancine_registry": "5000624",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 223,
+      "accessibility": {
+        "wheelchair_seats": 8,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 2,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"PLAZA 3\", registro 5000624, em funcionamento; 223 assentos, 8 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"PLAZA 3\", registro 5000624, em funcionamento; 223 assentos, 8 espaços para cadeirantes, 1 assento de mobilidade reduzida, 2 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 4",
+      "slug": "sala-4",
+      "ancine_registry": "5000625",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 143,
+      "accessibility": {
+        "wheelchair_seats": 6,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 2,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"PLAZA 4\", registro 5000625, em funcionamento; 143 assentos, 6 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"PLAZA 4\", registro 5000625, em funcionamento; 143 assentos, 6 espaços para cadeirantes, 1 assento de mobilidade reduzida, 2 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 5",
+      "slug": "sala-5",
+      "ancine_registry": "5000626",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 187,
+      "accessibility": {
+        "wheelchair_seats": 8,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 2,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"PLAZA 5\", registro 5000626, em funcionamento; 187 assentos, 8 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"PLAZA 5\", registro 5000626, em funcionamento; 187 assentos, 8 espaços para cadeirantes, 1 assento de mobilidade reduzida, 2 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 6",
+      "slug": "sala-6",
+      "ancine_registry": "5000627",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 144,
+      "accessibility": {
+        "wheelchair_seats": 7,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 2,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"PLAZA 6\", registro 5000627, em funcionamento; 144 assentos, 7 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"PLAZA 6\", registro 5000627, em funcionamento; 144 assentos, 7 espaços para cadeirantes, 1 assento de mobilidade reduzida, 2 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 7",
+      "slug": "sala-7",
+      "ancine_registry": "5000628",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 314,
+      "accessibility": {
+        "wheelchair_seats": 8,
+        "reduced_mobility_seats": 3,
+        "obese_seats": 3,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"PLAZA 7\", registro 5000628, em funcionamento; 314 assentos, 8 espaços para cadeirantes, 3 assentos de mobilidade reduzida, 3 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 8",
+      "slug": "sala-8",
+      "ancine_registry": "5000629",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 314,
+      "accessibility": {
+        "wheelchair_seats": 6,
+        "reduced_mobility_seats": 3,
+        "obese_seats": 3,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"PLAZA 8\", registro 5000629, em funcionamento; 314 assentos, 6 espaços para cadeirantes, 3 assentos de mobilidade reduzida, 3 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 9",
+      "slug": "sala-9",
+      "ancine_registry": "5000630",
+      "technologies": [
+        {
+          "name": "3D",
+          "type": "experience"
+        }
+      ],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 314,
+      "accessibility": {
+        "wheelchair_seats": 8,
+        "reduced_mobility_seats": 3,
+        "obese_seats": 3,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"PLAZA 9\", registro 5000630, em funcionamento; 314 assentos, 8 espaços para cadeirantes, 3 assentos de mobilidade reduzida, 3 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 10",
+      "slug": "sala-10",
+      "ancine_registry": "5000631",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "4K",
+        "light_source": "Laser",
+        "brand": "Barco",
+        "notes": "Barco 4K laser; ~30.000 lumens; tela 40% maior que convencional"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": 12,
+        "power_watts": 50000,
+        "notes": "Sistema surround 11.1; 50.000W; certificação THX",
+        "channel_layout": "11.1"
+      },
+      "seats": 432,
+      "accessibility": {
+        "wheelchair_seats": 10,
+        "reduced_mobility_seats": 5,
+        "obese_seats": 5,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"PLAZA 10\", registro 5000631, em funcionamento; 432 assentos, 10 espaços para cadeirantes, 5 assentos de mobilidade reduzida, 5 assentos para pessoas obesas."
+        }
+      ]
+    }
+  ]
+}

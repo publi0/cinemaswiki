@@ -11,53 +11,64 @@
   <body>
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="CinemasWiki inicio">
-        <span class="brand-mark" aria-hidden="true"></span>
-        CinemasWiki
+        <span class="brand-mark" aria-hidden="true">CW</span>
+        <span>Cinemas<strong>Wiki</strong></span>
       </a>
       <nav class="nav" aria-label="Navegacao principal">
-        <a href="salas.html" aria-current="page">Salas</a>
+        <a href="salas.html" aria-current="page">Pesquisar</a>
         <a href="cinemas.html">Cinemas</a>
+        <a href="formatos.html">Formatos</a>
         <a href="contribuir.html">Contribuir</a>
       </nav>
     </header>
 
     <main>
-      <section class="page-heading" aria-labelledby="catalogo">
-        <p class="eyebrow">Catalogo</p>
-        <h1 id="catalogo">Pesquisa de salas</h1>
-        <p>Filtre salas por cinema, cidade, formato, projeção, tela, som ou tecnologia.</p>
-      </section>
-
+      <h1 class="visually-hidden">Pesquisar salas de cinema</h1>
       <section class="filters">
         <form class="filter-form" role="search">
-          <label>
-            <span>Buscar</span>
-            <input id="search" type="search" placeholder="Cinema, sala, bairro, tecnologia...">
+          <label class="search-field">
+            <span>Pesquisar no catálogo</span>
+            <div class="search-input">
+              <span aria-hidden="true">⌕</span>
+              <input id="search" type="search" placeholder="Cinema, bairro, IMAX, Dolby Atmos, laser..." autocomplete="off">
+              <kbd>/</kbd>
+            </div>
           </label>
-          <label>
-            <span>Cidade</span>
-            <select id="city">
-              <option value="">Todas</option>
-            </select>
-          </label>
-          <label>
-            <span>Tipo de sala</span>
-            <select id="format">
-              <option value="">Todos</option>
-            </select>
-          </label>
-          <label>
-            <span>Projeção</span>
-            <select id="projection">
-              <option value="">Todas</option>
-            </select>
-          </label>
-          <label>
-            <span>Som</span>
-            <select id="sound">
-              <option value="">Todos</option>
-            </select>
-          </label>
+          <button class="filter-toggle" id="filter-toggle" type="button" aria-expanded="true" aria-controls="filter-grid">
+            <span>Filtros técnicos</span>
+            <strong id="active-filter-count">0</strong>
+          </button>
+          <div class="filter-grid" id="filter-grid">
+            <label>
+              <span>Sistema</span>
+              <select id="system"><option value="">Todos</option></select>
+            </label>
+            <label>
+              <span>Experiência</span>
+              <select id="experience"><option value="">Todas</option></select>
+            </label>
+            <label>
+              <span>Projeção</span>
+              <select id="projection"><option value="">Todas</option></select>
+            </label>
+            <label>
+              <span>Resolução</span>
+              <select id="resolution"><option value="">Todas</option></select>
+            </label>
+            <label>
+              <span>Som</span>
+              <select id="sound"><option value="">Todos</option></select>
+            </label>
+            <label>
+              <span>Ordenar</span>
+              <select id="sort">
+                <option value="name">Cinema, A–Z</option>
+                <option value="coverage">Mais dados primeiro</option>
+                <option value="updated">Atualizados recentemente</option>
+              </select>
+            </label>
+            <button class="clear-filters" id="clear-filters" type="button">Limpar filtros</button>
+          </div>
         </form>
       </section>
 
@@ -69,13 +80,6 @@
       <section class="detail-view" id="room-detail" hidden></section>
 
       <section class="room-table" aria-label="Resultados da pesquisa">
-        <div class="room-table-head" aria-hidden="true">
-          <span>Sala</span>
-          <span>Local</span>
-          <span>Projecao</span>
-          <span>Tela</span>
-          <span>Som</span>
-        </div>
         <div id="room-list" aria-live="polite"></div>
       </section>
 

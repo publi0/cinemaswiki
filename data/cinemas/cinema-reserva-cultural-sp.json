@@ -1,0 +1,190 @@
+{
+  "slug": "cinema-reserva-cultural-sp",
+  "name": "Cinema Reserva Cultural São Paulo",
+  "network": {
+    "slug": "reserva-cultural",
+    "name": "Reserva Cultural"
+  },
+  "city": "São Paulo",
+  "state": "SP",
+  "neighborhood": "Bela Vista",
+  "address": "Avenida Paulista, 900 – Bela Vista",
+  "ancine_registry": "6665",
+  "last_verified": "2026-07-31",
+  "notes": "As quatro salas aparecem com sessões identificadas como Laser na programação oficial consultada.",
+  "external_url": "https://reservacultural.com.br/sao-paulo/",
+  "rooms": [
+    {
+      "name": "Sala 1",
+      "slug": "sala-1",
+      "ancine_registry": "5001223",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "Laser"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 187,
+      "accessibility": {
+        "wheelchair_seats": 3,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 3,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://reservacultural.com.br/cinema/",
+          "note": "A programação oficial identifica as sessões da Sala 1 como Laser."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"RESERVA CULTURAL 1\", registro 5001223, em funcionamento; 187 assentos, 3 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 3 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 2",
+      "slug": "sala-2",
+      "ancine_registry": "5001224",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "Laser"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 159,
+      "accessibility": {
+        "wheelchair_seats": 2,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 2,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://reservacultural.com.br/cinema/",
+          "note": "A programação oficial identifica as sessões da Sala 2 como Laser."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"RESERVA CULTURAL 2\", registro 5001224, em funcionamento; 159 assentos, 2 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 3 - Laser",
+      "slug": "sala-3-laser",
+      "ancine_registry": "5001225",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "Laser"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 121,
+      "accessibility": {
+        "wheelchair_seats": 2,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 2,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://reservacultural.com.br/cinema/",
+          "note": "A programação oficial identifica as sessões da Sala 3 como Laser."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"RESERVA CULTURAL 3\", registro 5001225, em funcionamento; 121 assentos, 2 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 4",
+      "slug": "sala-4",
+      "ancine_registry": "5001226",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "Laser"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 112,
+      "accessibility": {
+        "wheelchair_seats": 2,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 2,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://reservacultural.com.br/cinema/",
+          "note": "A programação oficial identifica as sessões da Sala 4 como Laser."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"RESERVA CULTURAL 4\", registro 5001226, em funcionamento; 112 assentos, 2 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+        }
+      ]
+    }
+  ]
+}

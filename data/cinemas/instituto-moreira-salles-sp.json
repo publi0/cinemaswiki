@@ -1,0 +1,60 @@
+{
+  "slug": "instituto-moreira-salles-sp",
+  "name": "Cinema do IMS Paulista",
+  "network": {
+    "slug": "ims",
+    "name": "IMS"
+  },
+  "city": "São Paulo",
+  "state": "SP",
+  "neighborhood": "Bela Vista",
+  "address": "Avenida Paulista, 2424 – Bela Vista",
+  "ancine_registry": "37080",
+  "last_verified": "2026-07-31",
+  "external_url": "https://ims.com.br/unidade/sao-paulo/",
+  "rooms": [
+    {
+      "name": "Sala 1",
+      "slug": "sala-1",
+      "ancine_registry": "5005823",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 151,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 1,
+        "ramp_to_seats": false,
+        "ramp_to_room": false,
+        "accessible_restrooms": false
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"INSTITUTO PAULISTA\", registro 5005823, em funcionamento; 151 assentos, 4 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"INSTITUTO PAULISTA\", registro 5005823, em funcionamento; 151 assentos, 4 espaços para cadeirantes, 1 assento de mobilidade reduzida, 1 assento para pessoas obesas."
+        }
+      ]
+    }
+  ]
+}

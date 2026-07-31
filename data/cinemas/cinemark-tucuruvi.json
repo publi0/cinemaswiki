@@ -1,0 +1,248 @@
+{
+  "slug": "cinemark-tucuruvi",
+  "name": "Cinemark Tucuruvi",
+  "network": {
+    "slug": "cinemark",
+    "name": "Cinemark"
+  },
+  "city": "São Paulo",
+  "state": "SP",
+  "neighborhood": "Parada Inglesa",
+  "address": "Av. Dr. Antônio Maria Laet – Parada Inglesa",
+  "ancine_registry": "25602",
+  "last_verified": "2026-07-31",
+  "rooms": [
+    {
+      "name": "Sala 1",
+      "slug": "sala-1",
+      "ancine_registry": "5004455",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 193,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": null,
+        "obese_seats": null,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA TUCURUVI 01\", registro 5004455, em funcionamento; 193 assentos, 4 espaços para cadeirantes."
+        }
+      ]
+    },
+    {
+      "name": "Sala 2",
+      "slug": "sala-2",
+      "ancine_registry": "5004454",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 234,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": null,
+        "obese_seats": null,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA TUCURUVI 02\", registro 5004454, em funcionamento; 234 assentos, 4 espaços para cadeirantes."
+        }
+      ]
+    },
+    {
+      "name": "Sala 3",
+      "slug": "sala-3",
+      "ancine_registry": "5004453",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 250,
+      "accessibility": {
+        "wheelchair_seats": 6,
+        "reduced_mobility_seats": null,
+        "obese_seats": null,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA TUCURUVI 03\", registro 5004453, em funcionamento; 250 assentos, 6 espaços para cadeirantes."
+        }
+      ]
+    },
+    {
+      "name": "Sala 4",
+      "slug": "sala-4",
+      "ancine_registry": "5004452",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 206,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": null,
+        "obese_seats": null,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA TUCURUVI 04\", registro 5004452, em funcionamento; 206 assentos, 4 espaços para cadeirantes."
+        }
+      ]
+    },
+    {
+      "name": "Sala 5",
+      "slug": "sala-5",
+      "ancine_registry": "5004451",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 203,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": null,
+        "obese_seats": null,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA TUCURUVI 05\", registro 5004451, em funcionamento; 203 assentos, 4 espaços para cadeirantes."
+        }
+      ]
+    },
+    {
+      "name": "Sala 6",
+      "slug": "sala-6",
+      "ancine_registry": "5004450",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "4K",
+        "light_source": "Laser",
+        "brand": "Barco",
+        "notes": "Barco 4K laser; ~30.000 lumens; tela 40% maior que convencional"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": 12,
+        "power_watts": 50000,
+        "notes": "Sistema surround 11.1; 50.000W; certificação THX",
+        "channel_layout": "11.1"
+      },
+      "seats": 400,
+      "accessibility": {
+        "wheelchair_seats": 6,
+        "reduced_mobility_seats": null,
+        "obese_seats": null,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA TUCURUVI 06\", registro 5004450, em funcionamento; 400 assentos, 6 espaços para cadeirantes."
+        }
+      ]
+    }
+  ]
+}

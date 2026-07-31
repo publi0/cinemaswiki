@@ -1,0 +1,287 @@
+{
+  "slug": "kinoplex-vila-olimpia",
+  "name": "Kinoplex Vila Olímpia",
+  "network": {
+    "slug": "kinoplex",
+    "name": "Kinoplex"
+  },
+  "city": "São Paulo",
+  "state": "SP",
+  "neighborhood": "Vila Olímpia",
+  "address": "R. Olimpiadas – Vila Olímpia",
+  "ancine_registry": "17204",
+  "last_verified": "2026-07-31",
+  "notes": "7 salas; 911 lugares no total; salas 6 e 7 são Platinum com laser e poltronas reclináveis elétricas.",
+  "rooms": [
+    {
+      "name": "Sala 1",
+      "slug": "sala-1",
+      "ancine_registry": "5002862",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 128,
+      "accessibility": {
+        "wheelchair_seats": 3,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 0,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"KINOPLEX VILA OLÍMPIA 01\", registro 5002862, em funcionamento; 128 assentos, 3 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 0 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 2",
+      "slug": "sala-2",
+      "ancine_registry": "5002857",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 128,
+      "accessibility": {
+        "wheelchair_seats": 3,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 0,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"KINOPLEX VILA OLÍMPIA 02\", registro 5002857, em funcionamento; 128 assentos, 3 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 0 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 3",
+      "slug": "sala-3",
+      "ancine_registry": "5002860",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 147,
+      "accessibility": {
+        "wheelchair_seats": 3,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 0,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"KINOPLEX VILA OLÍMPIA 03\", registro 5002860, em funcionamento; 147 assentos, 3 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 0 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 4",
+      "slug": "sala-4",
+      "ancine_registry": "5002856",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 178,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 0,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"KINOPLEX VILA OLÍMPIA 04\", registro 5002856, em funcionamento; 178 assentos, 4 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 0 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 5",
+      "slug": "sala-5",
+      "ancine_registry": "5002858",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 191,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 0,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"KINOPLEX VILA OLÍMPIA 05\", registro 5002858, em funcionamento; 191 assentos, 4 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 0 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 6",
+      "slug": "sala-6",
+      "ancine_registry": "5002859",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "Laser"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null,
+        "area_m2": 42.5
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 80,
+      "accessibility": {
+        "wheelchair_seats": 2,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 0,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"KINOPLEX VILA OLÍMPIA 06\", registro 5002859, em funcionamento; 100 assentos, 2 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 0 assentos para pessoas obesas."
+        }
+      ],
+      "notes": "Conforto: Poltronas reclináveis elétricas"
+    },
+    {
+      "name": "Sala 7",
+      "slug": "sala-7",
+      "ancine_registry": "5002861",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "Laser"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null,
+        "area_m2": 42.5
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 80,
+      "accessibility": {
+        "wheelchair_seats": 2,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 0,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"KINOPLEX VILA OLÍMPIA 07\", registro 5002861, em funcionamento; 100 assentos, 2 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 0 assentos para pessoas obesas."
+        }
+      ],
+      "notes": "Conforto: Poltronas reclináveis elétricas"
+    }
+  ]
+}

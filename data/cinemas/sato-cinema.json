@@ -1,0 +1,49 @@
+{
+  "slug": "sato-cinema",
+  "name": "Sato Cinema",
+  "network": {
+    "slug": "sato",
+    "name": "Sato"
+  },
+  "city": "São Paulo",
+  "state": "SP",
+  "neighborhood": "Liberdade",
+  "address": "Rua São Joaquim, 381 – Liberdade",
+  "notes": "Funciona no Grande Auditório do Bunkyo, com programação dedicada ao audiovisual asiático.",
+  "last_verified": "2026-07-31",
+  "rooms": [
+    {
+      "name": "Grande Auditório",
+      "slug": "grande-auditorio",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar",
+        "brand": "Christie",
+        "notes": "Projetor compatível com DCP; a fonte consultada não identifica modelo, resolução ou fonte de luz."
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null,
+        "notes": "Tela motorizada descrita pelo Bunkyo como uma das maiores do país, sem dimensões publicadas."
+      },
+      "sound": {
+        "format": "Dolby Digital 5.1",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null,
+        "channel_layout": "5.1"
+      },
+      "seats": 1100,
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://bunkyo.org.br/br/2023/07/sato-cinema-julho/",
+          "note": "Bunkyo confirma um único Grande Auditório, 1.100 lugares com mezanino, projetor DCP Christie, som Dolby 5.1 e tela motorizada."
+        }
+      ]
+    }
+  ]
+}

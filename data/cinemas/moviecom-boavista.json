@@ -1,0 +1,231 @@
+{
+  "slug": "moviecom-boavista",
+  "name": "Moviecom BoaVista",
+  "network": {
+    "slug": "moviecom",
+    "name": "Moviecom"
+  },
+  "city": "São Paulo",
+  "state": "SP",
+  "neighborhood": "Santo Amaro",
+  "address": "R. Borba Gato – Santo Amaro",
+  "ancine_registry": "4846",
+  "last_verified": "2026-07-31",
+  "rooms": [
+    {
+      "name": "Sala 1",
+      "slug": "sala-1",
+      "ancine_registry": "5001433",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 170,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 2,
+        "ramp_to_seats": false,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"MOVIECOM BOAVISTA 1\", registro 5001433, em funcionamento; 170 assentos, 4 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/moviecom-boavista",
+          "note": "Sala 1 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ]
+    },
+    {
+      "name": "Sala 2",
+      "slug": "sala-2",
+      "ancine_registry": "5001434",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 305,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 4,
+        "ramp_to_seats": false,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"MOVIECOM BOAVISTA 2\", registro 5001434, em funcionamento; 305 assentos, 4 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 4 assentos para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/moviecom-boavista",
+          "note": "Sala 2 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ]
+    },
+    {
+      "name": "Sala 3",
+      "slug": "sala-3",
+      "ancine_registry": "5001435",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 105,
+      "accessibility": {
+        "wheelchair_seats": 2,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 2,
+        "ramp_to_seats": false,
+        "ramp_to_room": false,
+        "accessible_restrooms": false
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"MOVIECOM BOAVISTA 3\", registro 5001435, em funcionamento; 105 assentos, 2 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/moviecom-boavista",
+          "note": "Sala 3 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ]
+    },
+    {
+      "name": "Sala 4",
+      "slug": "sala-4",
+      "ancine_registry": "5001436",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 84,
+      "accessibility": {
+        "wheelchair_seats": 2,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 2,
+        "ramp_to_seats": false,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"MOVIECOM BOAVISTA 4\", registro 5001436, em funcionamento; 84 assentos, 2 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/moviecom-boavista",
+          "note": "Sala 4 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ]
+    },
+    {
+      "name": "Sala 5",
+      "slug": "sala-5",
+      "ancine_registry": "5001437",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 84,
+      "accessibility": {
+        "wheelchair_seats": 2,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 2,
+        "ramp_to_seats": false,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"MOVIECOM BOAVISTA 5\", registro 5001437, em funcionamento; 84 assentos, 2 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/moviecom-boavista",
+          "note": "Sala 5 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ]
+    }
+  ]
+}

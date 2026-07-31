@@ -14,12 +14,13 @@
   <body>
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="CinemasWiki inicio">
-        <span class="brand-mark" aria-hidden="true"></span>
-        CinemasWiki
+        <span class="brand-mark" aria-hidden="true">CW</span>
+        <span>Cinemas<strong>Wiki</strong></span>
       </a>
       <nav class="nav" aria-label="Navegacao principal">
-        <a href="salas.html">Salas</a>
+        <a href="salas.html">Pesquisar</a>
         <a href="cinemas.html">Cinemas</a>
+        <a href="formatos.html">Formatos</a>
         <a href="contribuir.html" aria-current="page">Contribuir</a>
       </nav>
     </header>
@@ -82,7 +83,7 @@
               </article>
               <article>
                 <h3>Sala</h3>
-                <p>Nome da sala, formato comercial, capacidade e tecnologias.</p>
+                <p>Nome, capacidade e sistemas técnicos identificáveis.</p>
               </article>
               <article>
                 <h3>Projeção</h3>
@@ -102,60 +103,38 @@
           <section class="contribute-section">
             <h2>Padronização dos dados</h2>
             <p class="section-note">
-              O campo <code>format</code> descreve o que a sala
-              <strong>tecnicamente oferece</strong>, não o nome comercial da rede.
-              Nomes de marketing — XD, XPLUS, Platinum, Macro XE, Laser Lounge,
-              Bradesco Prime etc. — vão em <code>notes</code> ou na fonte, nunca
-              em <code>format</code>. Termos como <code>IMAX</code> e
-              <code>Dolby Atmos</code> são aceitos porque têm especificações
-              públicas e auditáveis independente de qualquer rede.
+              O catálogo não usa uma categoria genérica de “formato”. A sala é
+              descrita pelos dados verificáveis de projeção, resolução, tela e
+              som. <code>technologies</code> é uma lista fechada: somente IMAX,
+              3D e 4DX são aceitos. “Convencional”, VIP e tipos de poltrona não
+              são classificações técnicas.
             </p>
 
-            <h3>Valores aceitos para <code>format</code></h3>
-            <div class="standard-table standard-table--two-col" role="table" aria-label="Valores de formato">
+            <h3>Onde registrar cada especificação</h3>
+            <div class="standard-table standard-table--two-col" role="table" aria-label="Campos técnicos">
               <div role="row">
-                <strong role="columnheader">Formato</strong>
-                <strong role="columnheader">Quando usar</strong>
+                <strong role="columnheader">Campo</strong>
+                <strong role="columnheader">O que registrar</strong>
               </div>
               <div role="row">
-                <code>Convencional</code>
-                <span>Sala padrão sem recurso premium</span>
+                <code>projection</code>
+                <span>Película ou tela direta, marca, modelo, resolução, fonte de luz e configuração</span>
               </div>
               <div role="row">
-                <code>Grande Formato</code>
-                <span>Tela maior com projeção aprimorada — XD, XPLUS, Cinépic, Macro XE etc. todos viram Grande Formato</span>
+                <code>screen</code>
+                <span>Tecnologia, superfície, geometria, proporção e dimensões verificáveis</span>
               </div>
               <div role="row">
-                <code>Poltrona Reclinável</code>
-                <span>Sala com poltronas reclináveis — VIP, Platinum, DE LUX, Bradesco Prime etc.</span>
+                <code>sound</code>
+                <span>Formato, layout, processamento, canais, streams, caixas e potência</span>
               </div>
               <div role="row">
-                <code>Poltrona com Movimento</code>
-                <span>Poltronas com movimento mecânico sincronizado ao filme (ex.: tecnologia D-Box)</span>
+                <code>technologies</code>
+                <span>IMAX como sistema; 3D e 4DX como experiências, sem repetições</span>
               </div>
               <div role="row">
-                <code>IMAX</code>
-                <span>Sala certificada IMAX com especificação publicada</span>
-              </div>
-              <div role="row">
-                <code>4DX</code>
-                <span>Sala certificada CJ 4DPlex com efeitos físicos definidos</span>
-              </div>
-              <div role="row">
-                <code>Tela LED</code>
-                <span>Tela autoemissiva LED sem projetor (ex.: Samsung Onyx)</span>
-              </div>
-              <div role="row">
-                <code>Projeção Laser</code>
-                <span>Sala sem outro diferencial além da projeção laser</span>
-              </div>
-              <div role="row">
-                <code>3D</code>
-                <span>Sala configurada exclusivamente para exibição 3D</span>
-              </div>
-              <div role="row">
-                <code>A confirmar</code>
-                <span>Formato desconhecido ou a verificar</span>
+                <code>notes</code>
+                <span>Nomes comerciais ou contexto que não comprovem uma especificação técnica</span>
               </div>
             </div>
 
@@ -177,29 +156,44 @@
                 <span>2k, Digital 2K, DCI 2K</span>
               </div>
               <div role="row">
-                <span>Projeção</span>
-                <code>laser</code>
-                <span>Laser, projeção laser, projetor laser</span>
+                <span>Fonte de luz</span>
+                <code>Laser</code>
+                <span>laser, projeção laser, projetor laser</span>
+              </div>
+              <div role="row">
+                <span>Fonte de luz</span>
+                <code>Laser RGB</code>
+                <span>laser rgb, RGB laser</span>
+              </div>
+              <div role="row">
+                <span>Fonte de luz</span>
+                <code>Xenon</code>
+                <span>xenon, lamp-xenon, Lâmpada Xenon</span>
               </div>
               <div role="row">
                 <span>Projeção</span>
-                <code>Lâmpada Xenon</code>
-                <span>xenon, lamp-xenon, lâmpada xenon, lampada xenon</span>
+                <code>Película 70 mm</code>
+                <span>70mm, 70 mm, IMAX 70mm</span>
               </div>
               <div role="row">
                 <span>Projeção</span>
-                <code>LED</code>
+                <code>Tela LED</code>
                 <span>led, tela LED, cinema LED</span>
               </div>
               <div role="row">
-                <span>Formato</span>
+                <span>Tecnologia</span>
                 <code>IMAX</code>
-                <span>Imax, imax, IMAX Digital</span>
+                <span>Imax, imax, IMAX Digital, IMAX with Laser</span>
               </div>
               <div role="row">
-                <span>Formato</span>
+                <span>Tecnologia</span>
                 <code>4DX</code>
                 <span>4dx, sala 4D, 4-DX</span>
+              </div>
+              <div role="row">
+                <span>Tecnologia</span>
+                <code>Samsung Onyx</code>
+                <span>Tela LED autoemissiva 4K, Onyx LED</span>
               </div>
               <div role="row">
                 <span>Som</span>
@@ -212,14 +206,29 @@
                 <span>7.1, Dolby 7.1, digital 7.1</span>
               </div>
               <div role="row">
-                <span>Tela</span>
-                <code>IMAX</code>
-                <span>imax, tela imax</span>
+                <span>Layout de som</span>
+                <code>11.1</code>
+                <span>Surround 11.1, Multicanal 11.1</span>
               </div>
               <div role="row">
-                <span>Tela</span>
+                <span>Processamento</span>
+                <code>Harman Quantum Logic (JBL)</code>
+                <span>Quantum Logic, HQL</span>
+              </div>
+              <div role="row">
+                <span>Tecnologia da tela</span>
                 <code>LED modular</code>
                 <span>LED, tela de LED, Onyx LED</span>
+              </div>
+              <div role="row">
+                <span>Superfície da tela</span>
+                <code>Perolizada</code>
+                <span>perolizada</span>
+              </div>
+              <div role="row">
+                <span>Geometria da tela</span>
+                <code>Plana</code>
+                <span>tela plana</span>
               </div>
               <div role="row">
                 <span>Desconhecido</span>
@@ -232,6 +241,30 @@
                 <span>0, -, n/a, desconhecido</span>
               </div>
             </div>
+            <p class="section-note">
+              <code>Grande Formato</code> não é uma tecnologia válida porque não
+              define uma especificação. Registre projeção, resolução, dimensões
+              da tela e som nos campos próprios. <code>Digital</code> e
+              <code>Multicanal</code> isolados também são insuficientes; use
+              <code>A confirmar</code> até obter uma especificação real.
+            </p>
+            <p class="section-note">
+              IMAX é sempre o sistema. <code>Laser</code> e <code>Xenon</code>
+              ficam em <code>light_source</code>; <code>Película 70 mm</code>
+              fica em <code>projection.technology</code>.
+            </p>
+            <p class="section-note">
+              4DX é uma experiência com efeitos físicos. Use
+              <code>type: "experience"</code>; projeção e som permanecem nos
+              campos próprios.
+            </p>
+            <p class="section-note">
+              Samsung Onyx fica como tela direta, marca e modelo em
+              <code>projection</code>. Laser e Xenon ficam apenas em
+              <code>light_source</code>. Em áudio, formato, layout e
+              processamento são campos diferentes. Fontes vazias não são
+              aceitas.
+            </p>
           </section>
 
           <section class="contribute-section">
@@ -242,7 +275,7 @@
                 <p>Use quando a rede, o cinema ou a sala ainda não aparece no catálogo.</p>
                 <ul>
                   <li>Informe rede, cinema, cidade e sala.</li>
-                  <li>Descreva o formato técnico: tela grande, poltronas reclináveis, IMAX, 4DX, Dolby Atmos etc.</li>
+                  <li>Classifique IMAX como sistema; 3D e 4DX como experiência; Dolby Atmos como som; Onyx como imagem.</li>
                   <li>Preencha projeção, tela e som com o máximo de detalhe disponível.</li>
                   <li>Cole links ou descreva a fonte usada.</li>
                 </ul>
@@ -277,16 +310,15 @@ São Paulo, SP
 Sala:
 Sala 1 - IMAX
 
-Formato comercial:
+Sistema:
 IMAX
 
 Projeção:
-- Tecnologia: laser
+- Fonte de luz: Laser
 - Resolução: 4K
 - Observação: dois projetores laser
 
 Tela:
-- Tipo: IMAX
 - Largura: 20 m
 - Altura: 18 m
 
@@ -313,31 +345,32 @@ Fontes:
   "address": "Endereço",
   "last_verified": "2026-05-10",
   "rooms": [
-    {
-      "name": "Sala 1",
-      "slug": "sala-1",
-      "format": "IMAX",
-      "technologies": [
+	    {
+	      "name": "Sala 1",
+	      "slug": "sala-1",
+	      "technologies": [
         {
           "name": "IMAX",
-          "type": "experience",
+          "type": "system",
           "notes": "Observação técnica"
         }
       ],
       "projection": {
-        "technology": "laser",
         "resolution": "4K",
-        "light_source": "laser"
+        "light_source": "Laser RGB"
       },
       "screen": {
-        "type": "IMAX",
+        "geometry": "Plana",
         "aspect_ratio": "A confirmar",
         "width_m": null,
         "height_m": null
       },
       "sound": {
-        "format": "A confirmar",
+        "format": "Dolby Atmos",
+        "channel_layout": null,
+        "processor": null,
         "channels": null,
+        "audio_streams": null,
         "speakers": null,
         "power_watts": null
       },

@@ -1,0 +1,285 @@
+{
+  "slug": "cinema-belas-artes",
+  "name": "Cine Belas Artes",
+  "network": {
+    "slug": "belas-artes",
+    "name": "Belas Artes"
+  },
+  "city": "São Paulo",
+  "state": "SP",
+  "neighborhood": "Consolação",
+  "address": "Rua da Consolação, 2423 – Consolação",
+  "ancine_registry": "49176",
+  "last_verified": "2026-07-31",
+  "external_url": "https://www.cinebelasartes.com.br/",
+  "rooms": [
+    {
+      "name": "Sala 1 – Leon Cakoff",
+      "slug": "sala-1-leon-cakoff",
+      "ancine_registry": "5006674",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 295,
+      "accessibility": {
+        "wheelchair_seats": 5,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 4,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.cinebelasartes.com.br/programacao/programacao-regular/",
+          "note": "A programação oficial identifica a Sala 1 como Leon Cakoff e informa 295 lugares."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA 1 - VILLA LOBOS\", registro 5006674, em funcionamento; 295 assentos, 5 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 4 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 2 – Carmen Miranda",
+      "slug": "sala-2-carmen-miranda",
+      "ancine_registry": "5006675",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 274,
+      "accessibility": {
+        "wheelchair_seats": 6,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 4,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.cinebelasartes.com.br/programacao/programacao-regular/",
+          "note": "A programação oficial identifica a Sala 2 como Carmen Miranda e informa 274 lugares."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA 2 - LEON CAKOFF\", registro 5006675, em funcionamento; 274 assentos, 6 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 4 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 3 – Rubens Ewald Filho",
+      "slug": "sala-3-rubens-ewald-filho",
+      "ancine_registry": "5006676",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 132,
+      "accessibility": {
+        "wheelchair_seats": 3,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 2,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.cinebelasartes.com.br/programacao/programacao-regular/",
+          "note": "A programação oficial identifica a Sala 3 como Rubens Ewald Filho e informa 132 lugares."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA 3 - RUBENS EWALD FILHO\", registro 5006676, em funcionamento; 135 assentos, 3 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 4 – Helena Ignez",
+      "slug": "sala-4-helena-ignez",
+      "ancine_registry": "5006677",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 144,
+      "accessibility": {
+        "wheelchair_seats": 3,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 2,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.cinebelasartes.com.br/programacao/programacao-regular/",
+          "note": "A programação oficial identifica a Sala 4 como Helena Ignez e informa 144 lugares."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA 4 - ALEIJADINHO\", registro 5006677, em funcionamento; 144 assentos, 3 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 5 – Luiz Carlos Merten",
+      "slug": "sala-5-luiz-carlos-merten",
+      "ancine_registry": "5006678",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 96,
+      "accessibility": {
+        "wheelchair_seats": 3,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.cinebelasartes.com.br/programacao/programacao-regular/",
+          "note": "A programação oficial identifica a Sala 5 como Luiz Carlos Merten e informa 96 lugares."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA 5 - CARMEN MIRANDA\", registro 5006678, em funcionamento; 96 assentos, 3 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA 5 - CARMEN MIRANDA\", registro 5006678, em funcionamento; 96 assentos, 3 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 1 assento para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 6 – Léo Mendes",
+      "slug": "sala-6-leo-mendes",
+      "ancine_registry": "5006679",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 88,
+      "accessibility": {
+        "wheelchair_seats": 2,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.cinebelasartes.com.br/programacao/programacao-regular/",
+          "note": "A programação oficial identifica a Sala 6 como Léo Mendes e informa 88 lugares."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA 6 - MARIO DE ANDRADE\", registro 5006679, em funcionamento; 90 assentos, 2 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA 6 - MARIO DE ANDRADE\", registro 5006679, em funcionamento; 90 assentos, 2 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 1 assento para pessoas obesas."
+        }
+      ]
+    }
+  ]
+}

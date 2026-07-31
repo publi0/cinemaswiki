@@ -1,0 +1,316 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cinemaswiki.publio.dev/schema/cinema.json",
+  "title": "Cinema do CinemasWiki",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "slug",
+    "name",
+    "network",
+    "city",
+    "state",
+    "neighborhood",
+    "address",
+    "last_verified",
+    "rooms"
+  ],
+  "properties": {
+    "slug": { "$ref": "#/$defs/slug" },
+    "name": { "$ref": "#/$defs/nonEmptyString" },
+    "network": { "$ref": "#/$defs/network" },
+    "city": { "$ref": "#/$defs/nonEmptyString" },
+    "state": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$"
+    },
+    "neighborhood": { "$ref": "#/$defs/nonEmptyString" },
+    "address": { "$ref": "#/$defs/nonEmptyString" },
+    "last_verified": {
+      "type": "string",
+      "format": "date"
+    },
+    "notes": { "$ref": "#/$defs/nonEmptyString" },
+    "external_url": { "$ref": "#/$defs/httpUrl" },
+    "ancine_registry": { "$ref": "#/$defs/ancineRegistry" },
+    "rooms": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/room" }
+    }
+  },
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "httpUrl": {
+      "type": "string",
+      "format": "uri",
+      "pattern": "^https?://"
+    },
+    "ancineRegistry": {
+      "type": "string",
+      "pattern": "^[0-9]+$"
+    },
+    "unknownText": {
+      "anyOf": [
+        { "$ref": "#/$defs/nonEmptyString" },
+        { "type": "null" }
+      ]
+    },
+    "unknownNumber": {
+      "anyOf": [
+        { "type": "number", "minimum": 0 },
+        { "type": "null" }
+      ]
+    },
+    "projectionTechnology": {
+      "enum": ["Película 70 mm", "Tela LED", "A confirmar", null]
+    },
+    "projectionResolution": {
+      "enum": ["2K", "4K", "A confirmar", null]
+    },
+    "projectionLightSource": {
+      "enum": ["Laser", "Laser RGB", "Xenon", "LED", "A confirmar", null]
+    },
+    "screenTechnology": {
+      "enum": ["LED modular", "A confirmar", null]
+    },
+    "screenSurface": {
+      "enum": ["Perolizada", "A confirmar", null]
+    },
+    "screenGeometry": {
+      "enum": ["Plana", "Curva", "A confirmar", null]
+    },
+    "aspectRatio": {
+      "enum": [
+        "1.33:1",
+        "1.37:1",
+        "1.43:1",
+        "1.66:1",
+        "1.85:1",
+        "1.90:1",
+        "2.00:1",
+        "2.20:1",
+        "2.33:1",
+        "2.39:1",
+        "2.76:1",
+        "A confirmar",
+        null
+      ]
+    },
+    "soundFormat": {
+      "enum": [
+        "Dolby Atmos",
+        "Dolby Digital 5.1",
+        "Dolby Digital 7.1",
+        "IMAX",
+        "A confirmar",
+        null
+      ]
+    },
+    "soundChannelLayout": {
+      "enum": ["5.1", "7.1", "11.1", "A confirmar", null]
+    },
+    "soundProcessor": {
+      "enum": ["Harman Quantum Logic (JBL)", "A confirmar", null]
+    },
+    "network": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["slug", "name"],
+      "properties": {
+        "slug": { "$ref": "#/$defs/slug" },
+        "name": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "technology": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "type"],
+          "properties": {
+            "name": { "const": "IMAX" },
+            "type": { "const": "system" },
+            "notes": { "$ref": "#/$defs/nonEmptyString" }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "type"],
+          "properties": {
+            "name": { "enum": ["3D", "4DX"] },
+            "type": { "const": "experience" },
+            "notes": { "$ref": "#/$defs/nonEmptyString" }
+          }
+        }
+      ]
+    },
+    "projection": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "technology": { "$ref": "#/$defs/projectionTechnology" },
+        "resolution": { "$ref": "#/$defs/projectionResolution" },
+        "light_source": { "$ref": "#/$defs/projectionLightSource" },
+        "watts_each": { "$ref": "#/$defs/unknownNumber" },
+        "dual_lens": { "type": "boolean" },
+        "brand": { "$ref": "#/$defs/unknownText" },
+        "model": { "$ref": "#/$defs/unknownText" },
+        "notes": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "screen": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "technology": { "$ref": "#/$defs/screenTechnology" },
+        "surface": { "$ref": "#/$defs/screenSurface" },
+        "geometry": { "$ref": "#/$defs/screenGeometry" },
+        "aspect_ratio": { "$ref": "#/$defs/aspectRatio" },
+        "width_m": { "$ref": "#/$defs/unknownNumber" },
+        "height_m": { "$ref": "#/$defs/unknownNumber" },
+        "area_m2": { "$ref": "#/$defs/unknownNumber" },
+        "diagonal_in": { "$ref": "#/$defs/unknownNumber" },
+        "notes": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "sound": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "format": { "$ref": "#/$defs/soundFormat" },
+        "channel_layout": { "$ref": "#/$defs/soundChannelLayout" },
+        "channels": { "$ref": "#/$defs/unknownNumber" },
+        "audio_streams": { "$ref": "#/$defs/unknownNumber" },
+        "processor": { "$ref": "#/$defs/soundProcessor" },
+        "speakers": { "$ref": "#/$defs/unknownNumber" },
+        "power_watts": { "$ref": "#/$defs/unknownNumber" },
+        "notes": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    },
+    "accessibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "wheelchair_seats": { "$ref": "#/$defs/unknownNumber" },
+        "reduced_mobility_seats": { "$ref": "#/$defs/unknownNumber" },
+        "obese_seats": { "$ref": "#/$defs/unknownNumber" },
+        "ramp_to_seats": {
+          "anyOf": [
+            { "type": "boolean" },
+            { "type": "null" }
+          ]
+        },
+        "ramp_to_room": {
+          "anyOf": [
+            { "type": "boolean" },
+            { "type": "null" }
+          ]
+        },
+        "accessible_restrooms": {
+          "anyOf": [
+            { "type": "boolean" },
+            { "type": "null" }
+          ]
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "url", "note"],
+      "properties": {
+        "type": {
+          "enum": [
+            "official",
+            "press",
+            "photo",
+            "visit",
+            "user_report",
+            "inferred",
+            "metadata",
+            "placeholder"
+          ]
+        },
+        "url": {
+          "anyOf": [
+            { "type": "string", "maxLength": 0 },
+            { "$ref": "#/$defs/httpUrl" }
+          ]
+        },
+        "note": { "type": "string" }
+      }
+    },
+    "room": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "slug",
+        "projection",
+        "screen",
+        "sound",
+        "seats",
+        "sources"
+      ],
+      "properties": {
+        "name": { "$ref": "#/$defs/nonEmptyString" },
+        "slug": { "$ref": "#/$defs/slug" },
+        "ancine_registry": { "$ref": "#/$defs/ancineRegistry" },
+        "technologies": {
+          "type": "array",
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/technology" },
+          "allOf": [
+            {
+              "contains": {
+                "type": "object",
+                "required": ["name"],
+                "properties": { "name": { "const": "IMAX" } }
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": ["name"],
+                "properties": { "name": { "const": "3D" } }
+              },
+              "minContains": 0,
+              "maxContains": 1
+            },
+            {
+              "contains": {
+                "type": "object",
+                "required": ["name"],
+                "properties": { "name": { "const": "4DX" } }
+              },
+              "minContains": 0,
+              "maxContains": 1
+            }
+          ]
+        },
+        "projection": { "$ref": "#/$defs/projection" },
+        "screen": { "$ref": "#/$defs/screen" },
+        "sound": { "$ref": "#/$defs/sound" },
+        "seats": { "$ref": "#/$defs/unknownNumber" },
+        "accessibility": { "$ref": "#/$defs/accessibility" },
+        "sources": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/source" }
+        },
+        "notes": { "$ref": "#/$defs/nonEmptyString" }
+      }
+    }
+  }
+}

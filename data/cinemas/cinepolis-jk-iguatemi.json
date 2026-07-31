@@ -1,0 +1,515 @@
+{
+  "slug": "cinepolis-jk-iguatemi",
+  "name": "Cinépolis JK Iguatemi",
+  "network": {
+    "slug": "cinepolis",
+    "name": "Cinépolis"
+  },
+  "city": "São Paulo",
+  "state": "SP",
+  "neighborhood": "Vila Olímpia",
+  "address": "Avenida Presidente Juscelino Kubitschek, 2041 – Shopping JK Iguatemi",
+  "ancine_registry": "21667",
+  "last_verified": "2026-07-31",
+  "notes": "Em 2026 o complexo opera com oito salas: sete VIP e a Sala 1 IMAX with Laser. A antiga 4DX foi desativada e convertida em sala VIP.",
+  "external_url": "https://www.cinepolis.com.br/complexos/f0534-cinepolis-jk-iguatemi/",
+  "rooms": [
+    {
+      "name": "Sala 1 – IMAX with Laser",
+      "slug": "sala-1-imax",
+      "ancine_registry": "5003490",
+      "technologies": [
+        {
+          "name": "IMAX",
+          "type": "system",
+          "notes": "Primeira instalação IMAX with Laser do Brasil, inaugurada em janeiro de 2024."
+        }
+      ],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "4K",
+        "light_source": "Laser",
+        "dual_lens": false,
+        "brand": "IMAX",
+        "notes": "Sistema IMAX 4K a laser com um projetor, conforme informado pela Cinépolis à Folha."
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null,
+        "area_m2": 185
+      },
+      "sound": {
+        "format": "IMAX",
+        "channels": 12,
+        "speakers": null,
+        "power_watts": null,
+        "notes": "Sistema IMAX de 12 canais, incluindo canais laterais e superiores."
+      },
+      "seats": 382,
+      "accessibility": {
+        "wheelchair_seats": 8,
+        "reduced_mobility_seats": 3,
+        "obese_seats": 4,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "press",
+          "url": "https://guia.folha.uol.com.br/cinema/2024/01/jk-iguatemi-ganha-primeira-sala-imax-with-laser-do-brasil-veja-como-e.shtml",
+          "note": "A Folha documenta projetor único IMAX 4K a laser e sistema de som de 12 canais."
+        },
+        {
+          "type": "press",
+          "url": "https://guia.folha.uol.com.br/cinema/2026/03/supertela-com-laser-do-imax-tem-a-melhor-projecao-do-cinema-paulistano.shtml",
+          "note": "Fonte atual de 2026 informa capacidade para 382 pessoas e confirma a operação IMAX with Laser."
+        },
+        {
+          "type": "press",
+          "url": "https://travelpedia.com.br/cinepolis-jk-iguatemi-une-conforto-e-tecnologia/",
+          "note": "Apresentação técnica do complexo informa tela IMAX de 185 m²."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA CINEPOLIS JK VIP 01\", registro 5003490, em funcionamento; 378 assentos, 8 espaços para cadeirantes, 3 assentos de mobilidade reduzida, 4 assentos para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinepolis-jk-iguatemi",
+          "note": "Sala 1 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ]
+    },
+    {
+      "name": "Sala 2 – VIP Lounge Laser",
+      "slug": "sala-2-laser-lounge",
+      "ancine_registry": "5003491",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "4K",
+        "light_source": "Laser",
+        "brand": "Barco",
+        "model": "DP4K-60L",
+        "notes": "Projetor com luminância publicada de até 65.000 lúmens."
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null,
+        "processor": "Harman Quantum Logic (JBL)",
+        "notes": "Sistema de som imersivo com componentes JBL."
+      },
+      "seats": 118,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "press",
+          "url": "https://travelpedia.com.br/cinepolis-jk-iguatemi-une-conforto-e-tecnologia/",
+          "note": "Fonte detalha capacidade, projetor Barco DP4K-60L, projeção laser e Harman Quantum Logic na Sala 2."
+        },
+        {
+          "type": "press",
+          "url": "https://guia.folha.uol.com.br/cinema/2026/03/conjunto-da-obra-faz-cinepolis-jk-iguatemi-levar-titulo-de-melhor-complexo-de-cinema-de-sp.shtml",
+          "note": "Fonte atual confirma que as sete salas não IMAX operam como VIP em 2026."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA CINEPOLIS JK VIP 02\", registro 5003491, em funcionamento; 118 assentos, 4 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA CINEPOLIS JK VIP 02\", registro 5003491, em funcionamento; 118 assentos, 4 espaços para cadeirantes, 1 assento de mobilidade reduzida, 1 assento para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinepolis-jk-iguatemi",
+          "note": "Sala 2 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ],
+      "notes": "Conforto: Poltronas Lounge VIP"
+    },
+    {
+      "name": "Sala 3 – VIP",
+      "slug": "sala-3-vip",
+      "ancine_registry": "5003492",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "Laser"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "Dolby Digital 7.1",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null,
+        "channel_layout": "7.1"
+      },
+      "seats": 86,
+      "accessibility": {
+        "wheelchair_seats": 2,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "press",
+          "url": "https://travelpedia.com.br/cinepolis-jk-iguatemi-une-conforto-e-tecnologia/",
+          "note": "Fonte detalha 86 lugares, poltronas reclináveis e Dolby Digital 7.1 na Sala 3."
+        },
+        {
+          "type": "press",
+          "url": "https://guia.folha.uol.com.br/cinema/2024/03/melhor-cinema-vip-cinepolis-jk-iguatemi-tem-todas-as-salas-a-laser.shtml",
+          "note": "A Cinépolis informou à Folha que todas as salas VIP passaram a usar projeção laser."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA CINEPOLIS JK VIP 03\", registro 5003492, em funcionamento; 67 assentos, 2 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA CINEPOLIS JK VIP 03\", registro 5003492, em funcionamento; 67 assentos, 2 espaços para cadeirantes, 1 assento de mobilidade reduzida, 1 assento para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinepolis-jk-iguatemi",
+          "note": "Sala 3 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ],
+      "notes": "Conforto: Poltronas reclináveis"
+    },
+    {
+      "name": "Sala 4 – VIP",
+      "slug": "sala-4-vip",
+      "ancine_registry": "5003493",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "Laser"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 100,
+      "accessibility": {
+        "wheelchair_seats": 2,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "press",
+          "url": "https://guia.folha.uol.com.br/cinema/2024/03/melhor-cinema-vip-cinepolis-jk-iguatemi-tem-todas-as-salas-a-laser.shtml",
+          "note": "A Folha registrou a desativação da 4DX e a conversão planejada do espaço em sala VIP, além da adoção de laser nas salas VIP."
+        },
+        {
+          "type": "press",
+          "url": "https://guia.folha.uol.com.br/cinema/2026/03/conjunto-da-obra-faz-cinepolis-jk-iguatemi-levar-titulo-de-melhor-complexo-de-cinema-de-sp.shtml",
+          "note": "Fonte atual confirma que o complexo tem sete salas VIP e não opera mais a tecnologia 4DX."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA CINEPOLIS JK VIP 04\", registro 5003493, em funcionamento; 100 assentos, 2 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA CINEPOLIS JK VIP 04\", registro 5003493, em funcionamento; 100 assentos, 2 espaços para cadeirantes, 1 assento de mobilidade reduzida, 1 assento para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinepolis-jk-iguatemi",
+          "note": "Sala 4 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ],
+      "notes": "A antiga 4DX foi desativada e reaberta como sala VIP; a capacidade e o som após a conversão ainda não foram publicados. · Conforto: Poltronas reclináveis"
+    },
+    {
+      "name": "Sala 5 – VIP Samsung Onyx 4K",
+      "slug": "sala-5-onyx-4k-led",
+      "ancine_registry": "5003494",
+      "technologies": [],
+      "projection": {
+        "technology": "Tela LED",
+        "resolution": "4K",
+        "light_source": "LED",
+        "brand": "Samsung",
+        "model": "Onyx",
+        "notes": "Primeira tela LED modular de cinema instalada no Brasil."
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null,
+        "area_m2": 55,
+        "diagonal_in": 455,
+        "technology": "LED modular"
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 79,
+      "accessibility": {
+        "wheelchair_seats": 2,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://news.samsung.com/br/do-cinema-para-a-sua-casa-primeira-tela-led-modular-samsung-onyx-4k-e-inaugurada-no-brasil",
+          "note": "A Samsung confirma tela Onyx 4K de 55 m², 455 polegadas e resolução 4096 × 2160."
+        },
+        {
+          "type": "press",
+          "url": "https://travelpedia.com.br/cinepolis-jk-iguatemi-une-conforto-e-tecnologia/",
+          "note": "Fonte identifica a instalação como Sala 5 e informa 79 lugares."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA CINEPOLIS JK VIP 05\", registro 5003494, em funcionamento; 79 assentos, 2 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA CINEPOLIS JK VIP 05\", registro 5003494, em funcionamento; 79 assentos, 2 espaços para cadeirantes, 1 assento de mobilidade reduzida, 1 assento para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinepolis-jk-iguatemi",
+          "note": "Sala 5 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ],
+      "notes": "Conforto: Poltronas reclináveis"
+    },
+    {
+      "name": "Sala 6 – VIP",
+      "slug": "sala-6-vip",
+      "ancine_registry": "5003495",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "Laser"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "Dolby Digital 7.1",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null,
+        "channel_layout": "7.1"
+      },
+      "seats": 65,
+      "accessibility": {
+        "wheelchair_seats": 2,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "press",
+          "url": "https://travelpedia.com.br/cinepolis-jk-iguatemi-une-conforto-e-tecnologia/",
+          "note": "Fonte detalha 65 lugares, poltronas reclináveis e Dolby Digital 7.1 na Sala 6."
+        },
+        {
+          "type": "press",
+          "url": "https://guia.folha.uol.com.br/cinema/2024/03/melhor-cinema-vip-cinepolis-jk-iguatemi-tem-todas-as-salas-a-laser.shtml",
+          "note": "A Cinépolis informou à Folha que todas as salas VIP passaram a usar projeção laser."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA CINEPOLIS JK VIP 06\", registro 5003495, em funcionamento; 88 assentos, 2 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA CINEPOLIS JK VIP 06\", registro 5003495, em funcionamento; 88 assentos, 2 espaços para cadeirantes, 1 assento de mobilidade reduzida, 1 assento para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinepolis-jk-iguatemi",
+          "note": "Sala 6 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ],
+      "notes": "Conforto: Poltronas reclináveis"
+    },
+    {
+      "name": "Sala 7 – VIP",
+      "slug": "sala-7-vip",
+      "ancine_registry": "5003496",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "Laser"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "Dolby Digital 7.1",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null,
+        "channel_layout": "7.1"
+      },
+      "seats": 86,
+      "accessibility": {
+        "wheelchair_seats": 2,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "press",
+          "url": "https://travelpedia.com.br/cinepolis-jk-iguatemi-une-conforto-e-tecnologia/",
+          "note": "Fonte detalha 86 lugares, poltronas reclináveis e Dolby Digital 7.1 na Sala 7."
+        },
+        {
+          "type": "press",
+          "url": "https://guia.folha.uol.com.br/cinema/2024/03/melhor-cinema-vip-cinepolis-jk-iguatemi-tem-todas-as-salas-a-laser.shtml",
+          "note": "A Cinépolis informou à Folha que todas as salas VIP passaram a usar projeção laser."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA CINEPOLIS JK VIP 07\", registro 5003496, em funcionamento; 77 assentos, 2 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA CINEPOLIS JK VIP 07\", registro 5003496, em funcionamento; 77 assentos, 2 espaços para cadeirantes, 1 assento de mobilidade reduzida, 1 assento para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinepolis-jk-iguatemi",
+          "note": "Sala 7 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ],
+      "notes": "Conforto: Poltronas reclináveis"
+    },
+    {
+      "name": "Sala 8 – VIP",
+      "slug": "sala-8-vip",
+      "ancine_registry": "5003497",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "Laser"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "Dolby Digital 7.1",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null,
+        "channel_layout": "7.1"
+      },
+      "seats": 86,
+      "accessibility": {
+        "wheelchair_seats": 2,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "press",
+          "url": "https://travelpedia.com.br/cinepolis-jk-iguatemi-une-conforto-e-tecnologia/",
+          "note": "Fonte detalha 86 lugares, poltronas reclináveis e Dolby Digital 7.1 na Sala 8."
+        },
+        {
+          "type": "press",
+          "url": "https://guia.folha.uol.com.br/cinema/2024/03/melhor-cinema-vip-cinepolis-jk-iguatemi-tem-todas-as-salas-a-laser.shtml",
+          "note": "A Cinépolis informou à Folha que todas as salas VIP passaram a usar projeção laser."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA CINEPOLIS JK VIP 08\", registro 5003497, em funcionamento; 88 assentos, 2 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA CINEPOLIS JK VIP 08\", registro 5003497, em funcionamento; 88 assentos, 2 espaços para cadeirantes, 1 assento de mobilidade reduzida, 1 assento para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinepolis-jk-iguatemi",
+          "note": "Sala 8 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ],
+      "notes": "Conforto: Poltronas reclináveis"
+    }
+  ]
+}

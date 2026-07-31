@@ -1,0 +1,350 @@
+{
+  "slug": "cinemark-cidade-jardim-vip",
+  "name": "Cinemark Cidade Jardim VIP",
+  "network": {
+    "slug": "cinemark",
+    "name": "Cinemark"
+  },
+  "city": "São Paulo",
+  "state": "SP",
+  "neighborhood": "Morumbi",
+  "address": "Av. Magalhães de Castro – Morumbi",
+  "ancine_registry": "14628",
+  "last_verified": "2026-07-31",
+  "rooms": [
+    {
+      "name": "Bradesco Prime 1",
+      "slug": "bradesco-prime-1",
+      "ancine_registry": "5002346",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 127,
+      "accessibility": {
+        "wheelchair_seats": 3,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 2,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINE CIDADE JARDIM 1\", registro 5002346, em funcionamento; 127 assentos, 3 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINE CIDADE JARDIM 1\", registro 5002346, em funcionamento; 127 assentos, 3 espaços para cadeirantes, 1 assento de mobilidade reduzida, 2 assentos para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinemark-cidade-jardim-vip",
+          "note": "Sala 1 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ],
+      "notes": "Conforto: Poltronas reclináveis"
+    },
+    {
+      "name": "Bradesco Prime 2",
+      "slug": "bradesco-prime-2",
+      "ancine_registry": "5002350",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 97,
+      "accessibility": {
+        "wheelchair_seats": 2,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 2,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINE CIDADE JARDIM 2\", registro 5002350, em funcionamento; 97 assentos, 2 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINE CIDADE JARDIM 2\", registro 5002350, em funcionamento; 97 assentos, 2 espaços para cadeirantes, 1 assento de mobilidade reduzida, 2 assentos para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinemark-cidade-jardim-vip",
+          "note": "Sala 2 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ],
+      "notes": "Conforto: Poltronas reclináveis"
+    },
+    {
+      "name": "Bradesco Prime 3",
+      "slug": "bradesco-prime-3",
+      "ancine_registry": "5002348",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 59,
+      "accessibility": {
+        "wheelchair_seats": 2,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 2,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINE CIDADE JARDIM 3\", registro 5002348, em funcionamento; 59 assentos, 2 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINE CIDADE JARDIM 3\", registro 5002348, em funcionamento; 59 assentos, 2 espaços para cadeirantes, 1 assento de mobilidade reduzida, 2 assentos para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinemark-cidade-jardim-vip",
+          "note": "Sala 3 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ],
+      "notes": "Conforto: Poltronas reclináveis"
+    },
+    {
+      "name": "Bradesco Prime 4",
+      "slug": "bradesco-prime-4",
+      "ancine_registry": "5002347",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 52,
+      "accessibility": {
+        "wheelchair_seats": 2,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 2,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINE CIDADE JARDIM 4\", registro 5002347, em funcionamento; 52 assentos, 2 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINE CIDADE JARDIM 4\", registro 5002347, em funcionamento; 52 assentos, 2 espaços para cadeirantes, 1 assento de mobilidade reduzida, 2 assentos para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinemark-cidade-jardim-vip",
+          "note": "Sala 4 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ],
+      "notes": "Conforto: Poltronas reclináveis"
+    },
+    {
+      "name": "Sala 5",
+      "slug": "sala-5",
+      "ancine_registry": "5002352",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 183,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 2,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINE CIDADE JARDIM 5\", registro 5002352, em funcionamento; 183 assentos, 4 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 2 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINE CIDADE JARDIM 5\", registro 5002352, em funcionamento; 183 assentos, 4 espaços para cadeirantes, 1 assento de mobilidade reduzida, 2 assentos para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinemark-cidade-jardim-vip",
+          "note": "Sala 5 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ]
+    },
+    {
+      "name": "Sala 6",
+      "slug": "sala-6",
+      "ancine_registry": "5002349",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "2K",
+        "light_source": "Xenon",
+        "brand": "Barco"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 220,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 3,
+        "obese_seats": 3,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINE CIDADE JARDIM 6\", registro 5002349, em funcionamento; 220 assentos, 4 espaços para cadeirantes, 3 assentos de mobilidade reduzida, 3 assentos para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinemark-cidade-jardim-vip",
+          "note": "Sala 6 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ],
+      "notes": "Conforto: Poltronas com movimento sincronizado — tecnologia: D-Box MFX; movimento sincronizado ao filme · Conforto: Poltronas reclináveis"
+    },
+    {
+      "name": "Sala 7",
+      "slug": "sala-7",
+      "ancine_registry": "5002351",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "2K",
+        "light_source": "Xenon",
+        "brand": "Barco"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 264,
+      "accessibility": {
+        "wheelchair_seats": 6,
+        "reduced_mobility_seats": 3,
+        "obese_seats": 3,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINE CIDADE JARDIM 7\", registro 5002351, em funcionamento; 264 assentos, 6 espaços para cadeirantes, 3 assentos de mobilidade reduzida, 3 assentos para pessoas obesas."
+        },
+        {
+          "type": "metadata",
+          "url": "https://www.ingresso.com/cinema/cinemark-cidade-jardim-vip",
+          "note": "Sala 7 observada na programação do Ingresso.com em 31/07/2026."
+        }
+      ],
+      "notes": "Conforto: Poltronas com movimento sincronizado — tecnologia: D-Box MFX; movimento sincronizado ao filme · Conforto: Poltronas reclináveis"
+    }
+  ]
+}

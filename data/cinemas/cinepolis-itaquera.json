@@ -1,0 +1,375 @@
+{
+  "slug": "cinepolis-itaquera",
+  "name": "Cinépolis Itaquera",
+  "network": {
+    "slug": "cinepolis",
+    "name": "Cinépolis"
+  },
+  "city": "São Paulo",
+  "state": "SP",
+  "neighborhood": "Itaquera",
+  "address": "Av. José Pinheiro Borges – Itaquera",
+  "ancine_registry": "30012",
+  "last_verified": "2026-07-31",
+  "rooms": [
+    {
+      "name": "Sala 1 - Macro XE",
+      "slug": "sala-1-macro-xe",
+      "ancine_registry": "5005084",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "4K",
+        "light_source": "A confirmar",
+        "brand": "Barco",
+        "notes": "Dois projetores 4K Barco HDR; Cinépolis migra para laser com Barco/Cinionic mas modelo Itaquera a confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null,
+        "area_m2": 170,
+        "geometry": "Plana"
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": 13000,
+        "notes": "13.000W; configuração de canais a confirmar"
+      },
+      "seats": 426,
+      "accessibility": {
+        "wheelchair_seats": 6,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.cinepolis.com.br/sala-macro-xe/",
+          "note": "Especificações Macro XE: tela 170m², som 13.000W"
+        },
+        {
+          "type": "press",
+          "url": "https://www.barco.com/en/about/press-releases/cinepolis-accelerates-move-to-laser-with-cinionic",
+          "note": "Cinépolis migra parque para laser Barco/Cinionic"
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINÉPOLIS ITAQUERA SALA 01\", registro 5005084, em funcionamento; 426 assentos, 6 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINÉPOLIS ITAQUERA SALA 01\", registro 5005084, em funcionamento; 426 assentos, 6 espaços para cadeirantes, 1 assento de mobilidade reduzida, 1 assento para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 2",
+      "slug": "sala-2",
+      "ancine_registry": "5005085",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 396,
+      "accessibility": {
+        "wheelchair_seats": 6,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINÉPOLIS ITAQUERA SALA 02\", registro 5005085, em funcionamento; 396 assentos, 6 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINÉPOLIS ITAQUERA SALA 02\", registro 5005085, em funcionamento; 396 assentos, 6 espaços para cadeirantes, 1 assento de mobilidade reduzida, 1 assento para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 3",
+      "slug": "sala-3",
+      "ancine_registry": "5005086",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 323,
+      "accessibility": {
+        "wheelchair_seats": 6,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINÉPOLIS ITAQUERA SALA 03\", registro 5005086, em funcionamento; 323 assentos, 6 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINÉPOLIS ITAQUERA SALA 03\", registro 5005086, em funcionamento; 323 assentos, 6 espaços para cadeirantes, 1 assento de mobilidade reduzida, 1 assento para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 4",
+      "slug": "sala-4",
+      "ancine_registry": "5005087",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 294,
+      "accessibility": {
+        "wheelchair_seats": 6,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINÉPOLIS ITAQUERA SALA 04\", registro 5005087, em funcionamento; 294 assentos, 6 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINÉPOLIS ITAQUERA SALA 04\", registro 5005087, em funcionamento; 294 assentos, 6 espaços para cadeirantes, 1 assento de mobilidade reduzida, 1 assento para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 5",
+      "slug": "sala-5",
+      "ancine_registry": "5005088",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 296,
+      "accessibility": {
+        "wheelchair_seats": 6,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINÉPOLIS ITAQUERA SALA 05\", registro 5005088, em funcionamento; 296 assentos, 6 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINÉPOLIS ITAQUERA SALA 05\", registro 5005088, em funcionamento; 296 assentos, 6 espaços para cadeirantes, 1 assento de mobilidade reduzida, 1 assento para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 6",
+      "slug": "sala-6",
+      "ancine_registry": "5005089",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 164,
+      "accessibility": {
+        "wheelchair_seats": 6,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINÉPOLIS ITAQUERA SALA 06\", registro 5005089, em funcionamento; 164 assentos, 6 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINÉPOLIS ITAQUERA SALA 06\", registro 5005089, em funcionamento; 164 assentos, 6 espaços para cadeirantes, 1 assento de mobilidade reduzida, 1 assento para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 7",
+      "slug": "sala-7",
+      "ancine_registry": "5005090",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 211,
+      "accessibility": {
+        "wheelchair_seats": 6,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINÉPOLIS ITAQUERA SALA 07\", registro 5005090, em funcionamento; 211 assentos, 6 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINÉPOLIS ITAQUERA SALA 07\", registro 5005090, em funcionamento; 211 assentos, 6 espaços para cadeirantes, 1 assento de mobilidade reduzida, 1 assento para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 8",
+      "slug": "sala-8",
+      "ancine_registry": "5005091",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 254,
+      "accessibility": {
+        "wheelchair_seats": 6,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINÉPOLIS ITAQUERA SALA 08\", registro 5005091, em funcionamento; 254 assentos, 6 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINÉPOLIS ITAQUERA SALA 08\", registro 5005091, em funcionamento; 254 assentos, 6 espaços para cadeirantes, 1 assento de mobilidade reduzida, 1 assento para pessoas obesas."
+        }
+      ]
+    }
+  ]
+}

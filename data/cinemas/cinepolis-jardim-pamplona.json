@@ -1,0 +1,220 @@
+{
+  "slug": "cinepolis-jardim-pamplona",
+  "name": "Cinépolis Jardim Pamplona",
+  "network": {
+    "slug": "cinepolis",
+    "name": "Cinépolis"
+  },
+  "city": "São Paulo",
+  "state": "SP",
+  "neighborhood": "Jardim Paulista",
+  "address": "Rua Pamplona – Jardim Paulista",
+  "ancine_registry": "44537",
+  "last_verified": "2026-07-31",
+  "notes": "Cinema 100% VIP da rede Cinépolis.",
+  "rooms": [
+    {
+      "name": "Sala 1 - VIP",
+      "slug": "sala-1-vip",
+      "ancine_registry": "5006467",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "Laser"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 41,
+      "accessibility": {
+        "wheelchair_seats": 2,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 0,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINÉPOLIS JARDIM PAMPLONA 1 - VIP\", registro 5006467, em funcionamento; 41 assentos, 2 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 0 assentos para pessoas obesas."
+        }
+      ],
+      "notes": "Conforto: Poltronas reclináveis"
+    },
+    {
+      "name": "Sala 2 - VIP",
+      "slug": "sala-2-vip",
+      "ancine_registry": "5006468",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "Laser"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 41,
+      "accessibility": {
+        "wheelchair_seats": 2,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 0,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINÉPOLIS JARDIM PAMPLONA 2 - VIP\", registro 5006468, em funcionamento; 41 assentos, 2 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 0 assentos para pessoas obesas."
+        }
+      ],
+      "notes": "Conforto: Poltronas reclináveis"
+    },
+    {
+      "name": "Sala 3 - VIP",
+      "slug": "sala-3-vip",
+      "ancine_registry": "5006469",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 41,
+      "accessibility": {
+        "wheelchair_seats": 2,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 0,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "user_report",
+          "url": "",
+          "note": "Confirmado via Ingresso.com: sessões rotuladas como [Vip]"
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINÉPOLIS JARDIM PAMPLONA 3 - VIP\", registro 5006469, em funcionamento; 41 assentos, 2 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 0 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 4 - VIP",
+      "slug": "sala-4-vip",
+      "ancine_registry": "5006470",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "A confirmar"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 41,
+      "accessibility": {
+        "wheelchair_seats": 2,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 0,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "user_report",
+          "url": "",
+          "note": "Confirmado via Ingresso.com: sessões rotuladas como [Vip]"
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINÉPOLIS JARDIM PAMPLONA 4 - VIP\", registro 5006470, em funcionamento; 41 assentos, 2 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 0 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 5 - VIP",
+      "slug": "sala-5-vip",
+      "ancine_registry": "5006471",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "Laser"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 41,
+      "accessibility": {
+        "wheelchair_seats": 2,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 0,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"CINÉPOLIS JARDIM PAMPLONA 5 - VIP\", registro 5006471, em funcionamento; 41 assentos, 2 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 0 assentos para pessoas obesas."
+        }
+      ],
+      "notes": "Conforto: Poltronas reclináveis"
+    }
+  ]
+}

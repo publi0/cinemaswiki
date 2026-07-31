@@ -1,52 +1,85 @@
 # CinemasWiki
 
-Catalogo tecnico colaborativo de cinemas paulistas, pensado para publicar no
-GitHub Pages.
+Catálogo técnico colaborativo de cinemas e salas paulistas, publicado como site
+estático em Cloudflare Pages.
 
-O projeto documenta cinemas e salas com dados como tecnologia de projecao,
-resolucao, tipo e tamanho de tela, sistema de som, quantidade de canais,
-potencia, capacidade e fontes.
+O projeto documenta projeção, resolução, tela, som, capacidade, tecnologias e
+fontes. Não há banco de dados ou servidor em produção: os dados versionados no
+repositório geram o site completo durante o build.
 
-## Direcao tecnica
+## Arquitetura
 
-- Site estatico em HTML, CSS e JavaScript.
-- Dados em `data/cinemas.json`.
-- Estrutura de dados em rede, cinema e salas.
-- Hospedagem via Cloudflare Pages em `cinemaswiki.publio.dev`.
-- Contribuicoes por pull request.
-- Dados tecnicos acompanhados de fonte sempre que disponivel.
+- Interface em HTML, CSS e JavaScript.
+- Um arquivo de autoria por cinema em `data/cinemas/`.
+- Schema executável em `data/schema.json`.
+- Validação com Ajv, incluindo enums, tipos, URLs, datas e slugs únicos.
+- Build estático em `dist/`.
+- Catálogo consolidado gerado em `dist/data/cinemas.json`.
+- Páginas pré-renderizadas para redes, cinemas e salas.
+- Sitemap e robots.txt gerados automaticamente.
+- Contribuições revisadas por pull request.
 
-## Como ver localmente
+## Desenvolvimento local
 
-Como o site usa `fetch()` para carregar `data/cinemas.json`, rode um servidor
-estatico simples na raiz do projeto:
+Instale as dependências:
 
 ```sh
-python3 -m http.server 8080
+npm install
 ```
 
-Depois acesse:
+Valide os dados e o JavaScript:
 
-```txt
-http://localhost:8080
+```sh
+npm test
 ```
 
-## Publicacao no Cloudflare Pages
+Gere o site:
 
-1. Crie o repositorio `cinemaswiki` no GitHub e envie os arquivos.
-2. No Cloudflare Pages, conecte o repositorio (sem configuracao de build).
-3. Adicione o dominio customizado `cinemaswiki.publio.dev`.
-
-O site sera publicado em:
-
-```txt
-https://cinemaswiki.publio.dev
+```sh
+npm run build
 ```
 
-## Proximos passos
+Sirva a pasta gerada:
 
-- Trocar o registro de exemplo por cinemas reais.
-- Separar dados por arquivo quando o catalogo crescer.
-- Criar paginas individuais por cinema, alem das paginas de sala.
-- Adicionar mapa e filtros por cidade, formato, som e projecao.
-- Adicionar validacao automatica do schema.
+```sh
+python3 -m http.server 8080 --directory dist
+```
+
+Depois acesse `http://localhost:8080`.
+
+## Como os dados são publicados
+
+1. Edite ou crie `data/cinemas/<slug-do-cinema>.json`.
+2. Execute `npm run validate`.
+3. Execute `npm run build`.
+4. Revise a página gerada e abra o pull request.
+
+O arquivo consolidado não deve ser editado manualmente: ele existe somente em
+`dist/` e é recriado em cada build.
+
+## Cloudflare Pages
+
+Configure o projeto com:
+
+- Build command: `npm run build`
+- Build output directory: `dist`
+- Node.js: 22
+
+O domínio esperado é `https://cinemaswiki.publio.dev`.
+
+## Qualidade e segurança
+
+- O workflow `.github/workflows/validate.yml` executa testes e build em pushes e
+  pull requests.
+- Textos do catálogo são escapados antes de entrar no HTML.
+- URLs externas aceitam apenas HTTP ou HTTPS.
+- Assets sem hash são revalidados em vez de receber cache imutável.
+- Dados consolidados podem ficar em cache por uma hora com revalidação em
+  segundo plano.
+
+## Próximos passos
+
+- Ampliar a cobertura e a qualidade das fontes.
+- Adicionar mais cidades.
+- Adicionar mapa quando houver dados geográficos suficientes.
+- Automatizar relatórios de registros desatualizados.

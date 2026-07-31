@@ -1,0 +1,17 @@
+{
+  "name": "cinemaswiki",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "normalize": "node scripts/normalize-data.mjs",
+    "validate": "node scripts/validate-data.mjs",
+    "test:taxonomy": "node scripts/test-taxonomy.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "npm run validate && npm run test:taxonomy && node scripts/validate-issue-forms.mjs && node --check assets/app.js && npm run build && node scripts/check-build.mjs"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  }
+}

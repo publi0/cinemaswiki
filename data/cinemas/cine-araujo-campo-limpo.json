@@ -1,0 +1,319 @@
+{
+  "slug": "cine-araujo-campo-limpo",
+  "name": "Cine Araújo Campo Limpo",
+  "network": {
+    "slug": "cine-araujo",
+    "name": "Cine Araújo"
+  },
+  "city": "São Paulo",
+  "state": "SP",
+  "neighborhood": "Vila Prel",
+  "address": "Estrada do Campo Limpo, 459 – Shopping Campo Limpo",
+  "ancine_registry": "6395",
+  "last_verified": "2026-07-31",
+  "notes": "As seis salas aparecem com sessões rotuladas como LASER na programação oficial consultada; a Sala 4 também é identificada pela rede como Dolby Atmos.",
+  "external_url": "https://www.cinearaujo.com.br/multiplex-campo-limpo",
+  "rooms": [
+    {
+      "name": "Sala 1",
+      "slug": "sala-1",
+      "ancine_registry": "5001892",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "Laser"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 237,
+      "accessibility": {
+        "wheelchair_seats": 5,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 3,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.cinearaujo.com.br/multiplex-campo-limpo/programacao",
+          "note": "A programação oficial identifica sessões da Sala 1 como LASER."
+        },
+        {
+          "type": "metadata",
+          "url": "https://guiaalt.com.br/cinema/0d6ec9ad-b84d-4087-bc91-31c8c49b5c4f",
+          "note": "Guia Alt informa capacidade de 237 lugares para a Sala 1."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"MULTIPLEX SHOPPING CAMPO LIMPO I\", registro 5001892, em funcionamento; 237 assentos, 5 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 3 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 2",
+      "slug": "sala-2",
+      "ancine_registry": "5001893",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "Laser"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 312,
+      "accessibility": {
+        "wheelchair_seats": 7,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 4,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.cinearaujo.com.br/multiplex-campo-limpo/programacao",
+          "note": "A programação oficial identifica sessões da Sala 2 como LASER."
+        },
+        {
+          "type": "metadata",
+          "url": "https://guiaalt.com.br/cinema/0d6ec9ad-b84d-4087-bc91-31c8c49b5c4f",
+          "note": "Guia Alt informa capacidade de 312 lugares para a Sala 2."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"MULTIPLEX SHOPPING CAMPO LIMPO II\", registro 5001893, em funcionamento; 312 assentos, 7 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 4 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 3",
+      "slug": "sala-3",
+      "ancine_registry": "5001894",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "Laser"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 360,
+      "accessibility": {
+        "wheelchair_seats": 7,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 4,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.cinearaujo.com.br/multiplex-campo-limpo/programacao",
+          "note": "A programação oficial identifica sessões da Sala 3 como LASER."
+        },
+        {
+          "type": "metadata",
+          "url": "https://guiaalt.com.br/cinema/0d6ec9ad-b84d-4087-bc91-31c8c49b5c4f",
+          "note": "Guia Alt informa capacidade de 360 lugares para a Sala 3."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"MULTIPLEX SHOPPING CAMPO LIMPO III\", registro 5001894, em funcionamento; 360 assentos, 7 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 4 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 4 – Dolby Atmos",
+      "slug": "sala-4-dolby-atmos",
+      "ancine_registry": "5001895",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "Laser RGB",
+        "brand": "Christie",
+        "notes": "Fonte independente baseada em divulgação da rede identifica projetor laser RGB Christie; modelo não publicado."
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "Dolby Atmos",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 360,
+      "accessibility": {
+        "wheelchair_seats": 7,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 4,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.cinearaujo.com.br/multiplex-campo-limpo/salas-especiais/dolby-atmos",
+          "note": "A página oficial da rede identifica a Sala 4 do Campo Limpo como Dolby Atmos."
+        },
+        {
+          "type": "official",
+          "url": "https://www.cinearaujo.com.br/multiplex-campo-limpo/programacao",
+          "note": "A programação oficial identifica sessões da Sala 4 como LASER e com som imersivo."
+        },
+        {
+          "type": "press",
+          "url": "https://playzuando.com.br/cine-araujo-traz-projetores-a-laser-rgb-christie/",
+          "note": "Matéria baseada em divulgação da rede lista a Sala 4 do Campo Limpo entre as instalações laser RGB Christie."
+        },
+        {
+          "type": "metadata",
+          "url": "https://guiaalt.com.br/cinema/0d6ec9ad-b84d-4087-bc91-31c8c49b5c4f",
+          "note": "Guia Alt informa capacidade de 360 lugares para a Sala 4."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"MULTIPLEX SHOPPING CAMPO LIMPO IV\", registro 5001895, em funcionamento; 360 assentos, 7 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 4 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 5",
+      "slug": "sala-5",
+      "ancine_registry": "5001896",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "Laser"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 329,
+      "accessibility": {
+        "wheelchair_seats": 6,
+        "reduced_mobility_seats": 0,
+        "obese_seats": 4,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.cinearaujo.com.br/multiplex-campo-limpo/programacao",
+          "note": "A programação oficial identifica sessões da Sala 5 como LASER."
+        },
+        {
+          "type": "metadata",
+          "url": "https://guiaalt.com.br/cinema/0d6ec9ad-b84d-4087-bc91-31c8c49b5c4f",
+          "note": "Guia Alt informa capacidade de 329 lugares para a Sala 5."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"MULTIPLEX SHOPPING CAMPO LIMPO V\", registro 5001896, em funcionamento; 329 assentos, 6 espaços para cadeirantes, 0 assentos de mobilidade reduzida, 4 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 6 – VIP",
+      "slug": "sala-6-vip",
+      "ancine_registry": "5006940",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "Laser"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "A confirmar",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null
+      },
+      "seats": 120,
+      "accessibility": {
+        "wheelchair_seats": 4,
+        "reduced_mobility_seats": 4,
+        "obese_seats": 0,
+        "ramp_to_seats": false,
+        "ramp_to_room": false,
+        "accessible_restrooms": false
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.cinearaujo.com.br/multiplex-campo-limpo/programacao",
+          "note": "A programação oficial identifica sessões da Sala 6 como LASER e VIP."
+        },
+        {
+          "type": "metadata",
+          "url": "https://guiaalt.com.br/cinema/0d6ec9ad-b84d-4087-bc91-31c8c49b5c4f",
+          "note": "Guia Alt informa capacidade de 120 lugares para a Sala 6."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"MULTIPLEX SHOPPING CAMPO LIMPO VI\", registro 5006940, em funcionamento; 120 assentos, 4 espaços para cadeirantes, 4 assentos de mobilidade reduzida, 0 assentos para pessoas obesas."
+        }
+      ],
+      "notes": "Conforto: Sala VIP"
+    }
+  ]
+}

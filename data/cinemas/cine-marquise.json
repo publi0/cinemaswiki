@@ -1,0 +1,169 @@
+{
+  "slug": "cine-marquise",
+  "name": "Cine Marquise",
+  "network": {
+    "slug": "cine-marquise",
+    "name": "Cine Marquise"
+  },
+  "city": "São Paulo",
+  "state": "SP",
+  "neighborhood": "Consolação (Conjunto Nacional)",
+  "address": "Av. Paulista, 2073 – Consolação (Conjunto Nacional)",
+  "ancine_registry": "47736",
+  "last_verified": "2026-07-31",
+  "notes": "A Sala 1 foi eleita melhor som de São Paulo pelo Guia Folha pela quinta vez em 2026.",
+  "external_url": "https://www.cinemarquise.com.br",
+  "rooms": [
+    {
+      "name": "Sala 1",
+      "slug": "sala-1",
+      "ancine_registry": "5006664",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "Laser",
+        "notes": "tela perolizada única no Hemisfério Sul, suporte a 300 mil cores",
+        "brand": "Christie"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null,
+        "notes": "única tela perolizada do Hemisfério Sul; 300 mil cores",
+        "surface": "Perolizada"
+      },
+      "sound": {
+        "format": "Dolby Atmos",
+        "channels": null,
+        "speakers": 46,
+        "power_watts": null,
+        "notes": "Dolby Atmos com 46 caixas, incluindo 4 subwoofers; eleito melhor som de SP pela quinta vez em 2026. · 46 caixas de som, incluindo 14 no teto e 4 subwoofers."
+      },
+      "seats": 370,
+      "accessibility": {
+        "wheelchair_seats": 8,
+        "reduced_mobility_seats": 4,
+        "obese_seats": 4,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.cinemarquise.com.br/paulista/eventos",
+          "note": "Página oficial confirma 370 lugares, projeção laser e Dolby Atmos na Sala 1."
+        },
+        {
+          "type": "press",
+          "url": "https://guia.folha.uol.com.br/cinema/2026/03/dolby-atmos-do-cine-marquise-vence-mais-uma-vez-a-categoria-de-som.shtml",
+          "note": "Fonte de 2026 detalha 46 caixas, incluindo 4 subwoofers, e a quinta vitória na categoria de som."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA CINE MARQUISE 1\", registro 5006664, em funcionamento; 370 assentos, 8 espaços para cadeirantes, 4 assentos de mobilidade reduzida, 4 assentos para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 2",
+      "slug": "sala-2",
+      "ancine_registry": "5006665",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "Laser"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "Dolby Digital 7.1",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null,
+        "channel_layout": "7.1"
+      },
+      "seats": 96,
+      "accessibility": {
+        "wheelchair_seats": 3,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 1,
+        "ramp_to_seats": true,
+        "ramp_to_room": false,
+        "accessible_restrooms": true
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.cinemarquise.com.br/paulista/eventos",
+          "note": "Página oficial confirma 96 lugares, projeção laser e Dolby Digital 7.1 na Sala 2."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA CINE MARQUISE 2\", registro 5006665, em funcionamento; 96 assentos, 3 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA CINE MARQUISE 2\", registro 5006665, em funcionamento; 96 assentos, 3 espaços para cadeirantes, 1 assento de mobilidade reduzida, 1 assento para pessoas obesas."
+        }
+      ]
+    },
+    {
+      "name": "Sala 3",
+      "slug": "sala-3",
+      "ancine_registry": "5006947",
+      "technologies": [],
+      "projection": {
+        "technology": "A confirmar",
+        "resolution": "A confirmar",
+        "light_source": "Laser"
+      },
+      "screen": {
+        "aspect_ratio": "A confirmar",
+        "width_m": null,
+        "height_m": null
+      },
+      "sound": {
+        "format": "Dolby Digital 7.1",
+        "channels": null,
+        "speakers": null,
+        "power_watts": null,
+        "channel_layout": "7.1"
+      },
+      "seats": 27,
+      "accessibility": {
+        "wheelchair_seats": 1,
+        "reduced_mobility_seats": 1,
+        "obese_seats": 1,
+        "ramp_to_seats": false,
+        "ramp_to_room": false,
+        "accessible_restrooms": false
+      },
+      "sources": [
+        {
+          "type": "official",
+          "url": "https://www.cinemarquise.com.br/paulista/eventos",
+          "note": "Página oficial confirma 27 lugares, projeção laser e Dolby Digital 7.1 na Sala 3."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA CINE MARQUISE 3\", registro 5006947, em funcionamento; 27 assentos, 1 espaços para cadeirantes, 1 assentos de mobilidade reduzida, 1 assentos para pessoas obesas."
+        },
+        {
+          "type": "official",
+          "url": "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file",
+          "note": "Cadastro mensal da ANCINE: \"SALA CINE MARQUISE 3\", registro 5006947, em funcionamento; 27 assentos, 1 espaço para cadeirantes, 1 assento de mobilidade reduzida, 1 assento para pessoas obesas."
+        }
+      ]
+    }
+  ]
+}
