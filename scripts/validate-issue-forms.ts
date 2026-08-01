@@ -1,11 +1,33 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { findRoomNameClassifications } from "./room-name-policy.mjs";
+import { findRoomNameClassifications, type RoomNameInput } from "./room-name-policy.js";
 
-const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const templateDirectory = path.join(projectRoot, ".github", "ISSUE_TEMPLATE");
-const schema = JSON.parse(await readFile(path.join(projectRoot, "data", "schema.json"), "utf8"));
+interface SchemaDefinition {
+  enum?: unknown[];
+  oneOf?: SchemaVariant[];
+}
+
+interface SchemaVariant {
+  properties: {
+    type: { const: string };
+    name: { const?: string; enum?: string[] };
+  };
+}
+
+interface SchemaDocument {
+  $defs: Record<string, SchemaDefinition> & {
+    technology: { oneOf: SchemaVariant[] };
+  };
+}
+
+interface ParsedForm {
+  dropdowns: Map<string, string[]>;
+}
+
+const schema = JSON.parse(await readFile(path.join(projectRoot, "data", "schema.json"), "utf8")) as SchemaDocument;
 
 const newEntrySource = await readFile(path.join(templateDirectory, "novo-cinema-ou-sala.yml"), "utf8");
 const correctionSource = await readFile(path.join(templateDirectory, "correcao-de-dados.yml"), "utf8");
@@ -15,15 +37,15 @@ const correction = parseForm(correctionSource);
 assertRoomNameExamples(newEntrySource, "novo-cinema-ou-sala.yml");
 assertRoomNameExamples(correctionSource, "correcao-de-dados.yml");
 
-const knownValues = (definition) =>
-  schema.$defs[definition].enum.filter((value) => typeof value === "string");
+const knownValues = (definition: string): string[] =>
+  (schema.$defs[definition].enum ?? []).filter((value): value is string => typeof value === "string");
 
-const technologyNames = (type) =>
+const technologyNames = (type: string): string[] =>
   schema.$defs.technology.oneOf
     .filter((variant) => variant.properties.type.const === type)
     .flatMap((variant) => {
       const name = variant.properties.name;
-      return name.const ? [name.const] : name.enum;
+      return name.const ? [name.const] : name.enum ?? [];
     });
 
 const canonical = {
@@ -88,11 +110,11 @@ assertOptions(
 
 console.log("Formulários de issue válidos e alinhados à taxonomia técnica.");
 
-function isKnown(value) {
+function isKnown(value: string): boolean {
   return value !== "A confirmar";
 }
 
-function assertOptions(form, id, expected, filename) {
+function assertOptions(form: ParsedForm, id: string, expected: string[], filename: string): void {
   const actual = form.dropdowns.get(id);
   if (!actual) {
     throw new Error(`${filename}: dropdown obrigatório ausente (${id})`);
@@ -111,22 +133,23 @@ function assertOptions(form, id, expected, filename) {
   }
 }
 
-function assertRoomNameExamples(source, filename) {
+function assertRoomNameExamples(source: string, filename: string): void {
   const placeholders = [...source.matchAll(/placeholder:\s*["']([^"']*Sala[^"']*)["']/g)]
-    .map((match) => match[1].split("/").at(-1).trim());
+    .map((match) => (match[1] ?? "").split("/").at(-1)?.trim() ?? "")
+    .filter(Boolean);
 
   for (const name of placeholders) {
-    const classifications = findRoomNameClassifications({ name });
+    const classifications = findRoomNameClassifications({ name } satisfies RoomNameInput);
     if (classifications.length > 0) {
       throw new Error(`${filename}: exemplo de nome de sala contém classificação técnica (${name}): ${classifications.join(", ")}`);
     }
   }
 }
 
-function parseForm(source) {
+function parseForm(source: string): ParsedForm {
   const lines = source.split(/\r?\n/);
-  const ids = [];
-  const dropdowns = new Map();
+  const ids: string[] = [];
+  const dropdowns = new Map<string, string[]>();
 
   for (const line of lines) {
     const id = line.match(/^    id:\s*(.+)\s*$/)?.[1];
@@ -161,7 +184,7 @@ function parseForm(source) {
   return { dropdowns };
 }
 
-function unquote(value) {
+function unquote(value: string): string {
   const quote = value[0];
   return quote && quote === value.at(-1) && ['"', "'"].includes(quote)
     ? value.slice(1, -1)

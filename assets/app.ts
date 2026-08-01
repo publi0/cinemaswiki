@@ -1,47 +1,126 @@
-import { soundValues as getSoundValues } from "./display-values.mjs";
+import {
+  buildRooms,
+  compact,
+  exhibitionSystems,
+  isKnown,
+  networkId,
+  networkName,
+  normalize,
+  projectionDisplay,
+  projectionValues,
+  roomExperienceNames,
+  roomId,
+  roomText,
+  roomTechnologyBrands,
+  screenValues,
+  slugify,
+  technicalTechnologies,
+  technologyBrandKey,
+  usefulSources,
+} from "./catalog-utils.js";
+import {
+  filterRooms,
+  paginate,
+  paginationItems,
+  parseFilterState,
+  serializeFilterState,
+  sortRooms,
+} from "./catalog-state.js";
+import { soundValues } from "./display-values.js";
+import type {
+  CatalogItem,
+  Cinema,
+  FilterState,
+  PaginationItem,
+  Room,
+  Source,
+  Technology,
+} from "../types/catalog.js";
+import type { TechnologyBrandKey } from "./catalog-utils.js";
 
-const roomList = document.querySelector("#room-list");
-const roomDetail = document.querySelector("#room-detail");
-const roomTable = document.querySelector(".room-table");
-const homeLinks = document.querySelector(".home-links");
-const filtersSection = document.querySelector(".filters");
-const resultsSummary = document.querySelector(".results-summary");
-const structureSection = document.querySelector(".structure");
-const methodSection = document.querySelector(".method");
-const networkTree = document.querySelector("#network-tree");
-const search = document.querySelector("#search");
-const systemFilter = document.querySelector("#system");
-const experienceFilter = document.querySelector("#experience");
-const projectionFilter = document.querySelector("#projection");
-const resolutionFilter = document.querySelector("#resolution");
-const soundFilter = document.querySelector("#sound");
-const soundLayoutFilter = document.querySelector("#sound-layout");
-const sortFilter = document.querySelector("#sort");
-const clearFilters = document.querySelector("#clear-filters");
-const filterGrid = document.querySelector("#filter-grid");
-const filterToggle = document.querySelector("#filter-toggle");
-const activeFilterCountLabel = document.querySelector("#active-filter-count");
-const cinemaSearch = document.querySelector("#cinema-search");
-const networkSummary = document.querySelector("#network-summary");
-const resultCount = document.querySelector("#result-count");
-const resultContext = document.querySelector("#result-context");
-const pagination = document.querySelector("#pagination");
-const networkPagination = document.querySelector("#network-pagination");
+const roomList = document.querySelector<HTMLElement>("#room-list");
+const roomDetail = document.querySelector<HTMLElement>("#room-detail");
+const roomTable = document.querySelector<HTMLElement>(".room-table");
+const homeLinks = document.querySelector<HTMLElement>(".home-links");
+const filtersSection = document.querySelector<HTMLElement>(".filters");
+const resultsSummary = document.querySelector<HTMLElement>(".results-summary");
+const structureSection = document.querySelector<HTMLElement>(".structure");
+const methodSection = document.querySelector<HTMLElement>(".method");
+const networkTree = document.querySelector<HTMLElement>("#network-tree");
+const search = document.querySelector<HTMLInputElement>("#search");
+const systemFilter = document.querySelector<HTMLSelectElement>("#system");
+const experienceFilter = document.querySelector<HTMLSelectElement>("#experience");
+const projectionFilter = document.querySelector<HTMLSelectElement>("#projection");
+const resolutionFilter = document.querySelector<HTMLSelectElement>("#resolution");
+const soundFilter = document.querySelector<HTMLSelectElement>("#sound");
+const soundLayoutFilter = document.querySelector<HTMLSelectElement>("#sound-layout");
+const sortFilter = document.querySelector<HTMLSelectElement>("#sort");
+const clearFilters = document.querySelector<HTMLButtonElement>("#clear-filters");
+const filterForm = document.querySelector<HTMLFormElement>(".filter-form");
+const filterGrid = document.querySelector<HTMLElement>("#filter-grid");
+const filterToggle = document.querySelector<HTMLButtonElement>("#filter-toggle");
+const activeFilterCountLabel = document.querySelector<HTMLElement>("#active-filter-count");
+const cinemaSearch = document.querySelector<HTMLInputElement>("#cinema-search");
+const networkSummary = document.querySelector<HTMLElement>("#network-summary");
+const resultCount = document.querySelector<HTMLElement>("#result-count");
+const resultContext = document.querySelector<HTMLElement>("#result-context");
+const pagination = document.querySelector<HTMLElement>("#pagination");
+const networkPagination = document.querySelector<HTMLElement>("#network-pagination");
 const isHomePage = document.body.classList.contains("home-page");
 const defaultSort = isHomePage ? "coverage" : "name";
 const networksPerPage = 5;
 
-let cinemas = [];
-let rooms = [];
+let cinemas: Cinema[] = [];
+let rooms: CatalogItem[] = [];
 let currentPage = 1;
 let currentNetworkPage = 1;
 
-function hasDetailParams() {
+interface NetworkDetail {
+  id: string;
+  name: string;
+  cinemas: Cinema[];
+}
+
+type SpecRow = [label: string, value: unknown, href?: string];
+type FilterControl = HTMLInputElement | HTMLSelectElement;
+
+function closestButton(event: Event, selector: string): HTMLButtonElement | null {
+  return event.target instanceof Element
+    ? event.target.closest<HTMLButtonElement>(selector)
+    : null;
+}
+
+function filterControls(): FilterControl[] {
+  return [
+    search,
+    systemFilter,
+    experienceFilter,
+    projectionFilter,
+    resolutionFilter,
+    soundFilter,
+    soundLayoutFilter,
+    sortFilter,
+  ].filter((control): control is FilterControl => control !== null);
+}
+
+function catalogVisibilityControls(): FilterControl[] {
+  return [
+    search,
+    systemFilter,
+    experienceFilter,
+    projectionFilter,
+    resolutionFilter,
+    soundFilter,
+    sortFilter,
+  ].filter((control): control is FilterControl => control !== null);
+}
+
+function hasDetailParams(): boolean {
   const params = new URLSearchParams(window.location.search);
   return params.has("sala") || params.has("cinema") || params.has("rede");
 }
 
-function roomsPerPage() {
+function roomsPerPage(): number {
   if (!isHomePage) return 12;
   return window.matchMedia("(max-width: 900px)").matches ? 3 : 6;
 }
@@ -50,25 +129,18 @@ if (hasDetailParams()) {
   showDetailView();
 }
 
-function normalize(value) {
-  return String(value ?? "")
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase();
-}
-
-function display(value, fallback = "A confirmar") {
+function display(value: unknown, fallback = "A confirmar"): string {
   const visibleValue = value === null || value === undefined || value === "" ? fallback : value;
   return escapeHtml(visibleValue);
 }
 
-function yesNo(value) {
+function yesNo(value: boolean | null | undefined): string | null {
   if (value === true) return "Sim";
   if (value === false) return "Não";
   return null;
 }
 
-function escapeHtml(value) {
+function escapeHtml(value: unknown): string {
   return String(value)
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
@@ -77,22 +149,23 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
-function labIcon(name, className = "") {
+function labIcon(name: unknown, className = ""): string {
   const safeName = String(name).replace(/[^a-z-]/g, "");
   const safeClassName = String(className).replace(/[^a-z0-9_-]/gi, "");
   return `<svg class="lab-icon ${safeClassName}" aria-hidden="true"><use href="assets/lab-icons.svg#${safeName}"></use></svg>`;
 }
 
-function fieldIcon(label) {
-  return {
+function fieldIcon(label: string): string {
+  const icons: Record<string, string> = {
     "Projeção": "projector",
     "Resolução": "resolution",
     "Som": "sound",
     "Tela": "screen",
-  }[label] || "room";
+  };
+  return icons[label] || "room";
 }
 
-function safeExternalUrl(value) {
+function safeExternalUrl(value: string): string {
   try {
     const url = new URL(value);
     return ["http:", "https:"].includes(url.protocol) ? escapeHtml(url.href) : "";
@@ -101,46 +174,7 @@ function safeExternalUrl(value) {
   }
 }
 
-function isKnown(value) {
-  return value !== null && value !== undefined && value !== "" && value !== "A confirmar";
-}
-
-function compact(values) {
-  return values.filter(isKnown).join(" · ") || "A confirmar";
-}
-
-function projectionValues(room) {
-  const technology = room.projection?.technology;
-  const lightSource = room.projection?.light_source;
-
-  if (isKnown(technology)) return [technology];
-  if (lightSource === "Laser RGB") return ["Laser", "Laser RGB"];
-  return isKnown(lightSource) ? [lightSource] : [];
-}
-
-function projectionDisplay(room) {
-  const values = projectionValues(room);
-  return values.at(-1) || "A confirmar";
-}
-
-function screenValues(room) {
-  return [
-    room.screen?.technology,
-    room.screen?.surface,
-    room.screen?.geometry,
-    room.screen?.aspect_ratio,
-  ];
-}
-
-function soundValues(room) {
-  return getSoundValues(room);
-}
-
-function usefulSources(sources = []) {
-  return sources.filter((source) => source.url?.trim() || source.note?.trim());
-}
-
-function formatDate(value) {
+function formatDate(value: string | null | undefined): string {
   if (!value) return "Sem data";
   const [year, month, day] = value.split("-").map(Number);
   if (!year || !month || !day) return value;
@@ -151,90 +185,24 @@ function formatDate(value) {
   }).format(new Date(year, month - 1, day)).replace(".", "");
 }
 
-function coverageValues(room) {
-  return [
-    projectionDisplay(room),
-    room.projection?.resolution,
-    compact(soundValues(room)),
-    compact(screenValues(room)),
-  ];
-}
-
-function coverageCount(room) {
-  return coverageValues(room).filter(isKnown).length;
-}
-
-function slugify(value) {
-  return normalize(value)
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
-
-function roomId(cinema, room) {
-  return `${cinema.slug}-${room.slug || slugify(room.name)}`;
-}
-
-function networkName(cinema) {
-  return cinema.network?.name || cinema.operator || "Rede independente";
-}
-
-function networkId(cinema) {
-  return cinema.network?.slug || slugify(networkName(cinema));
-}
-
-function roomUrl(id) {
+function roomUrl(id: string, _fromCinema?: string): string {
   return `salas/${encodeURIComponent(id)}.html`;
 }
 
-function cinemaUrl(cinema) {
+function cinemaUrl(cinema: Cinema): string {
   return `cinemas/${encodeURIComponent(cinema.slug)}.html`;
 }
 
-function networkUrl(cinemaOrId) {
+function networkUrl(cinemaOrId: Cinema | string): string {
   const id = typeof cinemaOrId === "string" ? cinemaOrId : networkId(cinemaOrId);
   return `redes/${encodeURIComponent(id)}.html`;
 }
 
-function technicalTechnologies(room) {
-  return room.technologies ?? [];
-}
-
-function exhibitionSystems(room) {
-  return (room.technologies ?? []).filter((technology) => technology.type === "system");
-}
-
-function roomExperiences(room) {
-  return (room.technologies ?? []).filter((technology) => technology.type === "experience");
-}
-
-function roomExperienceNames(room) {
-  const experiences = roomExperiences(room).map(({ name }) => name);
-  return experiences.length > 0 ? experiences : ["2D"];
-}
-
-function technologyBrandKey(value) {
-  return {
-    imax: "imax",
-    multicanal: "multicanal",
-    "dolby digital": "dolby-digital",
-    "dolby atmos": "dolby-atmos",
-    "dts:x": "dts-x",
-    "4dx": "4dx",
-    "macro xe": "macro-xe",
-    xd: "xd",
-    "cinemark xd": "xd",
-    cinepic: "cinepic",
-    xplus: "xplus",
-    "uci xplus": "xplus",
-    "d-box": "d-box",
-  }[normalize(value)] ?? "";
-}
-
-function technologyBrandMark(value) {
+function technologyBrandMark(value: unknown): string {
   const key = technologyBrandKey(value);
   if (!key) return "";
 
-  const wordmarks = {
+  const wordmarks: Record<TechnologyBrandKey, string> = {
     imax: '<span class="technology-wordmark technology-wordmark--imax">IMAX</span>',
     multicanal: '<span class="multichannel-glyph" aria-hidden="true"><i></i><i></i><i></i></span><span class="technology-wordmark technology-wordmark--multicanal"><b>Multi</b><em>canal</em></span>',
     "dolby-digital": '<span class="dolby-double-d" aria-hidden="true"><i></i><i></i></span><span class="technology-wordmark technology-wordmark--dolby"><b>Dolby</b><em>Digital</em></span>',
@@ -251,74 +219,13 @@ function technologyBrandMark(value) {
   return `<span class="technology-mark technology-mark--${key}" aria-label="${escapeHtml(value)}">${wordmarks[key]}</span>`;
 }
 
-function roomTechnologyBrands(room) {
-  const candidates = [
-    ...technicalTechnologies(room).map(({ name }) => name),
-    room.sound?.format,
-  ];
-  const unique = new Map();
-
-  for (const value of candidates) {
-    const key = technologyBrandKey(value);
-    if (key && !unique.has(key)) unique.set(key, value);
-  }
-
-  return [...unique.values()];
-}
-
-function renderTechnologyBrands(room) {
+function renderTechnologyBrands(room: Room): string {
   const brands = roomTechnologyBrands(room);
   if (brands.length === 0) return "";
   return `<span class="technology-marks" aria-label="Tecnologias da sala">${brands.map(technologyBrandMark).join("")}</span>`;
 }
 
-function roomText(item) {
-  const room = item.room;
-
-  return [
-    item.cinema.name,
-    networkName(item.cinema),
-    item.cinema.city,
-    item.cinema.neighborhood,
-    room.name,
-    room.projection?.technology,
-    room.projection?.brand,
-    room.projection?.model,
-    room.projection?.resolution,
-    room.projection?.light_source,
-    room.screen?.technology,
-    room.screen?.surface,
-    room.screen?.geometry,
-    room.screen?.area_m2,
-    room.screen?.aspect_ratio,
-    room.sound?.format,
-    room.sound?.channel_layout,
-    room.sound?.processor,
-    room.sound?.channels,
-    room.sound?.audio_streams,
-    room.sound?.speakers,
-    room.sound?.power_watts,
-    technicalTechnologies(room).map((tech) => `${tech.name} ${tech.type} ${tech.notes ?? ""}`).join(" "),
-    room.notes,
-    item.cinema.notes,
-  ].join(" ");
-}
-
-function buildRooms(data) {
-  return data.flatMap((cinema) =>
-    cinema.rooms.map((room) => ({
-      cinema,
-      room,
-      id: roomId(cinema, room),
-      searchable: normalize(roomText({ cinema, room })),
-    })),
-  ).sort((a, b) =>
-    a.cinema.name.localeCompare(b.cinema.name, "pt-BR") ||
-    a.room.name.localeCompare(b.room.name, "pt-BR"),
-  );
-}
-
-function fillSelect(select, values) {
+function fillSelect(select: HTMLSelectElement, values: readonly string[]): void {
   values
     .filter(Boolean)
     .sort((a, b) => a.localeCompare(b, "pt-BR"))
@@ -330,8 +237,10 @@ function fillSelect(select, values) {
     });
 }
 
-function setupFilters() {
-  const validValues = (arr) => [...new Set(arr.filter((v) => v && v !== "A confirmar"))];
+function setupFilters(): void {
+  const validValues = (arr: readonly unknown[]): string[] => [
+    ...new Set(arr.filter((value): value is string => Boolean(value) && value !== "A confirmar")),
+  ];
   if (systemFilter) {
     fillSelect(
       systemFilter,
@@ -355,7 +264,7 @@ function setupFilters() {
   if (soundLayoutFilter) fillSelect(soundLayoutFilter, validValues(rooms.map(({ room }) => room.sound?.channel_layout)));
 }
 
-function render() {
+function render(): void {
   const selectedRoom = getSelectedRoom();
   const selectedCinema = getSelectedCinema();
   const selectedNetwork = getSelectedNetwork();
@@ -397,56 +306,23 @@ function render() {
 
   showCatalog();
 
-  const query = normalize(search?.value);
-  const selectedSystem = normalize(systemFilter?.value);
-  const selectedExperience = normalize(experienceFilter?.value);
-  const selectedProjection = normalize(projectionFilter?.value);
-  const selectedResolution = normalize(resolutionFilter?.value);
-  const selectedSound = normalize(soundFilter?.value);
-  const selectedSoundLayout = normalize(soundLayoutFilter?.value);
-
-  const filtered = rooms.filter((item) => {
-    const systemMatches = !selectedSystem
-      || exhibitionSystems(item.room).some(({ name }) => normalize(name) === selectedSystem);
-    const experienceMatches = !selectedExperience
-      || roomExperienceNames(item.room).some((name) => normalize(name) === selectedExperience);
-    const projectionMatches = !selectedProjection
-      || projectionValues(item.room).some((value) => normalize(value) === selectedProjection);
-    const resolutionMatches = !selectedResolution || normalize(item.room.projection?.resolution ?? "") === selectedResolution;
-    const soundMatches = !selectedSound || normalize(item.room.sound?.format ?? "") === selectedSound;
-    const soundLayoutMatches = !selectedSoundLayout
-      || normalize(item.room.sound?.channel_layout ?? "") === selectedSoundLayout;
-
-    return (
-      item.searchable.includes(query) &&
-      systemMatches &&
-      experienceMatches &&
-      projectionMatches &&
-      resolutionMatches &&
-      soundMatches &&
-      soundLayoutMatches
-    );
+  let filtered = filterRooms(rooms, {
+    query: search?.value,
+    system: systemFilter?.value,
+    experience: experienceFilter?.value,
+    projection: projectionFilter?.value,
+    resolution: resolutionFilter?.value,
+    sound: soundFilter?.value,
+    soundLayout: soundLayoutFilter?.value,
   });
-
-  if (sortFilter?.value === "coverage") {
-    filtered.sort((a, b) =>
-      coverageCount(b.room) - coverageCount(a.room) ||
-      a.cinema.name.localeCompare(b.cinema.name, "pt-BR"),
-    );
-  } else if (sortFilter?.value === "updated") {
-    filtered.sort((a, b) =>
-      String(b.cinema.last_verified ?? "").localeCompare(String(a.cinema.last_verified ?? "")) ||
-      a.cinema.name.localeCompare(b.cinema.name, "pt-BR"),
-    );
-  }
+  filtered = sortRooms(filtered, sortFilter?.value, soundValues);
 
   const pageSize = roomsPerPage();
-  const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
-  currentPage = Math.min(currentPage, totalPages);
-  const pageStart = (currentPage - 1) * pageSize;
-  const pageItems = filtered.slice(pageStart, pageStart + pageSize);
+  const page = paginate(filtered, currentPage, pageSize);
+  currentPage = page.page;
+  const { totalPages, pageStart, items: pageItems } = page;
 
-  resultCount.textContent = `${filtered.length} ${filtered.length === 1 ? "sala" : "salas"}`;
+  if (resultCount) resultCount.textContent = `${filtered.length} ${filtered.length === 1 ? "sala" : "salas"}`;
   const activeFilterCount = [
     search?.value,
     systemFilter?.value,
@@ -465,12 +341,14 @@ function render() {
     soundLayoutFilter?.value,
     sortFilter?.value !== defaultSort ? sortFilter?.value : "",
   ].filter(Boolean).length;
-  if (activeFilterCountLabel) activeFilterCountLabel.textContent = advancedFilterCount;
+  if (activeFilterCountLabel) activeFilterCountLabel.textContent = String(advancedFilterCount);
   const rangeStart = filtered.length ? pageStart + 1 : 0;
   const rangeEnd = Math.min(pageStart + pageItems.length, filtered.length);
-  resultContext.textContent = filtered.length > 0
-    ? `mostrando ${rangeStart}–${rangeEnd}${activeFilterCount ? ` · ${activeFilterCount} ${activeFilterCount === 1 ? "filtro ativo" : "filtros ativos"}` : ""}`
-    : activeFilterCount ? "nenhum resultado para os filtros atuais" : "em todo o catálogo";
+  if (resultContext) {
+    resultContext.textContent = filtered.length > 0
+      ? `mostrando ${rangeStart}–${rangeEnd}${activeFilterCount ? ` · ${activeFilterCount} ${activeFilterCount === 1 ? "filtro ativo" : "filtros ativos"}` : ""}`
+      : activeFilterCount ? "nenhum resultado para os filtros atuais" : "em todo o catálogo";
+  }
 
   roomList.innerHTML = pageItems.map((item, index) => renderRoom(item, pageStart + index + 1)).join("");
   renderPagination(totalPages);
@@ -481,7 +359,7 @@ function render() {
   }
 }
 
-function renderPagination(totalPages) {
+function renderPagination(totalPages: number): void {
   if (!pagination) return;
 
   if (totalPages <= 1) {
@@ -514,23 +392,7 @@ function renderPagination(totalPages) {
   `;
 }
 
-function paginationItems(totalPages, activePage) {
-  if (totalPages <= 7) {
-    return Array.from({ length: totalPages }, (_, index) => index + 1);
-  }
-
-  if (activePage <= 4) {
-    return [1, 2, 3, 4, 5, "ellipsis", totalPages];
-  }
-
-  if (activePage >= totalPages - 3) {
-    return [1, "ellipsis", totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
-  }
-
-  return [1, "ellipsis", activePage - 1, activePage, activePage + 1, "ellipsis", totalPages];
-}
-
-function renderRoom(item, rowNumber) {
+function renderRoom(item: CatalogItem, rowNumber: number): string {
   const { cinema, room } = item;
   const projectionDetailValues = [
     room.projection?.brand,
@@ -577,14 +439,18 @@ function renderRoom(item, rowNumber) {
   `;
 }
 
-function renderRoomField(label, values, detailValues = []) {
+function renderRoomField(label: string, values: readonly unknown[], detailValues: readonly unknown[] = []): string {
   const knownValues = values.filter(isKnown);
   const knownDetails = detailValues.filter(isKnown);
   const primary = knownValues.join(" · ");
   const detail = knownDetails.join(" · ");
 
   return `
-    <div class="room-field ${primary ? "" : "is-unknown"}">
+    <div
+      class="room-field ${primary ? "" : "is-unknown"}"
+      role="group"
+      aria-label="${escapeHtml(`${label}: ${primary || "A confirmar"}`)}"
+    >
       <span class="cell-label">${labIcon(fieldIcon(label))}${label}</span>
       <strong class="data-primary">${escapeHtml(primary || "A confirmar")}</strong>
       ${detail ? `<small class="data-secondary">${escapeHtml(detail)}</small>` : ""}
@@ -592,19 +458,19 @@ function renderRoomField(label, values, detailValues = []) {
   `;
 }
 
-function getSelectedRoom() {
+function getSelectedRoom(): CatalogItem | null {
   const params = new URLSearchParams(window.location.search);
   const id = params.get("sala");
-  return id ? rooms.find((item) => item.id === id) : null;
+  return id ? rooms.find((item) => item.id === id) ?? null : null;
 }
 
-function getSelectedCinema() {
+function getSelectedCinema(): Cinema | null {
   const params = new URLSearchParams(window.location.search);
   const slug = params.get("cinema");
-  return slug ? cinemas.find((cinema) => cinema.slug === slug) : null;
+  return slug ? cinemas.find((cinema) => cinema.slug === slug) ?? null : null;
 }
 
-function getSelectedNetwork() {
+function getSelectedNetwork(): NetworkDetail | null {
   const params = new URLSearchParams(window.location.search);
   const slug = params.get("rede");
   if (!slug) return null;
@@ -619,9 +485,9 @@ function getSelectedNetwork() {
   };
 }
 
-function showCatalog() {
+function showCatalog(): void {
   if (homeLinks) homeLinks.hidden = false;
-  [search, systemFilter, experienceFilter, projectionFilter, resolutionFilter, soundFilter, sortFilter].filter(Boolean).forEach((control) => {
+  catalogVisibilityControls().forEach((control) => {
     control.hidden = false;
   });
   if (roomDetail) roomDetail.hidden = true;
@@ -634,9 +500,9 @@ function showCatalog() {
   if (networkPagination) networkPagination.hidden = false;
 }
 
-function showDetailView() {
+function showDetailView(): void {
   if (homeLinks) homeLinks.hidden = true;
-  [search, systemFilter, experienceFilter, projectionFilter, resolutionFilter, soundFilter, sortFilter].filter(Boolean).forEach((control) => {
+  catalogVisibilityControls().forEach((control) => {
     control.hidden = true;
   });
   if (roomTable) roomTable.hidden = true;
@@ -649,7 +515,7 @@ function showDetailView() {
   if (roomDetail) roomDetail.hidden = false;
 }
 
-function renderMissingDetail(title, message) {
+function renderMissingDetail(title: string, message: string): void {
   showDetailView();
   if (!roomDetail) return;
 
@@ -666,11 +532,12 @@ function renderMissingDetail(title, message) {
   `;
 }
 
-function renderRoomDetail(item) {
+function renderRoomDetail(item: CatalogItem): void {
   const { cinema, room } = item;
   const sourceCount = usefulSources(room.sources).length;
 
   showDetailView();
+  if (!roomDetail) return;
 
   document.title = `${cinema.name} - ${room.name} | CinemasWiki`;
 
@@ -717,7 +584,7 @@ function renderRoomDetail(item) {
       </div>
     </section>
 
-    <section class="detail-grid" aria-label="Especificacoes da sala">
+    <section class="detail-grid" aria-label="Especificações da sala">
       ${renderSpecGroup("Projeção", [
         ["Meio", room.projection?.technology],
         ["Marca", room.projection?.brand],
@@ -780,12 +647,13 @@ function renderRoomDetail(item) {
   `;
 }
 
-function renderCinemaDetail(cinema) {
+function renderCinemaDetail(cinema: Cinema): void {
   const cinemaRooms = rooms
     .filter((item) => item.cinema.slug === cinema.slug)
     .sort((a, b) => a.room.name.localeCompare(b.room.name, "pt-BR"));
 
   showDetailView();
+  if (!roomDetail) return;
   document.title = `${cinema.name} | CinemasWiki`;
 
   roomDetail.innerHTML = `
@@ -813,10 +681,11 @@ function renderCinemaDetail(cinema) {
   `;
 }
 
-function renderNetworkDetail(network) {
+function renderNetworkDetail(network: NetworkDetail): void {
   const networkRooms = rooms.filter((item) => networkId(item.cinema) === network.id);
 
   showDetailView();
+  if (!roomDetail) return;
   document.title = `${network.name} | CinemasWiki`;
 
   roomDetail.innerHTML = `
@@ -851,7 +720,7 @@ function renderNetworkDetail(network) {
   `;
 }
 
-function renderRoomCards(items, title, fromCinema) {
+function renderRoomCards(items: CatalogItem[], title: string, fromCinema?: Cinema): string {
   return `
     <section class="cinema-list-section">
       <h3>${title}</h3>
@@ -876,7 +745,7 @@ function renderRoomCards(items, title, fromCinema) {
   `;
 }
 
-function renderSpecGroup(title, rows) {
+function renderSpecGroup(title: string, rows: SpecRow[]): string {
   return `
     <article class="spec-group">
       <h3>${title}</h3>
@@ -895,7 +764,7 @@ function renderSpecGroup(title, rows) {
   `;
 }
 
-function renderTechnologies(technologies = []) {
+function renderTechnologies(technologies: Technology[] = []): string {
   if (technologies.length === 0) {
     return '<p class="empty-result">Nenhum sistema ou recurso adicional cadastrado para esta sala.</p>';
   }
@@ -919,7 +788,7 @@ function renderTechnologies(technologies = []) {
   `;
 }
 
-function renderNotes(cinema, room) {
+function renderNotes(cinema: Cinema, room: Room): string {
   const notes = [
     room.projection?.notes,
     room.screen?.notes,
@@ -939,7 +808,7 @@ function renderNotes(cinema, room) {
   `;
 }
 
-function renderSources(sources = []) {
+function renderSources(sources: Source[] = []): string {
   const visibleSources = usefulSources(sources);
   if (visibleSources.length === 0) {
     return '<p class="empty-result">Nenhuma fonte cadastrada ainda.</p>';
@@ -961,8 +830,8 @@ function renderSources(sources = []) {
   `;
 }
 
-function sourceTypeLabel(type) {
-  const labels = {
+function sourceTypeLabel(type: Source["type"]): string {
+  const labels: Record<Source["type"], string> = {
     official: "Oficial",
     press: "Imprensa",
     photo: "Foto",
@@ -975,12 +844,13 @@ function sourceTypeLabel(type) {
   return labels[type] || display(type);
 }
 
-function buildNetworks() {
-  const map = new Map();
+function buildNetworks(): NetworkDetail[] {
+  const map = new Map<string, Cinema[]>();
   cinemas.forEach((cinema) => {
     const id = networkId(cinema);
-    if (!map.has(id)) map.set(id, []);
-    map.get(id).push(cinema);
+    const networkCinemas = map.get(id) ?? [];
+    networkCinemas.push(cinema);
+    map.set(id, networkCinemas);
   });
   return [...map.entries()]
     .map(([id, networkCinemas]) => ({
@@ -991,42 +861,37 @@ function buildNetworks() {
     .sort((a, b) => a.name.localeCompare(b.name, "pt-BR"));
 }
 
-function restoreFiltersFromUrl() {
+function restoreFiltersFromUrl(): void {
   if (!search) return;
-  const params = new URLSearchParams(window.location.search);
-  if (params.has("q")) search.value = params.get("q");
-  if (systemFilter && params.has("sistema")) {
-    systemFilter.value = params.get("sistema");
-    if (!systemFilter.value && experienceFilter) {
-      experienceFilter.value = params.get("sistema");
-    }
-  }
-  if (experienceFilter && params.has("experiencia")) experienceFilter.value = params.get("experiencia");
-  if (projectionFilter && params.has("projecao")) projectionFilter.value = params.get("projecao");
-  if (resolutionFilter && params.has("resolucao")) resolutionFilter.value = params.get("resolucao");
-  if (soundFilter && params.has("som")) soundFilter.value = params.get("som");
-  if (soundLayoutFilter && params.has("layout")) soundLayoutFilter.value = params.get("layout");
-  if (sortFilter) sortFilter.value = params.get("ordem") || defaultSort;
-  if (params.has("p")) currentPage = Math.max(1, Number(params.get("p")) || 1);
+  const state = parseFilterState(window.location.search, defaultSort);
+  search.value = state.query;
+  if (systemFilter) systemFilter.value = state.system;
+  if (experienceFilter) experienceFilter.value = state.experience || state.system;
+  if (projectionFilter) projectionFilter.value = state.projection;
+  if (resolutionFilter) resolutionFilter.value = state.resolution;
+  if (soundFilter) soundFilter.value = state.sound;
+  if (soundLayoutFilter) soundLayoutFilter.value = state.soundLayout;
+  if (sortFilter) sortFilter.value = state.sort;
+  currentPage = state.page;
 }
 
-function updateFilterUrl() {
+function updateFilterUrl(): void {
   if (!search) return;
-  const params = new URLSearchParams();
-  if (search.value) params.set("q", search.value);
-  if (systemFilter?.value) params.set("sistema", systemFilter.value);
-  if (experienceFilter?.value) params.set("experiencia", experienceFilter.value);
-  if (projectionFilter?.value) params.set("projecao", projectionFilter.value);
-  if (resolutionFilter?.value) params.set("resolucao", resolutionFilter.value);
-  if (soundFilter?.value) params.set("som", soundFilter.value);
-  if (soundLayoutFilter?.value) params.set("layout", soundLayoutFilter.value);
-  if (sortFilter?.value && sortFilter.value !== defaultSort) params.set("ordem", sortFilter.value);
-  if (currentPage > 1) params.set("p", String(currentPage));
-  const qs = params.toString();
+  const qs = serializeFilterState({
+    query: search.value,
+    system: systemFilter?.value ?? "",
+    experience: experienceFilter?.value ?? "",
+    projection: projectionFilter?.value ?? "",
+    resolution: resolutionFilter?.value ?? "",
+    sound: soundFilter?.value ?? "",
+    soundLayout: soundLayoutFilter?.value ?? "",
+    sort: sortFilter?.value ?? defaultSort,
+    page: currentPage,
+  }, defaultSort);
   history.replaceState(null, "", qs ? `?${qs}` : window.location.pathname);
 }
 
-function renderNetworkTree() {
+function renderNetworkTree(): void {
   if (!networkTree) return;
 
   const query = normalize(cinemaSearch?.value);
@@ -1097,7 +962,7 @@ function renderNetworkTree() {
   renderNetworkPagination(totalPages);
 }
 
-function renderNetworkPagination(totalPages) {
+function renderNetworkPagination(totalPages: number): void {
   if (!networkPagination) return;
 
   if (totalPages <= 1) {
@@ -1122,7 +987,7 @@ function renderNetworkPagination(totalPages) {
   `;
 }
 
-async function init() {
+async function init(): Promise<void> {
   if (roomList) roomList.innerHTML = '<p class="empty-result">Carregando salas…</p>';
   if (networkTree) networkTree.innerHTML = '<p class="empty-result">Carregando…</p>';
 
@@ -1147,7 +1012,7 @@ async function init() {
   setupMobileFilters();
   renderNetworkTree();
 
-  [search, systemFilter, experienceFilter, projectionFilter, resolutionFilter, soundFilter, soundLayoutFilter, sortFilter].filter(Boolean).forEach((control) => {
+  filterControls().forEach((control) => {
     control.addEventListener("input", () => {
       currentPage = 1;
       render();
@@ -1158,9 +1023,15 @@ async function init() {
     });
   });
 
+  filterForm?.addEventListener("submit", (event) => {
+    event.preventDefault();
+  });
+
   if (clearFilters) {
     clearFilters.addEventListener("click", () => {
-      [search, systemFilter, experienceFilter, projectionFilter, resolutionFilter, soundFilter, soundLayoutFilter].filter(Boolean).forEach((control) => {
+      [search, systemFilter, experienceFilter, projectionFilter, resolutionFilter, soundFilter, soundLayoutFilter]
+        .filter((control): control is FilterControl => control !== null)
+        .forEach((control) => {
         control.value = "";
       });
       if (sortFilter) sortFilter.value = defaultSort;
@@ -1185,7 +1056,7 @@ async function init() {
 
   if (pagination) {
     pagination.addEventListener("click", (event) => {
-      const button = event.target.closest("button[data-page]");
+      const button = closestButton(event, "button[data-page]");
       if (!button || button.disabled) return;
 
       currentPage = Number(button.dataset.page);
@@ -1196,7 +1067,7 @@ async function init() {
 
   if (networkPagination) {
     networkPagination.addEventListener("click", (event) => {
-      const button = event.target.closest("button[data-net-page]");
+      const button = closestButton(event, "button[data-net-page]");
       if (!button || button.disabled) return;
 
       currentNetworkPage = Number(button.dataset.netPage);
@@ -1229,13 +1100,13 @@ async function init() {
   render();
 }
 
-function setFilterExpanded(expanded) {
+function setFilterExpanded(expanded: boolean): void {
   if (!filterToggle || !filterGrid) return;
   filterToggle.setAttribute("aria-expanded", String(expanded));
   filterGrid.hidden = !expanded;
 }
 
-function setupMobileFilters() {
+function setupMobileFilters(): void {
   if (!filterToggle || !filterGrid) return;
   const media = window.matchMedia("(max-width: 600px)");
   const defaultExpanded = document.body.classList.contains("catalog-page");
@@ -1262,9 +1133,9 @@ init().catch(() => {
   }
 
   if (roomList) {
-    roomList.innerHTML = '<p class="empty-result">Nao foi possivel carregar os dados do catalogo.</p>';
+    roomList.innerHTML = '<p class="empty-result">Não foi possível carregar os dados do catálogo.</p>';
   }
   if (networkTree) {
-    networkTree.innerHTML = '<p class="empty-result">Nao foi possivel carregar os dados do catalogo.</p>';
+    networkTree.innerHTML = '<p class="empty-result">Não foi possível carregar os dados do catálogo.</p>';
   }
 });

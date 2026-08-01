@@ -9,7 +9,11 @@ repositório geram o site completo durante o build.
 
 ## Arquitetura
 
-- Interface em HTML, CSS e JavaScript.
+- Interface em HTML e CSS, com comportamento escrito em TypeScript e compilado
+  para JavaScript.
+- Scripts de dados, build e testes também são escritos em TypeScript.
+- `tsconfig.json` usa verificação estrita; os artefatos intermediários ficam em
+  `.tsbuild/` e não são versionados.
 - Um arquivo de autoria por cinema em `data/cinemas/`.
 - Schema executável em `data/schema.json`.
 - Validação com Ajv, incluindo enums, tipos, URLs, datas e slugs únicos.
@@ -27,10 +31,16 @@ Instale as dependências:
 npm install
 ```
 
-Valide os dados e o JavaScript:
+Valide tipos, dados, testes e o build completo:
 
 ```sh
 npm test
+```
+
+Para executar somente a verificação estática de tipos:
+
+```sh
+npm run typecheck
 ```
 
 Gere o site:
@@ -44,6 +54,15 @@ Veja a cobertura atual dos campos:
 ```sh
 npm run coverage
 ```
+
+Meça a cobertura de código e valide os limites mínimos da suíte:
+
+```sh
+npm run test:coverage
+```
+
+`npm run coverage` mede o preenchimento dos dados publicados; `npm run
+test:coverage` mede linhas, branches e funções executadas pelos testes.
 
 Sirva a pasta gerada:
 
@@ -70,7 +89,7 @@ ANCINE. Ele preenche capacidade, registros e acessibilidade sem substituir uma
 capacidade divergente que já tenha uma fonte mais específica:
 
 ```sh
-node scripts/import-ancine-rooms.mjs /caminho/salas-de-exibicao-e-complexos.csv
+npm run import:ancine -- /caminho/salas-de-exibicao-e-complexos.csv
 ```
 
 A fonte oficial pode ser baixada em

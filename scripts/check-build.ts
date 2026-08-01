@@ -1,9 +1,10 @@
 import { access, readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { soundValues } from "../assets/display-values.mjs";
+import { soundValues } from "../assets/display-values.js";
+import type { Cinema } from "../types/catalog.js";
 
-const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const outputRoot = path.join(projectRoot, "dist");
 const requiredFiles = [
   "index.html",
@@ -13,7 +14,11 @@ const requiredFiles = [
   "contribuir.html",
   "_headers",
   "assets/app.js",
+  "assets/shell.js",
   "assets/statistics.js",
+  "assets/catalog-utils.js",
+  "assets/catalog-state.js",
+  "assets/display-values.js",
   "assets/styles.css",
   "data/cinemas.json",
   "sitemap.xml",
@@ -24,7 +29,7 @@ for (const filename of requiredFiles) {
   await access(path.join(outputRoot, filename));
 }
 
-const cinemas = JSON.parse(await readFile(path.join(outputRoot, "data", "cinemas.json"), "utf8"));
+const cinemas = JSON.parse(await readFile(path.join(outputRoot, "data", "cinemas.json"), "utf8")) as Cinema[];
 const expectedRoomCount = cinemas.reduce((total, cinema) => total + cinema.rooms.length, 0);
 const expectedNetworkCount = new Set(cinemas.map((cinema) => cinema.network.slug)).size;
 const generatedCinemaPages = await jsonCount("cinemas");
@@ -42,13 +47,14 @@ if (generatedNetworkPages !== expectedNetworkCount) {
 }
 
 const htmlFiles = await walkHtml(outputRoot);
-const missingLinks = [];
-const redundantSoundSummaries = new Set();
+const missingLinks: string[] = [];
+const redundantSoundSummaries = new Set<string>();
 
 for (const cinema of cinemas) {
   for (const room of cinema.rooms) {
     const rawSoundValues = [room.sound?.format, room.sound?.channel_layout].filter(
-      (value) => value !== null && value !== undefined && value !== "" && value !== "A confirmar",
+      (value): value is Exclude<typeof value, null | undefined> =>
+        value !== null && value !== undefined && value !== "A confirmar",
     );
     if (rawSoundValues.length > soundValues(room).length) {
       redundantSoundSummaries.add(rawSoundValues.join(" · "));
@@ -56,7 +62,7 @@ for (const cinema of cinemas) {
   }
 }
 
-const redundantSoundPages = [];
+const redundantSoundPages: string[] = [];
 
 for (const htmlPath of htmlFiles) {
   const html = await readFile(htmlPath, "utf8");
@@ -97,13 +103,13 @@ console.log(
   `Build válido: ${htmlFiles.length} páginas HTML, ${expectedRoomCount} salas e nenhum link interno quebrado.`,
 );
 
-async function jsonCount(directory) {
+async function jsonCount(directory: string): Promise<number> {
   return (await readdir(path.join(outputRoot, directory))).filter((filename) => filename.endsWith(".html")).length;
 }
 
-async function walkHtml(directory) {
+async function walkHtml(directory: string): Promise<string[]> {
   const entries = await readdir(directory, { withFileTypes: true });
-  const files = [];
+  const files: string[] = [];
   for (const entry of entries) {
     const fullPath = path.join(directory, entry.name);
     if (entry.isDirectory()) {

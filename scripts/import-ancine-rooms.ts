@@ -1,14 +1,45 @@
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import type { Cinema, Room, Source } from "../types/catalog.js";
 
-const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const cinemaDirectory = path.join(projectRoot, "data", "cinemas");
 const sourceUrl =
   "https://www.gov.br/ancine/pt-br/oca/cinema/arquivos.csv/salas-de-exibicao-e-complexos.csv/@@download/file";
 const verifiedAt = "2026-07-31";
 
-const mappings = {
+interface CsvRow extends Record<string, string> {}
+
+interface CinemaMapping {
+  registry: string;
+  roomName?: (number: number, row?: CsvRow) => string;
+  forceRoomName?: boolean;
+  overwriteSeats?: boolean;
+  canonicalNumber?: (number: number) => number;
+  ancineRoomNumber?: (row: CsvRow) => number | null;
+  include?: (number: number, row: CsvRow) => boolean;
+  inheritTemplateForNewRooms?: boolean;
+}
+
+interface IngressoObservation {
+  numbers: number[];
+  url: string;
+}
+
+interface ImportStats {
+  cinemas: number;
+  rooms: number;
+  roomsAdded: number;
+  roomsRemoved: number;
+  seatsFilled: number;
+  seatConflictsPreserved: number;
+  ingressoSources: number;
+  seatConflicts: string[];
+  removedRooms: string[];
+}
+
+const mappings: Record<string, CinemaMapping> = {
   "cine-araujo-campo-limpo": { registry: "6395" },
   "cinema-belas-artes": { registry: "49176" },
   "cine-marquise": { registry: "47736" },
@@ -83,7 +114,7 @@ const mappings = {
   "uci-santana": { registry: "14653" },
 };
 
-const ingressoObserved = {
+const ingressoObserved: Record<string, IngressoObservation> = {
   "cinemark-cidade-jardim-vip": {
     numbers: [1, 2, 3, 4, 5, 6, 7],
     url: "https://www.ingresso.com/cinema/cinemark-cidade-jardim-vip",
@@ -137,11 +168,11 @@ const ingressoObserved = {
 const csvPath = process.argv[2];
 if (!csvPath) {
   throw new Error(
-    "Uso: node scripts/import-ancine-rooms.mjs /caminho/salas-de-exibicao-e-complexos.csv",
+    "Uso: npm run import:ancine -- /caminho/salas-de-exibicao-e-complexos.csv",
   );
 }
 
-const records = parseCsv(await readFile(csvPath, "utf8")).filter(
+const records: CsvRow[] = parseCsv(await readFile(csvPath, "utf8")).filter(
   (record) =>
     record.UF_COMPLEXO === "SP" &&
     record.MUNICIPIO_COMPLEXO === "SÃO PAULO" &&
@@ -150,7 +181,7 @@ const records = parseCsv(await readFile(csvPath, "utf8")).filter(
 );
 
 const recordsByRegistry = Map.groupBy(records, (record) => record.REGISTRO_COMPLEXO);
-const stats = {
+const stats: ImportStats = {
   cinemas: 0,
   rooms: 0,
   roomsAdded: 0,
@@ -169,8 +200,8 @@ for (const [slug, mapping] of Object.entries(mappings)) {
   }
 
   const filePath = path.join(cinemaDirectory, `${slug}.json`);
-  const cinema = JSON.parse(await readFile(filePath, "utf8"));
-  const existingRooms = new Map();
+  const cinema = JSON.parse(await readFile(filePath, "utf8")) as Cinema;
+  const existingRooms = new Map<number, Room>();
 
   for (const room of cinema.rooms) {
     let number = catalogRoomNumber(room);
@@ -182,7 +213,7 @@ for (const [slug, mapping] of Object.entries(mappings)) {
     mapping.inheritTemplateForNewRooms && cinema.rooms.length > 0
       ? structuredClone(cinema.rooms[0])
       : null;
-  const importedRooms = [];
+  const importedRooms: Array<{ number: number; room: Room }> = [];
 
   for (const row of rows) {
     const rawNumber = mapping.ancineRoomNumber?.(row) ?? roomNumber(row.NOME_SALA);
@@ -288,17 +319,18 @@ if (stats.removedRooms.length > 0) {
   console.log(`Salas locais sem correspondência:\n- ${stats.removedRooms.join("\n- ")}`);
 }
 
-function parseCsv(text) {
+function parseCsv(text: string): CsvRow[] {
   const lines = text.replace(/^\uFEFF/, "").split(/\r?\n/).filter(Boolean);
-  const headers = lines.shift().split(";");
+  const headers = lines.shift()?.split(";") ?? [];
   return lines.map((line) =>
     Object.fromEntries(headers.map((header, index) => [header, line.split(";")[index] ?? ""])),
   );
 }
 
-function roomNumber(name) {
+function roomNumber(name: string): number | null {
   const numbers = [...name.matchAll(/\d+/g)];
-  if (numbers.length > 0) return Number(numbers.at(-1)[0]);
+  const lastNumber = numbers.at(-1)?.[0];
+  if (lastNumber) return Number(lastNumber);
 
   const roman = name.match(/\b(X|IX|VIII|VII|VI|V|IV|III|II|I)\b[^A-Z]*$/i)?.[1];
   if (!roman) return null;
@@ -313,26 +345,26 @@ function roomNumber(name) {
     VIII: 8,
     IX: 9,
     X: 10,
-  }[roman.toUpperCase()];
+  }[roman.toUpperCase()] ?? null;
 }
 
-function catalogRoomNumber(room) {
+function catalogRoomNumber(room: Room): number | null {
   const slugNumber = room.slug.match(/(?:^|-)sala-(\d+)(?:-|$)/)?.[1];
   if (slugNumber) return Number(slugNumber);
   return roomNumber(room.name);
 }
 
-function parseNumber(value) {
+function parseNumber(value: string): number | null {
   return value === "" ? null : Number(value);
 }
 
-function parseYesNo(value) {
+function parseYesNo(value: string): boolean | null {
   if (value === "SIM") return true;
   if (value === "NÃO") return false;
   return null;
 }
 
-function slugify(value) {
+function slugify(value: string): string {
   return value
     .normalize("NFD")
     .replace(/\p{Diacritic}/gu, "")
@@ -341,7 +373,7 @@ function slugify(value) {
     .replace(/^-|-$/g, "");
 }
 
-function emptyRoom(name) {
+function emptyRoom(name: string): Room {
   return {
     name,
     slug: slugify(name),
@@ -367,7 +399,7 @@ function emptyRoom(name) {
   };
 }
 
-function ancineSourceNote(row) {
+function ancineSourceNote(row: CsvRow): string {
   const details = [`${row.ASSENTOS_SALA} assentos`];
   if (row.ASSENTOS_CADEIRANTES !== "") {
     details.push(
@@ -387,18 +419,18 @@ function ancineSourceNote(row) {
   return `Cadastro mensal da ANCINE: "${row.NOME_SALA}", registro ${row.REGISTRO_SALA}, em funcionamento; ${details.join(", ")}.`;
 }
 
-function plural(value, singular, pluralForm) {
+function plural(value: string, singular: string, pluralForm: string): string {
   return Number(value) === 1 ? singular : pluralForm;
 }
 
-function appendSource(sources = [], source) {
+function appendSource(sources: Source[] = [], source: Source): Source[] {
   const withoutSameSource = sources.filter(
     (item) => !(item.url === source.url && item.type === source.type),
   );
   return [...withoutSameSource, source];
 }
 
-function orderCinema(cinema) {
+function orderCinema(cinema: Cinema): Cinema {
   const {
     slug,
     name,
@@ -426,10 +458,10 @@ function orderCinema(cinema) {
     notes,
     external_url,
     rooms,
-  });
+  }) as Cinema;
 }
 
-function orderRoom(room) {
+function orderRoom(room: Room): Room {
   const {
     name,
     slug,
@@ -455,11 +487,11 @@ function orderRoom(room) {
     accessibility,
     sources,
     notes,
-  });
+  }) as Room;
 }
 
-function removeUndefined(object) {
+function removeUndefined<T extends Record<string, unknown>>(object: T): Partial<T> {
   return Object.fromEntries(
     Object.entries(object).filter(([, value]) => value !== undefined),
-  );
+  ) as Partial<T>;
 }

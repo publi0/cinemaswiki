@@ -1,7 +1,8 @@
-import { loadAndValidateCinemas } from "./validate-data.mjs";
+import { loadAndValidateCinemas } from "./validate-data.js";
+import type { Room, RoomTextItem } from "../types/catalog.js";
 
 const cinemas = await loadAndValidateCinemas();
-const rooms = cinemas.flatMap((cinema) =>
+const rooms: RoomTextItem[] = cinemas.flatMap((cinema) =>
   cinema.rooms.map((room) => ({ cinema, room })),
 );
 
@@ -29,15 +30,15 @@ print("Ao menos uma fonte", counters.sources);
 print("Algum dado de projeção", counters.projection);
 print("Formato de som", counters.sound);
 
-function count(predicate) {
+function count(predicate: (room: Room) => boolean): number {
   return rooms.filter(({ room }) => predicate(room)).length;
 }
 
-function known(value) {
+function known(value: unknown): boolean {
   return value !== null && value !== undefined && value !== "" && value !== "A confirmar";
 }
 
-function print(label, value) {
+function print(label: string, value: number): void {
   const percentage = ((value / counters.rooms) * 100).toFixed(1).replace(".", ",");
   console.log(`- ${label}: ${value}/${counters.rooms} (${percentage}%)`);
 }

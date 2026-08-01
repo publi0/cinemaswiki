@@ -1,14 +1,33 @@
-const ledger = document.querySelector("#stat-ledger");
-const stamp = document.querySelector("#statistics-stamp");
-const coverageList = document.querySelector("#coverage-list");
-const coverageWaffles = document.querySelector("#coverage-waffles");
-const technicalHighlights = document.querySelector("#technical-highlights");
-const networkRanking = document.querySelector("#network-ranking");
-const networkDonut = document.querySelector("#network-donut");
-const networkDonutTotal = document.querySelector("#network-donut-total");
-const networkChartLegend = document.querySelector("#network-chart-legend");
-const networkInsight = document.querySelector("#network-insight");
-const accessibilityLedger = document.querySelector("#accessibility-ledger");
+import type { Cinema, Room, RoomTextItem, Technology } from "../types/catalog.js";
+
+function requiredElement<T extends Element>(selector: string): T {
+  const element = document.querySelector<T>(selector);
+  if (!element) throw new Error(`Elemento obrigatório ausente: ${selector}`);
+  return element;
+}
+
+const ledger = requiredElement<HTMLElement>("#stat-ledger");
+const stamp = requiredElement<HTMLElement>("#statistics-stamp");
+const coverageList = requiredElement<HTMLElement>("#coverage-list");
+const coverageWaffles = requiredElement<HTMLElement>("#coverage-waffles");
+const technicalHighlights = requiredElement<HTMLElement>("#technical-highlights");
+const networkRanking = requiredElement<HTMLElement>("#network-ranking");
+const networkDonut = requiredElement<HTMLElement>("#network-donut");
+const networkDonutTotal = requiredElement<HTMLElement>("#network-donut-total");
+const networkChartLegend = requiredElement<HTMLElement>("#network-chart-legend");
+const networkInsight = requiredElement<HTMLElement>("#network-insight");
+const accessibilityLedger = requiredElement<HTMLElement>("#accessibility-ledger");
+
+interface NetworkSummary {
+  name: string;
+  slug: string;
+  cinemas: number;
+  rooms: number;
+}
+
+type CountEntry = [label: string, count: number];
+type MetricRow = [label: string, value: number, note: string];
+type RoomContext = RoomTextItem;
 
 const numberFormatter = new Intl.NumberFormat("pt-BR");
 const percentFormatter = new Intl.NumberFormat("pt-BR", {
@@ -16,18 +35,18 @@ const percentFormatter = new Intl.NumberFormat("pt-BR", {
   maximumFractionDigits: 1,
 });
 
-function known(value) {
+function known(value: unknown): value is string | number {
   return value !== null
     && value !== undefined
     && value !== ""
     && value !== "A confirmar";
 }
 
-function formatNumber(value) {
+function formatNumber(value: number): string {
   return numberFormatter.format(value);
 }
 
-function formatDate(value) {
+function formatDate(value: string | null | undefined): string {
   if (!value) return "Sem data";
   const [year, month, day] = value.split("-").map(Number);
   return new Intl.DateTimeFormat("pt-BR", {
@@ -37,26 +56,27 @@ function formatDate(value) {
   }).format(new Date(year, month - 1, day));
 }
 
-function percentage(value, total) {
+function percentage(value: number, total: number): number {
   return total === 0 ? 0 : (value / total) * 100;
 }
 
-function countRooms(rooms, predicate) {
+function countRooms(rooms: RoomContext[], predicate: (room: Room) => boolean): number {
   return rooms.filter(({ room }) => predicate(room)).length;
 }
 
-function countValues(rooms, getter) {
-  const counts = new Map();
+function countValues(rooms: RoomContext[], getter: (item: RoomContext) => unknown): CountEntry[] {
+  const counts = new Map<string, number>();
   rooms.forEach((item) => {
     const values = getter(item);
     (Array.isArray(values) ? values : [values]).filter(known).forEach((value) => {
-      counts.set(value, (counts.get(value) || 0) + 1);
+      const key = String(value);
+      counts.set(key, (counts.get(key) || 0) + 1);
     });
   });
   return [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "pt-BR"));
 }
 
-function projectionFilterValues(room) {
+function projectionFilterValues(room: Room): string[] {
   const technology = room.projection?.technology;
   const lightSource = room.projection?.light_source;
   if (known(technology)) return [technology];
@@ -64,7 +84,7 @@ function projectionFilterValues(room) {
   return known(lightSource) ? [lightSource] : [];
 }
 
-function slugify(value) {
+function slugify(value: string): string {
   return String(value)
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
@@ -73,20 +93,24 @@ function slugify(value) {
     .replace(/^-+|-+$/g, "");
 }
 
-function makeElement(tag, className, text) {
+function makeElement<K extends keyof HTMLElementTagNameMap>(
+  tag: K,
+  className = "",
+  text?: string,
+): HTMLElementTagNameMap[K] {
   const element = document.createElement(tag);
   if (className) element.className = className;
   if (text !== undefined) element.textContent = text;
   return element;
 }
 
-function renderLedger(cinemas, rooms, networks) {
+function renderLedger(cinemas: Cinema[], rooms: RoomContext[], networks: NetworkSummary[]): void {
   const seatCount = rooms.reduce((sum, { room }) => sum + (Number(room.seats) || 0), 0);
   const sourceCount = rooms.reduce(
     (sum, { room }) => sum + room.sources.filter((source) => source.url?.trim() || source.note?.trim()).length,
     0,
   );
-  const metrics = [
+  const metrics: MetricRow[] = [
     ["Cinemas", cinemas.length, "complexos catalogados"],
     ["Salas", rooms.length, "registros individuais"],
     ["Assentos", seatCount, "capacidade documentada"],
@@ -97,7 +121,7 @@ function renderLedger(cinemas, rooms, networks) {
   ledger.replaceChildren();
   metrics.forEach(([label, value, note], index) => {
     const item = makeElement("div", "stat-ledger-item");
-    item.style.setProperty("--order", index);
+    item.style.setProperty("--order", String(index));
     item.append(
       makeElement("span", "stat-ledger-label", label),
       makeElement("strong", "stat-ledger-value", formatNumber(value)),
@@ -108,13 +132,13 @@ function renderLedger(cinemas, rooms, networks) {
   ledger.removeAttribute("aria-busy");
 }
 
-function hasTechnology(room, name, type) {
+function hasTechnology(room: Room, name: string, type: Technology["type"]): boolean {
   return room.technologies?.some(
     (technology) => technology.name === name && technology.type === type,
   ) ?? false;
 }
 
-function renderTechnicalHighlights(rooms) {
+function renderTechnicalHighlights(rooms: RoomContext[]): void {
   const total = rooms.length;
   const metrics = [
     {
@@ -182,9 +206,9 @@ function renderTechnicalHighlights(rooms) {
   });
 }
 
-function renderCoverage(rooms) {
+function renderCoverage(rooms: RoomContext[]): void {
   const total = rooms.length;
-  const rows = [
+  const rows: MetricRow[] = [
     ["Capacidade", countRooms(rooms, (room) => known(room.seats)), "Número de assentos"],
     ["Fontes", countRooms(rooms, (room) => room.sources.some((source) => source.url?.trim() || source.note?.trim())), "Ao menos uma referência"],
     ["Acessibilidade", countRooms(rooms, (room) => room.accessibility !== undefined), "Dados regulatórios ou locais"],
@@ -221,9 +245,9 @@ function renderCoverage(rooms) {
   });
 }
 
-function renderCoverageMap(rooms) {
+function renderCoverageMap(rooms: RoomContext[]): void {
   const total = rooms.length;
-  const metrics = [
+  const metrics: CountEntry[] = [
     [
       "Projeção",
       countRooms(rooms, (room) => [
@@ -260,9 +284,15 @@ function renderCoverageMap(rooms) {
   });
 }
 
-function renderDistribution(targetId, totalId, entries, queryName, roomTotal) {
-  const target = document.querySelector(`#${targetId}`);
-  const totalLabel = document.querySelector(`#${totalId}`);
+function renderDistribution(
+  targetId: string,
+  totalId: string,
+  entries: CountEntry[],
+  queryName: string,
+  roomTotal?: number,
+): void {
+  const target = requiredElement<HTMLElement>(`#${targetId}`);
+  const totalLabel = requiredElement<HTMLElement>(`#${totalId}`);
   const total = roomTotal ?? entries.reduce((sum, [, count]) => sum + count, 0);
   const maximum = Math.max(...entries.map(([, count]) => count), 0);
   totalLabel.textContent = `${formatNumber(total)} ${total === 1 ? "sala conhecida" : "salas conhecidas"}`;
@@ -288,13 +318,13 @@ function renderDistribution(targetId, totalId, entries, queryName, roomTotal) {
   });
 }
 
-function renderNetworks(cinemas) {
-  const groups = new Map();
+function renderNetworks(cinemas: Cinema[]): NetworkSummary[] {
+  const groups = new Map<string, NetworkSummary>();
   cinemas.forEach((cinema) => {
-    const name = cinema.network?.name || cinema.operator || "Rede independente";
-    const slug = cinema.network?.slug || slugify(name);
+    const name = cinema.network.name || "Rede independente";
+    const slug = cinema.network.slug || slugify(name);
     if (!groups.has(slug)) groups.set(slug, { name, slug, cinemas: 0, rooms: 0 });
-    const group = groups.get(slug);
+    const group = groups.get(slug)!;
     group.cinemas += 1;
     group.rooms += cinema.rooms.length;
   });
@@ -332,7 +362,7 @@ function renderNetworks(cinemas) {
   return networks;
 }
 
-function renderNetworkChart(networks) {
+function renderNetworkChart(networks: NetworkSummary[]): void {
   const total = networks.reduce((sum, network) => sum + network.rooms, 0);
   const featured = networks.slice(0, 5);
   const otherRooms = networks.slice(5).reduce((sum, network) => sum + network.rooms, 0);
@@ -378,6 +408,7 @@ function renderNetworkChart(networks) {
   });
 
   const leader = networks[0];
+  if (!leader) return;
   const leaderShare = percentage(leader.rooms, total);
   const topThreeRooms = networks.slice(0, 3).reduce((sum, network) => sum + network.rooms, 0);
   networkInsight.replaceChildren(
@@ -388,9 +419,10 @@ function renderNetworkChart(networks) {
   );
 }
 
-function renderAccessibility(rooms) {
-  const sum = (getter) => rooms.reduce((total, { room }) => total + (Number(getter(room)) || 0), 0);
-  const metrics = [
+function renderAccessibility(rooms: RoomContext[]): void {
+  const sum = (getter: (room: Room) => unknown): number =>
+    rooms.reduce((total, { room }) => total + (Number(getter(room)) || 0), 0);
+  const metrics: MetricRow[] = [
     ["Assentos", sum((room) => room.seats), "capacidade total registrada"],
     ["Espaços para cadeirantes", sum((room) => room.accessibility?.wheelchair_seats), "somados entre as salas"],
     ["Mobilidade reduzida", sum((room) => room.accessibility?.reduced_mobility_seats), "assentos registrados"],
@@ -411,16 +443,17 @@ function renderAccessibility(rooms) {
   });
 }
 
-async function initStatistics() {
+async function initStatistics(): Promise<void> {
   const response = await fetch("data/cinemas.json", {
     cache: "no-cache",
     headers: { Accept: "application/json" },
   });
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
-  const cinemas = await response.json();
-  if (!Array.isArray(cinemas)) throw new TypeError("Catálogo inválido");
+  const payload: unknown = await response.json();
+  if (!Array.isArray(payload)) throw new TypeError("Catálogo inválido");
+  const cinemas = payload as Cinema[];
 
-  const rooms = cinemas.flatMap((cinema) => cinema.rooms.map((room) => ({ cinema, room })));
+  const rooms: RoomContext[] = cinemas.flatMap((cinema) => cinema.rooms.map((room) => ({ cinema, room })));
   const latestVerification = cinemas
     .map((cinema) => cinema.last_verified)
     .filter(Boolean)
@@ -458,8 +491,8 @@ async function initStatistics() {
 
 initStatistics().catch(() => {
   ledger.removeAttribute("aria-busy");
-  ledger.replaceChildren(
-    makeElement("p", "statistics-error", "Não foi possível calcular as estatísticas agora."),
-  );
+  const error = makeElement("p", "statistics-error", "Não foi possível calcular as estatísticas agora.");
+  error.setAttribute("role", "alert");
+  ledger.replaceChildren(error);
   stamp.textContent = "Dados indisponíveis";
 });

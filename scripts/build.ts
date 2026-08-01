@@ -1,11 +1,19 @@
-import { cp, mkdir, rm, writeFile } from "node:fs/promises";
+import { cp, mkdir, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { soundValues } from "../assets/display-values.mjs";
-import { loadAndValidateCinemas } from "./validate-data.mjs";
+import { soundValues } from "../assets/display-values.js";
+import type {
+  Cinema,
+  Room,
+  Source,
+  Technology,
+} from "../types/catalog.js";
+import { loadAndValidateCinemas } from "./validate-data.js";
+import type { TechnologyBrandKey } from "../assets/catalog-utils.js";
 
-const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const outputRoot = path.join(projectRoot, "dist");
+const compiledAssetRoot = path.join(projectRoot, ".tsbuild", "assets");
 const siteUrl = "https://cinemaswiki.publio.dev";
 const cinemas = await loadAndValidateCinemas();
 const networks = buildNetworks(cinemas);
@@ -19,7 +27,17 @@ await mkdir(path.join(outputRoot, "redes"), { recursive: true });
 for (const filename of ["index.html", "salas.html", "cinemas.html", "formatos.html", "estatisticas.html", "contribuir.html", "_headers"]) {
   await cp(path.join(projectRoot, filename), path.join(outputRoot, filename));
 }
-await cp(path.join(projectRoot, "assets"), path.join(outputRoot, "assets"), { recursive: true });
+await copyStaticAssets(path.join(projectRoot, "assets"), path.join(outputRoot, "assets"));
+for (const filename of [
+  "app.js",
+  "shell.js",
+  "statistics.js",
+  "catalog-utils.js",
+  "catalog-state.js",
+  "display-values.js",
+]) {
+  await cp(path.join(compiledAssetRoot, filename), path.join(outputRoot, "assets", filename));
+}
 await writeFile(
   path.join(outputRoot, "data", "cinemas.json"),
   `${JSON.stringify(cinemas, null, 2)}\n`,
@@ -79,7 +97,44 @@ console.log(
   `Build concluído: ${cinemas.length} cinemas, ${roomCount} salas e ${networks.length} redes em dist/.`,
 );
 
-function pageShell({ title, description, canonicalPath, activeNav, content, structuredData }) {
+interface PageShellOptions {
+  title: string;
+  description: string;
+  canonicalPath: string;
+  activeNav: "salas" | "cinemas";
+  content: string;
+  structuredData?: Record<string, unknown>;
+}
+
+interface SitemapEntry {
+  url: string;
+  lastmod?: string;
+}
+
+interface NetworkPage {
+  slug: string;
+  name: string;
+  cinemas: Cinema[];
+}
+
+type SpecRow = [label: string, value: unknown];
+
+async function copyStaticAssets(sourceRoot: string, targetRoot: string): Promise<void> {
+  await mkdir(targetRoot, { recursive: true });
+  const entries = await readdir(sourceRoot, { withFileTypes: true });
+  for (const entry of entries) {
+    if (entry.name.endsWith(".ts")) continue;
+    const sourcePath = path.join(sourceRoot, entry.name);
+    const targetPath = path.join(targetRoot, entry.name);
+    if (entry.isDirectory()) {
+      await copyStaticAssets(sourcePath, targetPath);
+    } else {
+      await cp(sourcePath, targetPath);
+    }
+  }
+}
+
+function pageShell({ title, description, canonicalPath, activeNav, content, structuredData }: PageShellOptions): string {
   const canonical = `${siteUrl}${canonicalPath}`;
   const safeTitle = escapeHtml(title);
   const safeDescription = escapeHtml(description);
@@ -131,13 +186,13 @@ function pageShell({ title, description, canonicalPath, activeNav, content, stru
         <a href="mailto:felipe@publio.dev">felipe@publio.dev</a>
       </nav>
     </footer>
-    <script src="../assets/shell.js"></script>
+    <script type="module" src="../assets/shell.js"></script>
   </body>
 </html>
 `;
 }
 
-function renderRoomPage(cinema, room) {
+function renderRoomPage(cinema: Cinema, room: Room): string {
   const id = roomId(cinema, room);
   const sourceCount = usefulSources(room.sources).length;
   const description = `${cinema.name}, ${room.name}: ${compact([
@@ -238,7 +293,7 @@ function renderRoomPage(cinema, room) {
   });
 }
 
-function renderCinemaPage(cinema) {
+function renderCinemaPage(cinema: Cinema): string {
   const description = `${cinema.name}, em ${cinema.neighborhood}: ${cinema.rooms.length} ${cinema.rooms.length === 1 ? "sala catalogada" : "salas catalogadas"}.`;
   const content = `
       <section class="detail-view">
@@ -290,7 +345,7 @@ function renderCinemaPage(cinema) {
   });
 }
 
-function renderNetworkPage(network) {
+function renderNetworkPage(network: NetworkPage): string {
   const roomCount = network.cinemas.reduce((total, cinema) => total + cinema.rooms.length, 0);
   const description = `${network.name}: ${network.cinemas.length} ${network.cinemas.length === 1 ? "cinema catalogado" : "cinemas catalogados"} e ${roomCount} ${roomCount === 1 ? "sala" : "salas"}.`;
   const content = `
@@ -330,7 +385,7 @@ function renderNetworkPage(network) {
   });
 }
 
-function renderRoomCard(cinema, room) {
+function renderRoomCard(cinema: Cinema, room: Room): string {
   return `
     <a class="room-card-link" href="../salas/${roomId(cinema, room)}.html">
       <strong>${escapeHtml(room.name)}</strong>
@@ -347,7 +402,7 @@ function renderRoomCard(cinema, room) {
     </a>`;
 }
 
-function renderFact(label, value) {
+function renderFact(label: string, value: unknown): string {
   return `
     <div class="detail-fact">
       <small>${escapeHtml(label)}</small>
@@ -355,7 +410,7 @@ function renderFact(label, value) {
     </div>`;
 }
 
-function renderSpecGroup(title, rows) {
+function renderSpecGroup(title: string, rows: SpecRow[]): string {
   return `
     <article class="spec-group">
       <h3>${escapeHtml(title)}</h3>
@@ -370,12 +425,12 @@ function renderSpecGroup(title, rows) {
     </article>`;
 }
 
-function renderTechnologies(technologies = []) {
+function renderTechnologies(technologies: Technology[] = []): string {
   if (technologies.length === 0) {
     return '<p class="empty-result">Nenhum sistema ou recurso adicional cadastrado para esta sala.</p>';
   }
 
-  const typeLabels = {
+  const typeLabels: Record<Technology["type"], string> = {
     experience: "Experiência",
     system: "Sistema",
   };
@@ -393,7 +448,7 @@ function renderTechnologies(technologies = []) {
     </ul>`;
 }
 
-function renderNotes(cinema, room) {
+function renderNotes(cinema: Cinema, room: Room): string {
   const notes = [
     room.projection?.notes,
     room.screen?.notes,
@@ -411,7 +466,7 @@ function renderNotes(cinema, room) {
     </section>`;
 }
 
-function renderSources(sources = []) {
+function renderSources(sources: Source[] = []): string {
   const visibleSources = usefulSources(sources);
   if (visibleSources.length === 0) {
     return '<p class="empty-result">Nenhuma fonte cadastrada ainda.</p>';
@@ -431,7 +486,7 @@ function renderSources(sources = []) {
     </ul>`;
 }
 
-function renderSitemap(entries) {
+function renderSitemap(entries: SitemapEntry[]): string {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${entries.map((entry) => `  <url>
@@ -442,8 +497,8 @@ ${entries.map((entry) => `  <url>
 `;
 }
 
-function buildNetworks(items) {
-  const map = new Map();
+function buildNetworks(items: Cinema[]): NetworkPage[] {
+  const map = new Map<string, NetworkPage>();
   for (const cinema of items) {
     const current = map.get(cinema.network.slug) ?? {
       slug: cinema.network.slug,
@@ -461,40 +516,40 @@ function buildNetworks(items) {
     .sort((a, b) => a.name.localeCompare(b.name, "pt-BR"));
 }
 
-function roomId(cinema, room) {
+function roomId(cinema: Cinema, room: Room): string {
   return `${cinema.slug}-${room.slug}`;
 }
 
-function display(value, fallback = "A confirmar") {
+function display(value: unknown, fallback = "A confirmar"): string {
   return value === null || value === undefined || value === "" ? fallback : String(value);
 }
 
-function yesNo(value) {
+function yesNo(value: boolean | null | undefined): string | null {
   if (value === true) return "Sim";
   if (value === false) return "Não";
   return null;
 }
 
-function isKnown(value) {
+function isKnown(value: unknown): value is string | number {
   return value !== null && value !== undefined && value !== "" && value !== "A confirmar";
 }
 
-function compact(values) {
+function compact(values: readonly unknown[]): string {
   return values.filter(isKnown).join(" · ") || "A confirmar";
 }
 
-function projectionValues(room) {
+function projectionValues(room: Room): string[] {
   const technology = room.projection?.technology;
   const lightSource = room.projection?.light_source;
   if (isKnown(technology)) return [technology];
   return isKnown(lightSource) ? [lightSource] : [];
 }
 
-function projectionDisplay(room) {
+function projectionDisplay(room: Room): string {
   return projectionValues(room).at(-1) || "A confirmar";
 }
 
-function screenValues(room) {
+function screenValues(room: Room): unknown[] {
   return [
     room.screen?.technology,
     room.screen?.surface,
@@ -503,8 +558,8 @@ function screenValues(room) {
   ];
 }
 
-function technologyBrandKey(value) {
-  return {
+function technologyBrandKey(value: unknown): TechnologyBrandKey | "" {
+  const brands: Record<string, TechnologyBrandKey> = {
     imax: "imax",
     multicanal: "multicanal",
     "dolby digital": "dolby-digital",
@@ -518,14 +573,15 @@ function technologyBrandKey(value) {
     xplus: "xplus",
     "uci xplus": "xplus",
     "d-box": "d-box",
-  }[normalize(value)] ?? "";
+  };
+  return brands[normalize(value)] ?? "";
 }
 
-function technologyBrandMark(value) {
+function technologyBrandMark(value: unknown): string {
   const key = technologyBrandKey(value);
   if (!key) return "";
 
-  const wordmarks = {
+  const wordmarks: Record<TechnologyBrandKey, string> = {
     imax: '<span class="technology-wordmark technology-wordmark--imax">IMAX</span>',
     multicanal: '<span class="multichannel-glyph" aria-hidden="true"><i></i><i></i><i></i></span><span class="technology-wordmark technology-wordmark--multicanal"><b>Multi</b><em>canal</em></span>',
     "dolby-digital": '<span class="dolby-double-d" aria-hidden="true"><i></i><i></i></span><span class="technology-wordmark technology-wordmark--dolby"><b>Dolby</b><em>Digital</em></span>',
@@ -542,39 +598,39 @@ function technologyBrandMark(value) {
   return `<span class="technology-mark technology-mark--${key}" aria-label="${escapeHtml(value)}">${wordmarks[key]}</span>`;
 }
 
-function roomTechnologyBrands(room) {
+function roomTechnologyBrands(room: Room): string[] {
   const candidates = [
     ...(room.technologies ?? []).map(({ name }) => name),
     room.sound?.format,
   ];
-  const unique = new Map();
+  const unique = new Map<TechnologyBrandKey, string>();
 
   for (const value of candidates) {
     const key = technologyBrandKey(value);
-    if (key && !unique.has(key)) unique.set(key, value);
+    if (key && typeof value === "string" && !unique.has(key)) unique.set(key, value);
   }
 
   return [...unique.values()];
 }
 
-function renderTechnologyBrands(room) {
+function renderTechnologyBrands(room: Room): string {
   const brands = roomTechnologyBrands(room);
   if (brands.length === 0) return "";
   return `<span class="technology-marks" aria-label="Tecnologias da sala">${brands.map(technologyBrandMark).join("")}</span>`;
 }
 
-function normalize(value) {
+function normalize(value: unknown): string {
   return String(value ?? "")
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase();
 }
 
-function usefulSources(sources = []) {
+function usefulSources(sources: Source[] = []): Source[] {
   return sources.filter((source) => source.url?.trim() || source.note?.trim());
 }
 
-function coverageCount(room) {
+function coverageCount(room: Room): number {
   return [
     projectionDisplay(room),
     room.projection?.resolution,
@@ -583,7 +639,7 @@ function coverageCount(room) {
   ].filter(isKnown).length;
 }
 
-function formatDate(value) {
+function formatDate(value: string): string {
   const [year, month, day] = value.split("-").map(Number);
   return new Intl.DateTimeFormat("pt-BR", {
     day: "2-digit",
@@ -593,8 +649,8 @@ function formatDate(value) {
   }).format(new Date(Date.UTC(year, month - 1, day))).replace(".", "");
 }
 
-function sourceTypeLabel(type) {
-  const labels = {
+function sourceTypeLabel(type: Source["type"]): string {
+  const labels: Record<Source["type"], string> = {
     official: "Oficial",
     press: "Imprensa",
     photo: "Foto",
@@ -607,11 +663,11 @@ function sourceTypeLabel(type) {
   return labels[type] ?? type;
 }
 
-function latestDate(items) {
+function latestDate(items: Array<Pick<Cinema, "last_verified">>): string | undefined {
   return items.map((item) => item.last_verified).filter(Boolean).sort().at(-1);
 }
 
-function escapeHtml(value) {
+function escapeHtml(value: unknown): string {
   return String(value)
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
@@ -620,6 +676,6 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
-function safeJson(value) {
+function safeJson(value: Record<string, unknown>): string {
   return JSON.stringify(value).replaceAll("<", "\\u003c");
 }

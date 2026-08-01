@@ -1,21 +1,32 @@
 import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import Ajv2020 from "ajv/dist/2020.js";
-import addFormats from "ajv-formats";
-import { roomNamePolicyMessage } from "./room-name-policy.mjs";
+import { Ajv2020 } from "ajv/dist/2020.js";
+import * as addFormatsModule from "ajv-formats";
+import type { Cinema, Technology } from "../types/catalog.js";
+import { roomNamePolicyMessage } from "./room-name-policy.js";
 
-const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const cinemaDirectory = path.join(projectRoot, "data", "cinemas");
 const schemaPath = path.join(projectRoot, "data", "schema.json");
+const addFormats = (addFormatsModule as unknown as {
+  default: (ajv: InstanceType<typeof Ajv2020>) => void;
+}).default;
 
-export async function loadAndValidateCinemas() {
-  const schema = JSON.parse(await readFile(schemaPath, "utf8"));
+export interface ValidationPaths {
+  directory?: string;
+  schemaPath?: string;
+}
+
+export async function loadAndValidateCinemas(options: ValidationPaths = {}): Promise<Cinema[]> {
+  const dataDirectory = options.directory ?? cinemaDirectory;
+  const dataSchemaPath = options.schemaPath ?? schemaPath;
+  const schema = JSON.parse(await readFile(dataSchemaPath, "utf8"));
   const ajv = new Ajv2020({ allErrors: true, strict: true });
   addFormats(ajv);
-  const validate = ajv.compile(schema);
+  const validate = ajv.compile<Cinema>(schema);
 
-  const filenames = (await readdir(cinemaDirectory))
+  const filenames = (await readdir(dataDirectory))
     .filter((filename) => filename.endsWith(".json"))
     .sort((a, b) => a.localeCompare(b, "pt-BR"));
 
@@ -23,17 +34,18 @@ export async function loadAndValidateCinemas() {
     throw new Error("Nenhum cinema encontrado em data/cinemas.");
   }
 
-  const cinemas = [];
-  const errors = [];
+  const cinemas: Cinema[] = [];
+  const errors: string[] = [];
 
   for (const filename of filenames) {
-    const filePath = path.join(cinemaDirectory, filename);
-    let cinema;
+    const filePath = path.join(dataDirectory, filename);
+    let cinema: unknown;
 
     try {
       cinema = JSON.parse(await readFile(filePath, "utf8"));
-    } catch (error) {
-      errors.push(`${filename}: JSON inválido (${error.message})`);
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : String(error);
+      errors.push(`${filename}: JSON inválido (${message})`);
       continue;
     }
 
@@ -44,11 +56,13 @@ export async function loadAndValidateCinemas() {
       continue;
     }
 
-    if (filename !== `${cinema.slug}.json`) {
-      errors.push(`${filename}: o arquivo deve se chamar ${cinema.slug}.json`);
+    const validatedCinema = cinema as Cinema;
+
+    if (filename !== `${validatedCinema.slug}.json`) {
+      errors.push(`${filename}: o arquivo deve se chamar ${validatedCinema.slug}.json`);
     }
 
-    cinemas.push(cinema);
+    cinemas.push(validatedCinema);
   }
 
   validateCrossReferences(cinemas, errors);
@@ -60,11 +74,11 @@ export async function loadAndValidateCinemas() {
   return cinemas.sort((a, b) => a.name.localeCompare(b.name, "pt-BR"));
 }
 
-function validateCrossReferences(cinemas, errors) {
-  const cinemaSlugs = new Set();
-  const roomIds = new Set();
-  const networkNames = new Map();
-  const allowedTechnologies = new Map([
+export function validateCrossReferences(cinemas: Cinema[], errors: string[]): void {
+  const cinemaSlugs = new Set<string>();
+  const roomIds = new Set<string>();
+  const networkNames = new Map<string, string>();
+  const allowedTechnologies = new Map<string, Technology["type"]>([
     ["IMAX", "system"],
     ["Macro XE", "system"],
     ["XD", "system"],
@@ -88,8 +102,8 @@ function validateCrossReferences(cinemas, errors) {
     }
     networkNames.set(cinema.network.slug, cinema.network.name);
 
-    const localRoomSlugs = new Set();
-    const localRoomNames = new Set();
+    const localRoomSlugs = new Set<string>();
+    const localRoomNames = new Set<string>();
     for (const room of cinema.rooms) {
       const normalizedRoomName = room.name.trim().toLocaleLowerCase("pt-BR");
       if (localRoomNames.has(normalizedRoomName)) {
@@ -111,7 +125,7 @@ function validateCrossReferences(cinemas, errors) {
       const roomNameIssue = roomNamePolicyMessage(room);
       if (roomNameIssue) errors.push(`${roomId}: ${roomNameIssue}`);
 
-      const technologies = new Set();
+      const technologies = new Set<string>();
       for (const technology of room.technologies ?? []) {
         if (technologies.has(technology.name)) {
           errors.push(`${roomId}: tecnologia duplicada (${technology.name})`);
@@ -139,15 +153,15 @@ function validateCrossReferences(cinemas, errors) {
   }
 }
 
-async function run() {
+async function run(): Promise<void> {
   const cinemas = await loadAndValidateCinemas();
   const roomCount = cinemas.reduce((total, cinema) => total + cinema.rooms.length, 0);
   console.log(`Dados válidos: ${cinemas.length} cinemas e ${roomCount} salas.`);
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  run().catch((error) => {
-    console.error(error.message);
+  run().catch((error: unknown) => {
+    console.error(error instanceof Error ? error.message : String(error));
     process.exitCode = 1;
   });
 }

@@ -51,8 +51,31 @@ const APPROVED_STANDALONE_ROOM_NAMES = new Set([
   "Grande Auditório",
 ]);
 
-export function findRoomNameClassifications(room) {
-  const candidates = new Set(ROOM_NAME_CLASSIFICATION_TERMS);
+export interface RoomNameInput {
+  name: string;
+  room_type?: unknown;
+  technologies?: ReadonlyArray<{ name: string }>;
+  projection?: {
+    technology?: unknown;
+    resolution?: unknown;
+    light_source?: unknown;
+    brand?: unknown;
+    model?: unknown;
+  };
+  screen?: {
+    technology?: unknown;
+    surface?: unknown;
+    geometry?: unknown;
+  };
+  sound?: {
+    format?: unknown;
+    channel_layout?: unknown;
+    processor?: unknown;
+  };
+}
+
+export function findRoomNameClassifications(room: RoomNameInput): string[] {
+  const candidates = new Set<string>(ROOM_NAME_CLASSIFICATION_TERMS);
 
   if (/^Sala\s+\d+\b/iu.test(room.name)) {
     for (const term of NUMBERED_ROOM_CLASSIFICATION_TERMS) candidates.add(term);
@@ -67,7 +90,7 @@ export function findRoomNameClassifications(room) {
     .sort((a, b) => b.length - a.length || a.localeCompare(b, "pt-BR"));
 }
 
-export function roomNamePolicyMessage(room) {
+export function roomNamePolicyMessage(room: RoomNameInput): string {
   const classifications = findRoomNameClassifications(room);
   if (classifications.length > 0) {
     return `o nome da sala mistura identificação com classificação (${classifications.join(", ")}); use apenas o número ou nome próprio e mantenha tipo, sistema e especificações nos campos dedicados`;
@@ -82,7 +105,7 @@ export function roomNamePolicyMessage(room) {
   return "formato de nome não aprovado; use \"Sala N\" ou cadastre explicitamente um nome próprio permitido";
 }
 
-function structuredClassifications(room) {
+function structuredClassifications(room: RoomNameInput): unknown[] {
   return [
     room.room_type,
     ...(room.technologies ?? []).map((technology) => technology.name),
@@ -100,11 +123,11 @@ function structuredClassifications(room) {
   ];
 }
 
-function isKnown(value) {
-  return typeof value === "string" && value.trim() && value !== "A confirmar";
+function isKnown(value: unknown): value is string {
+  return typeof value === "string" && value.trim().length > 0 && value !== "A confirmar";
 }
 
-function containsTerm(name, term) {
+function containsTerm(name: string, term: string): boolean {
   const escaped = term
     .replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
     .replace(/\s+/g, "\\s+");

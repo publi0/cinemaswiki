@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ES2024", "DOM"],
+    "rootDir": ".",
+    "outDir": ".tsbuild",
+    "strict": true,
+    "noEmitOnError": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "types": ["node"]
+  },
+  "include": ["assets/**/*.ts", "scripts/**/*.ts", "test/**/*.ts", "types/**/*.ts"],
+  "exclude": [".tsbuild", "dist", "node_modules"]
+}

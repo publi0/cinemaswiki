@@ -1,7 +1,11 @@
 import assert from "node:assert/strict";
-import { findRoomNameClassifications, roomNamePolicyMessage } from "./room-name-policy.mjs";
+import {
+  findRoomNameClassifications,
+  roomNamePolicyMessage,
+  type RoomNameInput,
+} from "./room-name-policy.js";
 
-const rejected = [
+const rejected: Array<[RoomNameInput, string[]]> = [
   [room("Sala 1 – IMAX with Laser", { technologies: [{ name: "IMAX" }], projection: { light_source: "Laser" } }), ["IMAX", "Laser"]],
   [room("Sala 2 – VIP Lounge Laser", { room_type: "VIP Lounge", projection: { light_source: "Laser" } }), ["VIP Lounge", "Laser"]],
   [room("Sala 4 – Dolby Atmos", { sound: { format: "Dolby Atmos" } }), ["Dolby Atmos"]],
@@ -41,7 +45,15 @@ for (const name of ["Sala 9 – Formato Novo", "Auditório Azul"]) {
 
 console.log("Política de nomes testada: classificações técnicas são rejeitadas e nomes próprios são preservados.");
 
-function room(name, overrides = {}) {
+interface RoomNameOverrides {
+  technologies?: Array<{ name: string }>;
+  room_type?: string;
+  projection?: Record<string, unknown>;
+  screen?: Record<string, unknown>;
+  sound?: Record<string, unknown>;
+}
+
+function room(name: string, overrides: RoomNameOverrides = {}): RoomNameInput {
   return {
     name,
     technologies: overrides.technologies ?? [],

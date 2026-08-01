@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { soundValues } from "../assets/display-values.mjs";
+import { soundValues } from "../assets/display-values.js";
 
 assert.deepEqual(
   soundValues({ sound: { format: "Dolby Digital", channel_layout: "7.1" } }),

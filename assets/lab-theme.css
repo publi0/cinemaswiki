@@ -243,7 +243,7 @@
 .catalog-page .filter-grid {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(6, minmax(120px, 1fr)) auto;
+  grid-template-columns: repeat(7, minmax(120px, 1fr)) auto;
   gap: 0;
   align-items: end;
   border: 1px solid var(--line);
@@ -294,12 +294,14 @@
   height: 36px;
   align-items: center;
   gap: 8px;
-  border: 0;
+  justify-self: end;
+  border: 1px solid #aeb6bb;
+  background: var(--paper-raised);
   color: var(--lab-blue);
   font-family: "Avenir Next Condensed", "Arial Narrow", sans-serif;
   font-size: 0.88rem;
-  margin-left: 12px;
-  padding: 0 2px 0 14px;
+  margin-left: 0;
+  padding: 0 12px;
 }
 
 .catalog-page .clear-filters:hover {
@@ -923,7 +925,8 @@
   }
 
   .catalog-page .filter-toggle strong::after {
-    content: " ativos";
+    margin-left: 0.35em;
+    content: "ativos";
   }
 
   .catalog-page .filter-grid {
@@ -959,12 +962,11 @@
   }
 
   .catalog-page .clear-filters {
-    position: absolute;
+    position: static;
     z-index: 2;
-    top: 218px;
-    right: 106px;
-    height: 54px;
-    margin: 0;
+    grid-column: 1 / -1;
+    height: 44px;
+    margin: 4px 0 0;
     font-size: 1rem;
   }
 
@@ -1219,13 +1221,11 @@
   }
 
   .catalog-page .clear-filters {
-    top: 288px;
-    right: 18px;
-    height: 48px;
+    height: 42px;
   }
 
   .catalog-page .filter-grid {
-    padding-top: 62px;
+    padding-top: 7px;
   }
 
   .catalog-page .search-field > span {

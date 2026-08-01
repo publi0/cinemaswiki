@@ -1,15 +1,32 @@
 import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import Ajv2020 from "ajv/dist/2020.js";
-import addFormats from "ajv-formats";
+import { Ajv2020 } from "ajv/dist/2020.js";
+import * as addFormatsModule from "ajv-formats";
 
-const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+interface TestRoom {
+  [key: string]: unknown;
+  technologies?: unknown[];
+  room_type?: unknown;
+  projection: Record<string, unknown>;
+  screen: Record<string, unknown>;
+  sound: Record<string, unknown>;
+}
+
+interface TestCinema {
+  [key: string]: unknown;
+  rooms: TestRoom[];
+}
+
+const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const cinemaDirectory = path.join(projectRoot, "data", "cinemas");
 const schema = JSON.parse(
   await readFile(path.join(projectRoot, "data", "schema.json"), "utf8"),
 );
 const ajv = new Ajv2020({ allErrors: true, strict: true });
+const addFormats = (addFormatsModule as unknown as {
+  default: (validator: InstanceType<typeof Ajv2020>) => void;
+}).default;
 addFormats(ajv);
 const validate = ajv.compile(schema);
 
@@ -22,7 +39,7 @@ if (!firstFilename) throw new Error("Nenhum cinema disponível para testar o con
 
 const baseline = JSON.parse(
   await readFile(path.join(cinemaDirectory, firstFilename), "utf8"),
-);
+) as TestCinema;
 
 assertAccepted("registro existente", baseline);
 
@@ -95,20 +112,20 @@ assertRejected("processador fora da lista", baseline, (room) => {
 
 console.log("Contrato da taxonomia testado: valores inesperados e repetidos são rejeitados.");
 
-function assertAccepted(label, value) {
+function assertAccepted(label: string, value: unknown): void {
   if (validate(value)) return;
   throw new Error(
     `${label}: deveria ser aceito\n${ajv.errorsText(validate.errors, { separator: "\n" })}`,
   );
 }
 
-function assertRejected(label, original, mutateRoom) {
+function assertRejected(label: string, original: TestCinema, mutateRoom: (room: TestRoom) => void): void {
   const candidate = copy(original);
   mutateRoom(candidate.rooms[0]);
   if (!validate(candidate)) return;
   throw new Error(`${label}: deveria ser rejeitado pelo schema`);
 }
 
-function copy(value) {
+function copy(value: TestCinema): TestCinema {
   return structuredClone(value);
 }

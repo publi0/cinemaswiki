@@ -4,17 +4,24 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "normalize": "node scripts/normalize-data.mjs",
-    "validate": "node scripts/validate-data.mjs",
-    "coverage": "node scripts/coverage-report.mjs",
-    "test:taxonomy": "node scripts/test-taxonomy.mjs",
-    "test:room-names": "node scripts/test-room-name-policy.mjs",
-    "test:display": "node scripts/test-display-values.mjs",
-    "build": "node scripts/build.mjs",
-    "test": "npm run validate && npm run test:taxonomy && npm run test:room-names && npm run test:display && node scripts/validate-issue-forms.mjs && node --check assets/app.js && node --check assets/statistics.js && npm run build && node scripts/check-build.mjs"
+    "compile": "tsc --project tsconfig.json",
+    "typecheck": "tsc --project tsconfig.json --noEmit",
+    "normalize": "npm run compile && node .tsbuild/scripts/normalize-data.js",
+    "validate": "npm run compile && node .tsbuild/scripts/validate-data.js",
+    "coverage": "npm run compile && node .tsbuild/scripts/coverage-report.js",
+    "test:taxonomy": "npm run compile && node .tsbuild/scripts/test-taxonomy.js",
+    "test:room-names": "npm run compile && node .tsbuild/scripts/test-room-name-policy.js",
+    "test:display": "npm run compile && node .tsbuild/scripts/test-display-values.js",
+    "import:ancine": "npm run compile && node .tsbuild/scripts/import-ancine-rooms.js",
+    "test:unit": "npm run compile && node --test --test-concurrency=1 .tsbuild/test/*.test.js",
+    "test:coverage": "npm run compile && node --test --experimental-test-coverage --test-concurrency=1 --test-coverage-lines=98 --test-coverage-branches=93 --test-coverage-functions=95 '--test-coverage-include=.tsbuild/assets/*.js' '--test-coverage-include=.tsbuild/scripts/*.js' .tsbuild/test/*.test.js",
+    "build": "npm run compile && node .tsbuild/scripts/build.js",
+    "test": "npm run typecheck && npm run validate && npm run test:taxonomy && npm run test:room-names && npm run test:display && npm run test:unit && npm run test:coverage && npm run compile && node .tsbuild/scripts/validate-issue-forms.js && node --check .tsbuild/assets/app.js && node --check .tsbuild/assets/statistics.js && npm run build && npm run compile && node .tsbuild/scripts/check-build.js"
   },
   "devDependencies": {
+    "@types/node": "^26.1.2",
     "ajv": "^8.17.1",
-    "ajv-formats": "^3.0.1"
+    "ajv-formats": "^3.0.1",
+    "typescript": "^7.0.2"
   }
 }

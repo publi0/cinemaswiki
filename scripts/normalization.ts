@@ -1,10 +1,3 @@
-import { readFile, readdir, writeFile } from "node:fs/promises";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-
-const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const cinemaDirectory = path.join(projectRoot, "data", "cinemas");
-
 const projectionTechnology = new Map([
   ["Digital", "A confirmar"],
   ["laser", "A confirmar"],
@@ -75,20 +68,48 @@ const technologyType = new Map([
   ["Samsung Onyx", "projection"],
 ]);
 
-const filenames = (await readdir(cinemaDirectory))
-  .filter((filename) => filename.endsWith(".json"))
-  .sort((a, b) => a.localeCompare(b, "pt-BR"));
+interface MutableSection {
+  [key: string]: unknown;
+  notes?: string;
+  format?: string | null;
+  channel_layout?: string | null;
+  channels?: number | null;
+  audio_streams?: number | null;
+}
 
-let changedFiles = 0;
-let changedValues = 0;
-let removedValues = 0;
+interface LegacySource {
+  [key: string]: unknown;
+  url?: string;
+  note?: string;
+}
 
-for (const filename of filenames) {
-  const filePath = path.join(cinemaDirectory, filename);
-  const original = await readFile(filePath, "utf8");
-  const cinema = JSON.parse(original);
+interface LegacyTechnology {
+  [key: string]: unknown;
+  name: string;
+  type: string;
+  notes?: string;
+}
 
-  for (const room of cinema.rooms) {
+interface LegacyRoom {
+  [key: string]: unknown;
+  name: string;
+  projection: MutableSection;
+  screen: MutableSection;
+  sound: MutableSection;
+  sources?: LegacySource[];
+  technologies?: LegacyTechnology[];
+}
+
+export function normalizeCinema<T extends { rooms: unknown[] }>(cinema: T): {
+  cinema: T;
+  changedValues: number;
+  removedValues: number;
+} {
+  let changedValues = 0;
+  let removedValues = 0;
+
+  for (const rawRoom of cinema.rooms) {
+    const room = rawRoom as unknown as LegacyRoom;
     const normalizedRoomName = room.name.replace(/\b4k\b/g, "4K");
     if (normalizedRoomName !== room.name) {
       room.name = normalizedRoomName;
@@ -99,7 +120,7 @@ for (const filename of filenames) {
     changedValues += replace(room.projection, "light_source", lightSource);
     changedValues += replace(room.screen, "aspect_ratio", aspectRatio);
 
-    const legacyScreenType = room.screen?.type;
+    const legacyScreenType = typeof room.screen.type === "string" ? room.screen.type : undefined;
     if (legacyScreenType) {
       if (legacyScreenType === "LED modular") {
         changedValues += setValue(room.screen, "technology", "LED modular");
@@ -112,7 +133,7 @@ for (const filename of filenames) {
       changedValues += 1;
     }
 
-    const legacySoundFormat = room.sound?.format;
+    const legacySoundFormat = room.sound.format ?? "";
     if (["Dolby 5.1", "Dolby Digital 5.1"].includes(legacySoundFormat)) {
       changedValues += setValue(room.sound, "channel_layout", "5.1");
       if (room.sound.channels === 6) changedValues += setValue(room.sound, "channels", null);
@@ -129,7 +150,7 @@ for (const filename of filenames) {
       }
     }
 
-    if (room.sound?.notes?.includes("11.1") && room.sound.channels === 11) {
+    if (room.sound?.channel_layout === "11.1" && room.sound.channels === 11) {
       changedValues += setValue(room.sound, "channel_layout", "11.1");
       changedValues += setValue(room.sound, "channels", null);
     }
@@ -148,7 +169,10 @@ for (const filename of filenames) {
     }
 
     if (room.sound?.audio_streams === 128 && room.sound.notes?.includes("128 canais de áudio")) {
-      room.sound.notes = room.sound.notes.replace("128 canais de áudio", "128 streams de áudio declarados");
+      room.sound.notes = room.sound.notes.replace(
+        /128 canais de áudio(?: declarados)?/u,
+        "128 streams de áudio declarados",
+      );
       changedValues += 1;
     }
 
@@ -162,8 +186,8 @@ for (const filename of filenames) {
       room.sources = usefulSources;
     }
 
-    const normalizedTechnologies = [];
-    const seenTechnologies = new Set();
+    const normalizedTechnologies: LegacyTechnology[] = [];
+    const seenTechnologies = new Set<string>();
 
     for (const technology of room.technologies ?? []) {
       if (discardedTechnologyNames.has(technology.name)) {
@@ -234,36 +258,30 @@ for (const filename of filenames) {
     room.technologies = normalizedTechnologies;
   }
 
-  const normalized = `${JSON.stringify(cinema, null, 2)}\n`;
-  if (normalized !== original) {
-    await writeFile(filePath, normalized);
-    changedFiles += 1;
-  }
+  return { cinema, changedValues, removedValues };
 }
 
-console.log(
-  `Normalização concluída: ${changedFiles} arquivos, ${changedValues} valores ajustados e ${removedValues} categorias removidas.`,
-);
-
-function replace(target, property, replacements) {
-  if (!target || !replacements.has(target[property])) return 0;
-  target[property] = replacements.get(target[property]);
+function replace(target: MutableSection, property: string, replacements: Map<string, string>): number {
+  const currentValue = target[property];
+  if (typeof currentValue !== "string" || !replacements.has(currentValue)) return 0;
+  target[property] = replacements.get(currentValue);
   return 1;
 }
 
-function setValue(target, property, value) {
+function setValue(target: MutableSection, property: string, value: unknown): number {
   if (!target || target[property] === value) return 0;
   target[property] = value;
   return 1;
 }
 
-function setUnknownValue(target, property, value) {
-  if (!target || ![undefined, null, "A confirmar"].includes(target[property])) return 0;
+function setUnknownValue(target: MutableSection, property: string, value: unknown): number {
+  const currentValue = target[property];
+  if (!target || (currentValue !== undefined && currentValue !== null && currentValue !== "A confirmar")) return 0;
   return setValue(target, property, value);
 }
 
-function appendNote(target, note) {
-  const normalizedNote = note?.trim();
+function appendNote(target: MutableSection, note: unknown): number {
+  const normalizedNote = typeof note === "string" ? note.trim() : "";
   if (!target || !normalizedNote || target.notes?.includes(normalizedNote)) return 0;
   target.notes = [target.notes, normalizedNote].filter(Boolean).join(" · ");
   return 1;
