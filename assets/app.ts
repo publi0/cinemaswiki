@@ -419,7 +419,6 @@ function renderRoom(item: CatalogItem, rowNumber: number): string {
         <span class="room-network">${display(networkName(cinema))}</span>
         <span class="room-title-line">
           <strong>${display(cinema.name)} — ${display(room.name)}</strong>
-          ${renderTechnologyBrands(room)}
         </span>
         <span class="room-name">${display(room.name)}</span>
         <span class="room-location">${display(cinema.neighborhood)} · ${display(cinema.city)}</span>
