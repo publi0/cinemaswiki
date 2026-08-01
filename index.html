@@ -9,16 +9,21 @@
       content="Catalogo tecnico colaborativo de cinemas paulistas: salas, projecao, tela, som e fontes."
     >
     <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/lab-theme.css?v=4">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   </head>
-  <body>
+  <body class="lab-theme catalog-page home-page">
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="CinemasWiki inicio">
-        <span class="brand-mark" aria-hidden="true">CW</span>
+        <img class="brand-mark" src="assets/cinemaswiki-mark.png" alt="">
         <span>Cinemas<strong>Wiki</strong></span>
       </a>
-      <nav class="nav" aria-label="Navegacao principal">
-        <a href="salas.html">Pesquisar</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <svg class="lab-icon" aria-hidden="true"><use href="assets/lab-icons.svg#menu"></use></svg>
+        <span class="visually-hidden">Abrir navegação</span>
+      </button>
+      <nav class="nav" id="primary-nav" aria-label="Navegacao principal">
+        <a href="salas.html" aria-current="page">Pesquisar</a>
         <a href="cinemas.html">Cinemas</a>
         <a href="formatos.html">Formatos</a>
         <a href="estatisticas.html">Estatísticas</a>
@@ -33,14 +38,16 @@
           <label class="search-field">
             <span id="catalogo">Pesquisar no catálogo</span>
             <div class="search-input">
-              <span aria-hidden="true">⌕</span>
+              <span aria-hidden="true"><svg class="lab-icon"><use href="assets/lab-icons.svg#search"></use></svg></span>
               <input id="search" type="search" placeholder="Cinema, bairro, IMAX, Dolby Atmos, laser..." autocomplete="off">
               <kbd>/</kbd>
             </div>
           </label>
           <button class="filter-toggle" id="filter-toggle" type="button" aria-expanded="true" aria-controls="filter-grid">
+            <svg class="lab-icon" aria-hidden="true"><use href="assets/lab-icons.svg#filter"></use></svg>
             <span>Filtros técnicos</span>
             <strong id="active-filter-count">0</strong>
+            <svg class="lab-icon" aria-hidden="true"><use href="assets/lab-icons.svg#chevron-down"></use></svg>
           </button>
           <div class="filter-grid" id="filter-grid">
             <label>
@@ -66,12 +73,15 @@
             <label>
               <span>Ordenar</span>
               <select id="sort">
-                <option value="name">Cinema, A–Z</option>
+                <option value="name">Padrão</option>
                 <option value="coverage">Mais dados primeiro</option>
                 <option value="updated">Atualizados recentemente</option>
               </select>
             </label>
-            <button class="clear-filters" id="clear-filters" type="button">Limpar filtros</button>
+            <button class="clear-filters" id="clear-filters" type="button">
+              <svg class="lab-icon" aria-hidden="true"><use href="assets/lab-icons.svg#reset"></use></svg>
+              Limpar filtros
+            </button>
           </div>
         </form>
       </section>
@@ -82,6 +92,16 @@
       </section>
 
       <section class="room-table" aria-label="Resultados da pesquisa">
+        <div class="room-table-head" aria-hidden="true">
+          <span><svg class="lab-icon"><use href="assets/lab-icons.svg#room"></use></svg></span>
+          <span>Sala</span>
+          <span><svg class="lab-icon"><use href="assets/lab-icons.svg#projector"></use></svg>Projeção</span>
+          <span><svg class="lab-icon"><use href="assets/lab-icons.svg#resolution"></use></svg>Resolução</span>
+          <span><svg class="lab-icon"><use href="assets/lab-icons.svg#sound"></use></svg>Som</span>
+          <span><svg class="lab-icon"><use href="assets/lab-icons.svg#screen"></use></svg>Tela</span>
+          <span><svg class="lab-icon"><use href="assets/lab-icons.svg#clock"></use></svg>Registro</span>
+          <span aria-hidden="true"></span>
+        </div>
         <div id="room-list" aria-live="polite"></div>
       </section>
 
@@ -89,7 +109,7 @@
 
       <section class="catalog-note" aria-label="Sobre os dados">
         <strong>Os dados são colaborativos.</strong>
-        <span>“A confirmar” indica que ainda não encontramos uma fonte suficiente.</span>
+        <span>Ajude a manter o catálogo técnico de São Paulo sempre preciso e atualizado.</span>
         <a href="contribuir.html">Corrigir ou completar dados →</a>
       </section>
     </main>
@@ -106,6 +126,7 @@
       </nav>
     </footer>
 
+    <script src="assets/shell.js"></script>
     <script src="assets/app.js"></script>
   </body>
 </html>

@@ -24,7 +24,7 @@ const resultCount = document.querySelector("#result-count");
 const resultContext = document.querySelector("#result-context");
 const pagination = document.querySelector("#pagination");
 const networkPagination = document.querySelector("#network-pagination");
-const roomsPerPage = 12;
+const isHomePage = document.body.classList.contains("home-page");
 const networksPerPage = 5;
 
 let cinemas = [];
@@ -35,6 +35,11 @@ let currentNetworkPage = 1;
 function hasDetailParams() {
   const params = new URLSearchParams(window.location.search);
   return params.has("sala") || params.has("cinema") || params.has("rede");
+}
+
+function roomsPerPage() {
+  if (!isHomePage) return 12;
+  return window.matchMedia("(max-width: 900px)").matches ? 3 : 6;
 }
 
 if (hasDetailParams()) {
@@ -66,6 +71,21 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+}
+
+function labIcon(name, className = "") {
+  const safeName = String(name).replace(/[^a-z-]/g, "");
+  const safeClassName = String(className).replace(/[^a-z0-9_-]/gi, "");
+  return `<svg class="lab-icon ${safeClassName}" aria-hidden="true"><use href="assets/lab-icons.svg#${safeName}"></use></svg>`;
+}
+
+function fieldIcon(label) {
+  return {
+    "Projeção": "projector",
+    "Resolução": "resolution",
+    "Som": "sound",
+    "Tela": "screen",
+  }[label] || "room";
 }
 
 function safeExternalUrl(value) {
@@ -372,10 +392,11 @@ function render() {
     );
   }
 
-  const totalPages = Math.max(1, Math.ceil(filtered.length / roomsPerPage));
+  const pageSize = roomsPerPage();
+  const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
   currentPage = Math.min(currentPage, totalPages);
-  const pageStart = (currentPage - 1) * roomsPerPage;
-  const pageItems = filtered.slice(pageStart, pageStart + roomsPerPage);
+  const pageStart = (currentPage - 1) * pageSize;
+  const pageItems = filtered.slice(pageStart, pageStart + pageSize);
 
   resultCount.textContent = `${filtered.length} ${filtered.length === 1 ? "sala" : "salas"}`;
   const activeFilterCount = [
@@ -401,7 +422,7 @@ function render() {
     ? `mostrando ${rangeStart}–${rangeEnd}${activeFilterCount ? ` · ${activeFilterCount} ${activeFilterCount === 1 ? "filtro ativo" : "filtros ativos"}` : ""}`
     : activeFilterCount ? "nenhum resultado para os filtros atuais" : "em todo o catálogo";
 
-  roomList.innerHTML = pageItems.map(renderRoom).join("");
+  roomList.innerHTML = pageItems.map((item, index) => renderRoom(item, pageStart + index + 1)).join("");
   renderPagination(totalPages);
   updateFilterUrl();
 
@@ -421,7 +442,7 @@ function renderPagination(totalPages) {
   const pages = paginationItems(totalPages, currentPage);
 
   pagination.innerHTML = `
-    <button type="button" data-page="${currentPage - 1}" ${currentPage === 1 ? "disabled" : ""}>Anterior</button>
+    <button type="button" data-page="${currentPage - 1}" aria-label="Página anterior" ${currentPage === 1 ? "disabled" : ""}>${labIcon("chevron-left")}</button>
     <div class="pagination-pages">
       ${pages.map((page) => page === "ellipsis"
         ? '<span class="pagination-ellipsis" aria-hidden="true">…</span>'
@@ -433,7 +454,13 @@ function renderPagination(totalPages) {
           >${page}</button>
         `).join("")}
     </div>
-    <button type="button" data-page="${currentPage + 1}" ${currentPage === totalPages ? "disabled" : ""}>Próxima</button>
+    <button type="button" data-page="${currentPage + 1}" aria-label="Próxima página" ${currentPage === totalPages ? "disabled" : ""}>${labIcon("chevron-right")}</button>
+    <label class="page-size">
+      <span class="visually-hidden">Resultados por página</span>
+      <select aria-label="Resultados por página" disabled>
+        <option>${roomsPerPage()} por página</option>
+      </select>
+    </label>
   `;
 }
 
@@ -442,19 +469,18 @@ function paginationItems(totalPages, activePage) {
     return Array.from({ length: totalPages }, (_, index) => index + 1);
   }
 
-  const pages = [1];
-  const start = Math.max(2, activePage - 1);
-  const end = Math.min(totalPages - 1, activePage + 1);
+  if (activePage <= 4) {
+    return [1, 2, 3, 4, 5, "ellipsis", totalPages];
+  }
 
-  if (start > 2) pages.push("ellipsis");
-  for (let page = start; page <= end; page += 1) pages.push(page);
-  if (end < totalPages - 1) pages.push("ellipsis");
-  pages.push(totalPages);
+  if (activePage >= totalPages - 3) {
+    return [1, "ellipsis", totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
+  }
 
-  return pages;
+  return [1, "ellipsis", activePage - 1, activePage, activePage + 1, "ellipsis", totalPages];
 }
 
-function renderRoom(item) {
+function renderRoom(item, rowNumber) {
   const { cinema, room } = item;
   const projectionDetailValues = [
     room.projection?.brand,
@@ -479,25 +505,28 @@ function renderRoom(item) {
 
   return `
     <a class="room-row" href="${roomUrl(item.id)}" aria-label="Abrir detalhes de ${display(room.name)} em ${display(cinema.name)}">
+      <span class="row-number" aria-hidden="true">${rowNumber}</span>
       <div class="room-main">
         <span class="room-network">${display(networkName(cinema))}</span>
-        <strong>${display(cinema.name)}</strong>
+        <strong>${display(cinema.name)} — ${display(room.name)}</strong>
         <span class="room-name">${display(room.name)}</span>
         <span class="room-location">${display(cinema.neighborhood)} · ${display(cinema.city)}</span>
       </div>
-      <div class="room-specs">
-        ${renderRoomField("Projeção", [projectionDisplay(room)], projectionDetailValues)}
-        ${renderRoomField("Resolução", [room.projection?.resolution])}
-        ${renderRoomField("Som", roomSoundValues, soundDetailValues)}
-        ${renderRoomField("Tela", roomScreenValues, screenDetailValues)}
-      </div>
-      <div class="room-evidence">
-        <span class="evidence-label">Registro</span>
-        <span class="evidence-meta">
-          <strong>${formatDate(cinema.last_verified)}</strong>
-          <small>${sourceCount} ${sourceCount === 1 ? "fonte" : "fontes"} · ${coverage}/6 áreas documentadas</small>
-        </span>
-        <span class="room-row-action">Ver ficha <span aria-hidden="true">→</span></span>
+      <div class="room-data-grid">
+        <div class="room-specs">
+          ${renderRoomField("Projeção", [projectionDisplay(room)], projectionDetailValues)}
+          ${renderRoomField("Resolução", [room.projection?.resolution])}
+          ${renderRoomField("Som", roomSoundValues, soundDetailValues)}
+          ${renderRoomField("Tela", roomScreenValues, screenDetailValues)}
+        </div>
+        <div class="room-evidence">
+          <span class="evidence-label">${labIcon("clock")}Registro</span>
+          <span class="evidence-meta">
+            <strong>${formatDate(cinema.last_verified)}</strong>
+            <small>${sourceCount} ${sourceCount === 1 ? "fonte" : "fontes"} · ${coverage}/6 áreas documentadas</small>
+          </span>
+          <span class="room-row-action">Ver ficha ${labIcon("arrow-right")}</span>
+        </div>
       </div>
     </a>
   `;
@@ -511,7 +540,7 @@ function renderRoomField(label, values, detailValues = []) {
 
   return `
     <div class="room-field ${primary ? "" : "is-unknown"}">
-      <span class="cell-label">${label}</span>
+      <span class="cell-label">${labIcon(fieldIcon(label))}${label}</span>
       <strong class="data-primary">${escapeHtml(primary || "A confirmar")}</strong>
       ${detail ? `<small class="data-secondary">${escapeHtml(detail)}</small>` : ""}
     </div>
@@ -1139,6 +1168,13 @@ async function init() {
     restoreFiltersFromUrl();
     render();
   });
+
+  if (isHomePage) {
+    window.matchMedia("(max-width: 900px)").addEventListener("change", () => {
+      currentPage = 1;
+      render();
+    });
+  }
   render();
 }
 
@@ -1151,6 +1187,7 @@ function setFilterExpanded(expanded) {
 function setupMobileFilters() {
   if (!filterToggle || !filterGrid) return;
   const media = window.matchMedia("(max-width: 600px)");
+  const defaultExpanded = document.body.classList.contains("catalog-page");
   const hasActiveTechnicalFilter = () => [
       systemFilter?.value,
       experienceFilter?.value,
@@ -1160,9 +1197,9 @@ function setupMobileFilters() {
       sortFilter?.value !== "name" ? sortFilter?.value : "",
     ].some(Boolean);
 
-  setFilterExpanded(!media.matches || hasActiveTechnicalFilter());
+  setFilterExpanded(!media.matches || defaultExpanded || hasActiveTechnicalFilter());
   media.addEventListener("change", (event) => {
-    setFilterExpanded(!event.matches || hasActiveTechnicalFilter());
+    setFilterExpanded(!event.matches || defaultExpanded || hasActiveTechnicalFilter());
   });
 }
 

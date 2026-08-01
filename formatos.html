@@ -10,15 +10,20 @@
     >
     <link rel="canonical" href="https://cinemaswiki.publio.dev/formatos.html">
     <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/lab-theme.css?v=4">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   </head>
-  <body>
+  <body class="lab-theme">
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="CinemasWiki inicio">
-        <span class="brand-mark" aria-hidden="true">CW</span>
+        <img class="brand-mark" src="assets/cinemaswiki-mark.png" alt="">
         <span>Cinemas<strong>Wiki</strong></span>
       </a>
-      <nav class="nav" aria-label="Navegacao principal">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <svg class="lab-icon" aria-hidden="true"><use href="assets/lab-icons.svg#menu"></use></svg>
+        <span class="visually-hidden">Abrir navegação</span>
+      </button>
+      <nav class="nav" id="primary-nav" aria-label="Navegacao principal">
         <a href="salas.html">Pesquisar</a>
         <a href="cinemas.html">Cinemas</a>
         <a href="formatos.html" aria-current="page">Formatos</a>
@@ -46,7 +51,7 @@
             </div>
             <div>
               <dt>Experiência</dt>
-              <dd>3D ou efeitos físicos, como 4DX.</dd>
+              <dd>2D, 3D ou efeitos físicos, como 4DX.</dd>
             </div>
             <div>
               <dt>Imagem</dt>
@@ -81,7 +86,7 @@
               <h2>Sistemas de exibição</h2>
               <p>
                 Identificam um conjunto técnico completo. Recursos de
-                apresentação, como 3D ou efeitos físicos, são registrados
+                apresentação, como 2D, 3D ou efeitos físicos, são registrados
                 separadamente como experiência.
               </p>
             </div>
@@ -129,13 +134,29 @@
             <div>
               <h2>Experiência</h2>
               <p>
-                São recursos adicionais da sessão. Não definem a projeção,
-                resolução ou configuração sonora da sala.
+                Descreve como a sessão é apresentada ao público. Não define a
+                projeção, resolução ou configuração sonora da sala.
               </p>
             </div>
           </header>
 
           <div class="guide-rows">
+            <article class="guide-row">
+              <div>
+                <h3>2D</h3>
+                <span class="guide-tag">Exibição plana</span>
+              </div>
+              <div>
+                <p>
+                  Exibição com uma única imagem para os dois olhos, sem
+                  estereoscopia. No catálogo, 2D é a experiência padrão quando
+                  a sala não tem 3D ou 4DX registrado; isso não determina a
+                  resolução, projeção ou configuração sonora.
+                </p>
+                <a href="salas.html?experiencia=2D">Ver salas com 2D →</a>
+              </div>
+            </article>
+
             <article class="guide-row">
               <div>
                 <h3>3D</h3>
@@ -406,7 +427,7 @@
           <h2 id="comparar-title">Leia a ficha nesta ordem</h2>
           <ol>
             <li><strong>Sistema:</strong> identifica o conjunto técnico, como IMAX.</li>
-            <li><strong>Experiência:</strong> registra 3D ou efeitos físicos, como 4DX.</li>
+            <li><strong>Experiência:</strong> registra 2D, 3D ou efeitos físicos, como 4DX.</li>
             <li><strong>Projeção e resolução:</strong> mostram como a imagem é formada.</li>
             <li><strong>Tela:</strong> informa tecnologia, superfície, geometria e dimensões.</li>
             <li><strong>Som:</strong> separa formato, layout, processamento e instalação.</li>
@@ -428,5 +449,6 @@
         <a href="mailto:felipe@publio.dev">felipe@publio.dev</a>
       </nav>
     </footer>
+    <script src="assets/shell.js"></script>
   </body>
 </html>

@@ -10,15 +10,20 @@
     >
     <link rel="canonical" href="https://cinemaswiki.publio.dev/estatisticas.html">
     <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="assets/lab-theme.css?v=4">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   </head>
-  <body>
+  <body class="lab-theme">
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="CinemasWiki início">
-        <span class="brand-mark" aria-hidden="true">CW</span>
+        <img class="brand-mark" src="assets/cinemaswiki-mark.png" alt="">
         <span>Cinemas<strong>Wiki</strong></span>
       </a>
-      <nav class="nav" aria-label="Navegação principal">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <svg class="lab-icon" aria-hidden="true"><use href="assets/lab-icons.svg#menu"></use></svg>
+        <span class="visually-hidden">Abrir navegação</span>
+      </button>
+      <nav class="nav" id="primary-nav" aria-label="Navegação principal">
         <a href="salas.html">Pesquisar</a>
         <a href="cinemas.html">Cinemas</a>
         <a href="formatos.html">Formatos</a>
@@ -193,6 +198,7 @@
       </nav>
     </footer>
 
+    <script src="assets/shell.js"></script>
     <script src="assets/statistics.js"></script>
   </body>
 </html>

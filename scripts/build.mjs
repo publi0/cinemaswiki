@@ -96,16 +96,21 @@ function pageShell({ title, description, canonicalPath, activeNav, content, stru
     <meta property="og:description" content="${safeDescription}">
     <meta property="og:url" content="${canonical}">
     <link rel="stylesheet" href="../assets/styles.css">
+    <link rel="stylesheet" href="../assets/lab-theme.css?v=4">
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     ${structuredData ? `<script type="application/ld+json">${safeJson(structuredData)}</script>` : ""}
   </head>
-  <body>
+  <body class="lab-theme">
     <header class="site-header">
       <a class="brand" href="../index.html" aria-label="CinemasWiki início">
-        <span class="brand-mark" aria-hidden="true">CW</span>
+        <img class="brand-mark" src="../assets/cinemaswiki-mark.png" alt="">
         <span>Cinemas<strong>Wiki</strong></span>
       </a>
-      <nav class="nav" aria-label="Navegação principal">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+        <svg class="lab-icon" aria-hidden="true"><use href="../assets/lab-icons.svg#menu"></use></svg>
+        <span class="visually-hidden">Abrir navegação</span>
+      </button>
+      <nav class="nav" id="primary-nav" aria-label="Navegação principal">
         <a href="../salas.html"${activeNav === "salas" ? ' aria-current="page"' : ""}>Pesquisar</a>
         <a href="../cinemas.html"${activeNav === "cinemas" ? ' aria-current="page"' : ""}>Cinemas</a>
         <a href="../formatos.html">Formatos</a>
@@ -125,6 +130,7 @@ function pageShell({ title, description, canonicalPath, activeNav, content, stru
         <a href="mailto:felipe@publio.dev">felipe@publio.dev</a>
       </nav>
     </footer>
+    <script src="../assets/shell.js"></script>
   </body>
 </html>
 `;

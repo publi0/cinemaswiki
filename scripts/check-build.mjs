@@ -45,7 +45,7 @@ const missingLinks = [];
 
 for (const htmlPath of htmlFiles) {
   const html = await readFile(htmlPath, "utf8");
-  for (const match of html.matchAll(/href="([^"]+)"/g)) {
+  for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
     const href = match[1];
     if (
       href.startsWith("http:") ||
