@@ -69,6 +69,9 @@
         { "type": "null" }
       ]
     },
+    "roomType": {
+      "enum": ["VIP", "VIP Lounge"]
+    },
     "projectionTechnology": {
       "enum": ["Película 70 mm", "Tela LED", "A confirmar", null]
     },
@@ -136,7 +139,7 @@
           "additionalProperties": false,
           "required": ["name", "type"],
           "properties": {
-            "name": { "const": "IMAX" },
+            "name": { "enum": ["IMAX", "Macro XE"] },
             "type": { "const": "system" },
             "notes": { "$ref": "#/$defs/nonEmptyString" }
           }
@@ -264,6 +267,7 @@
       "properties": {
         "name": { "$ref": "#/$defs/nonEmptyString" },
         "slug": { "$ref": "#/$defs/slug" },
+        "room_type": { "$ref": "#/$defs/roomType" },
         "ancine_registry": { "$ref": "#/$defs/ancineRegistry" },
         "technologies": {
           "type": "array",

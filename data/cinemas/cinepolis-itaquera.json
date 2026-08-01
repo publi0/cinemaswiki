@@ -13,10 +13,16 @@
   "last_verified": "2026-07-31",
   "rooms": [
     {
-      "name": "Sala 1 - Macro XE",
+      "name": "Sala 1",
       "slug": "sala-1-macro-xe",
       "ancine_registry": "5005084",
-      "technologies": [],
+      "technologies": [
+        {
+          "name": "Macro XE",
+          "type": "system",
+          "notes": "Formato de grande tela da Cinépolis."
+        }
+      ],
       "projection": {
         "technology": "A confirmar",
         "resolution": "4K",

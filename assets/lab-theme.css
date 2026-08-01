@@ -335,7 +335,7 @@
 .room-table-head,
 .catalog-page .room-row {
   display: grid;
-  grid-template-columns: 40px 396fr 191fr 175fr 187fr 174fr 151fr 175fr;
+  grid-template-columns: 40px 547fr 191fr 175fr 187fr 174fr 175fr;
 }
 
 .room-table-head {
@@ -710,7 +710,7 @@
 
   .room-table-head,
   .catalog-page .room-row {
-    grid-template-columns: 36px minmax(245px, 2fr) repeat(4, minmax(92px, 0.8fr)) minmax(120px, 0.9fr) 104px;
+    grid-template-columns: 36px minmax(245px, 2fr) repeat(4, minmax(92px, 0.8fr)) 104px;
   }
 }
 
@@ -1014,7 +1014,7 @@
     display: grid;
     grid-column: 1 / -1;
     grid-row: 2;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .catalog-page .room-specs,
@@ -1065,25 +1065,6 @@
     line-height: 1.25;
     text-overflow: clip;
     white-space: normal;
-  }
-
-  .catalog-page .evidence-label {
-    z-index: 1;
-    grid-column: 5;
-    grid-row: 1;
-    align-self: start;
-    border-top: 1px dotted #b5bcc1;
-    padding: 11px 10px 0;
-  }
-
-  .catalog-page .evidence-meta {
-    grid-column: 5;
-    grid-row: 1;
-    min-height: 100px;
-    align-items: start;
-    border-top: 1px dotted #b5bcc1;
-    border-right: 0;
-    padding: 48px 10px 10px;
   }
 
   .catalog-page .room-row-action {

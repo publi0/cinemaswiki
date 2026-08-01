@@ -95,8 +95,9 @@
       ]
     },
     {
-      "name": "Sala 3 - VIP",
+      "name": "Sala 3",
       "slug": "sala-3-vip",
+      "room_type": "VIP",
       "ancine_registry": "5006868",
       "technologies": [],
       "projection": {
@@ -138,8 +139,9 @@
       ]
     },
     {
-      "name": "Sala 4 - VIP",
+      "name": "Sala 4",
       "slug": "sala-4-vip",
+      "room_type": "VIP",
       "ancine_registry": "5006869",
       "technologies": [],
       "projection": {

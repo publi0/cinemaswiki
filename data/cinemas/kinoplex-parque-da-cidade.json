@@ -104,7 +104,7 @@
       "notes": "Conforto: Poltronas reclináveis"
     },
     {
-      "name": "Sala 3 - Projeção Laser",
+      "name": "Sala 3",
       "slug": "sala-3-projecao-laser",
       "ancine_registry": "5006313",
       "technologies": [],
@@ -149,7 +149,7 @@
       "notes": "Conforto: Poltronas reclináveis"
     },
     {
-      "name": "Sala 4 - Projeção Laser",
+      "name": "Sala 4",
       "slug": "sala-4-projecao-laser",
       "ancine_registry": "5006314",
       "technologies": [],
@@ -194,7 +194,7 @@
       "notes": "Conforto: Poltronas reclináveis"
     },
     {
-      "name": "Sala 5 - Projeção Laser",
+      "name": "Sala 5",
       "slug": "sala-5-projecao-laser",
       "ancine_registry": "5006315",
       "technologies": [],

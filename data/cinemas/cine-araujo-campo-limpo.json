@@ -159,7 +159,7 @@
       ]
     },
     {
-      "name": "Sala 4 – Dolby Atmos",
+      "name": "Sala 4",
       "slug": "sala-4-dolby-atmos",
       "ancine_registry": "5001895",
       "technologies": [],
@@ -267,8 +267,9 @@
       ]
     },
     {
-      "name": "Sala 6 – VIP",
+      "name": "Sala 6",
       "slug": "sala-6-vip",
+      "room_type": "VIP",
       "ancine_registry": "5006940",
       "technologies": [],
       "projection": {

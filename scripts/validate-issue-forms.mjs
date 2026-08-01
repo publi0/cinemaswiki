@@ -1,17 +1,19 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { findRoomNameClassifications } from "./room-name-policy.mjs";
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const templateDirectory = path.join(projectRoot, ".github", "ISSUE_TEMPLATE");
 const schema = JSON.parse(await readFile(path.join(projectRoot, "data", "schema.json"), "utf8"));
 
-const newEntry = parseForm(
-  await readFile(path.join(templateDirectory, "novo-cinema-ou-sala.yml"), "utf8"),
-);
-const correction = parseForm(
-  await readFile(path.join(templateDirectory, "correcao-de-dados.yml"), "utf8"),
-);
+const newEntrySource = await readFile(path.join(templateDirectory, "novo-cinema-ou-sala.yml"), "utf8");
+const correctionSource = await readFile(path.join(templateDirectory, "correcao-de-dados.yml"), "utf8");
+const newEntry = parseForm(newEntrySource);
+const correction = parseForm(correctionSource);
+
+assertRoomNameExamples(newEntrySource, "novo-cinema-ou-sala.yml");
+assertRoomNameExamples(correctionSource, "correcao-de-dados.yml");
 
 const knownValues = (definition) =>
   schema.$defs[definition].enum.filter((value) => typeof value === "string");
@@ -26,6 +28,7 @@ const technologyNames = (type) =>
 
 const canonical = {
   sistema: [...technologyNames("system"), "A confirmar"],
+  tipo_sala: [...knownValues("roomType"), "A confirmar"],
   experiencia: [
     ...technologyNames("experience").map((value) =>
       value === "4DX" ? "4DX — efeitos físicos" : value
@@ -50,9 +53,21 @@ for (const [id, options] of Object.entries(canonical)) {
   assertOptions(newEntry, id, options, "novo-cinema-ou-sala.yml");
 }
 
-const correctionOptions = [
+const correctionRoomOptions = [
+  ...canonical.tipo_sala.filter(isKnown).map((value) => `Tipo de sala — ${value}`),
   ...canonical.sistema.filter(isKnown).map((value) => `Sistema — ${value}`),
   ...canonical.experiencia.filter(isKnown).map((value) => `Experiência — ${value}`),
+  "A confirmar",
+];
+
+assertOptions(
+  correction,
+  "classificacao_sala",
+  correctionRoomOptions,
+  "correcao-de-dados.yml",
+);
+
+const correctionOptions = [
   ...canonical.tecnologia_projecao.filter(isKnown).map((value) => `Projeção — ${value}`),
   ...canonical.resolucao.filter(isKnown).map((value) => `Resolução — ${value}`),
   ...canonical.formato_som.filter(isKnown).map((value) => `Som — ${value}`),
@@ -93,6 +108,18 @@ function assertOptions(form, id, expected, filename) {
       `Esperado: ${expected.join(" | ")}\n` +
       `Atual: ${actual.join(" | ")}`,
     );
+  }
+}
+
+function assertRoomNameExamples(source, filename) {
+  const placeholders = [...source.matchAll(/placeholder:\s*["']([^"']*Sala[^"']*)["']/g)]
+    .map((match) => match[1].split("/").at(-1).trim());
+
+  for (const name of placeholders) {
+    const classifications = findRoomNameClassifications({ name });
+    if (classifications.length > 0) {
+      throw new Error(`${filename}: exemplo de nome de sala contém classificação técnica (${name}): ${classifications.join(", ")}`);
+    }
   }
 }
 

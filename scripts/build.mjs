@@ -209,6 +209,7 @@ function renderRoomPage(cinema, room) {
           ${renderSpecGroup("Cinema", [
             ["Rede", cinema.network.name],
             ["Endereço", cinema.address],
+            ["Tipo de sala", room.room_type],
             ["Capacidade", room.seats],
             ["Registro ANCINE da sala", room.ancine_registry],
             ["Registro ANCINE do complexo", cinema.ancine_registry],

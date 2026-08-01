@@ -15,7 +15,7 @@
   "external_url": "https://www.cinepolis.com.br/complexos/f0534-cinepolis-jk-iguatemi/",
   "rooms": [
     {
-      "name": "Sala 1 – IMAX with Laser",
+      "name": "Sala 1",
       "slug": "sala-1-imax",
       "ancine_registry": "5003490",
       "technologies": [
@@ -84,8 +84,9 @@
       ]
     },
     {
-      "name": "Sala 2 – VIP Lounge Laser",
+      "name": "Sala 2",
       "slug": "sala-2-laser-lounge",
+      "room_type": "VIP Lounge",
       "ancine_registry": "5003491",
       "technologies": [],
       "projection": {
@@ -143,8 +144,9 @@
       "notes": "Conforto: Poltronas Lounge VIP"
     },
     {
-      "name": "Sala 3 – VIP",
+      "name": "Sala 3",
       "slug": "sala-3-vip",
+      "room_type": "VIP",
       "ancine_registry": "5003492",
       "technologies": [],
       "projection": {
@@ -198,8 +200,9 @@
       "notes": "Conforto: Poltronas reclináveis"
     },
     {
-      "name": "Sala 4 – VIP",
+      "name": "Sala 4",
       "slug": "sala-4-vip",
+      "room_type": "VIP",
       "ancine_registry": "5003493",
       "technologies": [],
       "projection": {
@@ -252,8 +255,9 @@
       "notes": "A antiga 4DX foi desativada e reaberta como sala VIP; a capacidade e o som após a conversão ainda não foram publicados. · Conforto: Poltronas reclináveis"
     },
     {
-      "name": "Sala 5 – VIP Samsung Onyx 4K",
+      "name": "Sala 5",
       "slug": "sala-5-onyx-4k-led",
+      "room_type": "VIP",
       "ancine_registry": "5003494",
       "technologies": [],
       "projection": {
@@ -312,8 +316,9 @@
       "notes": "Conforto: Poltronas reclináveis"
     },
     {
-      "name": "Sala 6 – VIP",
+      "name": "Sala 6",
       "slug": "sala-6-vip",
+      "room_type": "VIP",
       "ancine_registry": "5003495",
       "technologies": [],
       "projection": {
@@ -367,8 +372,9 @@
       "notes": "Conforto: Poltronas reclináveis"
     },
     {
-      "name": "Sala 7 – VIP",
+      "name": "Sala 7",
       "slug": "sala-7-vip",
+      "room_type": "VIP",
       "ancine_registry": "5003496",
       "technologies": [],
       "projection": {
@@ -422,8 +428,9 @@
       "notes": "Conforto: Poltronas reclináveis"
     },
     {
-      "name": "Sala 8 – VIP",
+      "name": "Sala 8",
       "slug": "sala-8-vip",
+      "room_type": "VIP",
       "ancine_registry": "5003497",
       "technologies": [],
       "projection": {

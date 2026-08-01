@@ -14,7 +14,7 @@ body:
     attributes:
       label: Item a corrigir
       description: Rede, cinema e sala afetados.
-      placeholder: "Ex: Cinépolis JK Iguatemi / Sala 1 - IMAX"
+      placeholder: "Ex: Cinépolis JK Iguatemi / Sala 1"
     validations:
       required: true
   - type: dropdown
@@ -23,6 +23,7 @@ body:
       label: Tipo de correção
       options:
         - Nome, rede ou endereço
+        - Tipo de sala
         - Sistema
         - Experiência
         - Projeção
@@ -35,15 +36,26 @@ body:
     validations:
       required: true
   - type: dropdown
+    id: classificacao_sala
+    attributes:
+      label: Classificação da sala
+      description: Se a correção envolver tipo, sistema ou experiência, selecione as opções canônicas aplicáveis.
+      multiple: true
+      options:
+        - Tipo de sala — VIP
+        - Tipo de sala — VIP Lounge
+        - Sistema — IMAX
+        - Sistema — Macro XE
+        - Experiência — 3D
+        - Experiência — 4DX — efeitos físicos
+        - A confirmar
+  - type: dropdown
     id: classificacao_padronizada
     attributes:
       label: Classificação técnica correta
-      description: Se a correção envolver formato ou tecnologia, selecione as opções canônicas aplicáveis.
+      description: Se a correção envolver projeção, tela ou som, selecione as opções canônicas aplicáveis.
       multiple: true
       options:
-        - Sistema — IMAX
-        - Experiência — 3D
-        - Experiência — 4DX — efeitos físicos
         - Projeção — Laser
         - Projeção — Laser RGB
         - Projeção — Xenon

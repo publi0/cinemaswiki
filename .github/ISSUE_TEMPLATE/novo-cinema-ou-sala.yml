@@ -43,17 +43,26 @@ body:
     id: sala
     attributes:
       label: Sala
-      description: Nome ou número da sala.
-      placeholder: "Ex: Sala 1 - IMAX"
+      description: Informe somente o número ou nome próprio. Registre VIP, IMAX, Laser e outras classificações nos campos abaixo.
+      placeholder: "Ex: Sala 1 ou Sala 1 – Leon Cakoff"
     validations:
       required: true
+  - type: dropdown
+    id: tipo_sala
+    attributes:
+      label: Tipo de sala
+      options:
+        - VIP
+        - VIP Lounge
+        - A confirmar
   - type: dropdown
     id: sistema
     attributes:
       label: Sistema
-      description: IMAX é o sistema; Laser, Xenon e 70 mm são detalhes da projeção.
+      description: IMAX e Macro XE são sistemas; Laser, Xenon e 70 mm são detalhes da projeção.
       options:
         - IMAX
+        - Macro XE
         - A confirmar
   - type: dropdown
     id: experiencia

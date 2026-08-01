@@ -14,8 +14,9 @@
   "notes": "Cinema 100% VIP da rede Cinépolis.",
   "rooms": [
     {
-      "name": "Sala 1 - VIP",
+      "name": "Sala 1",
       "slug": "sala-1-vip",
+      "room_type": "VIP",
       "ancine_registry": "5006467",
       "technologies": [],
       "projection": {
@@ -53,8 +54,9 @@
       "notes": "Conforto: Poltronas reclináveis"
     },
     {
-      "name": "Sala 2 - VIP",
+      "name": "Sala 2",
       "slug": "sala-2-vip",
+      "room_type": "VIP",
       "ancine_registry": "5006468",
       "technologies": [],
       "projection": {
@@ -92,8 +94,9 @@
       "notes": "Conforto: Poltronas reclináveis"
     },
     {
-      "name": "Sala 3 - VIP",
+      "name": "Sala 3",
       "slug": "sala-3-vip",
+      "room_type": "VIP",
       "ancine_registry": "5006469",
       "technologies": [],
       "projection": {
@@ -135,8 +138,9 @@
       ]
     },
     {
-      "name": "Sala 4 - VIP",
+      "name": "Sala 4",
       "slug": "sala-4-vip",
+      "room_type": "VIP",
       "ancine_registry": "5006470",
       "technologies": [],
       "projection": {
@@ -178,8 +182,9 @@
       ]
     },
     {
-      "name": "Sala 5 - VIP",
+      "name": "Sala 5",
       "slug": "sala-5-vip",
+      "room_type": "VIP",
       "ancine_registry": "5006471",
       "technologies": [],
       "projection": {

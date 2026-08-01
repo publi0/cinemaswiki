@@ -165,8 +165,9 @@
       ]
     },
     {
-      "name": "Sala 5 - VIP",
+      "name": "Sala 5",
       "slug": "sala-5-vip",
+      "room_type": "VIP",
       "ancine_registry": "5006051",
       "technologies": [],
       "projection": {

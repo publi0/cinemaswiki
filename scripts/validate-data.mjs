@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import Ajv2020 from "ajv/dist/2020.js";
 import addFormats from "ajv-formats";
+import { roomNamePolicyMessage } from "./room-name-policy.mjs";
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const cinemaDirectory = path.join(projectRoot, "data", "cinemas");
@@ -65,6 +66,7 @@ function validateCrossReferences(cinemas, errors) {
   const networkNames = new Map();
   const allowedTechnologies = new Map([
     ["IMAX", "system"],
+    ["Macro XE", "system"],
     ["3D", "experience"],
     ["4DX", "experience"],
   ]);
@@ -84,7 +86,14 @@ function validateCrossReferences(cinemas, errors) {
     networkNames.set(cinema.network.slug, cinema.network.name);
 
     const localRoomSlugs = new Set();
+    const localRoomNames = new Set();
     for (const room of cinema.rooms) {
+      const normalizedRoomName = room.name.trim().toLocaleLowerCase("pt-BR");
+      if (localRoomNames.has(normalizedRoomName)) {
+        errors.push(`${cinema.slug}: nome de sala duplicado (${room.name})`);
+      }
+      localRoomNames.add(normalizedRoomName);
+
       if (localRoomSlugs.has(room.slug)) {
         errors.push(`${cinema.slug}: slug de sala duplicado (${room.slug})`);
       }
@@ -95,6 +104,9 @@ function validateCrossReferences(cinemas, errors) {
         errors.push(`${roomId}: identificador global de sala duplicado`);
       }
       roomIds.add(roomId);
+
+      const roomNameIssue = roomNamePolicyMessage(room);
+      if (roomNameIssue) errors.push(`${roomId}: ${roomNameIssue}`);
 
       const technologies = new Set();
       for (const technology of room.technologies ?? []) {

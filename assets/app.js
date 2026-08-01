@@ -500,9 +500,6 @@ function renderRoom(item, rowNumber) {
     room.sound?.speakers ? `${room.sound.speakers} caixas` : "",
     room.sound?.power_watts ? `${room.sound.power_watts} W` : "",
   ];
-  const sourceCount = usefulSources(room.sources).length;
-  const coverage = coverageCount(room);
-
   return `
     <a class="room-row" href="${roomUrl(item.id)}" aria-label="Abrir detalhes de ${display(room.name)} em ${display(cinema.name)}">
       <span class="row-number" aria-hidden="true">${rowNumber}</span>
@@ -520,11 +517,6 @@ function renderRoom(item, rowNumber) {
           ${renderRoomField("Tela", roomScreenValues, screenDetailValues)}
         </div>
         <div class="room-evidence">
-          <span class="evidence-label">${labIcon("clock")}Registro</span>
-          <span class="evidence-meta">
-            <strong>${formatDate(cinema.last_verified)}</strong>
-            <small>${sourceCount} ${sourceCount === 1 ? "fonte" : "fontes"} · ${coverage}/6 áreas documentadas</small>
-          </span>
           <span class="room-row-action">Ver ficha ${labIcon("arrow-right")}</span>
         </div>
       </div>
@@ -712,6 +704,7 @@ function renderRoomDetail(item) {
       ${renderSpecGroup("Cinema", [
         ["Rede", networkName(cinema), networkUrl(cinema)],
         ["Endereço", cinema.address],
+        ["Tipo de sala", room.room_type],
         ["Capacidade", room.seats],
         ["Registro ANCINE da sala", room.ancine_registry],
         ["Registro ANCINE do complexo", cinema.ancine_registry],

@@ -34,8 +34,20 @@ validTaxonomy.rooms[0].technologies = [
 ];
 assertAccepted("taxonomia completa permitida", validTaxonomy);
 
+const macroXeSystem = copy(baseline);
+macroXeSystem.rooms[0].technologies = [{ name: "Macro XE", type: "system" }];
+assertAccepted("sistema Macro XE permitido", macroXeSystem);
+
+const vipRoom = copy(baseline);
+vipRoom.rooms[0].room_type = "VIP";
+assertAccepted("tipo de sala VIP permitido", vipRoom);
+
 assertRejected("classificação desconhecida", baseline, (room) => {
   room.technologies = [{ name: "ScreenX", type: "system" }];
+});
+
+assertRejected("tipo de sala desconhecido", baseline, (room) => {
+  room.room_type = "Premium";
 });
 
 assertRejected("tipo inesperado", baseline, (room) => {
