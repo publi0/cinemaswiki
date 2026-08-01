@@ -888,8 +888,15 @@
     font-family: "SFMono-Regular", Menlo, monospace;
     font-size: clamp(0.9rem, 2.25vw, 1.15rem);
     padding: 0 16px;
-    border-bottom: 0;
     margin-top: 20px;
+  }
+
+  .catalog-page .filter-toggle[aria-expanded="true"] {
+    border-bottom: 0;
+  }
+
+  .catalog-page .filter-toggle[aria-expanded="false"] {
+    border-bottom: 1px solid var(--line);
   }
 
   .catalog-page .filter-toggle::after {

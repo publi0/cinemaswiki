@@ -66,6 +66,8 @@ test("páginas estáticas e estados interativos mantêm contratos de acessibilid
   assert.match(theme, /grid-template-columns: repeat\(7, minmax\(120px, 1fr\)\) auto;/);
   assert.match(theme, /\.catalog-page \.clear-filters \{[\s\S]*justify-self: end;[\s\S]*border: 1px solid #aeb6bb;/);
   assert.match(theme, /\.catalog-page \.clear-filters \{[\s\S]*position: static;[\s\S]*grid-column: 1 \/ -1;/);
+  assert.match(theme, /\.catalog-page \.filter-toggle\[aria-expanded="true"\] \{[\s\S]*border-bottom: 0;/);
+  assert.match(theme, /\.catalog-page \.filter-toggle\[aria-expanded="false"\] \{[\s\S]*border-bottom: 1px solid var\(--line\);/);
 });
 
 test("app usa módulos compartilhados de estado e busca e consulta o catálogo com cache revalidável", async () => {
