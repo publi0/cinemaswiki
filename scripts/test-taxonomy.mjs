@@ -38,6 +38,18 @@ const macroXeSystem = copy(baseline);
 macroXeSystem.rooms[0].technologies = [{ name: "Macro XE", type: "system" }];
 assertAccepted("sistema Macro XE permitido", macroXeSystem);
 
+const xdSystem = copy(baseline);
+xdSystem.rooms[0].technologies = [{ name: "XD", type: "system" }];
+assertAccepted("sistema XD permitido", xdSystem);
+
+const cinepicSystem = copy(baseline);
+cinepicSystem.rooms[0].technologies = [{ name: "Cinépic", type: "system" }];
+assertAccepted("sistema Cinépic permitido", cinepicSystem);
+
+const uciXplusSystem = copy(baseline);
+uciXplusSystem.rooms[0].technologies = [{ name: "UCI XPLUS", type: "system" }];
+assertAccepted("sistema UCI XPLUS permitido", uciXplusSystem);
+
 const vipRoom = copy(baseline);
 vipRoom.rooms[0].room_type = "VIP";
 assertAccepted("tipo de sala VIP permitido", vipRoom);

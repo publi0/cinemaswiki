@@ -281,7 +281,7 @@ kbd {
 
 .filter-grid {
   display: grid;
-  grid-template-columns: repeat(6, minmax(110px, 1fr)) auto;
+  grid-template-columns: repeat(7, minmax(100px, 1fr)) auto;
   gap: 10px;
   align-items: end;
 }
@@ -377,6 +377,22 @@ kbd {
   line-height: 1.18;
 }
 
+.room-title-line {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.room-title-line strong {
+  margin-bottom: 0;
+}
+
+.room-title-line .technology-marks {
+  flex-wrap: nowrap;
+  margin-top: 0;
+}
+
 .room-network {
   margin-bottom: 8px;
   color: var(--accent-dark);
@@ -397,6 +413,278 @@ kbd {
   margin-top: 12px;
   color: var(--muted);
   font-size: 0.72rem;
+}
+
+/* Technical brand identifiers */
+
+.technology-marks {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.technology-mark {
+  display: inline-flex !important;
+  width: fit-content;
+  min-height: 24px;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  border: 1px solid currentColor;
+  background: var(--paper-raised);
+  color: var(--ink);
+  line-height: 1;
+  padding: 4px 7px;
+  white-space: nowrap;
+}
+
+.technology-wordmark,
+.technology-wordmark b,
+.technology-wordmark em {
+  display: inline !important;
+  font-style: normal;
+}
+
+.technology-wordmark--imax {
+  color: #0878c9;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.84rem;
+  font-weight: 950;
+  letter-spacing: -0.075em;
+  transform: scaleX(1.08);
+  transform-origin: center;
+}
+
+.technology-mark--multicanal {
+  border-color: var(--accent-dark);
+  background: var(--paper-raised);
+  color: var(--ink);
+}
+
+.multichannel-glyph {
+  display: inline-flex !important;
+  height: 13px;
+  align-items: end;
+  gap: 2px;
+}
+
+.multichannel-glyph i {
+  display: block;
+  width: 3px;
+  background: var(--accent-dark);
+}
+
+.multichannel-glyph i:nth-child(1) {
+  height: 7px;
+}
+
+.multichannel-glyph i:nth-child(2) {
+  height: 13px;
+}
+
+.multichannel-glyph i:nth-child(3) {
+  height: 9px;
+}
+
+.technology-wordmark--multicanal {
+  font-family: "Avenir Next Condensed", "Arial Narrow", sans-serif;
+  font-size: 0.64rem;
+  font-weight: 850;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.technology-wordmark--multicanal em {
+  margin-left: 2px;
+  color: var(--accent-dark);
+}
+
+.technology-mark--dolby-atmos,
+.technology-mark--dolby-digital {
+  background: var(--ink);
+  color: var(--paper-raised);
+}
+
+.dolby-double-d {
+  display: inline-flex !important;
+  width: 18px;
+  height: 12px;
+  gap: 2px;
+}
+
+.dolby-double-d i {
+  display: block;
+  width: 8px;
+  border: 1.5px solid currentColor;
+}
+
+.dolby-double-d i:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.dolby-double-d i:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+.technology-wordmark--dolby {
+  display: grid !important;
+  gap: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: left;
+}
+
+.technology-wordmark--dolby b {
+  font-size: 0.55rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.technology-wordmark--dolby em {
+  font-size: 0.56rem;
+  font-weight: 500;
+}
+
+.technology-mark--dts-x {
+  border-color: #e31b23;
+  color: var(--ink);
+}
+
+.technology-wordmark--dts {
+  font-family: Arial Black, Arial, sans-serif;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: -0.055em;
+  text-transform: uppercase;
+}
+
+.technology-wordmark--dts em {
+  margin-left: 1px;
+  color: #e31b23;
+}
+
+.technology-mark--4dx {
+  border-color: #be1722;
+  background: #be1722;
+  color: #fff;
+}
+
+.technology-wordmark--4dx {
+  font-family: Arial Black, Arial, sans-serif;
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  transform: skew(-9deg);
+}
+
+.technology-wordmark--4dx em {
+  color: #ffd22e;
+}
+
+.technology-mark--macro-xe {
+  background: #151719;
+  color: #fff;
+}
+
+.technology-wordmark--macro {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.technology-wordmark--macro em {
+  margin-left: 3px;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 950;
+}
+
+.technology-mark--xd {
+  border-color: #e3a622;
+  background: #141414;
+  color: #fff;
+}
+
+.technology-wordmark--xd {
+  display: grid !important;
+  gap: 1px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: left;
+}
+
+.technology-wordmark--xd b {
+  font-size: 0.92rem;
+  font-weight: 950;
+  letter-spacing: -0.08em;
+  line-height: 0.88;
+}
+
+.technology-wordmark--xd em {
+  color: #e3a622;
+  font-size: 0.42rem;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.technology-mark--cinepic {
+  border-color: #c84f9b;
+  background: #27112a;
+  color: #fff;
+}
+
+.technology-wordmark--cinepic {
+  font-family: "Avenir Next", Arial, Helvetica, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 850;
+  letter-spacing: -0.035em;
+}
+
+.technology-mark--xplus {
+  border-color: #2e78c7;
+  background: #071d3b;
+  color: #fff;
+}
+
+.technology-wordmark--xplus {
+  display: grid !important;
+  gap: 1px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: left;
+}
+
+.technology-wordmark--xplus b {
+  color: #9acbff;
+  font-size: 0.42rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.technology-wordmark--xplus em {
+  color: #fff;
+  font-size: 0.7rem;
+  font-style: normal;
+  font-weight: 950;
+  letter-spacing: -0.06em;
+  line-height: 0.9;
+}
+
+.technology-mark--d-box {
+  border-color: #ea4d24;
+  color: #c93818;
+}
+
+.technology-wordmark--dbox {
+  font-family: Arial Black, Arial, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
 }
 
 .room-specs {
@@ -640,6 +928,10 @@ kbd {
   line-height: 1.5;
 }
 
+.detail-header .technology-marks {
+  margin-top: 16px;
+}
+
 .detail-stamp {
   min-width: 104px;
   border-left: 1px solid var(--line);
@@ -776,6 +1068,20 @@ kbd {
   gap: 4px 18px;
   border-top: 1px solid var(--line);
   padding-block: 13px;
+}
+
+.tech-list .technology-mark {
+  grid-row: 1 / span 2;
+  align-self: start;
+  margin-right: 8px;
+}
+
+.tech-list li:has(.technology-mark) {
+  grid-template-columns: auto minmax(110px, 0.25fr) minmax(0, 1fr);
+}
+
+.tech-list li:has(.technology-mark) small {
+  grid-column: 3;
 }
 
 .source-list small,
@@ -1129,6 +1435,26 @@ kbd {
   margin: 0;
   font-size: clamp(1.05rem, 1.8vw, 1.35rem);
   letter-spacing: -0.025em;
+}
+
+.guide-brand-heading .technology-mark {
+  min-height: 34px;
+  padding: 7px 10px;
+}
+
+.guide-brand-heading .technology-wordmark--imax {
+  font-size: 1.08rem;
+}
+
+.guide-brand-heading .technology-wordmark--4dx,
+.guide-brand-heading .technology-wordmark--macro,
+.guide-brand-heading .technology-wordmark--xd,
+.guide-brand-heading .technology-wordmark--cinepic {
+  font-size: 0.9rem;
+}
+
+.guide-brand-heading .technology-wordmark--xplus em {
+  font-size: 0.92rem;
 }
 
 .guide-tag {
@@ -2475,8 +2801,9 @@ code,
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .spec-group:nth-child(3) {
+  .spec-group:nth-child(odd) {
     border-left: 0;
+    padding-left: 0;
   }
 
   .spec-group:nth-child(n + 3) {
@@ -2489,6 +2816,7 @@ code,
 
   .detail-fact:nth-child(3) {
     border-left: 0;
+    padding-left: 0;
   }
 
   .detail-fact:nth-child(n + 3) {
@@ -2823,7 +3151,7 @@ code,
     font-size: 0.68rem;
   }
 
-  .filter-grid label:nth-child(6) {
+  .filter-grid label:nth-child(7) {
     grid-column: 1 / -1;
   }
 

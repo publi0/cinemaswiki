@@ -67,6 +67,9 @@ function validateCrossReferences(cinemas, errors) {
   const allowedTechnologies = new Map([
     ["IMAX", "system"],
     ["Macro XE", "system"],
+    ["XD", "system"],
+    ["Cinépic", "system"],
+    ["UCI XPLUS", "system"],
     ["3D", "experience"],
     ["4DX", "experience"],
   ]);

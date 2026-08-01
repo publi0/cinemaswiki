@@ -46,6 +46,9 @@ body:
         - Tipo de sala — VIP Lounge
         - Sistema — IMAX
         - Sistema — Macro XE
+        - Sistema — XD
+        - Sistema — Cinépic
+        - Sistema — UCI XPLUS
         - Experiência — 3D
         - Experiência — 4DX — efeitos físicos
         - A confirmar
@@ -64,9 +67,10 @@ body:
         - Projeção — Tela LED
         - Resolução — 2K
         - Resolução — 4K
+        - Som — Multicanal
+        - Som — Dolby Digital
         - Som — Dolby Atmos
-        - Som — Dolby Digital 5.1
-        - Som — Dolby Digital 7.1
+        - Som — DTS:X
         - Som — IMAX
         - Layout de som — 5.1
         - Layout de som — 7.1

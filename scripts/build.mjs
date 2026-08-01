@@ -1,6 +1,7 @@
 import { cp, mkdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { soundValues } from "../assets/display-values.mjs";
 import { loadAndValidateCinemas } from "./validate-data.mjs";
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -95,8 +96,8 @@ function pageShell({ title, description, canonicalPath, activeNav, content, stru
     <meta property="og:title" content="${safeTitle} | CinemasWiki">
     <meta property="og:description" content="${safeDescription}">
     <meta property="og:url" content="${canonical}">
-    <link rel="stylesheet" href="../assets/styles.css">
-    <link rel="stylesheet" href="../assets/lab-theme.css?v=4">
+    <link rel="stylesheet" href="../assets/styles.css?v=7">
+    <link rel="stylesheet" href="../assets/lab-theme.css?v=5">
     <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
     ${structuredData ? `<script type="application/ld+json">${safeJson(structuredData)}</script>` : ""}
   </head>
@@ -153,6 +154,7 @@ function renderRoomPage(cinema, room) {
             <p class="eyebrow"><a href="../redes/${cinema.network.slug}.html">${escapeHtml(cinema.network.name)}</a></p>
             <h1><a href="../cinemas/${cinema.slug}.html">${escapeHtml(cinema.name)}</a> · ${escapeHtml(room.name)}</h1>
             <p class="detail-meta">${escapeHtml(cinema.address)} · ${escapeHtml(cinema.city)}, ${escapeHtml(cinema.state)}</p>
+            ${renderTechnologyBrands(room)}
           </div>
           <div class="detail-stamp">
             <span>${sourceCount}</span>
@@ -332,6 +334,7 @@ function renderRoomCard(cinema, room) {
   return `
     <a class="room-card-link" href="../salas/${roomId(cinema, room)}.html">
       <strong>${escapeHtml(room.name)}</strong>
+      ${renderTechnologyBrands(room)}
       <span>${escapeHtml(compact([
         projectionDisplay(room),
         room.projection?.resolution,
@@ -381,6 +384,7 @@ function renderTechnologies(technologies = []) {
     <ul class="tech-list">
       ${technologies.map((technology) => `
         <li>
+          ${technologyBrandMark(technology.name)}
           <strong>${escapeHtml(technology.name)}</strong>
           <span>${escapeHtml(typeLabels[technology.type] || technology.type)}</span>
           ${technology.notes ? `<small>${escapeHtml(technology.notes)}</small>` : ""}
@@ -499,8 +503,71 @@ function screenValues(room) {
   ];
 }
 
-function soundValues(room) {
-  return [room.sound?.format, room.sound?.channel_layout];
+function technologyBrandKey(value) {
+  return {
+    imax: "imax",
+    multicanal: "multicanal",
+    "dolby digital": "dolby-digital",
+    "dolby atmos": "dolby-atmos",
+    "dts:x": "dts-x",
+    "4dx": "4dx",
+    "macro xe": "macro-xe",
+    xd: "xd",
+    "cinemark xd": "xd",
+    cinepic: "cinepic",
+    xplus: "xplus",
+    "uci xplus": "xplus",
+    "d-box": "d-box",
+  }[normalize(value)] ?? "";
+}
+
+function technologyBrandMark(value) {
+  const key = technologyBrandKey(value);
+  if (!key) return "";
+
+  const wordmarks = {
+    imax: '<span class="technology-wordmark technology-wordmark--imax">IMAX</span>',
+    multicanal: '<span class="multichannel-glyph" aria-hidden="true"><i></i><i></i><i></i></span><span class="technology-wordmark technology-wordmark--multicanal"><b>Multi</b><em>canal</em></span>',
+    "dolby-digital": '<span class="dolby-double-d" aria-hidden="true"><i></i><i></i></span><span class="technology-wordmark technology-wordmark--dolby"><b>Dolby</b><em>Digital</em></span>',
+    "dolby-atmos": '<span class="dolby-double-d" aria-hidden="true"><i></i><i></i></span><span class="technology-wordmark technology-wordmark--dolby"><b>Dolby</b><em>Atmos</em></span>',
+    "dts-x": '<span class="technology-wordmark technology-wordmark--dts"><b>DTS</b><em>:X</em></span>',
+    "4dx": '<span class="technology-wordmark technology-wordmark--4dx"><b>4D</b><em>X</em></span>',
+    "macro-xe": '<span class="technology-wordmark technology-wordmark--macro"><b>MACRO</b><em>XE</em></span>',
+    xd: '<span class="technology-wordmark technology-wordmark--xd"><b>XD</b><em>Cinemark</em></span>',
+    cinepic: '<span class="technology-wordmark technology-wordmark--cinepic">Cinépic</span>',
+    xplus: '<span class="technology-wordmark technology-wordmark--xplus"><b>UCI</b><em>XPLUS</em></span>',
+    "d-box": '<span class="technology-wordmark technology-wordmark--dbox">D-BOX</span>',
+  };
+
+  return `<span class="technology-mark technology-mark--${key}" aria-label="${escapeHtml(value)}">${wordmarks[key]}</span>`;
+}
+
+function roomTechnologyBrands(room) {
+  const candidates = [
+    ...(room.technologies ?? []).map(({ name }) => name),
+    room.sound?.format,
+  ];
+  const unique = new Map();
+
+  for (const value of candidates) {
+    const key = technologyBrandKey(value);
+    if (key && !unique.has(key)) unique.set(key, value);
+  }
+
+  return [...unique.values()];
+}
+
+function renderTechnologyBrands(room) {
+  const brands = roomTechnologyBrands(room);
+  if (brands.length === 0) return "";
+  return `<span class="technology-marks" aria-label="Tecnologias da sala">${brands.map(technologyBrandMark).join("")}</span>`;
+}
+
+function normalize(value) {
+  return String(value ?? "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
 }
 
 function usefulSources(sources = []) {
@@ -511,26 +578,8 @@ function coverageCount(room) {
   return [
     projectionDisplay(room),
     room.projection?.resolution,
-    compact([
-      room.projection?.brand,
-      room.projection?.model,
-      room.projection?.watts_each,
-      room.projection?.dual_lens ? "Duplo" : null,
-    ]),
-    compact([
-      ...screenValues(room),
-      room.screen?.area_m2,
-      room.screen?.width_m,
-      room.screen?.height_m,
-    ]),
     compact(soundValues(room)),
-    compact([
-      room.sound?.processor,
-      room.sound?.channels,
-      room.sound?.audio_streams,
-      room.sound?.speakers,
-      room.sound?.power_watts,
-    ]),
+    compact(screenValues(room)),
   ].filter(isKnown).length;
 }
 

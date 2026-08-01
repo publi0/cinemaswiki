@@ -59,10 +59,13 @@ body:
     id: sistema
     attributes:
       label: Sistema
-      description: IMAX e Macro XE são sistemas; Laser, Xenon e 70 mm são detalhes da projeção.
+      description: IMAX, Macro XE, XD, Cinépic e UCI XPLUS são sistemas; Laser, Xenon e 70 mm são detalhes da projeção.
       options:
         - IMAX
         - Macro XE
+        - XD
+        - Cinépic
+        - UCI XPLUS
         - A confirmar
   - type: dropdown
     id: experiencia
@@ -99,9 +102,10 @@ body:
     attributes:
       label: Som
       options:
+        - Multicanal
+        - Dolby Digital
         - Dolby Atmos
-        - Dolby Digital 5.1
-        - Dolby Digital 7.1
+        - DTS:X
         - IMAX
         - A confirmar
   - type: dropdown

@@ -24,11 +24,17 @@ const lightSource = new Map([
 ]);
 
 const soundFormat = new Map([
-  ["Dolby 7.1", "Dolby Digital 7.1"],
+  ["Dolby 5.1", "Dolby Digital"],
+  ["Dolby 7.1", "Dolby Digital"],
+  ["Dolby Digital 5.1", "Dolby Digital"],
+  ["Dolby Digital 7.1", "Dolby Digital"],
   ["IMAX with Laser", "IMAX"],
-  ["Multicanal", "A confirmar"],
-  ["Multicanal 11.1", "A confirmar"],
-  ["Surround 11.1", "A confirmar"],
+  ["Multicanal 5.1", "Multicanal"],
+  ["Multicanal 7.1", "Multicanal"],
+  ["Multicanal 11.1", "Multicanal"],
+  ["Surround 5.1", "Multicanal"],
+  ["Surround 7.1", "Multicanal"],
+  ["Surround 11.1", "Multicanal"],
   ["Harman Quantum Logic (JBL)", "A confirmar"],
 ]);
 
@@ -37,12 +43,21 @@ const aspectRatio = new Map([
 ]);
 
 const technologyName = new Map([
-  ["Dolby 7.1", "Dolby Digital 7.1"],
+  ["Dolby 5.1", "Dolby Digital"],
+  ["Dolby 7.1", "Dolby Digital"],
   ["Tela LED autoemissiva 4K", "Samsung Onyx"],
   ["Imax", "IMAX"],
   ["imax", "IMAX"],
   ["IMAX Digital", "IMAX"],
   ["IMAX with Laser", "IMAX"],
+  ["Cinemark XD", "XD"],
+  ["Extreme Digital Cinema", "XD"],
+  ["Cinepic", "Cinépic"],
+  ["CinéPic", "Cinépic"],
+  ["XPLUS", "UCI XPLUS"],
+  ["XPlus", "UCI XPLUS"],
+  ["UCI XPlus", "UCI XPLUS"],
+  ["UCI Xplus", "UCI XPLUS"],
 ]);
 
 const discardedTechnologyNames = new Set([
@@ -54,6 +69,9 @@ const technologyType = new Map([
   ["IMAX", "system"],
   ["3D", "experience"],
   ["4DX", "experience"],
+  ["XD", "system"],
+  ["Cinépic", "system"],
+  ["UCI XPLUS", "system"],
   ["Samsung Onyx", "projection"],
 ]);
 
@@ -95,21 +113,33 @@ for (const filename of filenames) {
     }
 
     const legacySoundFormat = room.sound?.format;
-    if (legacySoundFormat === "Dolby Digital 5.1") {
+    if (["Dolby 5.1", "Dolby Digital 5.1"].includes(legacySoundFormat)) {
       changedValues += setValue(room.sound, "channel_layout", "5.1");
       if (room.sound.channels === 6) changedValues += setValue(room.sound, "channels", null);
     } else if (["Dolby 7.1", "Dolby Digital 7.1"].includes(legacySoundFormat)) {
       changedValues += setValue(room.sound, "channel_layout", "7.1");
-    } else if (["Multicanal 11.1", "Surround 11.1"].includes(legacySoundFormat)) {
-      changedValues += setValue(room.sound, "channel_layout", "11.1");
-      if (room.sound.channels === 11) changedValues += setValue(room.sound, "channels", null);
     } else if (legacySoundFormat === "Harman Quantum Logic (JBL)") {
       changedValues += setValue(room.sound, "processor", "Harman Quantum Logic (JBL)");
+    } else {
+      for (const layout of ["5.1", "7.1", "11.1"]) {
+        if ([`Multicanal ${layout}`, `Surround ${layout}`].includes(legacySoundFormat)) {
+          changedValues += setValue(room.sound, "channel_layout", layout);
+          break;
+        }
+      }
     }
 
     if (room.sound?.notes?.includes("11.1") && room.sound.channels === 11) {
       changedValues += setValue(room.sound, "channel_layout", "11.1");
       changedValues += setValue(room.sound, "channels", null);
+    }
+
+    if (
+      room.sound?.format === "A confirmar" &&
+      room.sound?.channel_layout &&
+      /\b(?:sistema\s+)?(?:surround|multicanal)\b/iu.test(room.sound?.notes ?? "")
+    ) {
+      changedValues += setValue(room.sound, "format", "Multicanal");
     }
 
     if (legacySoundFormat === "Dolby Atmos" && room.sound?.channels === 128) {

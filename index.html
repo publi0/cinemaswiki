@@ -8,8 +8,8 @@
       name="description"
       content="Catalogo tecnico colaborativo de cinemas paulistas: salas, projecao, tela, som e fontes."
     >
-    <link rel="stylesheet" href="assets/styles.css">
-    <link rel="stylesheet" href="assets/lab-theme.css?v=4">
+    <link rel="stylesheet" href="assets/styles.css?v=7">
+    <link rel="stylesheet" href="assets/lab-theme.css?v=5">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   </head>
   <body class="lab-theme catalog-page home-page">
@@ -67,14 +67,18 @@
               <select id="resolution"><option value="">Todas</option></select>
             </label>
             <label>
-              <span>Som</span>
+              <span>Formato de som</span>
               <select id="sound"><option value="">Todos</option></select>
+            </label>
+            <label>
+              <span>Layout</span>
+              <select id="sound-layout"><option value="">Todos</option></select>
             </label>
             <label>
               <span>Ordenar</span>
               <select id="sort">
-                <option value="name">Padrão</option>
-                <option value="coverage">Mais dados primeiro</option>
+                <option value="coverage" selected>Mais dados primeiro</option>
+                <option value="name">Cinema, A–Z</option>
                 <option value="updated">Atualizados recentemente</option>
               </select>
             </label>
@@ -126,6 +130,6 @@
     </footer>
 
     <script src="assets/shell.js"></script>
-    <script src="assets/app.js"></script>
+    <script type="module" src="assets/app.js"></script>
   </body>
 </html>

@@ -104,6 +104,10 @@ Não existe um campo genérico de formato. A sala é descrita diretamente por
 somente estas combinações:
 
 - `{"name": "IMAX", "type": "system"}`
+- `{"name": "Macro XE", "type": "system"}`
+- `{"name": "XD", "type": "system"}`
+- `{"name": "Cinépic", "type": "system"}`
+- `{"name": "UCI XPLUS", "type": "system"}`
 - `{"name": "3D", "type": "experience"}`
 - `{"name": "4DX", "type": "experience"}`
 
@@ -117,18 +121,18 @@ Valores categóricos usam grafia canônica:
 - Fonte de luz: `Laser`, `Laser RGB`, `Xenon` ou `LED`. Laser e Xenon não
   devem ser repetidos em `projection.technology`.
 - Resolução: `2K` ou `4K`.
-- Formato de som: `Dolby Atmos`, `Dolby Digital 5.1`,
-  `Dolby Digital 7.1` ou `IMAX`.
+- Formato de som: `Multicanal`, `Dolby Digital`, `Dolby Atmos`, `DTS:X` ou
+  `IMAX`.
 - Layout de canais: `5.1`, `7.1` ou `11.1`.
 - Processamento: `Harman Quantum Logic (JBL)`.
 - Tela: tecnologia (`LED modular`), superfície (`Perolizada`) e geometria
   (`Plana` ou `Curva`) são campos independentes.
-- Sistema: `IMAX`.
+- Sistema: `IMAX`, `Macro XE`, `XD`, `Cinépic` ou `UCI XPLUS`.
 - Experiência: `3D` ou `4DX`. O segundo indica efeitos físicos sincronizados.
 - Samsung Onyx: `Tela LED` em `projection.technology`, `Samsung` em
   `projection.brand` e `Onyx` em `projection.model`.
 
-`IMAX` é sempre o sistema. `Laser` e `Xenon` ficam em
+`IMAX`, `Macro XE`, `XD`, `Cinépic` e `UCI XPLUS` são sistemas de exibição. `Laser` e `Xenon` ficam em
 `projection.light_source`; `Película 70 mm` fica em `projection.technology`.
 O antigo valor `IMAX with Laser` é normalizado como sistema `IMAX` com fonte
 de luz `Laser`.
@@ -138,10 +142,12 @@ indica efeitos físicos; projeção, resolução e som continuam nos campos pró
 
 `Grande Formato` não é aceito como tecnologia porque não define uma
 especificação. Decomponha a informação em projeção, resolução, tela e som.
-`Digital` e `Multicanal` isolados também são insuficientes e devem ficar como
-`A confirmar` até haver uma classificação técnica específica.
+`Digital` isolado é insuficiente para classificar a projeção. `Multicanal` é
+aceito em `sound.format` quando a fonte confirma áudio baseado em canais sem
+identificar uma tecnologia proprietária. O número informado fica sempre em
+`sound.channel_layout`.
 
-`Surround 11.1` não é formato: registre `11.1` em `sound.channel_layout`.
+`Surround 11.1` deve ser decomposto em formato `Multicanal` e layout `11.1`.
 Quantum Logic é processamento e fica em `sound.processor`. Em áudio baseado em
 objetos, capacidade de streams fica em `sound.audio_streams`, não em `channels`.
 

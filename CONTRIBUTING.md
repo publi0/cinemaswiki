@@ -48,7 +48,8 @@ Nao invente potencia, dimensoes de tela, resolucao ou quantidade de canais.
 
 O catálogo não usa uma categoria genérica de formato. Cada sala é descrita por
 especificações verificáveis de projeção, resolução, tela e som. O campo
-`technologies` é fechado: aceita somente `IMAX` como `system` e `3D` ou `4DX`
+`technologies` é fechado: aceita somente os sistemas `IMAX`, `Macro XE`, `XD`,
+`Cinépic` e `UCI XPLUS`, além de `3D` ou `4DX`
 como `experience`.
 
 `Convencional`, VIP e tipos de poltrona não são classificações técnicas.
@@ -77,12 +78,16 @@ adicionais em `notes`.
 | Projecao | `Película 70 mm` | `70mm`, `70 mm`, `IMAX 70mm` |
 | Projecao | `Tela LED` | `led`, `tela de LED`, `cinema LED` |
 | Tecnologia | `IMAX` | `Imax`, `imax`, `IMAX Digital`, `IMAX with Laser` |
+| Tecnologia | `XD` | `Cinemark XD`, `Extreme Digital Cinema` |
+| Tecnologia | `Cinépic` | `Cinepic`, `CinéPic` |
+| Tecnologia | `UCI XPLUS` | `XPLUS`, `XPlus`, `UCI XPlus` |
 | Experiencia | `4DX` | `4dx`, `sala 4D`, `4-DX` |
 | Marca e modelo | `Samsung` + `Onyx` | `Samsung Onyx` como item em `technologies` |
+| Som | `Multicanal` | `surround`, `som multicanal` sem marca identificada |
+| Som | `Dolby Digital` | `Dolby 5.1`, `Dolby 7.1`, `digital 7.1` |
 | Som | `Dolby Atmos` | `Atmos`, `dolby atmos`, `DOLBY ATMOS` |
-| Som | `Dolby Digital 5.1` | `5.1`, `Dolby 5.1`, `digital 5.1` |
-| Som | `Dolby Digital 7.1` | `7.1`, `Dolby 7.1`, `digital 7.1` |
-| Layout de som | `11.1` | `Surround 11.1`, `Multicanal 11.1` |
+| Som | `DTS:X` | `DTS X`, `DTS-X`, `dts:x` |
+| Layout de som | `5.1`, `7.1` ou `11.1` | número de canais informado junto ao formato |
 | Processamento | `Harman Quantum Logic (JBL)` | `Quantum Logic`, `HQL` |
 | Tecnologia da tela | `LED modular` | `LED`, `tela de LED`, `Onyx LED` |
 | Superficie da tela | `Perolizada` | `perolizada` |
@@ -93,11 +98,12 @@ adicionais em `notes`.
 `Grande Formato` e combinações como `Grande Formato Laser 4K` não são
 tecnologias válidas. Registre `Laser`, `4K`, dimensões da tela e som nos campos
 próprios; preserve o nome comercial apenas em `notes` ou no nome da sala.
-Pelos mesmos motivos, `Digital` e `Multicanal` isolados são insuficientes:
-use `A confirmar` até descobrir a fonte de luz ou a configuração de som.
-Normalize `Multicanal 11.1` como layout `11.1`.
+`Digital` isolado é insuficiente para identificar a projeção. Em som,
+`Multicanal` é aceito como família genérica quando a fonte confirma reprodução
+por canais, mas não informa uma tecnologia proprietária. Registre 5.1, 7.1 ou
+11.1 separadamente em `sound.channel_layout`.
 
-IMAX é um único sistema. Registre `Laser` ou `Xenon` em
+IMAX, Macro XE, XD, Cinépic e UCI XPLUS são sistemas de exibição. Registre `Laser` ou `Xenon` em
 `projection.light_source` e `Película 70 mm` em `projection.technology`.
 Não crie sistemas separados como `IMAX with Laser` ou `IMAX Digital`.
 

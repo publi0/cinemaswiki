@@ -260,7 +260,7 @@
         "height_m": null
       },
       "sound": {
-        "format": "A confirmar",
+        "format": "Multicanal",
         "channels": null,
         "speakers": 12,
         "power_watts": 50000,

@@ -8,8 +8,8 @@
       name="description"
       content="Como contribuir com dados de redes, cinemas e salas no CinemasWiki."
     >
-    <link rel="stylesheet" href="assets/styles.css">
-    <link rel="stylesheet" href="assets/lab-theme.css?v=4">
+    <link rel="stylesheet" href="assets/styles.css?v=7">
+    <link rel="stylesheet" href="assets/lab-theme.css?v=5">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   </head>
   <body class="lab-theme">
@@ -111,8 +111,8 @@
             <p class="section-note">
               O catálogo não usa uma categoria genérica de “formato”. A sala é
               descrita pelos dados verificáveis de projeção, resolução, tela e
-              som. <code>technologies</code> é uma lista fechada: somente IMAX,
-              3D e 4DX são aceitos. “Convencional”, VIP e tipos de poltrona não
+              som. <code>technologies</code> é uma lista fechada: IMAX, Macro XE,
+              XD, Cinépic e UCI XPLUS são sistemas; 3D e 4DX são experiências. “Convencional”, VIP e tipos de poltrona não
               são classificações técnicas.
             </p>
 
@@ -136,7 +136,7 @@
               </div>
               <div role="row">
                 <code>technologies</code>
-                <span>IMAX como sistema; 3D e 4DX como experiências, sem repetições</span>
+                <span>IMAX, Macro XE, XD, Cinépic e UCI XPLUS como sistemas; 3D e 4DX como experiências, sem repetições</span>
               </div>
               <div role="row">
                 <code>notes</code>
@@ -203,18 +203,28 @@
               </div>
               <div role="row">
                 <span>Som</span>
+                <code>Multicanal</code>
+                <span>surround, som multicanal sem marca identificada</span>
+              </div>
+              <div role="row">
+                <span>Som</span>
+                <code>Dolby Digital</code>
+                <span>Dolby 5.1, Dolby 7.1, digital 7.1</span>
+              </div>
+              <div role="row">
+                <span>Som</span>
                 <code>Dolby Atmos</code>
                 <span>Atmos, dolby atmos, DOLBY ATMOS</span>
               </div>
               <div role="row">
                 <span>Som</span>
-                <code>Dolby Digital 7.1</code>
-                <span>7.1, Dolby 7.1, digital 7.1</span>
+                <code>DTS:X</code>
+                <span>DTS X, DTS-X, dts:x</span>
               </div>
               <div role="row">
                 <span>Layout de som</span>
-                <code>11.1</code>
-                <span>Surround 11.1, Multicanal 11.1</span>
+                <code>5.1, 7.1 ou 11.1</code>
+                <span>Número de canais informado junto ao formato</span>
               </div>
               <div role="row">
                 <span>Processamento</span>
@@ -250,12 +260,13 @@
             <p class="section-note">
               <code>Grande Formato</code> não é uma tecnologia válida porque não
               define uma especificação. Registre projeção, resolução, dimensões
-              da tela e som nos campos próprios. <code>Digital</code> e
-              <code>Multicanal</code> isolados também são insuficientes; use
-              <code>A confirmar</code> até obter uma especificação real.
+              da tela e som nos campos próprios. <code>Digital</code> isolado
+              ainda é insuficiente. Em áudio, use <code>Multicanal</code>
+              quando a fonte confirmar reprodução por canais sem informar uma
+              tecnologia proprietária, e registre o layout separadamente.
             </p>
             <p class="section-note">
-              IMAX é sempre o sistema. <code>Laser</code> e <code>Xenon</code>
+              IMAX, Macro XE, XD, Cinépic e UCI XPLUS são sistemas. <code>Laser</code> e <code>Xenon</code>
               ficam em <code>light_source</code>; <code>Película 70 mm</code>
               fica em <code>projection.technology</code>.
             </p>
@@ -281,7 +292,7 @@
                 <p>Use quando a rede, o cinema ou a sala ainda não aparece no catálogo.</p>
                 <ul>
                   <li>Informe rede, cinema, cidade e sala.</li>
-                  <li>Classifique IMAX como sistema; 3D e 4DX como experiência; Dolby Atmos como som; Onyx como imagem.</li>
+                  <li>Classifique IMAX, Macro XE, XD, Cinépic e UCI XPLUS como sistemas; 3D e 4DX como experiência; Dolby Atmos como som; Onyx como imagem.</li>
                   <li>Preencha projeção, tela e som com o máximo de detalhe disponível.</li>
                   <li>Cole links ou descreva a fonte usada.</li>
                 </ul>

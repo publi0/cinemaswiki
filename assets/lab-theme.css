@@ -414,6 +414,7 @@
 }
 
 .catalog-page .room-main strong {
+  flex: 1 1 auto;
   margin: 0;
   overflow: hidden;
   color: #075dcc;
@@ -424,6 +425,17 @@
   line-height: 1.2;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.catalog-page .room-main .technology-marks {
+  flex: 0 0 auto;
+  flex-wrap: nowrap;
+  margin: 0 0 0 12px;
+}
+
+.catalog-page .room-main .technology-mark {
+  min-height: 22px;
+  padding: 3px 6px;
 }
 
 .catalog-page .room-network,
@@ -1004,7 +1016,12 @@
     padding: 3px 4px 12px;
   }
 
+  .catalog-page .room-main .technology-marks {
+    margin: 0 0 0 auto;
+  }
+
   .catalog-page .room-main strong {
+    min-width: 0;
     overflow: visible;
     font-size: clamp(0.95rem, 2.6vw, 1.42rem);
     white-space: normal;

@@ -109,9 +109,10 @@
     },
     "soundFormat": {
       "enum": [
+        "Multicanal",
+        "Dolby Digital",
         "Dolby Atmos",
-        "Dolby Digital 5.1",
-        "Dolby Digital 7.1",
+        "DTS:X",
         "IMAX",
         "A confirmar",
         null
@@ -139,7 +140,7 @@
           "additionalProperties": false,
           "required": ["name", "type"],
           "properties": {
-            "name": { "enum": ["IMAX", "Macro XE"] },
+            "name": { "enum": ["IMAX", "Macro XE", "XD", "Cinépic", "UCI XPLUS"] },
             "type": { "const": "system" },
             "notes": { "$ref": "#/$defs/nonEmptyString" }
           }

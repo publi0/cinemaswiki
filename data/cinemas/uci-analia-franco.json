@@ -363,7 +363,7 @@
         "geometry": "Plana"
       },
       "sound": {
-        "format": "Dolby Digital 7.1",
+        "format": "Dolby Digital",
         "channels": null,
         "speakers": null,
         "power_watts": null,
