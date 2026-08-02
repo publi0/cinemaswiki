@@ -457,50 +457,6 @@ kbd {
   transform-origin: center;
 }
 
-.technology-mark--multicanal {
-  border-color: var(--accent-dark);
-  background: var(--paper-raised);
-  color: var(--ink);
-}
-
-.multichannel-glyph {
-  display: inline-flex !important;
-  height: 13px;
-  align-items: end;
-  gap: 2px;
-}
-
-.multichannel-glyph i {
-  display: block;
-  width: 3px;
-  background: var(--accent-dark);
-}
-
-.multichannel-glyph i:nth-child(1) {
-  height: 7px;
-}
-
-.multichannel-glyph i:nth-child(2) {
-  height: 13px;
-}
-
-.multichannel-glyph i:nth-child(3) {
-  height: 9px;
-}
-
-.technology-wordmark--multicanal {
-  font-family: "Avenir Next Condensed", "Arial Narrow", sans-serif;
-  font-size: 0.64rem;
-  font-weight: 850;
-  letter-spacing: 0.025em;
-  text-transform: uppercase;
-}
-
-.technology-wordmark--multicanal em {
-  margin-left: 2px;
-  color: var(--accent-dark);
-}
-
 .technology-mark--dolby-atmos,
 .technology-mark--dolby-digital {
   background: var(--ink);

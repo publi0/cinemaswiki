@@ -204,7 +204,6 @@ function technologyBrandMark(value: unknown): string {
 
   const wordmarks: Record<TechnologyBrandKey, string> = {
     imax: '<span class="technology-wordmark technology-wordmark--imax">IMAX</span>',
-    multicanal: '<span class="multichannel-glyph" aria-hidden="true"><i></i><i></i><i></i></span><span class="technology-wordmark technology-wordmark--multicanal"><b>Multi</b><em>canal</em></span>',
     "dolby-digital": '<span class="dolby-double-d" aria-hidden="true"><i></i><i></i></span><span class="technology-wordmark technology-wordmark--dolby"><b>Dolby</b><em>Digital</em></span>',
     "dolby-atmos": '<span class="dolby-double-d" aria-hidden="true"><i></i><i></i></span><span class="technology-wordmark technology-wordmark--dolby"><b>Dolby</b><em>Atmos</em></span>',
     "dts-x": '<span class="technology-wordmark technology-wordmark--dts"><b>DTS</b><em>:X</em></span>',
@@ -419,6 +418,7 @@ function renderRoom(item: CatalogItem, rowNumber: number): string {
         <span class="room-network">${display(networkName(cinema))}</span>
         <span class="room-title-line">
           <strong>${display(cinema.name)} — ${display(room.name)}</strong>
+          ${renderTechnologyBrands(room)}
         </span>
         <span class="room-name">${display(room.name)}</span>
         <span class="room-location">${display(cinema.neighborhood)} · ${display(cinema.city)}</span>

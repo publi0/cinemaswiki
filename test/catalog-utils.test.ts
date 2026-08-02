@@ -118,6 +118,7 @@ test("marcas conhecem aliases, ignoram valores desconhecidos e deduplicam aliase
   assert.equal(technologyBrandKey("Cinemark XD"), "xd");
   assert.equal(technologyBrandKey("UCI XPLUS"), "xplus");
   assert.equal(technologyBrandKey("dolby atmos"), "dolby-atmos");
+  assert.equal(technologyBrandKey("Multicanal"), "");
   assert.equal(technologyBrandKey("sem marca"), "");
 
   assert.deepEqual(
@@ -130,6 +131,10 @@ test("marcas conhecem aliases, ignoram valores desconhecidos e deduplicam aliase
       sound: { format: "Dolby Atmos" },
     })),
     ["Cinemark XD", "IMAX", "Dolby Atmos"],
+  );
+  assert.deepEqual(
+    roomTechnologyBrands(room({ sound: { format: "Multicanal" } })),
+    [],
   );
 });
 

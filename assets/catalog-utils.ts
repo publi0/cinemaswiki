@@ -23,7 +23,6 @@ export const UNKNOWN_VALUE = "A confirmar" as const;
 
 export type TechnologyBrandKey =
   | "imax"
-  | "multicanal"
   | "dolby-digital"
   | "dolby-atmos"
   | "dts-x"
@@ -131,7 +130,6 @@ export function roomExperienceNames(room: RoomWithTechnologies): string[] {
 export function technologyBrandKey(value: unknown): TechnologyBrandKey | "" {
   const brands: Record<string, TechnologyBrandKey> = {
     imax: "imax",
-    multicanal: "multicanal",
     "dolby digital": "dolby-digital",
     "dolby atmos": "dolby-atmos",
     "dts:x": "dts-x",
