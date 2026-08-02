@@ -527,6 +527,12 @@ kbd {
   color: #fff;
 }
 
+.technology-mark--4k {
+  border-color: #1586aa;
+  background: #e8f6fa;
+  color: #07526d;
+}
+
 .technology-wordmark--4dx {
   font-family: Arial Black, Arial, sans-serif;
   font-size: 0.74rem;
@@ -537,6 +543,20 @@ kbd {
 
 .technology-wordmark--4dx em {
   color: #ffd22e;
+}
+
+.technology-wordmark--4k {
+  font-family: Arial Black, Arial, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 950;
+  letter-spacing: -0.1em;
+  line-height: 1;
+}
+
+.technology-wordmark--4k em {
+  margin-left: 1px;
+  color: #1586aa;
+  font-style: normal;
 }
 
 .technology-mark--macro-xe {

@@ -77,6 +77,8 @@ test("app usa módulos compartilhados de estado e busca e consulta o catálogo c
   assert.match(app, /fetch\("data\/cinemas\.json",\s*\{\s*cache: "no-cache"/s);
   assert.match(app, /Accept: "application\/json"/);
   assert.match(app, /soundLayoutFilter/);
+  assert.match(app, /function resolutionBrandMark\(value\) \{[\s\S]*normalize\(value\) !== "4k"/);
+  assert.match(app, /technology-mark--4k/);
 });
 
 test("detalhes preservam a visibilidade legada do filtro de layout", async () => {

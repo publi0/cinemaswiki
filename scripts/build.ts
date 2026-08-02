@@ -596,6 +596,11 @@ function technologyBrandMark(value: unknown): string {
   return `<span class="technology-mark technology-mark--${key}" aria-label="${escapeHtml(value)}">${wordmarks[key]}</span>`;
 }
 
+function resolutionBrandMark(value: unknown): string {
+  if (normalize(value) !== "4k") return "";
+  return '<span class="technology-mark technology-mark--4k" aria-label="Resolução 4K"><span class="technology-wordmark technology-wordmark--4k"><b>4</b><em>K</em></span></span>';
+}
+
 function roomTechnologyBrands(room: Room): string[] {
   const candidates = [
     ...(room.technologies ?? []).map(({ name }) => name),
@@ -612,9 +617,12 @@ function roomTechnologyBrands(room: Room): string[] {
 }
 
 function renderTechnologyBrands(room: Room): string {
-  const brands = roomTechnologyBrands(room);
-  if (brands.length === 0) return "";
-  return `<span class="technology-marks" aria-label="Tecnologias da sala">${brands.map(technologyBrandMark).join("")}</span>`;
+  const marks = [
+    ...roomTechnologyBrands(room).map(technologyBrandMark),
+    resolutionBrandMark(room.projection?.resolution),
+  ].filter(Boolean);
+  if (marks.length === 0) return "";
+  return `<span class="technology-marks" aria-label="Tecnologias e resolução da sala">${marks.join("")}</span>`;
 }
 
 function normalize(value: unknown): string {
