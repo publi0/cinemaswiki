@@ -293,7 +293,7 @@
         "light_source": "Laser",
         "brand": "Barco",
         "model": "DP4K-30L",
-        "notes": "Barco DP4K-30L; projeção laser 4K"
+        "notes": "Projetor Barco DP4K-30L."
       },
       "screen": {
         "aspect_ratio": "A confirmar",
@@ -306,7 +306,8 @@
         "channels": null,
         "speakers": 54,
         "power_watts": null,
-        "notes": "Dolby Atmos: 54+ caixas acústicas, 128 streams de áudio simultâneos · 54+ speakers (incluindo teto), 128 streams simultâneos"
+        "notes": "Inclui caixas no teto.",
+        "audio_streams": 128
       },
       "seats": 328,
       "accessibility": {

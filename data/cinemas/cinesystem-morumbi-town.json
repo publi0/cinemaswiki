@@ -112,21 +112,20 @@
         "technology": "A confirmar",
         "resolution": "4K",
         "light_source": "Laser",
-        "notes": "projeção laser 4K com HFR (48–60 fps); primeiro complexo 100% laser da América Latina"
+        "notes": "HFR (48–60 fps); primeiro complexo 100% laser da América Latina"
       },
       "screen": {
         "aspect_ratio": "A confirmar",
         "width_m": null,
         "height_m": null,
         "area_m2": 240,
-        "notes": "240m²; 150% maior que sala convencional"
+        "notes": "Tela 150% maior que sala convencional"
       },
       "sound": {
         "format": "Dolby Atmos",
         "channels": null,
         "speakers": null,
         "power_watts": 31000,
-        "notes": "Dolby Atmos; 31.000W; 128 streams de áudio declarados",
         "audio_streams": 128
       },
       "seats": 283,

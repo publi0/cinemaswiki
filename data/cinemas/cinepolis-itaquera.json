@@ -27,8 +27,9 @@
         "technology": "A confirmar",
         "resolution": "4K",
         "light_source": "A confirmar",
+        "dual_lens": true,
         "brand": "Barco",
-        "notes": "Dois projetores 4K Barco HDR; Cinépolis migra para laser com Barco/Cinionic mas modelo Itaquera a confirmar"
+        "notes": "HDR; a configuração laser da Sala 1 permanece a confirmar."
       },
       "screen": {
         "aspect_ratio": "A confirmar",
@@ -42,7 +43,7 @@
         "channels": null,
         "speakers": null,
         "power_watts": 13000,
-        "notes": "13.000W; configuração de canais a confirmar"
+        "notes": "Configuração de canais a confirmar."
       },
       "seats": 426,
       "accessibility": {

@@ -456,7 +456,7 @@
         "technology": "A confirmar",
         "resolution": "2K",
         "light_source": "Xenon",
-        "notes": "IMAX com projeção Xenon, inaugurado em jan/2009",
+        "notes": "Inaugurado em jan/2009.",
         "brand": "IMAX"
       },
       "screen": {
@@ -469,7 +469,7 @@
         "channels": null,
         "speakers": null,
         "power_watts": 12000,
-        "notes": "Sistema de som surround digital; 12.000W"
+        "notes": "Som surround digital."
       },
       "seats": 288,
       "accessibility": {

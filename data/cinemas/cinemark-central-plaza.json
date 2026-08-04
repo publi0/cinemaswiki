@@ -369,7 +369,7 @@
         "resolution": "4K",
         "light_source": "Laser",
         "brand": "Barco",
-        "notes": "Barco 4K laser; ~30.000 lumens; tela 40% maior que convencional"
+        "notes": "~30.000 lúmens; tela 40% maior que convencional."
       },
       "screen": {
         "aspect_ratio": "A confirmar",
@@ -379,9 +379,9 @@
       "sound": {
         "format": "Multicanal",
         "channels": null,
-        "speakers": 12,
+        "speakers": null,
         "power_watts": 50000,
-        "notes": "Sistema surround 11.1; 50.000W; certificação THX",
+        "notes": "Certificação THX.",
         "channel_layout": "11.1"
       },
       "seats": 432,

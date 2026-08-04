@@ -23,14 +23,13 @@
         "technology": "A confirmar",
         "resolution": "A confirmar",
         "light_source": "Laser",
-        "notes": "tela perolizada única no Hemisfério Sul, suporte a 300 mil cores",
         "brand": "Christie"
       },
       "screen": {
         "aspect_ratio": "A confirmar",
         "width_m": null,
         "height_m": null,
-        "notes": "única tela perolizada do Hemisfério Sul; 300 mil cores",
+        "notes": "Tela única no Hemisfério Sul; suporte a 300 mil cores.",
         "surface": "Perolizada"
       },
       "sound": {
@@ -38,7 +37,7 @@
         "channels": null,
         "speakers": 46,
         "power_watts": null,
-        "notes": "Dolby Atmos com 46 caixas, incluindo 4 subwoofers; eleito melhor som de SP pela quinta vez em 2026. · 46 caixas de som, incluindo 14 no teto e 4 subwoofers."
+        "notes": "Incluindo 14 caixas no teto e 4 subwoofers; eleita melhor som de SP pela quinta vez em 2026."
       },
       "seats": 370,
       "accessibility": {

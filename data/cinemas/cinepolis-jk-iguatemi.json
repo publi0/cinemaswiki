@@ -31,7 +31,7 @@
         "light_source": "Laser",
         "dual_lens": false,
         "brand": "IMAX",
-        "notes": "Sistema IMAX 4K a laser com um projetor, conforme informado pela Cinépolis à Folha."
+        "notes": "Conforme informado pela Cinépolis à Folha."
       },
       "screen": {
         "aspect_ratio": "A confirmar",
@@ -44,7 +44,7 @@
         "channels": 12,
         "speakers": null,
         "power_watts": null,
-        "notes": "Sistema IMAX de 12 canais, incluindo canais laterais e superiores."
+        "notes": "Incluindo canais laterais e superiores."
       },
       "seats": 382,
       "accessibility": {

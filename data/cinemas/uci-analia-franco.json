@@ -21,8 +21,7 @@
       "technologies": [
         {
           "name": "IMAX",
-          "type": "system",
-          "notes": "24 canais de som, 18.000W de potência"
+          "type": "system"
         }
       ],
       "projection": {
@@ -44,8 +43,7 @@
         "format": "IMAX",
         "channels": 24,
         "speakers": null,
-        "power_watts": 18000,
-        "notes": "24 canais de som, 18.000W de potência"
+        "power_watts": 18000
       },
       "seats": 382,
       "accessibility": {

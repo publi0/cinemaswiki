@@ -314,7 +314,7 @@
           "note": "Cadastro mensal da ANCINE: \"MULTIPLEX SHOPPING CAMPO LIMPO VI\", registro 5006940, em funcionamento; 120 assentos, 4 espaços para cadeirantes, 4 assentos de mobilidade reduzida, 0 assentos para pessoas obesas."
         }
       ],
-      "notes": "Conforto: Sala VIP"
+      "room_type": "VIP"
     }
   ]
 }

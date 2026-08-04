@@ -21,13 +21,13 @@
         "resolution": "A confirmar",
         "light_source": "A confirmar",
         "brand": "Christie",
-        "notes": "Projetor compatível com DCP; a fonte consultada não identifica modelo, resolução ou fonte de luz."
+        "notes": "Projetor compatível com DCP; modelo, resolução e fonte de luz não informados."
       },
       "screen": {
         "aspect_ratio": "A confirmar",
         "width_m": null,
         "height_m": null,
-        "notes": "Tela motorizada descrita pelo Bunkyo como uma das maiores do país, sem dimensões publicadas."
+        "notes": "Tela motorizada; dimensões não publicadas."
       },
       "sound": {
         "format": "Dolby Digital",
