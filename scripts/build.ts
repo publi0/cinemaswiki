@@ -101,7 +101,7 @@ interface PageShellOptions {
   title: string;
   description: string;
   canonicalPath: string;
-  activeNav: "salas" | "cinemas";
+  activeNav?: "salas" | "cinemas";
   content: string;
   structuredData?: Record<string, unknown>;
 }
@@ -235,16 +235,6 @@ function renderRoomPage(cinema: Cinema, room: Room): string {
             ["Projetores", room.projection?.dual_lens ? "Duplo" : null],
             ["Potência", room.projection?.watts_each ? `${room.projection.watts_each} W por projetor` : null],
           ])}
-          ${renderSpecGroup("Tela", [
-            ["Tecnologia", room.screen?.technology],
-            ["Superfície", room.screen?.surface],
-            ["Geometria", room.screen?.geometry],
-            ["Proporção", room.screen?.aspect_ratio],
-            ["Área", room.screen?.area_m2 ? `${room.screen.area_m2} m²` : null],
-            ["Largura", room.screen?.width_m ? `${room.screen.width_m} m` : null],
-            ["Altura", room.screen?.height_m ? `${room.screen.height_m} m` : null],
-            ["Diagonal", room.screen?.diagonal_in ? `${room.screen.diagonal_in}"` : null],
-          ])}
           ${renderSpecGroup("Som", [
             ["Formato", room.sound?.format],
             ["Layout", room.sound?.channel_layout],
@@ -254,6 +244,16 @@ function renderRoomPage(cinema: Cinema, room: Room): string {
             ["Caixas", room.sound?.speakers],
             ["Potência", room.sound?.power_watts ? `${room.sound.power_watts} W` : null],
             ["Observação", room.sound?.notes],
+          ])}
+          ${renderSpecGroup("Tela", [
+            ["Tecnologia", room.screen?.technology],
+            ["Superfície", room.screen?.surface],
+            ["Geometria", room.screen?.geometry],
+            ["Proporção", room.screen?.aspect_ratio],
+            ["Área", room.screen?.area_m2 ? `${room.screen.area_m2} m²` : null],
+            ["Largura", room.screen?.width_m ? `${room.screen.width_m} m` : null],
+            ["Altura", room.screen?.height_m ? `${room.screen.height_m} m` : null],
+            ["Diagonal", room.screen?.diagonal_in ? `${room.screen.diagonal_in}"` : null],
           ])}
           ${renderSpecGroup("Acessibilidade", [
             ["Espaços para cadeirantes", room.accessibility?.wheelchair_seats],
@@ -288,7 +288,6 @@ function renderRoomPage(cinema: Cinema, room: Room): string {
     title: `${cinema.name} - ${room.name}`,
     description,
     canonicalPath: `/salas/${id}.html`,
-    activeNav: "salas",
     content,
   });
 }
